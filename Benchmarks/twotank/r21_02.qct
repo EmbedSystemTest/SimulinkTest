@@ -1,0 +1,5 @@
+# R02 When the tank 1 HIGH liquid sensor is TRUE, the tank 1 pump
+# shall be OFF and the tank 1 outflow valve shall be OPEN.
+#
+# NOTE: sensor values *should* be Boolean, BUT they are enetered as floats in the model.
+(tank1_SH_value == 1.0) impl (Pump_State  == 0.0 and Valve_State == 1.0);

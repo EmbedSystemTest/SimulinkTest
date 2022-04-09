@@ -1,0 +1,5 @@
+# R01 When the tank 1 LOW liquid sensor is FALSE, the tank 1 pump
+# shall be ON and the tank 1 outflow valve shall be CLOSED.
+#
+# NOTE: sensor values *should* be Boolean, BUT they are enetered as floats in the model.
+(tank1_SL_value == 0.0) impl (Pump_State  == 1.0 and Valve_State == 0.0);

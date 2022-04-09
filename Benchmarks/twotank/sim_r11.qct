@@ -1,0 +1,3 @@
+# R11 After the initial time step, the Previous Production Valve State
+# shall be equal to the Production Valve State in the previous step.
+pre_P_Valve_State{t} == Production_Valve_State{t-1};

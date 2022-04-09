@@ -1,0 +1,4 @@
+# R02 Tank 2 shall not overflow.
+#
+# From Requirements: Tank2_Max_Volume = 8.0 m^3
+tank2_liquid_height_m * tank2_cross_section_area_m2  <= 8.0;

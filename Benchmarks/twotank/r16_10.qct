@@ -1,0 +1,7 @@
+# R10 If the tank 2 liquid height is below (less than) the placement
+# height of the tank 2 HIGH liquid sensor then the sensor should return
+# a (FALSE) state to the system.
+#
+# NOTE: Sensors *should* be Boolean, BUT they are enetered as floats in the model.
+# NOTE: max-time is important here (and probably should be reported by the tool).
+(tank2_liquid_height_m < tank2_sensor_hi_height_m) impl (tank2_SH_value ==  0.0);

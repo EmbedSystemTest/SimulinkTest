@@ -1,0 +1,16 @@
+{
+"regs_12B_U_beta_adc_deg":"regs_12B_U_beta_adc_deg" : [43.000000],
+"regs_12B_U_beta_dot":"regs_12B_U_beta_dot" : [18.000000],
+"regs_12B_U_dcv_fcs_fps":"regs_12B_U_dcv_fcs_fps" : [0.000000],
+"regs_12B_U_hcv_cmd_fcs_fps":"regs_12B_U_hcv_cmd_fcs_fps" : [0.000000],
+"regs_12B_U_lcv_cmd_fcs_dps":"regs_12B_U_lcv_cmd_fcs_dps" : [-67110943.000000],
+"regs_12B_U_lcv_fps_dps":"regs_12B_U_lcv_fps_dps" : [-2080.000000],
+"regs_12B_U_mcv_cmd_fcs_dps":"regs_12B_U_mcv_cmd_fcs_dps" : [469762688.000000],
+"regs_12B_U_mcv_fcs_dps":"regs_12B_U_mcv_fcs_dps" : [469746304.000000],
+"regs_12B_U_ncv_cmd_fcs_dps":"regs_12B_U_ncv_cmd_fcs_dps" : [2.000000],
+"regs_12B_U_ncv_fcs_dps":"regs_12B_U_ncv_fcs_dps" : [-23.000000],
+"regs_12B_U_vtas_adc_kts":"regs_12B_U_vtas_adc_kts" : [-188.000000],
+"regs_12B_U_xcv_cmd_fcs_fps":"regs_12B_U_xcv_cmd_fcs_fps" : [2031632.000000],
+"regs_12B_U_zcv_fcs_fps":"regs_12B_U_zcv_fcs_fps" : [-1.000000]
+}
+

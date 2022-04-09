@@ -1,0 +1,10 @@
+# R26 The tank 2 change in liquid volume for each timestep is limited by
+# the maximum inflow and outflow for each timestep.
+
+# UPDATED: The original qct referenced tank1_pump_flow_rate_m3s where it
+#          should have been tank1_valve_flow_rate_m3s
+
+(-(tank2_p_valve_flow_rate_m3s + tank2_e_valve_flow_rate_m3s) <=
+   (tank2_cross_section_area_m2 * (tank2_liquid_height_m - tank2_previous_height_m))) and
+((tank2_cross_section_area_m2 * (tank2_liquid_height_m - tank2_previous_height_m)) <=
+tank1_valve_flow_rate_m3s);

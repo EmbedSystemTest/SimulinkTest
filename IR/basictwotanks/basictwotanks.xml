@@ -1,0 +1,270 @@
+<Root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.example.org/IRMetadata">
+    <Config>
+        <IterationCount Value="1"/>
+        <MainInitFunction Name="basictwotanks_init"/>
+        <MainExecFunction Name="basictwotanks_step"/>
+        <MainCompositeState Name="RT_MODEL_basictwotanks_T"/>
+    </Config>
+    <File Name="basictwotanks">
+        <Struct Name="DW_basictwotanks_T">
+            <Member Name="Pump_State_Delay_DSTATE" Type="real_T"/>
+            <Member Name="Valve_State_Delay_DSTATE" Type="real_T"/>
+            <Member Name="UnitDelay_DSTATE_j" Type="real_T"/>
+            <Member Name="Emergency_Valve_State_Delay_DST" Type="real_T"/>
+            <Member Name="Production_Valve_State_Delay_DS" Type="real_T"/>
+            <Member Name="UnitDelay_DSTATE_c" Type="real_T"/>
+        </Struct>
+        <Struct Name="ConstB_basictwotanks_T">
+            <Member Name="Product" Type="const real_T"/>
+            <Member Name="Product_g" Type="const real_T"/>
+            <Member Name="Product_p" Type="const real_T"/>
+            <Member Name="Product_h" Type="const real_T"/>
+        </Struct>
+        <Struct Name="creal32_T">
+            <Member Name="re" Type="real32_T"/>
+            <Member Name="im" Type="real32_T"/>
+        </Struct>
+        <Struct Name="creal64_T">
+            <Member Name="re" Type="real64_T"/>
+            <Member Name="im" Type="real64_T"/>
+        </Struct>
+        <Struct Name="creal_T">
+            <Member Name="re" Type="real_T"/>
+            <Member Name="im" Type="real_T"/>
+        </Struct>
+        <Struct Name="cint8_T">
+            <Member Name="re" Type="int8_T"/>
+            <Member Name="im" Type="int8_T"/>
+        </Struct>
+        <Struct Name="cuint8_T">
+            <Member Name="re" Type="uint8_T"/>
+            <Member Name="im" Type="uint8_T"/>
+        </Struct>
+        <Struct Name="cint16_T">
+            <Member Name="re" Type="int16_T"/>
+            <Member Name="im" Type="int16_T"/>
+        </Struct>
+        <Struct Name="cuint16_T">
+            <Member Name="re" Type="uint16_T"/>
+            <Member Name="im" Type="uint16_T"/>
+        </Struct>
+        <Struct Name="cint32_T">
+            <Member Name="re" Type="int32_T"/>
+            <Member Name="im" Type="int32_T"/>
+        </Struct>
+        <Struct Name="cuint32_T">
+            <Member Name="re" Type="uint32_T"/>
+            <Member Name="im" Type="uint32_T"/>
+        </Struct>
+        <Struct Name="tag_RTM_basictwotanks_T">
+            <Member Name="errorStatus" Type="char_T" IsAddress="1"/>
+            <Member Name="dwork" Type="DW_basictwotanks_T" IsAddress="1"/>
+        </Struct>
+        <Macro Name="RT_PI" Value="3.14159265358979323846" HasIfnodefCheck=""/>
+        <Macro Name="RT_PIF" Value="3.1415927F" HasIfnodefCheck=""/>
+        <Macro Name="RT_LN_10" Value="2.30258509299404568402" HasIfnodefCheck=""/>
+        <Macro Name="RT_LN_10F" Value="2.3025851F" HasIfnodefCheck=""/>
+        <Macro Name="RT_LOG10E" Value="0.43429448190325182765" HasIfnodefCheck=""/>
+        <Macro Name="RT_LOG10EF" Value="0.43429449F" HasIfnodefCheck=""/>
+        <Macro Name="RT_E" Value="2.7182818284590452354" HasIfnodefCheck=""/>
+        <Macro Name="RT_EF" Value="2.7182817F" HasIfnodefCheck=""/>
+        <Macro Name="false" Value="0" HasIfnodefCheck=""/>
+        <Macro Name="true" Value="1" HasIfnodefCheck=""/>
+        <Macro Name="NULL" Value="0" HasIfnodefCheck=""/>
+        <Macro Name="UNUSED_PARAMETER(x)" Value="(void)(x)" HasIfnodefCheck=""/>
+        <Macro Name="rtmGetErrorStatus(rtm)" Value="((rtm)-&gt;errorStatus)" HasIfnodefCheck=""/>
+        <Macro Name="rtmSetErrorStatus(rtm,val)" Value="((rtm)-&gt;errorStatus=(val))" HasIfnodefCheck=""/>
+        <TypeDefine Name="signed char" Value="int8_T"/>
+        <TypeDefine Name="unsigned char" Value="uint8_T"/>
+        <TypeDefine Name="short" Value="int16_T"/>
+        <TypeDefine Name="unsigned short" Value="uint16_T"/>
+        <TypeDefine Name="int" Value="int32_T"/>
+        <TypeDefine Name="unsigned int" Value="uint32_T"/>
+        <TypeDefine Name="float" Value="real32_T"/>
+        <TypeDefine Name="double" Value="real64_T"/>
+        <TypeDefine Name="double" Value="real_T"/>
+        <TypeDefine Name="double" Value="time_T"/>
+        <TypeDefine Name="unsigned char" Value="boolean_T"/>
+        <TypeDefine Name="int" Value="int_T"/>
+        <TypeDefine Name="unsigned int" Value="uint_T"/>
+        <TypeDefine Name="unsigned long" Value="ulong_T"/>
+        <TypeDefine Name="char" Value="char_T"/>
+        <TypeDefine Name="unsigned char" Value="uchar_T"/>
+        <TypeDefine Name="char_T" Value="byte_T"/>
+        <TypeDefine Name="creal32_T" Value="creal32_T"/>
+        <TypeDefine Name="creal64_T" Value="creal64_T"/>
+        <TypeDefine Name="creal_T" Value="creal_T"/>
+        <TypeDefine Name="cint8_T" Value="cint8_T"/>
+        <TypeDefine Name="cuint8_T" Value="cuint8_T"/>
+        <TypeDefine Name="cint16_T" Value="cint16_T"/>
+        <TypeDefine Name="cuint16_T" Value="cuint16_T"/>
+        <TypeDefine Name="cint32_T" Value="cint32_T"/>
+        <TypeDefine Name="cuint32_T" Value="cuint32_T"/>
+        <TypeDefine Name="void *" Value="pointer_T"/>
+        <TypeDefine Name="tag_RTM_basictwotanks_T" Value="RT_MODEL_basictwotanks_T"/>
+        <TypeDefine Name="DW_basictwotanks_T" Value="DW_basictwotanks_T"/>
+        <TypeDefine Name="ConstB_basictwotanks_T" Value="ConstB_basictwotanks_T"/>
+        <Function Name="basictwotanks_step" Type="FunctionExec" ReturnType="void">
+			<Ref Path="basictwotanks.Func"/>
+            <Input Name="basictwotanks_M" Type="RT_MODEL_basictwotanks_T" IsAddress="1"/>
+            <Input Name="basictwotanks_Y_t1_h" Type="real_T" IsAddress="1"/>
+            <Input Name="basictwotanks_Y_t2_h" Type="real_T" IsAddress="1"/>
+            <Output Name="basictwotanks_Y_t1_sh" Type="real_T"/>
+            <Output Name="basictwotanks_Y_t1_sl" Type="real_T"/>
+            <Output Name="basictwotanks_Y_t2_sh" Type="real_T"/>
+            <Output Name="basictwotanks_Y_t2_sm" Type="real_T"/>
+            <Output Name="basictwotanks_Y_t2_sl" Type="real_T"/>
+            <Output Name="basictwotanks_Y_pump_state" Type="real_T"/>
+            <Output Name="basictwotanks_Y_valve_state" Type="real_T"/>
+            <Output Name="basictwotanks_Y_p_valve_state" Type="real_T"/>
+            <Output Name="basictwotanks_Y_e_valve_state" Type="real_T"/>
+            <Schedule>
+                <Calculate Name="basictwotanks_step">
+                    <LocalVariable Name="basictwotanks_DW" Type="DW_basictwotanks_T" IsAddress="1" DefaultValue="basictwotanks_M-&gt;dwork"/>
+                    <LocalVariable Name="rtb_Switch4_idx_0" Type="real_T"/>
+                    <LocalVariable Name="rtb_Switch4_idx_1" Type="real_T"/>
+                    <LocalVariable Name="rtb_Switch_i" Type="real_T"/>
+                    <LocalVariable Name="rtb_tank1_previous_height_m" Type="real_T"/>
+                    <LocalVariable Name="rtb_tank2_previous_height_m" Type="real_T"/>
+                    <LocalVariable Name="rtb_Switch" Type="int32_T"/>
+                    <LocalVariable Name="rtb_Switch_b" Type="int32_T"/>
+                    <LocalVariable Name="rtb_Switch_j" Type="int32_T"/>
+                    <LocalVariable Name="rtb_Switch_k" Type="int32_T"/>
+                    <LocalVariable Name="rtb_Switch_m" Type="int32_T"/>
+                    <LocalVariable Name="rtb_Compare_dl" Type="boolean_T"/>
+                    <LocalVariable Name="rtb_LogicalOperator3" Type="boolean_T"/>
+                    <If Condition="basictwotanks_DW-&gt;UnitDelay_DSTATE_j &gt; 0.0">
+                        <Expression Expression="rtb_Switch_i = 1.2647"/>
+                    </If>
+                    <Else>
+                        <Expression Expression="rtb_Switch_i = 0.0"/>
+                    </Else>
+                    <Expression Expression="rtb_tank1_previous_height_m = rtb_Switch_i + *basictwotanks_Y_t1_h"/>
+                    <Expression Expression="rtb_Switch_k = !(2.0 &gt; rtb_tank1_previous_height_m)"/>
+                    <Expression Expression="rtb_Switch = !(5.0 &gt; rtb_tank1_previous_height_m)"/>
+                    <If Condition="rtb_Switch_k != 1">
+                        <Expression Expression="basictwotanks_DW-&gt;Pump_State_Delay_DSTATE = 1.0"/>
+                        <Expression Expression="*basictwotanks_Y_valve_state = 0.0"/>
+                    </If>
+                    <ElseIf Condition="rtb_Switch == 1">
+                        <Expression Expression="basictwotanks_DW-&gt;Pump_State_Delay_DSTATE = 0.0"/>
+                        <Expression Expression="*basictwotanks_Y_valve_state = 1.0"/>
+                    </ElseIf>
+                    <Else>
+                        <Expression Expression="*basictwotanks_Y_valve_state = basictwotanks_DW-&gt;Valve_State_Delay_DSTATE"/>
+                    </Else>
+                    <Expression Expression="*basictwotanks_Y_pump_state = basictwotanks_DW-&gt;Pump_State_Delay_DSTATE"/>
+                    <If Condition="basictwotanks_DW-&gt;UnitDelay_DSTATE_c &gt; 0.0">
+                        <Expression Expression="rtb_Switch_i = 0.09754"/>
+                    </If>
+                    <Else>
+                        <Expression Expression="rtb_Switch_i = 0.0"/>
+                    </Else>
+                    <Expression Expression="rtb_tank2_previous_height_m = rtb_Switch_i + *basictwotanks_Y_t2_h"/>
+                    <Expression Expression="rtb_Switch_j = !(2.0 &gt; rtb_tank2_previous_height_m)"/>
+                    <Expression Expression="rtb_Switch_m = !(3.0 &gt; rtb_tank2_previous_height_m)"/>
+                    <Expression Expression="rtb_Switch_b = !(1.0 &gt; rtb_tank2_previous_height_m)"/>
+                    <If Condition="rtb_Switch_b != 1">
+                        <Expression Expression="basictwotanks_DW-&gt;Production_Valve_State_Delay_DS = 0.0"/>
+                        <Expression Expression="basictwotanks_DW-&gt;Emergency_Valve_State_Delay_DST = 0.0"/>
+                    </If>
+                    <ElseIf Condition="(!(basictwotanks_DW-&gt;Emergency_Valve_State_Delay_DST == 1.0)) &amp;&amp; (!(basictwotanks_DW-&gt;Production_Valve_State_Delay_DS == 1.0))">
+                        <Expression Expression="basictwotanks_DW-&gt;Production_Valve_State_Delay_DS = 1.0"/>
+                        <Expression Expression="basictwotanks_DW-&gt;Emergency_Valve_State_Delay_DST = 0.0"/>
+                    </ElseIf>
+                    <Else>
+                        <Expression Expression="rtb_Compare_dl = (rtb_Switch_m == 1)"/>
+                        <If Condition="rtb_Compare_dl &amp;&amp; ((!(basictwotanks_DW-&gt;Emergency_Valve_State_Delay_DST == 1.0)) &amp;&amp; (basictwotanks_DW-&gt;Production_Valve_State_Delay_DS == 1.0))">
+                            <Expression Expression="basictwotanks_DW-&gt;Production_Valve_State_Delay_DS = 1.0"/>
+                            <Expression Expression="basictwotanks_DW-&gt;Emergency_Valve_State_Delay_DST = 1.0"/>
+                        </If>
+                        <Else>
+                            <Expression Expression="rtb_LogicalOperator3 = ((basictwotanks_DW-&gt;Emergency_Valve_State_Delay_DST == 1.0) &amp;&amp; (basictwotanks_DW-&gt;Production_Valve_State_Delay_DS == 1.0))"/>
+                            <If Condition="(!(basictwotanks_DW-&gt;Valve_State_Delay_DSTATE == 1.0)) &amp;&amp; ((!rtb_Compare_dl) &amp;&amp; rtb_LogicalOperator3)">
+                                <Expression Expression="basictwotanks_DW-&gt;Production_Valve_State_Delay_DS = 1.0"/>
+                                <Expression Expression="basictwotanks_DW-&gt;Emergency_Valve_State_Delay_DST = 0.0"/>
+                            </If>
+                            <ElseIf Condition="rtb_LogicalOperator3 &amp;&amp; (rtb_Switch_j != 1)">
+                                <Expression Expression="basictwotanks_DW-&gt;Production_Valve_State_Delay_DS = 1.0"/>
+                                <Expression Expression="basictwotanks_DW-&gt;Emergency_Valve_State_Delay_DST = 0.0"/>
+                            </ElseIf>
+                        </Else>
+                    </Else>
+                    <Expression Expression="*basictwotanks_Y_p_valve_state = basictwotanks_DW-&gt;Production_Valve_State_Delay_DS"/>
+                    <Expression Expression="*basictwotanks_Y_e_valve_state = basictwotanks_DW-&gt;Emergency_Valve_State_Delay_DST"/>
+                    <If Condition="*basictwotanks_Y_valve_state &gt; 0.5">
+                        <Expression Expression="rtb_Switch_i = basictwotanks_ConstB.Product_h"/>
+                    </If>
+                    <Else>
+                        <Expression Expression="rtb_Switch_i = 0.0"/>
+                    </Else>
+                    <If Condition="basictwotanks_DW-&gt;Production_Valve_State_Delay_DS &gt; 0.5">
+                        <Expression Expression="rtb_Switch4_idx_0 = basictwotanks_ConstB.Product_g"/>
+                    </If>
+                    <Else>
+                        <Expression Expression="rtb_Switch4_idx_0 = 0.0"/>
+                    </Else>
+                    <If Condition="basictwotanks_DW-&gt;Emergency_Valve_State_Delay_DST &gt; 0.5">
+                        <Expression Expression="rtb_Switch4_idx_1 = basictwotanks_ConstB.Product"/>
+                    </If>
+                    <Else>
+                        <Expression Expression="rtb_Switch4_idx_1 = 0.0"/>
+                    </Else>
+                    <Expression Expression="*basictwotanks_Y_t2_h = ((rtb_Switch_i - rtb_Switch4_idx_0) - rtb_Switch4_idx_1) / 2.0 + rtb_tank2_previous_height_m"/>
+                    <If Condition="basictwotanks_DW-&gt;Pump_State_Delay_DSTATE &gt; 0.5">
+                        <Expression Expression="rtb_tank2_previous_height_m = basictwotanks_ConstB.Product_p"/>
+                    </If>
+                    <Else>
+                        <Expression Expression="rtb_tank2_previous_height_m = 0.0"/>
+                    </Else>
+                    <Expression Expression="*basictwotanks_Y_t1_h = (rtb_tank2_previous_height_m - rtb_Switch_i) + rtb_tank1_previous_height_m"/>
+                    <Expression Expression="*basictwotanks_Y_t2_sl = rtb_Switch_b"/>
+                    <Expression Expression="*basictwotanks_Y_t2_sh = rtb_Switch_m"/>
+                    <Expression Expression="*basictwotanks_Y_t2_sm = rtb_Switch_j"/>
+                    <Expression Expression="*basictwotanks_Y_t1_sh = rtb_Switch"/>
+                    <Expression Expression="*basictwotanks_Y_t1_sl = rtb_Switch_k"/>
+                    <Expression Expression="basictwotanks_DW-&gt;Valve_State_Delay_DSTATE = *basictwotanks_Y_valve_state"/>
+                    <Expression Expression="basictwotanks_DW-&gt;UnitDelay_DSTATE_j = 0.0"/>
+                    <Expression Expression="basictwotanks_DW-&gt;UnitDelay_DSTATE_c = 0.0"/>
+                </Calculate>
+            </Schedule>
+        </Function>
+        <Function Name="basictwotanks_init" Type="FunctionInit" ReturnType="void">
+			<Ref Path="basictwotanks.Func"/>
+            <Input Name="basictwotanks_M" Type="RT_MODEL_basictwotanks_T" IsAddress="1"/>
+            <Output Name="basictwotanks_Y_t1_h" Type="real_T"/>
+            <Output Name="basictwotanks_Y_t2_h" Type="real_T"/>
+            <Output Name="basictwotanks_Y_t1_sh" Type="real_T"/>
+            <Output Name="basictwotanks_Y_t1_sl" Type="real_T"/>
+            <Output Name="basictwotanks_Y_t2_sh" Type="real_T"/>
+            <Output Name="basictwotanks_Y_t2_sm" Type="real_T"/>
+            <Output Name="basictwotanks_Y_t2_sl" Type="real_T"/>
+            <Output Name="basictwotanks_Y_pump_state" Type="real_T"/>
+            <Output Name="basictwotanks_Y_valve_state" Type="real_T"/>
+            <Output Name="basictwotanks_Y_p_valve_state" Type="real_T"/>
+            <Output Name="basictwotanks_Y_e_valve_state" Type="real_T"/>
+            <Schedule>
+                <Calculate Name="basictwotanks_init">
+                    <LocalVariable Name="basictwotanks_DW" Type="DW_basictwotanks_T" IsAddress="1" DefaultValue="basictwotanks_M-&gt;dwork"/>
+                    <Expression Expression="(void)memset((void*)basictwotanks_DW, 0, sizeof(DW_basictwotanks_T))"/>
+                    <Expression Expression="*basictwotanks_Y_t1_h = 0.0"/>
+                    <Expression Expression="*basictwotanks_Y_t2_h = 0.0"/>
+                    <Expression Expression="*basictwotanks_Y_t1_sh = 0.0"/>
+                    <Expression Expression="*basictwotanks_Y_t1_sl = 0.0"/>
+                    <Expression Expression="*basictwotanks_Y_t2_sh = 0.0"/>
+                    <Expression Expression="*basictwotanks_Y_t2_sm = 0.0"/>
+                    <Expression Expression="*basictwotanks_Y_t2_sl = 0.0"/>
+                    <Expression Expression="*basictwotanks_Y_pump_state = 0.0"/>
+                    <Expression Expression="*basictwotanks_Y_valve_state = 0.0"/>
+                    <Expression Expression="*basictwotanks_Y_p_valve_state = 0.0"/>
+                    <Expression Expression="*basictwotanks_Y_e_valve_state = 0.0"/>
+                    <Expression Expression="basictwotanks_DW-&gt;UnitDelay_DSTATE_j = 1.0"/>
+                    <Expression Expression="basictwotanks_DW-&gt;UnitDelay_DSTATE_c = 1.0"/>
+                </Calculate>
+            </Schedule>
+        </Function>
+    </File>
+    <File Name="basictwotanks_data">
+        <GlobalVariable Name="basictwotanks_ConstB" Type="ConstB_basictwotanks_T" DefaultValue="{0.020000000000000004, 0.005000000000000001, 0.020000000000000004, 0.010000000000000002}"/>
+    </File>
+</Root>

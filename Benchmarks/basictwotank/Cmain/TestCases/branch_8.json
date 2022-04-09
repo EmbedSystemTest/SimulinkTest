@@ -1,0 +1,6 @@
+{
+"basictwotanks_M":"basictwotanks_M" : [{"errorStatus" : [0],"dwork" : [{"Pump_State_Delay_DSTATE" : 0.000000,"Valve_State_Delay_DSTATE" : 1.000000,"UnitDelay_DSTATE_j" : 0.000000,"Emergency_Valve_State_Delay_DST" : 1.000000,"Production_Valve_State_Delay_DS" : 1.000000,"UnitDelay_DSTATE_c" : 0.000000}]}],
+"basictwotanks_Y_t1_h":"basictwotanks_Y_t1_h" : [73498745918686494720.000000],
+"basictwotanks_Y_t2_h":"basictwotanks_Y_t2_h" : [231584178474632390847141970017375815706539969331281128078915168015826259279872.000000]
+}
+

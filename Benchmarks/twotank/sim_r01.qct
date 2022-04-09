@@ -1,0 +1,3 @@
+# R01 The Tank 1 Previous Height shall initially be the specified
+# initial value.
+tank1_previous_height_m{0} == t1_h{0};

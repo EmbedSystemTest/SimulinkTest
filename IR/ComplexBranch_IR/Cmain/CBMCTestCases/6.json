@@ -1,0 +1,6 @@
+{
+"in1":"in1" : [1,1,1,9,33,1,1,1,1,1],
+"in2":"in2" : [-1255456256,-1489099632,-1224212481,1424748545,1810505610,-2038644096,942797952,-318637840,1162272824,981090052],
+"self":"self" : [{"Ramp_lastValue" : -84289},{"Ramp_lastValue" : 224},{"Ramp_lastValue" : 40},{"Ramp_lastValue" : 0},{"Ramp_lastValue" : 0},{"Ramp_lastValue" : 82},{"Ramp_lastValue" : 5},{"Ramp_lastValue" : 10},{"Ramp_lastValue" : 10},{"Ramp_lastValue" : 5}]
+}
+

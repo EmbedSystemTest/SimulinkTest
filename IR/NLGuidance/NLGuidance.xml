@@ -1,0 +1,226 @@
+<Root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.example.org/IRMetadata">
+    <Config>
+        <IterationCount Value="1"/>
+        <MainInitFunction Name="NLGuidance_init"/>
+        <MainExecFunction Name="NLGuidance_step"/>
+        <MainCompositeState Name="RT_MODEL_NLGuidance_T"/>
+    </Config>
+    <File Name="NLGuidance">
+        <Struct Name="creal32_T">
+            <Member Name="re" Type="real32_T"/>
+            <Member Name="im" Type="real32_T"/>
+        </Struct>
+        <Struct Name="creal64_T">
+            <Member Name="re" Type="real64_T"/>
+            <Member Name="im" Type="real64_T"/>
+        </Struct>
+        <Struct Name="creal_T">
+            <Member Name="re" Type="real_T"/>
+            <Member Name="im" Type="real_T"/>
+        </Struct>
+        <Struct Name="cint8_T">
+            <Member Name="re" Type="int8_T"/>
+            <Member Name="im" Type="int8_T"/>
+        </Struct>
+        <Struct Name="cuint8_T">
+            <Member Name="re" Type="uint8_T"/>
+            <Member Name="im" Type="uint8_T"/>
+        </Struct>
+        <Struct Name="cint16_T">
+            <Member Name="re" Type="int16_T"/>
+            <Member Name="im" Type="int16_T"/>
+        </Struct>
+        <Struct Name="cuint16_T">
+            <Member Name="re" Type="uint16_T"/>
+            <Member Name="im" Type="uint16_T"/>
+        </Struct>
+        <Struct Name="cint32_T">
+            <Member Name="re" Type="int32_T"/>
+            <Member Name="im" Type="int32_T"/>
+        </Struct>
+        <Struct Name="cuint32_T">
+            <Member Name="re" Type="uint32_T"/>
+            <Member Name="im" Type="uint32_T"/>
+        </Struct>
+        <Struct Name="tag_RTM_NLGuidance_T">
+            <Member Name="errorStatus" Type="char_T" IsAddress="1"/>
+            <Member Name="dwork" Type="DW_NLGuidance_T" IsAddress="1"/>
+        </Struct>
+        <Struct Name="DW_NLGuidance_T">
+            <Member Name="Memory_PreviousInput" Type="real_T"/>
+        </Struct>
+        <Macro Name="RT_PI" Value="3.14159265358979323846" HasIfnodefCheck=""/>
+        <Macro Name="RT_PIF" Value="3.1415927F" HasIfnodefCheck=""/>
+        <Macro Name="RT_LN_10" Value="2.30258509299404568402" HasIfnodefCheck=""/>
+        <Macro Name="RT_LN_10F" Value="2.3025851F" HasIfnodefCheck=""/>
+        <Macro Name="RT_LOG10E" Value="0.43429448190325182765" HasIfnodefCheck=""/>
+        <Macro Name="RT_LOG10EF" Value="0.43429449F" HasIfnodefCheck=""/>
+        <Macro Name="RT_E" Value="2.7182818284590452354" HasIfnodefCheck=""/>
+        <Macro Name="RT_EF" Value="2.7182817F" HasIfnodefCheck=""/>
+        <Macro Name="false" Value="0" HasIfnodefCheck=""/>
+        <Macro Name="true" Value="1" HasIfnodefCheck=""/>
+        <Macro Name="NULL" Value="0" HasIfnodefCheck=""/>
+        <Macro Name="UNUSED_PARAMETER(x)" Value="(void)(x)" HasIfnodefCheck=""/>
+        <Macro Name="rtmGetErrorStatus(rtm)" Value="((rtm)-&gt;errorStatus)" HasIfnodefCheck=""/>
+        <Macro Name="rtmSetErrorStatus(rtm,val)" Value="((rtm)-&gt;errorStatus=(val))" HasIfnodefCheck=""/>
+        <TypeDefine Name="signed char" Value="int8_T"/>
+        <TypeDefine Name="unsigned char" Value="uint8_T"/>
+        <TypeDefine Name="short" Value="int16_T"/>
+        <TypeDefine Name="unsigned short" Value="uint16_T"/>
+        <TypeDefine Name="int" Value="int32_T"/>
+        <TypeDefine Name="unsigned int" Value="uint32_T"/>
+        <TypeDefine Name="float" Value="real32_T"/>
+        <TypeDefine Name="double" Value="real64_T"/>
+        <TypeDefine Name="double" Value="real_T"/>
+        <TypeDefine Name="double" Value="time_T"/>
+        <TypeDefine Name="unsigned char" Value="boolean_T"/>
+        <TypeDefine Name="int" Value="int_T"/>
+        <TypeDefine Name="unsigned int" Value="uint_T"/>
+        <TypeDefine Name="unsigned long" Value="ulong_T"/>
+        <TypeDefine Name="char" Value="char_T"/>
+        <TypeDefine Name="unsigned char" Value="uchar_T"/>
+        <TypeDefine Name="char_T" Value="byte_T"/>
+        <TypeDefine Name="creal32_T" Value="creal32_T"/>
+        <TypeDefine Name="creal64_T" Value="creal64_T"/>
+        <TypeDefine Name="creal_T" Value="creal_T"/>
+        <TypeDefine Name="cint8_T" Value="cint8_T"/>
+        <TypeDefine Name="cuint8_T" Value="cuint8_T"/>
+        <TypeDefine Name="cint16_T" Value="cint16_T"/>
+        <TypeDefine Name="cuint16_T" Value="cuint16_T"/>
+        <TypeDefine Name="cint32_T" Value="cint32_T"/>
+        <TypeDefine Name="cuint32_T" Value="cuint32_T"/>
+        <TypeDefine Name="void *" Value="pointer_T"/>
+        <TypeDefine Name="tag_RTM_NLGuidance_T" Value="RT_MODEL_NLGuidance_T"/>
+        <TypeDefine Name="DW_NLGuidance_T" Value="DW_NLGuidance_T"/>
+        <Function Name="NLGuidance_step" Type="FunctionExec" ReturnType="void">
+			<Ref Path="NLGuidance.Func"/>
+            <Input Name="NLGuidance_M" Type="RT_MODEL_NLGuidance_T" IsAddress="1"/>
+            <Input Name="NLGuidance_U_Xtarg" Type="real_T" ArraySize="3"/>
+            <Input Name="NLGuidance_U_Xv" Type="real_T" ArraySize="3"/>
+            <Input Name="NLGuidance_U_Vv" Type="real_T" ArraySize="3"/>
+            <Input Name="NLGuidance_U_r" Type="real_T"/>
+            <Input Name="NLGuidance_Y_yout" Type="real_T" ArraySize="3"/>
+            <Schedule>
+                <Calculate Name="NLGuidance_step">
+                    <LocalVariable Name="rtb_Divide4" Type="real_T"/>
+                    <LocalVariable Name="rtb_MathFunction1_m" Type="real_T"/>
+                    <LocalVariable Name="rtb_MathFunction_idx_0" Type="real_T"/>
+                    <LocalVariable Name="rtb_MathFunction_idx_1" Type="real_T"/>
+                    <LocalVariable Name="rtb_Product2" Type="real_T"/>
+                    <LocalVariable Name="rtb_Sum" Type="real_T"/>
+                    <LocalVariable Name="rtb_Sum4" Type="real_T"/>
+                    <LocalVariable Name="rtb_Xr_idx_0" Type="real_T"/>
+                    <LocalVariable Name="rtb_Xr_idx_1" Type="real_T"/>
+                    <Expression Expression="rtb_Sum = NLGuidance_U_Xtarg[0] - NLGuidance_U_Xv[0]"/>
+                    <Expression Expression="rtb_MathFunction_idx_0 = rtb_Sum * rtb_Sum"/>
+                    <Expression Expression="rtb_Xr_idx_0 = rtb_Sum"/>
+                    <Expression Expression="rtb_Sum = NLGuidance_U_Xtarg[1] - NLGuidance_U_Xv[1]"/>
+                    <Expression Expression="rtb_MathFunction_idx_1 = rtb_Sum * rtb_Sum"/>
+                    <Expression Expression="rtb_Xr_idx_1 = rtb_Sum"/>
+                    <Expression Expression="rtb_Sum = NLGuidance_U_Xtarg[2] - NLGuidance_U_Xv[2]"/>
+                    <Expression Expression="rtb_MathFunction1_m = (rtb_MathFunction_idx_0 + rtb_MathFunction_idx_1) + rtb_Sum * rtb_Sum"/>
+                    <Expression Expression="rtb_Sum4 = (rtb_Xr_idx_0 * NLGuidance_U_Vv[0] + rtb_Xr_idx_1 * NLGuidance_U_Vv[1]) + rtb_Sum * NLGuidance_U_Vv[2]"/>
+                    <If Condition="rtb_MathFunction1_m &lt; 0.0">
+                        <Expression Expression="rtb_MathFunction_idx_0 = -sqrt(fabs(rtb_MathFunction1_m))"/>
+                    </If>
+                    <Else>
+                        <Expression Expression="rtb_MathFunction_idx_0 = sqrt(rtb_MathFunction1_m)"/>
+                    </Else>
+                    <Expression Expression="rtb_Divide4 = rtb_MathFunction_idx_0 * rtb_MathFunction_idx_0"/>
+                    <Expression Expression="rtb_MathFunction_idx_1 = rtb_Divide4 - NLGuidance_U_r * NLGuidance_U_r"/>
+                    <Expression Expression="rtb_MathFunction1_m = (NLGuidance_U_Vv[0] * NLGuidance_U_Vv[0] + NLGuidance_U_Vv[1] * NLGuidance_U_Vv[1]) + NLGuidance_U_Vv[2] * NLGuidance_U_Vv[2]"/>
+                    <If Condition="rtb_MathFunction1_m &lt; 0.0">
+                        <Expression Expression="rtb_MathFunction1_m = -sqrt(fabs(rtb_MathFunction1_m))"/>
+                    </If>
+                    <Else>
+                        <Expression Expression="rtb_MathFunction1_m = sqrt(rtb_MathFunction1_m)"/>
+                    </Else>
+                    <Expression Expression="rtb_MathFunction1_m = rtb_MathFunction1_m * rtb_MathFunction1_m * rtb_Divide4 - rtb_Sum4 * rtb_Sum4"/>
+                    <If Condition="(rtb_MathFunction_idx_1 &lt;= 0.0) || (rtb_MathFunction1_m &lt;= 0.0)">
+                        <Expression Expression="rtb_Product2 = NLGuidance_U_r / rtb_MathFunction_idx_0"/>
+                        <Expression Expression="rtb_Sum = rtb_Product2 * rtb_Xr_idx_0 + NLGuidance_U_Xtarg[0]"/>
+                        <Expression Expression="rtb_Sum4 = rtb_Xr_idx_1 * rtb_Product2 + NLGuidance_U_Xtarg[1]"/>
+                        <Expression Expression="rtb_MathFunction_idx_0 = rtb_Sum - NLGuidance_U_Xv[0]"/>
+                        <Expression Expression="rtb_MathFunction_idx_1 = rtb_Sum4 - NLGuidance_U_Xv[1]"/>
+                        <Expression Expression="rtb_MathFunction1_m = (0.0 - NLGuidance_U_Xv[2]) * (0.0 - NLGuidance_U_Xv[2])"/>
+                        <Expression Expression="rtb_Divide4 = (rtb_MathFunction_idx_0 * rtb_MathFunction_idx_0 + rtb_MathFunction_idx_1 * rtb_MathFunction_idx_1) + rtb_MathFunction1_m"/>
+                        <Expression Expression="rtb_Xr_idx_0 = -rtb_Product2 * rtb_Xr_idx_0 + NLGuidance_U_Xtarg[0]"/>
+                        <Expression Expression="rtb_Xr_idx_1 = rtb_Xr_idx_1 * -rtb_Product2 + NLGuidance_U_Xtarg[1]"/>
+                        <Expression Expression="rtb_MathFunction_idx_0 = rtb_Xr_idx_0 - NLGuidance_U_Xv[0]"/>
+                        <Expression Expression="rtb_MathFunction_idx_1 = rtb_Xr_idx_1 - NLGuidance_U_Xv[1]"/>
+                        <Expression Expression="rtb_MathFunction1_m += rtb_MathFunction_idx_0 * rtb_MathFunction_idx_0 + rtb_MathFunction_idx_1 * rtb_MathFunction_idx_1"/>
+                        <If Condition="rtb_Divide4 &lt; 0.0">
+                            <Expression Expression="rtb_Divide4 = -sqrt(fabs(rtb_Divide4))"/>
+                        </If>
+                        <Else>
+                            <Expression Expression="rtb_Divide4 = sqrt(rtb_Divide4)"/>
+                        </Else>
+                        <If Condition="rtb_MathFunction1_m &lt; 0.0">
+                            <Expression Expression="rtb_MathFunction1_m = -sqrt(fabs(rtb_MathFunction1_m))"/>
+                        </If>
+                        <Else>
+                            <Expression Expression="rtb_MathFunction1_m = sqrt(rtb_MathFunction1_m)"/>
+                        </Else>
+                        <If Condition="rtb_Divide4 &lt; rtb_MathFunction1_m">
+                            <Expression Expression="NLGuidance_Y_yout[0] = rtb_Sum"/>
+                            <Expression Expression="NLGuidance_Y_yout[1] = rtb_Sum4"/>
+                        </If>
+                        <Else>
+                            <Expression Expression="NLGuidance_Y_yout[0] = rtb_Xr_idx_0"/>
+                            <Expression Expression="NLGuidance_Y_yout[1] = rtb_Xr_idx_1"/>
+                        </Else>
+                        <Expression Expression="NLGuidance_Y_yout[2] = 0.0"/>
+                    </If>
+                    <Else>
+                        <Expression Expression="rtb_Product2 = sqrt(rtb_MathFunction_idx_1 / rtb_MathFunction1_m)"/>
+                        <Expression Expression="rtb_MathFunction_idx_0 = rtb_Product2 * NLGuidance_U_Vv[0]"/>
+                        <Expression Expression="rtb_MathFunction_idx_1 = rtb_Product2 * NLGuidance_U_Vv[1]"/>
+                        <Expression Expression="rtb_MathFunction1_m = rtb_Product2 * NLGuidance_U_Vv[2]"/>
+                        <Expression Expression="rtb_Divide4 = 1.0 / rtb_Divide4"/>
+                        <Expression Expression="rtb_Product2 *= rtb_Sum4"/>
+                        <Expression Expression="rtb_Sum4 = NLGuidance_U_r + rtb_Product2"/>
+                        <Expression Expression="NLGuidance_Y_yout[0] = (rtb_Sum4 * rtb_Xr_idx_0 * -rtb_Divide4 + rtb_MathFunction_idx_0) * NLGuidance_U_r + rtb_Xr_idx_0"/>
+                        <Expression Expression="NLGuidance_Y_yout[1] = (rtb_Sum4 * rtb_Xr_idx_1 * -rtb_Divide4 + rtb_MathFunction_idx_1) * NLGuidance_U_r + rtb_Xr_idx_1"/>
+                        <Expression Expression="NLGuidance_Y_yout[2] = (rtb_Sum4 * rtb_Sum * -rtb_Divide4 + rtb_MathFunction1_m) * NLGuidance_U_r + rtb_Sum"/>
+                        <Expression Expression="rtb_Sum4 = rtb_Xr_idx_0 * NLGuidance_Y_yout[1]"/>
+                        <Expression Expression="rtb_Product2 -= NLGuidance_U_r"/>
+                        <If Condition="rtb_Sum4 - rtb_Sum4 &lt; 0.0">
+                            <Expression Expression="NLGuidance_Y_yout[0] += NLGuidance_U_Xv[0]"/>
+                            <Expression Expression="NLGuidance_Y_yout[1] += NLGuidance_U_Xv[1]"/>
+                            <Expression Expression="NLGuidance_Y_yout[2] += NLGuidance_U_Xv[2]"/>
+                        </If>
+                        <Else>
+                            <Expression Expression="NLGuidance_Y_yout[0] = ((rtb_Product2 * rtb_Xr_idx_0 * rtb_Divide4 - rtb_MathFunction_idx_0) * NLGuidance_U_r + rtb_Xr_idx_0) + NLGuidance_U_Xv[0]"/>
+                            <Expression Expression="NLGuidance_Y_yout[1] = ((rtb_Product2 * rtb_Xr_idx_1 * rtb_Divide4 - rtb_MathFunction_idx_1) * NLGuidance_U_r + rtb_Xr_idx_1) + NLGuidance_U_Xv[1]"/>
+                            <Expression Expression="NLGuidance_Y_yout[2] = ((rtb_Product2 * rtb_Sum * rtb_Divide4 - rtb_MathFunction1_m) * NLGuidance_U_r + rtb_Sum) + NLGuidance_U_Xv[2]"/>
+                        </Else>
+                    </Else>
+                    <Expression Expression="UNUSED_PARAMETER(NLGuidance_M)"/>
+                </Calculate>
+            </Schedule>
+        </Function>
+        <Function Name="NLGuidance_init" Type="FunctionInit" ReturnType="void">
+			<Ref Path="NLGuidance.Func"/>
+            <Input Name="NLGuidance_M" Type="RT_MODEL_NLGuidance_T" IsAddress="1"/>
+            <Input Name="NLGuidance_U_Xtarg" Type="real_T" ArraySize="3"/>
+            <Input Name="NLGuidance_U_Xv" Type="real_T" ArraySize="3"/>
+            <Input Name="NLGuidance_U_Vv" Type="real_T" ArraySize="3"/>
+            <Input Name="NLGuidance_U_Vt" Type="real_T" ArraySize="3"/>
+            <Input Name="NLGuidance_Y_yout" Type="real_T" ArraySize="3"/>
+            <Output Name="NLGuidance_U_r" Type="real_T"/>
+            <Schedule>
+                <Calculate Name="NLGuidance_init">
+                    <Expression Expression="rtmSetErrorStatus(NLGuidance_M, (NULL))"/>
+                    <Expression Expression="(void)memset(&amp;NLGuidance_U_Xtarg[0], 0, 3U * sizeof(real_T))"/>
+                    <Expression Expression="(void)memset(&amp;NLGuidance_U_Xv[0], 0, 3U * sizeof(real_T))"/>
+                    <Expression Expression="(void)memset(&amp;NLGuidance_U_Vv[0], 0, 3U * sizeof(real_T))"/>
+                    <Expression Expression="(void)memset(&amp;NLGuidance_U_Vt[0], 0, 3U * sizeof(real_T))"/>
+                    <Expression Expression="*NLGuidance_U_r = 0.0"/>
+                    <Expression Expression="(void)memset(&amp;NLGuidance_Y_yout[0], 0, 3U * sizeof(real_T))"/>
+                    <Expression Expression="UNUSED_PARAMETER(NLGuidance_M)"/>
+                </Calculate>
+            </Schedule>
+        </Function>
+    </File>
+    <File Name="NLGuidance_data"/>
+</Root>

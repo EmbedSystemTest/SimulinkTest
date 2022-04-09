@@ -1,0 +1,17 @@
+{
+"munit coverage description":{
+"0":"NLGuidance_step","1":"NLGuidance_init"}
+,
+"branch coverage description":{
+"0":"positive branch:positive_rtb_MathFunction1_m < 0.0","1":"positive branch:negative__rtb_MathFunction1_m < 0.0","2":"positive branch:positive_rtb_MathFunction1_m < 0.0","3":"positive branch:negative__rtb_MathFunction1_m < 0.0","4":"positive branch:positive_(rtb_MathFunction_idx_1 <= 0.0) || (rtb_MathFunction1_m <= 0.0)","5":"positive branch:positive_rtb_Divide4 < 0.0","6":"positive branch:negative__rtb_Divide4 < 0.0","7":"positive branch:positive_rtb_MathFunction1_m < 0.0","8":"positive branch:negative__rtb_MathFunction1_m < 0.0","9":"positive branch:positive_rtb_Divide4 < rtb_MathFunction1_m","10":"positive branch:negative__rtb_Divide4 < rtb_MathFunction1_m","11":"positive branch:negative__(rtb_MathFunction_idx_1 <= 0.0) || (rtb_MathFunction1_m <= 0.0)","12":"positive branch:positive_rtb_Sum4 - rtb_Sum4 < 0.0","13":"positive branch:negative__rtb_Sum4 - rtb_Sum4 < 0.0"}
+,
+"condition coverage description":{
+"0":"rtb_MathFunction1_m < 0.0==true","1":"rtb_MathFunction1_m < 0.0==false","2":"rtb_MathFunction1_m < 0.0==true","3":"rtb_MathFunction1_m < 0.0==false","4":"(rtb_MathFunction_idx_1 <= 0.0)==true","5":"(rtb_MathFunction_idx_1 <= 0.0)==false","6":"(rtb_MathFunction1_m <= 0.0)==true","7":"(rtb_MathFunction1_m <= 0.0)==false","8":"rtb_Divide4 < 0.0==true","9":"rtb_Divide4 < 0.0==false","10":"rtb_MathFunction1_m < 0.0==true","11":"rtb_MathFunction1_m < 0.0==false","12":"rtb_Divide4 < rtb_MathFunction1_m==true","13":"rtb_Divide4 < rtb_MathFunction1_m==false","14":"rtb_Sum4 - rtb_Sum4 < 0.0==true","15":"rtb_Sum4 - rtb_Sum4 < 0.0==false"}
+,
+"decision coverage description":{
+"0":"rtb_MathFunction1_m < 0.0==true","1":"rtb_MathFunction1_m < 0.0==false","2":"rtb_MathFunction1_m < 0.0==true","3":"rtb_MathFunction1_m < 0.0==false","4":"(rtb_MathFunction_idx_1 <= 0.0) || (rtb_MathFunction1_m <= 0.0)==true","5":"(rtb_MathFunction_idx_1 <= 0.0) || (rtb_MathFunction1_m <= 0.0)==false","6":"rtb_Divide4 < 0.0==true","7":"rtb_Divide4 < 0.0==false","8":"rtb_MathFunction1_m < 0.0==true","9":"rtb_MathFunction1_m < 0.0==false","10":"rtb_Divide4 < rtb_MathFunction1_m==true","11":"rtb_Divide4 < rtb_MathFunction1_m==false","12":"rtb_Sum4 - rtb_Sum4 < 0.0==true","13":"rtb_Sum4 - rtb_Sum4 < 0.0==false"}
+,
+"mcdc coverage description":{
+"0":"#rtb_MathFunction1_m < 0.0","1":"#rtb_MathFunction1_m < 0.0","2":"#(rtb_MathFunction_idx_1 <= 0.0)#(rtb_MathFunction1_m <= 0.0)","3":"#rtb_Divide4 < 0.0","4":"#rtb_MathFunction1_m < 0.0","5":"#rtb_Divide4 < rtb_MathFunction1_m","6":"#rtb_Sum4 - rtb_Sum4 < 0.0"}
+}
+

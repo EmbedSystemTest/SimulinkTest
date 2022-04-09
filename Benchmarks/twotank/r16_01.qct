@@ -1,0 +1,3 @@
+# R01 The tank 1 HIGH sensor is physically placed at a greater height
+# (above) the tank 1 LOW sensor.
+tank1_sensor_hi_height_m  > tank1_sensor_lo_height_m;

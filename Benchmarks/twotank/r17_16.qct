@@ -1,0 +1,9 @@
+# R16 The tank 1 change in liquid volume for each timestep is limited by
+# the maximum inflow and outflow for each timestep.
+#
+# The change in volume is (t1_h{t} - t1_h{t-1}) * tank1_cross_section_area_m2
+
+# UPDATED: The original qct for this requirement did not take into account
+#          the length of each timestep, which is represented by time_increment_s
+(time_increment_s*(-tank1_valve_flow_rate_m3s) <= ((t1_h{t} - t1_h{t-1}) * tank1_cross_section_area_m2)) and
+((t1_h{t} - t1_h{t-1}) * tank1_cross_section_area_m2) <= time_increment_s*tank1_pump_flow_rate_m3s;

@@ -1,0 +1,3 @@
+# R06 The Previous Emergency Valve State shall initially be the
+# specified initial value.
+pre_E_Valve_State{0} == Emergency_Valve_State{0};

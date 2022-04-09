@@ -1,0 +1,6 @@
+-IF:/Benchmark
+-IF:/Benchmark/EB_12B_grt_rtw
+-IF:/Polyspace/R2020a/extern/include
+-IF:/Polyspace/R2020a/simulink/include
+-IF:/Polyspace/R2020a/rtw/c/src
+-IF:/Polyspace/R2020a/rtw/c/src/ext_mode/common

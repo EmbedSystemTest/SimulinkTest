@@ -1,0 +1,7 @@
+#ifndef RTW_HEADER_heat25830_staliro_01_2018a_types_h_
+#define RTW_HEADER_heat25830_staliro_01_2018a_types_h_
+
+typedef struct tag_RTM_heat25830_staliro_01__T RT_MODEL_heat25830_staliro_01_T;
+
+#endif
+

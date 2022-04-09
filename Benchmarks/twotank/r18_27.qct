@@ -1,0 +1,46 @@
+# R27 The resulting tank 2 liquid height for each timestep is a function
+# of the liquid height in the previous timestep, the additional liquid
+# height as defined by the net flow rate from the state of the inflow
+# valve from tank 1 and tank 2 outflow valves (production and
+# emergency), and the cross-sectional area.
+#
+# NOTE: pump and vlave states *should* be Boolean, BUT they are enetered as floats in the model.
+#
+# There are three (boolean) valves, so there eight possible on-off combinations
+(Valve_State == 1.0 and Production_Valve_State == 1.0 and Emergency_Valve_State == 1.0) impl
+(tank2_liquid_height_m == tank2_previous_height_m +
+   (tank1_valve_flow_rate_m3s - tank2_p_valve_flow_rate_m3s - tank2_e_valve_flow_rate_m3s) *
+   time_increment_s /  tank2_cross_section_area_m2);
+
+(Valve_State == 1.0 and Production_Valve_State == 1.0 and Emergency_Valve_State == 0.0) impl
+(tank2_liquid_height_m == tank2_previous_height_m +
+   (tank1_valve_flow_rate_m3s - tank2_p_valve_flow_rate_m3s) *
+   time_increment_s /  tank2_cross_section_area_m2);
+
+(Valve_State == 1.0 and Production_Valve_State == 0.0 and Emergency_Valve_State == 1.0) impl
+(tank2_liquid_height_m == tank2_previous_height_m +
+   (tank1_valve_flow_rate_m3s - tank2_e_valve_flow_rate_m3s) *
+   time_increment_s /  tank2_cross_section_area_m2);
+
+(Valve_State == 1.0 and Production_Valve_State == 0.0 and Emergency_Valve_State == 0.0) impl
+(tank2_liquid_height_m == tank2_previous_height_m +
+   (tank1_valve_flow_rate_m3s) *
+   time_increment_s /  tank2_cross_section_area_m2);
+
+(Valve_State == 0.0 and Production_Valve_State == 1.0 and Emergency_Valve_State == 1.0) impl
+(tank2_liquid_height_m == tank2_previous_height_m +
+   (-tank2_p_valve_flow_rate_m3s - tank2_e_valve_flow_rate_m3s) *
+   time_increment_s /  tank2_cross_section_area_m2);
+
+(Valve_State == 0.0 and Production_Valve_State == 1.0 and Emergency_Valve_State == 0.0) impl
+(tank2_liquid_height_m == tank2_previous_height_m +
+   (-tank2_p_valve_flow_rate_m3s) *
+   time_increment_s /  tank2_cross_section_area_m2);
+
+(Valve_State == 0.0 and Production_Valve_State == 0.0 and Emergency_Valve_State == 1.0) impl
+(tank2_liquid_height_m == tank2_previous_height_m +
+   (-tank2_e_valve_flow_rate_m3s) *
+   time_increment_s /  tank2_cross_section_area_m2);
+
+(Valve_State == 0.0 and Production_Valve_State == 0.0 and Emergency_Valve_State == 0.0) impl
+(tank2_liquid_height_m == tank2_previous_height_m);

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HarnessInformation>
+  <Harness>
+    <P Name="Name">heat25830_staliro_01_Harness1</P>
+    <P Name="Description"/>
+    <P Name="CreatedBy">yangy</P>
+    <P Name="CreatedOn">Wed Apr 21 02:46:55 2021</P>
+    <P Name="ModifiedBy">yangy</P>
+    <P Name="LastSaved">Wed Apr 21 02:46:55 2021</P>
+    <P Name="Owner">bd</P>
+    <P Name="OwnerType">BD_HARNESS</P>
+    <P Name="OwnerPath">.</P>
+    <P Name="Directory"/>
+    <P Name="FileName">heat25830_staliro_01_Harness1.slx</P>
+    <P Name="SavedVersion">9.3</P>
+    <P Name="HarnessUUID">5b8ad1f7-60c9-42db-b07d-92eda83336d6</P>
+    <P Name="HarnessConnectionsMap">0|0|0,0,0,0||</P>
+    <P Name="VerificationMode">0</P>
+    <P Name="HarnessOwnerCheckSum">0,0,0,0</P>
+    <P Name="RebuildOnOpen">false</P>
+    <P Name="RebuildModelData">false</P>
+    <P Name="Graphical">false</P>
+    <P Name="DriveFcnCallWithTS">true</P>
+    <P Name="ScheduleInitTermReset">false</P>
+    <P Name="AutoShapeInputs">false</P>
+    <P Name="SLDVCompatible">no</P>
+    <P Name="SynchronizationMode">1</P>
+    <P Name="IsImported">false</P>
+    <P Name="PostRebuildCB"/>
+    <P Name="IsCodeContext">false</P>
+    <P Name="SchedulerBlock">0</P>
+    <P Name="SourceTypeString">Inport</P>
+    <P Name="SinkTypeString">Outport</P>
+    <P Name="CustomSourcePath"/>
+    <P Name="CustomSinkPath"/>
+    <P Name="BlockSIDs">2|8|0|0|0|0|0</P>
+    <P Name="OpenGraphs"/>
+    <P Name="ExistingBuildFolder"/>
+    <P Name="FunctionInterfaceName"/>
+  </Harness>
+  <ModelMetadata>
+    <P Name="ModelUUID">c99032ed-02e6-46bd-a140-97039e3c4546</P>
+    <P Name="OwnerBDName">heat25830_staliro_01</P>
+  </ModelMetadata>
+</HarnessInformation>

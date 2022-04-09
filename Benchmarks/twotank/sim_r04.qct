@@ -1,0 +1,3 @@
+# R04 The Previous Valve State shall initially be the specified initial
+# value.
+pre_Valve_State{0} == Valve_State{0};

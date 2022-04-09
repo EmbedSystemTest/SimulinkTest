@@ -1,0 +1,2089 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cprover>
+<program>CBMC 5.10 (cbmc-5.10)</program>
+<message type="STATUS-MESSAGE">
+  <text>CBMC version 5.10 (cbmc-5.10) 32-bit i386 windows</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Parsing C:/HomeSpace/DateTest/Cmain\symbol_cmain.c</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Converting</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Type-checking symbol_cmain</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Generating GOTO Program</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Adding CPROVER library (i386)</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Removal of function pointers and virtual functions</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Generic Property Instrumentation</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Rewriting existing assertions as assumptions</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Running with 8 object bits, 24 offset bits (default)</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Starting Bounded Model Checking</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Unwinding loop main.0 iteration 1 file C:/HomeSpace/DateTest/Cmain\symbol_cmain.c line 275 function main thread 0</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Unwinding loop main.1 iteration 1 file C:/HomeSpace/DateTest/Cmain\symbol_cmain.c line 297 function main thread 0</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>size of program expression: 611 steps</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Generated 103 VCC(s), 99 remaining after simplification</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Passing problem to propositional reduction</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>converting SSA</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Aiming to cover 99 goal(s)</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Running propositional reduction</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Post-processing</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Solving with MiniSAT 2.2.1 with simplifier</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>26304 variables, 92449 clauses</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>SAT checker: instance is SATISFIABLE</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function main decision/condition `i &lt; 1' false</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function main decision/condition `i &lt; 1' true</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function main decision/condition `i &lt; 1' false</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function main decision/condition `i &lt; 1' true</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step decision/condition `basictwotanks_DW-&gt;UnitDelay_DSTATE_j &gt; 0.0' false</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step decision/condition `2.0 &gt; rtb_tank1_previous_height_m' true</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step decision/condition `5.0 &gt; rtb_tank1_previous_height_m' true</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step decision/condition `rtb_Switch_k != 1' true</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step decision/condition `basictwotanks_DW-&gt;UnitDelay_DSTATE_c &gt; 0.0' false</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step decision/condition `2.0 &gt; rtb_tank2_previous_height_m' true</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step decision/condition `3.0 &gt; rtb_tank2_previous_height_m' true</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step decision/condition `1.0 &gt; rtb_tank2_previous_height_m' true</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step decision/condition `rtb_Switch_b != 1' true</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step decision/condition `*basictwotanks_Y_valve_state &gt; 0.5' false</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step decision/condition `basictwotanks_DW-&gt;Production_Valve_State_Delay_DS &gt; 0.5' false</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step decision/condition `basictwotanks_DW-&gt;Emergency_Valve_State_Delay_DST &gt; 0.5' false</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step decision/condition `basictwotanks_DW-&gt;Pump_State_Delay_DSTATE &gt; 0.5' true</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Solving with MiniSAT 2.2.1 with simplifier</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>26304 variables, 37670 clauses</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>SAT checker: instance is SATISFIABLE</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step decision/condition `2.0 &gt; rtb_tank1_previous_height_m' false</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step decision/condition `rtb_Switch_k != 1' false</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step decision/condition `rtb_Switch == 1' false</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step decision/condition `basictwotanks_DW-&gt;Pump_State_Delay_DSTATE &gt; 0.5' false</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Solving with MiniSAT 2.2.1 with simplifier</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>26304 variables, 37671 clauses</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>SAT checker: instance is SATISFIABLE</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step decision/condition `2.0 &gt; rtb_tank2_previous_height_m' false</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step decision/condition `3.0 &gt; rtb_tank2_previous_height_m' false</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step decision/condition `1.0 &gt; rtb_tank2_previous_height_m' false</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step decision/condition `rtb_Switch_b != 1' false</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step decision/condition `IEEE_FLOAT_EQUAL(basictwotanks_DW-&gt;Emergency_Valve_State_Delay_DST, 1.0)' true</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step decision/condition `tmp_if_expr$2' true</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step decision/condition `tmp_if_expr$2' false</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step decision/condition `rtb_Switch_m == 1' true</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step decision/condition `rtb_Compare_dl != 0' true</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step decision/condition `IEEE_FLOAT_EQUAL(basictwotanks_DW-&gt;Emergency_Valve_State_Delay_DST, 1.0)' true</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step decision/condition `tmp_if_expr$0' true</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step decision/condition `tmp_if_expr$1' true</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step condition `tmp_if_expr$0' false</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step decision/condition `tmp_if_expr$0 ? TRUE : FALSE' false</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step decision/condition `tmp_if_expr$1' false</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step decision/condition `IEEE_FLOAT_EQUAL(basictwotanks_DW-&gt;Emergency_Valve_State_Delay_DST, 1.0)' true</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step decision/condition `tmp_if_expr' true</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step decision/condition `IEEE_FLOAT_EQUAL(basictwotanks_DW-&gt;Production_Valve_State_Delay_DS, 1.0) ? TRUE : FALSE' false</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step condition `IEEE_FLOAT_EQUAL(basictwotanks_DW-&gt;Production_Valve_State_Delay_DS, 1.0)' false</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step decision/condition `tmp_if_expr' false</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step condition `rtb_LogicalOperator3 != 0' false</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step condition `rtb_Compare_dl != 0' true</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step decision/condition `!IEEE_FLOAT_EQUAL(basictwotanks_DW-&gt;Valve_State_Delay_DSTATE, 1.0) ? (!(rtb_Compare_dl != 0) &amp;&amp; rtb_LogicalOperator3 != 0 ? TRUE : FALSE) : FALSE' false</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step condition `!(rtb_Compare_dl != 0) &amp;&amp; rtb_LogicalOperator3 != 0 ? TRUE : FALSE' false</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step condition `IEEE_FLOAT_EQUAL(basictwotanks_DW-&gt;Valve_State_Delay_DSTATE, 1.0)' false</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step condition `rtb_LogicalOperator3 != 0' false</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step condition `rtb_Switch_j != 1' false</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step decision `rtb_LogicalOperator3 != 0 &amp;&amp; rtb_Switch_j != 1' false</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step decision/condition `basictwotanks_DW-&gt;Emergency_Valve_State_Delay_DST &gt; 0.5' true</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Solving with MiniSAT 2.2.1 with simplifier</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>26304 variables, 37671 clauses</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>SAT checker: instance is SATISFIABLE</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step decision/condition `basictwotanks_DW-&gt;UnitDelay_DSTATE_c &gt; 0.0' true</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Solving with MiniSAT 2.2.1 with simplifier</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>26304 variables, 37671 clauses</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>SAT checker: instance is SATISFIABLE</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step decision/condition `tmp_if_expr$1' false</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Solving with MiniSAT 2.2.1 with simplifier</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>26304 variables, 37671 clauses</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>SAT checker: instance is SATISFIABLE</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step decision/condition `tmp_if_expr$0' false</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Solving with MiniSAT 2.2.1 with simplifier</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>26304 variables, 37671 clauses</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>SAT checker: instance is SATISFIABLE</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step decision/condition `tmp_if_expr$2' false</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Solving with MiniSAT 2.2.1 with simplifier</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>26304 variables, 37671 clauses</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>SAT checker: instance is SATISFIABLE</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step decision/condition `tmp_if_expr' false</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Solving with MiniSAT 2.2.1 with simplifier</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>26304 variables, 37671 clauses</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>SAT checker: instance is SATISFIABLE</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step decision/condition `basictwotanks_DW-&gt;Production_Valve_State_Delay_DS &gt; 0.5' true</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Solving with MiniSAT 2.2.1 with simplifier</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>26304 variables, 37671 clauses</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>SAT checker: instance is SATISFIABLE</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step decision/condition `IEEE_FLOAT_EQUAL(basictwotanks_DW-&gt;Emergency_Valve_State_Delay_DST, 1.0)' false</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step decision/condition `tmp_if_expr$2' true</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step decision/condition `!IEEE_FLOAT_EQUAL(basictwotanks_DW-&gt;Production_Valve_State_Delay_DS, 1.0) ? TRUE : FALSE' false</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step condition `IEEE_FLOAT_EQUAL(basictwotanks_DW-&gt;Production_Valve_State_Delay_DS, 1.0)' true</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step decision/condition `IEEE_FLOAT_EQUAL(basictwotanks_DW-&gt;Emergency_Valve_State_Delay_DST, 1.0)' false</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step decision/condition `tmp_if_expr$0' false</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step decision/condition `IEEE_FLOAT_EQUAL(basictwotanks_DW-&gt;Production_Valve_State_Delay_DS, 1.0) ? TRUE : FALSE' true</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step condition `IEEE_FLOAT_EQUAL(basictwotanks_DW-&gt;Production_Valve_State_Delay_DS, 1.0)' true</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step condition `tmp_if_expr$0' true</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step decision/condition `tmp_if_expr$0 ? TRUE : FALSE' true</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step decision/condition `tmp_if_expr$1' true</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Solving with MiniSAT 2.2.1 with simplifier</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>26304 variables, 37671 clauses</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>SAT checker: instance is SATISFIABLE</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step decision/condition `tmp_if_expr$0' true</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Solving with MiniSAT 2.2.1 with simplifier</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>26304 variables, 37671 clauses</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>SAT checker: instance is SATISFIABLE</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step decision/condition `tmp_if_expr$2' false</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Solving with MiniSAT 2.2.1 with simplifier</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>26304 variables, 37671 clauses</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>SAT checker: instance is SATISFIABLE</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step decision/condition `!IEEE_FLOAT_EQUAL(basictwotanks_DW-&gt;Production_Valve_State_Delay_DS, 1.0) ? TRUE : FALSE' true</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step condition `IEEE_FLOAT_EQUAL(basictwotanks_DW-&gt;Production_Valve_State_Delay_DS, 1.0)' false</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step decision/condition `tmp_if_expr$2' true</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Solving with MiniSAT 2.2.1 with simplifier</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>26304 variables, 37671 clauses</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>SAT checker: instance is SATISFIABLE</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step condition `IEEE_FLOAT_EQUAL(basictwotanks_DW-&gt;Valve_State_Delay_DSTATE, 1.0)' true</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Solving with MiniSAT 2.2.1 with simplifier</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>26304 variables, 37671 clauses</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>SAT checker: instance is SATISFIABLE</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step decision/condition `rtb_Switch_m == 1' false</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step decision/condition `rtb_Compare_dl != 0' false</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step decision/condition `tmp_if_expr$1' false</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step condition `rtb_Compare_dl != 0' false</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Solving with MiniSAT 2.2.1 with simplifier</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>26304 variables, 37671 clauses</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>SAT checker: instance is SATISFIABLE</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step MC/DC independence condition `!(rtb_LogicalOperator3 != 0) &amp;&amp; rtb_Switch_j != 1'</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step condition `rtb_Switch_j != 1' true</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Solving with MiniSAT 2.2.1 with simplifier</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>26304 variables, 37663 clauses</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>SAT checker: instance is SATISFIABLE</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step decision/condition `tmp_if_expr$1' true</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Solving with MiniSAT 2.2.1 with simplifier</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>26304 variables, 37663 clauses</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>SAT checker: instance is SATISFIABLE</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step decision/condition `basictwotanks_DW-&gt;UnitDelay_DSTATE_j &gt; 0.0' true</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Solving with MiniSAT 2.2.1 with simplifier</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>26304 variables, 37663 clauses</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>SAT checker: instance is SATISFIABLE</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step decision/condition `*basictwotanks_Y_valve_state &gt; 0.5' true</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Solving with MiniSAT 2.2.1 with simplifier</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>26304 variables, 37663 clauses</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>SAT checker: instance is SATISFIABLE</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step decision/condition `IEEE_FLOAT_EQUAL(basictwotanks_DW-&gt;Emergency_Valve_State_Delay_DST, 1.0)' false</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step decision/condition `tmp_if_expr' false</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Solving with MiniSAT 2.2.1 with simplifier</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>26304 variables, 37663 clauses</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>SAT checker: instance is SATISFIABLE</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step decision/condition `tmp_if_expr' true</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Solving with MiniSAT 2.2.1 with simplifier</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>26304 variables, 37663 clauses</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>SAT checker: instance is SATISFIABLE</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step decision/condition `IEEE_FLOAT_EQUAL(basictwotanks_DW-&gt;Production_Valve_State_Delay_DS, 1.0) ? TRUE : FALSE' true</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step condition `IEEE_FLOAT_EQUAL(basictwotanks_DW-&gt;Production_Valve_State_Delay_DS, 1.0)' true</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step decision/condition `tmp_if_expr' true</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step condition `rtb_LogicalOperator3 != 0' true</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step decision/condition `!IEEE_FLOAT_EQUAL(basictwotanks_DW-&gt;Valve_State_Delay_DSTATE, 1.0) ? (!(rtb_Compare_dl != 0) &amp;&amp; rtb_LogicalOperator3 != 0 ? TRUE : FALSE) : FALSE' true</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step condition `!(rtb_Compare_dl != 0) &amp;&amp; rtb_LogicalOperator3 != 0 ? TRUE : FALSE' true</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Solving with MiniSAT 2.2.1 with simplifier</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>26304 variables, 37663 clauses</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>SAT checker: instance is SATISFIABLE</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step MC/DC independence condition `rtb_LogicalOperator3 != 0 &amp;&amp; rtb_Switch_j != 1'</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step condition `rtb_LogicalOperator3 != 0' true</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step decision `rtb_LogicalOperator3 != 0 &amp;&amp; rtb_Switch_j != 1' true</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Solving with MiniSAT 2.2.1 with simplifier</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>26304 variables, 37663 clauses</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>SAT checker: instance is SATISFIABLE</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step MC/DC independence condition `rtb_LogicalOperator3 != 0 &amp;&amp; !(rtb_Switch_j != 1)'</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Solving with MiniSAT 2.2.1 with simplifier</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>26304 variables, 37663 clauses</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>SAT checker: instance is SATISFIABLE</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step decision/condition `5.0 &gt; rtb_tank1_previous_height_m' false</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function basictwotanks_step decision/condition `rtb_Switch == 1' true</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Solving with MiniSAT 2.2.1 with simplifier</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>26304 variables, 37662 clauses</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>SAT checker: instance is UNSATISFIABLE</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Runtime decision procedure: 0.412878s</text>
+</message>
+
+<goal description="decision/condition `i &lt; 1' false" id="main.coverage.1" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="main" line="275" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `i &lt; 1' true" id="main.coverage.2" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="main" line="275" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `i &lt; 1' false" id="main.coverage.3" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="main" line="297" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `i &lt; 1' true" id="main.coverage.4" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="main" line="297" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `basictwotanks_DW-&gt;UnitDelay_DSTATE_j &gt; 0.0' false" id="basictwotanks_step.coverage.1" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="141" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `basictwotanks_DW-&gt;UnitDelay_DSTATE_j &gt; 0.0' true" id="basictwotanks_step.coverage.2" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="141" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `2.0 &gt; rtb_tank1_previous_height_m' false" id="basictwotanks_step.coverage.3" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="148" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `2.0 &gt; rtb_tank1_previous_height_m' true" id="basictwotanks_step.coverage.4" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="148" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `5.0 &gt; rtb_tank1_previous_height_m' false" id="basictwotanks_step.coverage.5" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="149" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `5.0 &gt; rtb_tank1_previous_height_m' true" id="basictwotanks_step.coverage.6" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="149" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `rtb_Switch_k != 1' false" id="basictwotanks_step.coverage.7" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="150" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `rtb_Switch_k != 1' true" id="basictwotanks_step.coverage.8" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="150" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `rtb_Switch == 1' false" id="basictwotanks_step.coverage.9" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="154" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `rtb_Switch == 1' true" id="basictwotanks_step.coverage.10" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="154" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `basictwotanks_DW-&gt;UnitDelay_DSTATE_c &gt; 0.0' false" id="basictwotanks_step.coverage.11" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="162" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `basictwotanks_DW-&gt;UnitDelay_DSTATE_c &gt; 0.0' true" id="basictwotanks_step.coverage.12" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="162" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `2.0 &gt; rtb_tank2_previous_height_m' false" id="basictwotanks_step.coverage.13" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="169" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `2.0 &gt; rtb_tank2_previous_height_m' true" id="basictwotanks_step.coverage.14" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="169" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `3.0 &gt; rtb_tank2_previous_height_m' false" id="basictwotanks_step.coverage.15" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="170" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `3.0 &gt; rtb_tank2_previous_height_m' true" id="basictwotanks_step.coverage.16" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="170" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `1.0 &gt; rtb_tank2_previous_height_m' false" id="basictwotanks_step.coverage.17" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="171" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `1.0 &gt; rtb_tank2_previous_height_m' true" id="basictwotanks_step.coverage.18" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="171" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `rtb_Switch_b != 1' false" id="basictwotanks_step.coverage.19" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="172" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `rtb_Switch_b != 1' true" id="basictwotanks_step.coverage.20" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="172" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `IEEE_FLOAT_EQUAL(basictwotanks_DW-&gt;Emergency_Valve_State_Delay_DST, 1.0)' false" id="basictwotanks_step.coverage.21" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="176" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `IEEE_FLOAT_EQUAL(basictwotanks_DW-&gt;Emergency_Valve_State_Delay_DST, 1.0)' true" id="basictwotanks_step.coverage.22" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="176" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `tmp_if_expr$2' false" id="basictwotanks_step.coverage.23" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="176" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `tmp_if_expr$2' true" id="basictwotanks_step.coverage.24" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="176" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `!IEEE_FLOAT_EQUAL(basictwotanks_DW-&gt;Production_Valve_State_Delay_DS, 1.0) ? TRUE : FALSE' false" id="basictwotanks_step.coverage.25" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="176" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `!IEEE_FLOAT_EQUAL(basictwotanks_DW-&gt;Production_Valve_State_Delay_DS, 1.0) ? TRUE : FALSE' true" id="basictwotanks_step.coverage.26" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="176" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="condition `IEEE_FLOAT_EQUAL(basictwotanks_DW-&gt;Production_Valve_State_Delay_DS, 1.0)' false" id="basictwotanks_step.coverage.27" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="176" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="condition `IEEE_FLOAT_EQUAL(basictwotanks_DW-&gt;Production_Valve_State_Delay_DS, 1.0)' true" id="basictwotanks_step.coverage.28" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="176" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `tmp_if_expr$2' false" id="basictwotanks_step.coverage.29" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="176" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `tmp_if_expr$2' true" id="basictwotanks_step.coverage.30" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="176" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `tmp_if_expr$2' false" id="basictwotanks_step.coverage.31" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="176" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `tmp_if_expr$2' true" id="basictwotanks_step.coverage.32" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="176" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `rtb_Switch_m == 1' false" id="basictwotanks_step.coverage.33" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="181" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `rtb_Switch_m == 1' true" id="basictwotanks_step.coverage.34" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="181" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `rtb_Compare_dl != 0' false" id="basictwotanks_step.coverage.35" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="182" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `rtb_Compare_dl != 0' true" id="basictwotanks_step.coverage.36" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="182" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `IEEE_FLOAT_EQUAL(basictwotanks_DW-&gt;Emergency_Valve_State_Delay_DST, 1.0)' false" id="basictwotanks_step.coverage.37" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="182" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `IEEE_FLOAT_EQUAL(basictwotanks_DW-&gt;Emergency_Valve_State_Delay_DST, 1.0)' true" id="basictwotanks_step.coverage.38" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="182" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `tmp_if_expr$0' false" id="basictwotanks_step.coverage.39" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="182" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `tmp_if_expr$0' true" id="basictwotanks_step.coverage.40" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="182" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `IEEE_FLOAT_EQUAL(basictwotanks_DW-&gt;Production_Valve_State_Delay_DS, 1.0) ? TRUE : FALSE' false" id="basictwotanks_step.coverage.41" status="FAILED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="182" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `IEEE_FLOAT_EQUAL(basictwotanks_DW-&gt;Production_Valve_State_Delay_DS, 1.0) ? TRUE : FALSE' true" id="basictwotanks_step.coverage.42" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="182" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="condition `IEEE_FLOAT_EQUAL(basictwotanks_DW-&gt;Production_Valve_State_Delay_DS, 1.0)' false" id="basictwotanks_step.coverage.43" status="FAILED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="182" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="condition `IEEE_FLOAT_EQUAL(basictwotanks_DW-&gt;Production_Valve_State_Delay_DS, 1.0)' true" id="basictwotanks_step.coverage.44" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="182" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `tmp_if_expr$0' false" id="basictwotanks_step.coverage.45" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="182" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `tmp_if_expr$0' true" id="basictwotanks_step.coverage.46" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="182" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `tmp_if_expr$1' false" id="basictwotanks_step.coverage.47" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="182" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `tmp_if_expr$1' true" id="basictwotanks_step.coverage.48" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="182" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="condition `tmp_if_expr$0' false" id="basictwotanks_step.coverage.49" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="182" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="condition `tmp_if_expr$0' true" id="basictwotanks_step.coverage.50" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="182" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `tmp_if_expr$0 ? TRUE : FALSE' false" id="basictwotanks_step.coverage.51" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="182" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `tmp_if_expr$0 ? TRUE : FALSE' true" id="basictwotanks_step.coverage.52" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="182" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `tmp_if_expr$1' false" id="basictwotanks_step.coverage.53" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="182" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `tmp_if_expr$1' true" id="basictwotanks_step.coverage.54" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="182" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `tmp_if_expr$1' false" id="basictwotanks_step.coverage.55" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="182" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `tmp_if_expr$1' true" id="basictwotanks_step.coverage.56" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="182" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `IEEE_FLOAT_EQUAL(basictwotanks_DW-&gt;Emergency_Valve_State_Delay_DST, 1.0)' false" id="basictwotanks_step.coverage.57" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="187" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `IEEE_FLOAT_EQUAL(basictwotanks_DW-&gt;Emergency_Valve_State_Delay_DST, 1.0)' true" id="basictwotanks_step.coverage.58" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="187" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `tmp_if_expr' false" id="basictwotanks_step.coverage.59" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="187" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `tmp_if_expr' true" id="basictwotanks_step.coverage.60" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="187" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `IEEE_FLOAT_EQUAL(basictwotanks_DW-&gt;Production_Valve_State_Delay_DS, 1.0) ? TRUE : FALSE' false" id="basictwotanks_step.coverage.61" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="187" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `IEEE_FLOAT_EQUAL(basictwotanks_DW-&gt;Production_Valve_State_Delay_DS, 1.0) ? TRUE : FALSE' true" id="basictwotanks_step.coverage.62" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="187" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="condition `IEEE_FLOAT_EQUAL(basictwotanks_DW-&gt;Production_Valve_State_Delay_DS, 1.0)' false" id="basictwotanks_step.coverage.63" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="187" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="condition `IEEE_FLOAT_EQUAL(basictwotanks_DW-&gt;Production_Valve_State_Delay_DS, 1.0)' true" id="basictwotanks_step.coverage.64" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="187" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `tmp_if_expr' false" id="basictwotanks_step.coverage.65" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="187" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `tmp_if_expr' true" id="basictwotanks_step.coverage.66" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="187" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `tmp_if_expr' false" id="basictwotanks_step.coverage.67" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="187" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `tmp_if_expr' true" id="basictwotanks_step.coverage.68" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="187" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="condition `rtb_LogicalOperator3 != 0' false" id="basictwotanks_step.coverage.69" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="188" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="condition `rtb_LogicalOperator3 != 0' true" id="basictwotanks_step.coverage.70" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="188" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="condition `rtb_Compare_dl != 0' false" id="basictwotanks_step.coverage.71" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="188" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="condition `rtb_Compare_dl != 0' true" id="basictwotanks_step.coverage.72" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="188" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `!IEEE_FLOAT_EQUAL(basictwotanks_DW-&gt;Valve_State_Delay_DSTATE, 1.0) ? (!(rtb_Compare_dl != 0) &amp;&amp; rtb_LogicalOperator3 != 0 ? TRUE : FALSE) : FALSE' false" id="basictwotanks_step.coverage.73" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="188" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `!IEEE_FLOAT_EQUAL(basictwotanks_DW-&gt;Valve_State_Delay_DSTATE, 1.0) ? (!(rtb_Compare_dl != 0) &amp;&amp; rtb_LogicalOperator3 != 0 ? TRUE : FALSE) : FALSE' true" id="basictwotanks_step.coverage.74" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="188" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="condition `!(rtb_Compare_dl != 0) &amp;&amp; rtb_LogicalOperator3 != 0 ? TRUE : FALSE' false" id="basictwotanks_step.coverage.75" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="188" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="condition `!(rtb_Compare_dl != 0) &amp;&amp; rtb_LogicalOperator3 != 0 ? TRUE : FALSE' true" id="basictwotanks_step.coverage.76" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="188" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="condition `IEEE_FLOAT_EQUAL(basictwotanks_DW-&gt;Valve_State_Delay_DSTATE, 1.0)' false" id="basictwotanks_step.coverage.77" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="188" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="condition `IEEE_FLOAT_EQUAL(basictwotanks_DW-&gt;Valve_State_Delay_DSTATE, 1.0)' true" id="basictwotanks_step.coverage.78" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="188" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="MC/DC independence condition `rtb_LogicalOperator3 != 0 &amp;&amp; rtb_Switch_j != 1'" id="basictwotanks_step.coverage.79" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="192" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="MC/DC independence condition `rtb_LogicalOperator3 != 0 &amp;&amp; !(rtb_Switch_j != 1)'" id="basictwotanks_step.coverage.80" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="192" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="MC/DC independence condition `!(rtb_LogicalOperator3 != 0) &amp;&amp; rtb_Switch_j != 1'" id="basictwotanks_step.coverage.81" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="192" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="condition `rtb_LogicalOperator3 != 0' false" id="basictwotanks_step.coverage.82" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="192" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="condition `rtb_LogicalOperator3 != 0' true" id="basictwotanks_step.coverage.83" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="192" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="condition `rtb_Switch_j != 1' false" id="basictwotanks_step.coverage.84" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="192" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="condition `rtb_Switch_j != 1' true" id="basictwotanks_step.coverage.85" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="192" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision `rtb_LogicalOperator3 != 0 &amp;&amp; rtb_Switch_j != 1' false" id="basictwotanks_step.coverage.86" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="192" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision `rtb_LogicalOperator3 != 0 &amp;&amp; rtb_Switch_j != 1' true" id="basictwotanks_step.coverage.87" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="192" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `*basictwotanks_Y_valve_state &gt; 0.5' false" id="basictwotanks_step.coverage.88" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="200" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `*basictwotanks_Y_valve_state &gt; 0.5' true" id="basictwotanks_step.coverage.89" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="200" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `basictwotanks_DW-&gt;Production_Valve_State_Delay_DS &gt; 0.5' false" id="basictwotanks_step.coverage.90" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="206" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `basictwotanks_DW-&gt;Production_Valve_State_Delay_DS &gt; 0.5' true" id="basictwotanks_step.coverage.91" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="206" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `basictwotanks_DW-&gt;Emergency_Valve_State_Delay_DST &gt; 0.5' false" id="basictwotanks_step.coverage.92" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="212" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `basictwotanks_DW-&gt;Emergency_Valve_State_Delay_DST &gt; 0.5' true" id="basictwotanks_step.coverage.93" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="212" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `basictwotanks_DW-&gt;Pump_State_Delay_DSTATE &gt; 0.5' false" id="basictwotanks_step.coverage.94" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="219" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `basictwotanks_DW-&gt;Pump_State_Delay_DSTATE &gt; 0.5' true" id="basictwotanks_step.coverage.95" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="basictwotanks_step" line="219" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<test>
+  <inputs>
+    <input id="char">
+      <integer binary="00000000" c_type="char" width="8">0</integer>
+    </input>
+    <input id="double">
+      <float binary="0000000000000000000000000000000000000000000000000000000000000000" width="64">0</float>
+    </input>
+    <input id="double">
+      <float binary="0000000000000000000000000000000000000000000000000000000000000000" width="64">0</float>
+    </input>
+    <input id="double">
+      <float binary="1000000000000000000000000000000000010000000000000000000000000000" width="64">-1.326247e-315</float>
+    </input>
+    <input id="double">
+      <float binary="0001111111110000000000000000000000000000000000000000000000000000" width="64">7.458341e-155</float>
+    </input>
+    <input id="double">
+      <float binary="0011111111110000000000000000000000000000000000000000000000000000" width="64">1</float>
+    </input>
+    <input id="double">
+      <float binary="1000100000000000000000000000000000000000000000000000000000000000" width="64">-3.785767e-270</float>
+    </input>
+    <input id="double">
+      <float binary="1111111111110000000000000000000000000000000000000000000000000000" width="64">-inf</float>
+    </input>
+    <input id="double">
+      <float binary="1111111111110000000000000000000000000000000000000000000000000000" width="64">-inf</float>
+    </input>
+  </inputs>
+  <goal id="main.coverage.1"/>
+  <goal id="main.coverage.2"/>
+  <goal id="main.coverage.3"/>
+  <goal id="main.coverage.4"/>
+  <goal id="basictwotanks_step.coverage.1"/>
+  <goal id="basictwotanks_step.coverage.4"/>
+  <goal id="basictwotanks_step.coverage.6"/>
+  <goal id="basictwotanks_step.coverage.8"/>
+  <goal id="basictwotanks_step.coverage.11"/>
+  <goal id="basictwotanks_step.coverage.14"/>
+  <goal id="basictwotanks_step.coverage.16"/>
+  <goal id="basictwotanks_step.coverage.18"/>
+  <goal id="basictwotanks_step.coverage.20"/>
+  <goal id="basictwotanks_step.coverage.88"/>
+  <goal id="basictwotanks_step.coverage.90"/>
+  <goal id="basictwotanks_step.coverage.92"/>
+  <goal id="basictwotanks_step.coverage.95"/>
+</test>
+
+<test>
+  <inputs>
+    <input id="char">
+      <integer binary="00000000" c_type="char" width="8">0</integer>
+    </input>
+    <input id="double">
+      <float binary="0000000000000000000000000000000000000000000000000000000000000000" width="64">0</float>
+    </input>
+    <input id="double">
+      <float binary="1011111111110000000000000000000000000000000000000000000000000000" width="64">-1</float>
+    </input>
+    <input id="double">
+      <float binary="1000000000000000000000000000000000010000000000000000000000000000" width="64">-1.326247e-315</float>
+    </input>
+    <input id="double">
+      <float binary="0001111111110000000000000000000000000000000000000000000000000000" width="64">7.458341e-155</float>
+    </input>
+    <input id="double">
+      <float binary="0011111111110000000000000000000000000000000000000000000000000000" width="64">1</float>
+    </input>
+    <input id="double">
+      <float binary="1000100000000000000000000000000000000000000000000000000000000000" width="64">-3.785767e-270</float>
+    </input>
+    <input id="double">
+      <float binary="0100000000000000000000000000000000000000000000000000000000100000" width="64">2</float>
+    </input>
+    <input id="double">
+      <float binary="1111111111110000000000000000000000000000000000000000000000000000" width="64">-inf</float>
+    </input>
+  </inputs>
+  <goal id="basictwotanks_step.coverage.3"/>
+  <goal id="basictwotanks_step.coverage.7"/>
+  <goal id="basictwotanks_step.coverage.9"/>
+  <goal id="basictwotanks_step.coverage.94"/>
+</test>
+
+<test>
+  <inputs>
+    <input id="char">
+      <integer binary="00000000" c_type="char" width="8">0</integer>
+    </input>
+    <input id="double">
+      <float binary="0000000000000000000000000000000000000000000000000000000000000000" width="64">0</float>
+    </input>
+    <input id="double">
+      <float binary="1011111111110000000000000000000000000000000000000000000000000000" width="64">-1</float>
+    </input>
+    <input id="double">
+      <float binary="1000000000000000000000000000000000010000000000000000000000000000" width="64">-1.326247e-315</float>
+    </input>
+    <input id="double">
+      <float binary="0011111111110000000000000000000000000000000000000000000000000000" width="64">1</float>
+    </input>
+    <input id="double">
+      <float binary="0011111111010000000000000000000000000000000000000000000000000000" width="64">0.25</float>
+    </input>
+    <input id="double">
+      <float binary="1000100000000000000000000000000000000000000000000000000000000000" width="64">-3.785767e-270</float>
+    </input>
+    <input id="double">
+      <float binary="0100000000000000000000000000000000000000000000000000000000100000" width="64">2</float>
+    </input>
+    <input id="double">
+      <float binary="0111111111110000000000000000000000000000000000000000000000000000" width="64">+inf</float>
+    </input>
+  </inputs>
+  <goal id="basictwotanks_step.coverage.13"/>
+  <goal id="basictwotanks_step.coverage.15"/>
+  <goal id="basictwotanks_step.coverage.17"/>
+  <goal id="basictwotanks_step.coverage.19"/>
+  <goal id="basictwotanks_step.coverage.22"/>
+  <goal id="basictwotanks_step.coverage.30"/>
+  <goal id="basictwotanks_step.coverage.31"/>
+  <goal id="basictwotanks_step.coverage.34"/>
+  <goal id="basictwotanks_step.coverage.36"/>
+  <goal id="basictwotanks_step.coverage.38"/>
+  <goal id="basictwotanks_step.coverage.46"/>
+  <goal id="basictwotanks_step.coverage.48"/>
+  <goal id="basictwotanks_step.coverage.49"/>
+  <goal id="basictwotanks_step.coverage.51"/>
+  <goal id="basictwotanks_step.coverage.55"/>
+  <goal id="basictwotanks_step.coverage.58"/>
+  <goal id="basictwotanks_step.coverage.60"/>
+  <goal id="basictwotanks_step.coverage.61"/>
+  <goal id="basictwotanks_step.coverage.63"/>
+  <goal id="basictwotanks_step.coverage.67"/>
+  <goal id="basictwotanks_step.coverage.69"/>
+  <goal id="basictwotanks_step.coverage.72"/>
+  <goal id="basictwotanks_step.coverage.73"/>
+  <goal id="basictwotanks_step.coverage.75"/>
+  <goal id="basictwotanks_step.coverage.77"/>
+  <goal id="basictwotanks_step.coverage.82"/>
+  <goal id="basictwotanks_step.coverage.84"/>
+  <goal id="basictwotanks_step.coverage.86"/>
+  <goal id="basictwotanks_step.coverage.93"/>
+</test>
+
+<test>
+  <inputs>
+    <input id="char">
+      <integer binary="00000000" c_type="char" width="8">0</integer>
+    </input>
+    <input id="double">
+      <float binary="0000000000000000000000000000000000000000000000000000000000000000" width="64">0</float>
+    </input>
+    <input id="double">
+      <float binary="1011111111110000000000000000000000000000000000000000000000000000" width="64">-1</float>
+    </input>
+    <input id="double">
+      <float binary="1000000000000000000000000000000000010000000000000000000000000000" width="64">-1.326247e-315</float>
+    </input>
+    <input id="double">
+      <float binary="0011111111110000000000000000000000000000000000000000000000000000" width="64">1</float>
+    </input>
+    <input id="double">
+      <float binary="0011111111010000000000000000000000000000000000000000000000000000" width="64">0.25</float>
+    </input>
+    <input id="double">
+      <float binary="0000100000000000000000000000000000000000000000000000000000000000" width="64">3.785767e-270</float>
+    </input>
+    <input id="double">
+      <float binary="0100000000000000000000000000000000000000000000000000000000100000" width="64">2</float>
+    </input>
+    <input id="double">
+      <float binary="0111111111110000000000000000000000000000000000000000000000000000" width="64">+inf</float>
+    </input>
+  </inputs>
+  <goal id="basictwotanks_step.coverage.12"/>
+</test>
+
+<test>
+  <inputs>
+    <input id="char">
+      <integer binary="00000000" c_type="char" width="8">0</integer>
+    </input>
+    <input id="double">
+      <float binary="0000000000000000000000000000000000000000000000000000000000000000" width="64">0</float>
+    </input>
+    <input id="double">
+      <float binary="1011111111110000000000000000000000000000000000000000000000000000" width="64">-1</float>
+    </input>
+    <input id="double">
+      <float binary="1000000000000000000000000000000000010000000000000000000000000000" width="64">-1.326247e-315</float>
+    </input>
+    <input id="double">
+      <float binary="0011111111110000000000000000000000000000000000000000000000000000" width="64">1</float>
+    </input>
+    <input id="double">
+      <float binary="0011111111010000000000000000000000000000000000000000000000000000" width="64">0.25</float>
+    </input>
+    <input id="double">
+      <float binary="0000100000000000000000000000000000000000000000000000000000000000" width="64">3.785767e-270</float>
+    </input>
+    <input id="double">
+      <float binary="0100000000000000000000000000000000000000000000000000000000100000" width="64">2</float>
+    </input>
+    <input id="double">
+      <float binary="0111111111110000000000000000000000000000000000000000000000000000" width="64">+inf</float>
+    </input>
+  </inputs>
+  <goal id="basictwotanks_step.coverage.47"/>
+</test>
+
+<test>
+  <inputs>
+    <input id="char">
+      <integer binary="00000000" c_type="char" width="8">0</integer>
+    </input>
+    <input id="double">
+      <float binary="0000000000000000000000000000000000000000000000000000000000000000" width="64">0</float>
+    </input>
+    <input id="double">
+      <float binary="1011111111110000000000000000000000000000000000000000000000000000" width="64">-1</float>
+    </input>
+    <input id="double">
+      <float binary="1000000000000000000000000000000000010000000000000000000000000000" width="64">-1.326247e-315</float>
+    </input>
+    <input id="double">
+      <float binary="0011111111110000000000000000000000000000000000000000000000000000" width="64">1</float>
+    </input>
+    <input id="double">
+      <float binary="0011111111010000000000000000000000000000000000000000000000000000" width="64">0.25</float>
+    </input>
+    <input id="double">
+      <float binary="0000100000000000000000000000000000000000000000000000000000000000" width="64">3.785767e-270</float>
+    </input>
+    <input id="double">
+      <float binary="0100000000000000000000000000000000000000000000000000000000100000" width="64">2</float>
+    </input>
+    <input id="double">
+      <float binary="0111111111110000000000000000000000000000000000000000000000000000" width="64">+inf</float>
+    </input>
+  </inputs>
+  <goal id="basictwotanks_step.coverage.45"/>
+</test>
+
+<test>
+  <inputs>
+    <input id="char">
+      <integer binary="00000000" c_type="char" width="8">0</integer>
+    </input>
+    <input id="double">
+      <float binary="0000000000000000000000000000000000000000000000000000000000000000" width="64">0</float>
+    </input>
+    <input id="double">
+      <float binary="1011111111110000000000000000000000000000000000000000000000000000" width="64">-1</float>
+    </input>
+    <input id="double">
+      <float binary="1000000000000000000000000000000000010000000000000000000000000000" width="64">-1.326247e-315</float>
+    </input>
+    <input id="double">
+      <float binary="0011111111110000000000000000000000000000000000000000000000000000" width="64">1</float>
+    </input>
+    <input id="double">
+      <float binary="0011111111010000000000000000000000000000000000000000000000000000" width="64">0.25</float>
+    </input>
+    <input id="double">
+      <float binary="0000100000000000000000000000000000000000000000000000000000000000" width="64">3.785767e-270</float>
+    </input>
+    <input id="double">
+      <float binary="0100000000000000000000000000000000000000000000000000000000100000" width="64">2</float>
+    </input>
+    <input id="double">
+      <float binary="0111111111110000000000000000000000000000000000000000000000000000" width="64">+inf</float>
+    </input>
+  </inputs>
+  <goal id="basictwotanks_step.coverage.29"/>
+</test>
+
+<test>
+  <inputs>
+    <input id="char">
+      <integer binary="00000000" c_type="char" width="8">0</integer>
+    </input>
+    <input id="double">
+      <float binary="0000000000000000000000000000000000000000000000000000000000000000" width="64">0</float>
+    </input>
+    <input id="double">
+      <float binary="1011111111110000000000000000000000000000000000000000000000000000" width="64">-1</float>
+    </input>
+    <input id="double">
+      <float binary="1000000000000000000000000000000000010000000000000000000000000000" width="64">-1.326247e-315</float>
+    </input>
+    <input id="double">
+      <float binary="0011111111110000000000000000000000000000000000000000000000000000" width="64">1</float>
+    </input>
+    <input id="double">
+      <float binary="0011111111010000000000000000000000000000000000000000000000000000" width="64">0.25</float>
+    </input>
+    <input id="double">
+      <float binary="0000100000000000000000000000000000000000000000000000000000000000" width="64">3.785767e-270</float>
+    </input>
+    <input id="double">
+      <float binary="0100000000000000000000000000000000000000000000000000000000100000" width="64">2</float>
+    </input>
+    <input id="double">
+      <float binary="0111111111110000000000000000000000000000000000000000000000000000" width="64">+inf</float>
+    </input>
+  </inputs>
+  <goal id="basictwotanks_step.coverage.59"/>
+</test>
+
+<test>
+  <inputs>
+    <input id="char">
+      <integer binary="00000000" c_type="char" width="8">0</integer>
+    </input>
+    <input id="double">
+      <float binary="0000000000000000000000000000000000000000000000000000000000000000" width="64">0</float>
+    </input>
+    <input id="double">
+      <float binary="1011111111110000000000000000000000000000000000000000000000000000" width="64">-1</float>
+    </input>
+    <input id="double">
+      <float binary="1000000000000000000000000000000000010000000000000000000000000000" width="64">-1.326247e-315</float>
+    </input>
+    <input id="double">
+      <float binary="0011111111110000000000000000000000000000000000000000000000000000" width="64">1</float>
+    </input>
+    <input id="double">
+      <float binary="0011111111100000000000100000000000000000000000000000000000000000" width="64">0.500244</float>
+    </input>
+    <input id="double">
+      <float binary="0000100000000000000000000000000000000000000000000000000000000000" width="64">3.785767e-270</float>
+    </input>
+    <input id="double">
+      <float binary="0100000000000000000000000000000000000000000000000000000000100000" width="64">2</float>
+    </input>
+    <input id="double">
+      <float binary="0111111111110000000000000000000000000000000000000000000000000000" width="64">+inf</float>
+    </input>
+  </inputs>
+  <goal id="basictwotanks_step.coverage.91"/>
+</test>
+
+<test>
+  <inputs>
+    <input id="char">
+      <integer binary="00000000" c_type="char" width="8">0</integer>
+    </input>
+    <input id="double">
+      <float binary="0000000000000000000000000000000000000000000000000000000000000000" width="64">0</float>
+    </input>
+    <input id="double">
+      <float binary="1011111111110000000000000000000000000000000000000000000000000000" width="64">-1</float>
+    </input>
+    <input id="double">
+      <float binary="1000000000000000000000000000000000010000000000000000000000000000" width="64">-1.326247e-315</float>
+    </input>
+    <input id="double">
+      <float binary="1011111111110000000000000000000000000000000000000000000000000000" width="64">-1</float>
+    </input>
+    <input id="double">
+      <float binary="0011111111110000000000000000000000000000000000000000000000000000" width="64">1</float>
+    </input>
+    <input id="double">
+      <float binary="0000100000000000000000000000000000000000000000000000000000000000" width="64">3.785767e-270</float>
+    </input>
+    <input id="double">
+      <float binary="0100000000000000000000000000000000000000000000000000000000100000" width="64">2</float>
+    </input>
+    <input id="double">
+      <float binary="0111111111110000000000000000000000000000000000000000000000000000" width="64">+inf</float>
+    </input>
+  </inputs>
+  <goal id="basictwotanks_step.coverage.21"/>
+  <goal id="basictwotanks_step.coverage.24"/>
+  <goal id="basictwotanks_step.coverage.25"/>
+  <goal id="basictwotanks_step.coverage.28"/>
+  <goal id="basictwotanks_step.coverage.37"/>
+  <goal id="basictwotanks_step.coverage.39"/>
+  <goal id="basictwotanks_step.coverage.42"/>
+  <goal id="basictwotanks_step.coverage.44"/>
+  <goal id="basictwotanks_step.coverage.50"/>
+  <goal id="basictwotanks_step.coverage.52"/>
+  <goal id="basictwotanks_step.coverage.56"/>
+</test>
+
+<test>
+  <inputs>
+    <input id="char">
+      <integer binary="00000000" c_type="char" width="8">0</integer>
+    </input>
+    <input id="double">
+      <float binary="0000000000000000000000000000000000000000000000000000000000000000" width="64">0</float>
+    </input>
+    <input id="double">
+      <float binary="1011111111110000000000000000000000000000000000000000000000000000" width="64">-1</float>
+    </input>
+    <input id="double">
+      <float binary="1000000000000000000000000000000000010000000000000000000000000000" width="64">-1.326247e-315</float>
+    </input>
+    <input id="double">
+      <float binary="1011111111110000000000000000000000000000000000000000000000000000" width="64">-1</float>
+    </input>
+    <input id="double">
+      <float binary="0011111111110000000000000000000000000000000000000000000000000000" width="64">1</float>
+    </input>
+    <input id="double">
+      <float binary="0000100000000000000000000000000000000000000000000000000000000000" width="64">3.785767e-270</float>
+    </input>
+    <input id="double">
+      <float binary="0100000000000000000000000000000000000000000000000000000000100000" width="64">2</float>
+    </input>
+    <input id="double">
+      <float binary="0111111111110000000000000000000000000000000000000000000000000000" width="64">+inf</float>
+    </input>
+  </inputs>
+  <goal id="basictwotanks_step.coverage.40"/>
+</test>
+
+<test>
+  <inputs>
+    <input id="char">
+      <integer binary="00000000" c_type="char" width="8">0</integer>
+    </input>
+    <input id="double">
+      <float binary="0000000000000000000000000000000000000000000000000000000000000000" width="64">0</float>
+    </input>
+    <input id="double">
+      <float binary="1011111111110000000000000000000000000000000000000000000000000000" width="64">-1</float>
+    </input>
+    <input id="double">
+      <float binary="1000000000000000000000000000000000010000000000000000000000000000" width="64">-1.326247e-315</float>
+    </input>
+    <input id="double">
+      <float binary="1011111111110000000000000000000000000000000000000000000000000000" width="64">-1</float>
+    </input>
+    <input id="double">
+      <float binary="0011111111110000000000000000000000000000000000000000000000000000" width="64">1</float>
+    </input>
+    <input id="double">
+      <float binary="0000100000000000000000000000000000000000000000000000000000000000" width="64">3.785767e-270</float>
+    </input>
+    <input id="double">
+      <float binary="0100000000000000000000000000000000000000000000000000000000100000" width="64">2</float>
+    </input>
+    <input id="double">
+      <float binary="0111111111110000000000000000000000000000000000000000000000000000" width="64">+inf</float>
+    </input>
+  </inputs>
+  <goal id="basictwotanks_step.coverage.23"/>
+</test>
+
+<test>
+  <inputs>
+    <input id="char">
+      <integer binary="00000000" c_type="char" width="8">0</integer>
+    </input>
+    <input id="double">
+      <float binary="0000000000000000000000000000000000000000000000000000000000000000" width="64">0</float>
+    </input>
+    <input id="double">
+      <float binary="1011111111110000000000000000000000000000000000000000000000000000" width="64">-1</float>
+    </input>
+    <input id="double">
+      <float binary="1000000000000000000000000000000000010000000000000000000000000000" width="64">-1.326247e-315</float>
+    </input>
+    <input id="double">
+      <float binary="1011111111110000000000000000000000000000000000000000000000000000" width="64">-1</float>
+    </input>
+    <input id="double">
+      <float binary="0011111111110000000000000000000000000000000000000000000000000001" width="64">1</float>
+    </input>
+    <input id="double">
+      <float binary="0000100000000000000000000000000000000000000000000000000000000000" width="64">3.785767e-270</float>
+    </input>
+    <input id="double">
+      <float binary="0100000000000000000000000000000000000000000000000000000000100000" width="64">2</float>
+    </input>
+    <input id="double">
+      <float binary="0111111111110000000000000000000000000000000000000000000000000000" width="64">+inf</float>
+    </input>
+  </inputs>
+  <goal id="basictwotanks_step.coverage.26"/>
+  <goal id="basictwotanks_step.coverage.27"/>
+  <goal id="basictwotanks_step.coverage.32"/>
+</test>
+
+<test>
+  <inputs>
+    <input id="char">
+      <integer binary="00000000" c_type="char" width="8">0</integer>
+    </input>
+    <input id="double">
+      <float binary="0000000000000000000000000000000000000000000000000000000000000000" width="64">0</float>
+    </input>
+    <input id="double">
+      <float binary="0011111111110000000000000000000000000000000000000000000000000000" width="64">1</float>
+    </input>
+    <input id="double">
+      <float binary="1000000000000000000000000000000000010000000000000000000000000000" width="64">-1.326247e-315</float>
+    </input>
+    <input id="double">
+      <float binary="0011111111110000000000000000000000000000000000000000000000000000" width="64">1</float>
+    </input>
+    <input id="double">
+      <float binary="0011111111110000000000000000000000000000000000000000000000000001" width="64">1</float>
+    </input>
+    <input id="double">
+      <float binary="0000100000000000000000000000000000000000000000000000000000000000" width="64">3.785767e-270</float>
+    </input>
+    <input id="double">
+      <float binary="0010000000000000000000000000000000000000000000000000000000100000" width="64">1.491668e-154</float>
+    </input>
+    <input id="double">
+      <float binary="0111111111110000000000000000000000000000000000000000000000000000" width="64">+inf</float>
+    </input>
+  </inputs>
+  <goal id="basictwotanks_step.coverage.78"/>
+</test>
+
+<test>
+  <inputs>
+    <input id="char">
+      <integer binary="00000000" c_type="char" width="8">0</integer>
+    </input>
+    <input id="double">
+      <float binary="0000000000000000000000000000000000000000000000000000000000000000" width="64">0</float>
+    </input>
+    <input id="double">
+      <float binary="0011111111110000000000000000000000000000000000000000000000000000" width="64">1</float>
+    </input>
+    <input id="double">
+      <float binary="1000000000000000000000000000000000010000000000000000000000000000" width="64">-1.326247e-315</float>
+    </input>
+    <input id="double">
+      <float binary="0011111111110000000000000000000000000000000000000000000000000000" width="64">1</float>
+    </input>
+    <input id="double">
+      <float binary="0011111111110000000000000000000000000000000000000000000000000001" width="64">1</float>
+    </input>
+    <input id="double">
+      <float binary="0000000000000000000000000000000000000000000000000000000000000000" width="64">0</float>
+    </input>
+    <input id="double">
+      <float binary="0010000000000000000000000000000000000000000000000000000000100000" width="64">1.491668e-154</float>
+    </input>
+    <input id="double">
+      <float binary="0100000000000000000000000000000000000000000000000000000000000000" width="64">2</float>
+    </input>
+  </inputs>
+  <goal id="basictwotanks_step.coverage.33"/>
+  <goal id="basictwotanks_step.coverage.35"/>
+  <goal id="basictwotanks_step.coverage.53"/>
+  <goal id="basictwotanks_step.coverage.71"/>
+</test>
+
+<test>
+  <inputs>
+    <input id="char">
+      <integer binary="00000000" c_type="char" width="8">0</integer>
+    </input>
+    <input id="double">
+      <float binary="0000000000000000000000000000000000000000000000000000000000000000" width="64">0</float>
+    </input>
+    <input id="double">
+      <float binary="0011111111110000000000000000000000000000000000000000000000000000" width="64">1</float>
+    </input>
+    <input id="double">
+      <float binary="1000000000000000000000000000000000010000000000000000000000000000" width="64">-1.326247e-315</float>
+    </input>
+    <input id="double">
+      <float binary="0011111111110000000000000000000000000000000000000000000000000000" width="64">1</float>
+    </input>
+    <input id="double">
+      <float binary="0011111111110000000000000000000000000000000000000000000000000001" width="64">1</float>
+    </input>
+    <input id="double">
+      <float binary="0000000000000000000000000000000000000000000000000000000000000000" width="64">0</float>
+    </input>
+    <input id="double">
+      <float binary="0010000000000000000000000000000000000000000000000000000000100000" width="64">1.491668e-154</float>
+    </input>
+    <input id="double">
+      <float binary="0011111111110000000000000000000000000000000000000000000000000000" width="64">1</float>
+    </input>
+  </inputs>
+  <goal id="basictwotanks_step.coverage.81"/>
+  <goal id="basictwotanks_step.coverage.85"/>
+</test>
+
+<test>
+  <inputs>
+    <input id="char">
+      <integer binary="00000000" c_type="char" width="8">0</integer>
+    </input>
+    <input id="double">
+      <float binary="0000000000000000000000000000000000000000000000000000000000000000" width="64">0</float>
+    </input>
+    <input id="double">
+      <float binary="0011111111110000000000000000000000000000000000000000000000000000" width="64">1</float>
+    </input>
+    <input id="double">
+      <float binary="1000000000000000000000000000000000010000000000000000000000000000" width="64">-1.326247e-315</float>
+    </input>
+    <input id="double">
+      <float binary="0011111111110000000000000000000000000000000000000000000000000000" width="64">1</float>
+    </input>
+    <input id="double">
+      <float binary="0011111111110000000000000000000000000000000000000000000000000001" width="64">1</float>
+    </input>
+    <input id="double">
+      <float binary="0000000000000000000000000000000000000000000000000000000000000000" width="64">0</float>
+    </input>
+    <input id="double">
+      <float binary="0010000000000000000000000000000000000000000000000000000000100000" width="64">1.491668e-154</float>
+    </input>
+    <input id="double">
+      <float binary="0011111111110000000000000000000000000000000000000000000000000000" width="64">1</float>
+    </input>
+  </inputs>
+  <goal id="basictwotanks_step.coverage.54"/>
+</test>
+
+<test>
+  <inputs>
+    <input id="char">
+      <integer binary="00000000" c_type="char" width="8">0</integer>
+    </input>
+    <input id="double">
+      <float binary="0000000000000000000000000000000000000000000000000000000000000000" width="64">0</float>
+    </input>
+    <input id="double">
+      <float binary="0011111111110000000000000000000000000000000000000000000000000000" width="64">1</float>
+    </input>
+    <input id="double">
+      <float binary="0000000000000000000000000000000000010000000000000000000000000000" width="64">1.326247e-315</float>
+    </input>
+    <input id="double">
+      <float binary="0011111111110000000000000000000000000000000000000000000000000000" width="64">1</float>
+    </input>
+    <input id="double">
+      <float binary="0011111111110000100000000000000000000000000000000000000000000000" width="64">1.03125</float>
+    </input>
+    <input id="double">
+      <float binary="0000000000000000000000000000000000000000000000000000000000000000" width="64">0</float>
+    </input>
+    <input id="double">
+      <float binary="1100000000000010000111100001101100001000100110100000001010100101" width="64">-2.2647</float>
+    </input>
+    <input id="double">
+      <float binary="0011111111110000000000000000000000000000000000000000000000000000" width="64">1</float>
+    </input>
+  </inputs>
+  <goal id="basictwotanks_step.coverage.2"/>
+</test>
+
+<test>
+  <inputs>
+    <input id="char">
+      <integer binary="00000000" c_type="char" width="8">0</integer>
+    </input>
+    <input id="double">
+      <float binary="0011111111110000000000000000000000000000000000000000000000000000" width="64">1</float>
+    </input>
+    <input id="double">
+      <float binary="0011111111110000000000000000000000000000000000000000000000000000" width="64">1</float>
+    </input>
+    <input id="double">
+      <float binary="0000000000000000000000000000000000010000000000000000000000000000" width="64">1.326247e-315</float>
+    </input>
+    <input id="double">
+      <float binary="0011111111110000000000000000000000000000000000000000000000000000" width="64">1</float>
+    </input>
+    <input id="double">
+      <float binary="0011111111110000100000000000000000000000000000000000000000000000" width="64">1.03125</float>
+    </input>
+    <input id="double">
+      <float binary="0000000000000000000000000000000000000000000000000000000000000000" width="64">0</float>
+    </input>
+    <input id="double">
+      <float binary="0100000000000101110000011110010011110111011001011111110110001011" width="64">2.719675</float>
+    </input>
+    <input id="double">
+      <float binary="0011111111110000000000000000000000000000000000000000000000000000" width="64">1</float>
+    </input>
+  </inputs>
+  <goal id="basictwotanks_step.coverage.89"/>
+</test>
+
+<test>
+  <inputs>
+    <input id="char">
+      <integer binary="00000000" c_type="char" width="8">0</integer>
+    </input>
+    <input id="double">
+      <float binary="0011111111110000000000000000000000000000000000000000000000000000" width="64">1</float>
+    </input>
+    <input id="double">
+      <float binary="0011111111110001000000000000000000000000000000000000000000000000" width="64">1.0625</float>
+    </input>
+    <input id="double">
+      <float binary="0000000000000000000000000000000000010000000000000000000000000000" width="64">1.326247e-315</float>
+    </input>
+    <input id="double">
+      <float binary="0011111111110000000000000000000000000000000000001000000000000000" width="64">1</float>
+    </input>
+    <input id="double">
+      <float binary="0011111111110000000000000000000000000000000000000000000000000000" width="64">1</float>
+    </input>
+    <input id="double">
+      <float binary="0000000000000000000000000000000000000000000000000000000000000000" width="64">0</float>
+    </input>
+    <input id="double">
+      <float binary="0100000000000101110000011110010011110111011001011111110110001011" width="64">2.719675</float>
+    </input>
+    <input id="double">
+      <float binary="0100000000000000000000000000000000000000000000000000000000000000" width="64">2</float>
+    </input>
+  </inputs>
+  <goal id="basictwotanks_step.coverage.57"/>
+  <goal id="basictwotanks_step.coverage.65"/>
+</test>
+
+<test>
+  <inputs>
+    <input id="char">
+      <integer binary="00000000" c_type="char" width="8">0</integer>
+    </input>
+    <input id="double">
+      <float binary="0011111111110000000000000000000000000000000000000000000000000000" width="64">1</float>
+    </input>
+    <input id="double">
+      <float binary="0011111111110001000000000000000000000000000000000000000000000000" width="64">1.0625</float>
+    </input>
+    <input id="double">
+      <float binary="0000000000000000000000000000000000010000000000000000000000000000" width="64">1.326247e-315</float>
+    </input>
+    <input id="double">
+      <float binary="0011111111110000000000000000000000000000000000001000000000000000" width="64">1</float>
+    </input>
+    <input id="double">
+      <float binary="0011111111110000000000000000000000000000000000000000000000000000" width="64">1</float>
+    </input>
+    <input id="double">
+      <float binary="0000000000000000000000000000000000000000000000000000000000000000" width="64">0</float>
+    </input>
+    <input id="double">
+      <float binary="0100000000000101110000011110010011110111011001011111110110001011" width="64">2.719675</float>
+    </input>
+    <input id="double">
+      <float binary="0100000000000000000000000000000000000000000000000000000000000000" width="64">2</float>
+    </input>
+  </inputs>
+  <goal id="basictwotanks_step.coverage.66"/>
+</test>
+
+<test>
+  <inputs>
+    <input id="char">
+      <integer binary="00000000" c_type="char" width="8">0</integer>
+    </input>
+    <input id="double">
+      <float binary="0011111111110000000000000000000000000000000000000000000000000000" width="64">1</float>
+    </input>
+    <input id="double">
+      <float binary="0011111111110001000000000000000000000000000000000000000000000000" width="64">1.0625</float>
+    </input>
+    <input id="double">
+      <float binary="0000000000000000000000000000000000010000000000000000000000000000" width="64">1.326247e-315</float>
+    </input>
+    <input id="double">
+      <float binary="0011111111110000000000000000000000000000000000000000000000000000" width="64">1</float>
+    </input>
+    <input id="double">
+      <float binary="0011111111110000000000000000000000000000000000000000000000000000" width="64">1</float>
+    </input>
+    <input id="double">
+      <float binary="0000000000000000000000000000000000000000000000000000000000000000" width="64">0</float>
+    </input>
+    <input id="double">
+      <float binary="0100000000000101110000011110010011110111011001011111110110001011" width="64">2.719675</float>
+    </input>
+    <input id="double">
+      <float binary="0100000000000000000000000000000000000000000000000000000000000000" width="64">2</float>
+    </input>
+  </inputs>
+  <goal id="basictwotanks_step.coverage.62"/>
+  <goal id="basictwotanks_step.coverage.64"/>
+  <goal id="basictwotanks_step.coverage.68"/>
+  <goal id="basictwotanks_step.coverage.70"/>
+  <goal id="basictwotanks_step.coverage.74"/>
+  <goal id="basictwotanks_step.coverage.76"/>
+</test>
+
+<test>
+  <inputs>
+    <input id="char">
+      <integer binary="00000000" c_type="char" width="8">0</integer>
+    </input>
+    <input id="double">
+      <float binary="0011111111110000000000000000000000000000000000000000000000000000" width="64">1</float>
+    </input>
+    <input id="double">
+      <float binary="0011111111110000000000000000000000000000000000000000000000000000" width="64">1</float>
+    </input>
+    <input id="double">
+      <float binary="0000000000000000000000000000000000010000000000000000000000000000" width="64">1.326247e-315</float>
+    </input>
+    <input id="double">
+      <float binary="0011111111110000000000000000000000000000000000000000000000000000" width="64">1</float>
+    </input>
+    <input id="double">
+      <float binary="0011111111110000000000000000000000000000000000000000000000000000" width="64">1</float>
+    </input>
+    <input id="double">
+      <float binary="0000000000000000000000000000000000000000000000000000000000000000" width="64">0</float>
+    </input>
+    <input id="double">
+      <float binary="0100000000000101110000011110010011110111011001011111110110001011" width="64">2.719675</float>
+    </input>
+    <input id="double">
+      <float binary="0011111111110000000000000000000000000000000000000000000000000000" width="64">1</float>
+    </input>
+  </inputs>
+  <goal id="basictwotanks_step.coverage.79"/>
+  <goal id="basictwotanks_step.coverage.83"/>
+  <goal id="basictwotanks_step.coverage.87"/>
+</test>
+
+<test>
+  <inputs>
+    <input id="char">
+      <integer binary="00000000" c_type="char" width="8">0</integer>
+    </input>
+    <input id="double">
+      <float binary="0011111111110000000000000000000000000000000000000000000000000000" width="64">1</float>
+    </input>
+    <input id="double">
+      <float binary="0011111111110000000000000000000000000000000000000000000000000000" width="64">1</float>
+    </input>
+    <input id="double">
+      <float binary="0000000000000000000000000000000000010000000000000000000000000000" width="64">1.326247e-315</float>
+    </input>
+    <input id="double">
+      <float binary="0011111111110000000000000000000000000000000000000000000000000000" width="64">1</float>
+    </input>
+    <input id="double">
+      <float binary="0011111111110000000000000000000000000000000000000000000000000000" width="64">1</float>
+    </input>
+    <input id="double">
+      <float binary="0000000000000000000000000000000000000000000000000000000000000000" width="64">0</float>
+    </input>
+    <input id="double">
+      <float binary="0100000000000101110000011110010011110111011001011111110110001011" width="64">2.719675</float>
+    </input>
+    <input id="double">
+      <float binary="0100000000000000000000000000000000000000000000000000000000000000" width="64">2</float>
+    </input>
+  </inputs>
+  <goal id="basictwotanks_step.coverage.80"/>
+</test>
+
+<test>
+  <inputs>
+    <input id="char">
+      <integer binary="00000000" c_type="char" width="8">0</integer>
+    </input>
+    <input id="double">
+      <float binary="0000000000000000000000000000000000000000000000000000000000000000" width="64">0</float>
+    </input>
+    <input id="double">
+      <float binary="0011111111110000000000000000000000000000000000000000000000000000" width="64">1</float>
+    </input>
+    <input id="double">
+      <float binary="0000000000000000000000000000000000010000000000000000000000000000" width="64">1.326247e-315</float>
+    </input>
+    <input id="double">
+      <float binary="0011111111110000000000000000000000000000000000000000000000000000" width="64">1</float>
+    </input>
+    <input id="double">
+      <float binary="0011111111110000000000000000000000000000000000000000000000000000" width="64">1</float>
+    </input>
+    <input id="double">
+      <float binary="0000000000000000000000000000000000000000000000000000000000000000" width="64">0</float>
+    </input>
+    <input id="double">
+      <float binary="0100010000001111111000000000000000000000000000000000000000000000" width="64">7.349875e+19</float>
+    </input>
+    <input id="double">
+      <float binary="0101000000000000000000000000000000000000000000000000000000000000" width="64">2.315842e+77</float>
+    </input>
+  </inputs>
+  <goal id="basictwotanks_step.coverage.5"/>
+  <goal id="basictwotanks_step.coverage.10"/>
+</test>
+
+<message type="STATUS-MESSAGE">
+  <text>** 97 of 99 covered (98.0%)</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>** Used 26 iterations</text>
+</message>
+
+</cprover>

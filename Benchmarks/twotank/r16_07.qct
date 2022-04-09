@@ -1,0 +1,7 @@
+# R07 If the tank 1 liquid height is greater than or equal to the
+# placement height of the tank 1 LOW liquid sensor then the sensor
+# should return an active (TRUE) state to the system.
+#
+# NOTE: Sensors *should* be Boolean, BUT they are enetered as floats in the model.
+# NOTE: max-time is important here (and probably should be reported by the tool).
+(t1_h >= tank1_sensor_lo_height_m) impl (tank1_SL_value ==  1.0);

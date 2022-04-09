@@ -1,0 +1,7 @@
+# R31 When the tank 1 valve is CLOSED that the tank 2 valves (production
+# and emergency) are CLOSED the liquid height in tank 2 shall remain the
+# same from the previous timestep.
+#
+# NOTE: pump and vlave states *should* be Boolean, BUT they are enetered as floats in the model.
+(Valve_State == 0.0 and Production_Valve_State == 0.0 and Emergency_Valve_State == 0.0) impl
+   (tank2_liquid_height_m == tank2_previous_height_m);

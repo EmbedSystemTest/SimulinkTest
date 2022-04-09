@@ -1,0 +1,4 @@
+# R15 The tank 1 is initially empty or below the low tank 1 liquid
+# height sensor. If the tank is not empty the liquid height must be
+# known to the system.
+(0.0 <= t1_h {0}) and (t1_h {0} < tank1_sensor_lo_height_m{0});

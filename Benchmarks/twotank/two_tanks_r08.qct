@@ -1,0 +1,41 @@
+# R07: "The height of the tank 2 liquid shall not be over the tank 2 high safety level for more than
+# the specified time. This specified time is dependent on the flowrate per timestep."
+
+# Additional info: "A violation will be identified but will not change the pump and valve states
+# until a following timestep. Therefore the number of allowable timesteps that the system can violate
+# the safety boundary before returning to the safe region is dependent on the system architecture."
+
+# QRA's interpretation: if liquid height is beyond the safety level, on the next time step pump and valve states
+# should be set to bring it back within safety level as quickly as possible. As a result, maximum number of 
+# steps the level can be beyond safety limit is just maximum inflow rate divided by maximum outflow rate, rounded up.
+
+# To see this: say the safety level is 7m, the maximum inflow rate is such that the liquid height can go up by at
+# most 0.3m per time step, and max outflow rate allows liquid height to go down by at most 0.07m per time step.
+# If liquid height goes from 7.0 to 7.3m in one time step, on subsequent time steps the height will be 7.23m, 7.16m, 7.09m,
+# 7.02m, 6.95m. This gives a total of 5 time steps spent above the safety level, or ceiling(0.3/0.07).
+
+# Note: the model appears to not actually meet this requirement. We can surface the bug by overriding
+# the sensor values to make them closer together, so it doesn't take as long for interesting behaviour
+# to happen:
+
+set k_max=21;
+override Constants.tank1_sensor_hi_height_m_constant = 0.08;
+override Constants.tank1_sensor_lo_height_m_constant = 0.04;
+override Constants.tank2_sensor_lo_height_m_constant = 0.0125;
+override Constants.tank2_sensor_md_height_m_constant = 0.017;
+override Constants.tank2_sensor_hi_height_m_constant = 0.025;
+
+max_inflow_rate = Constants.tank1_valve_flow_rate_m3s_constant;
+max_outflow_rate = Constants.tank2_p_valve_flow_rate_m3s_constant + Constants.tank2_e_valve_flow_rate_m3s_constant;
+
+max_safe_steps = __ceiling_int(max_outflow_rate/max_inflow_rate);
+
+# Variable for keeping track of whether liquid has been above low safety level
+hasCrossed{0} = ite(tank2_liquid_height_m{0} > Constants.tank2_sensor_lo_height_m_constant, true, false);
+hasCrossed{k} = ite(tank2_liquid_height_m > Constants.tank2_sensor_lo_height_m_constant, true, hasCrossed{k-1});
+
+# First verify that the maximum time is 3
+max_safe_steps == 3;
+
+# Now check that liquid is never below the safety level for more than 3 time steps (once it's already crossed)
+hasCrossed{k-3} impl ~all(tank2_liquid_height_m{k-0:3} < Constants.tank2_sensor_lo_height_m_constant{k-0:3});

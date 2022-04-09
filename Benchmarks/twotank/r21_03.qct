@@ -1,0 +1,7 @@
+# R03 When the tank 1 HIGH liquid sensor is FALSE and the tank 1 LOW
+# liquid sensor is TRUE then the tank 1 pump and the tank 1 outflow
+# valve shall maintain the states they were set to in the previous
+# timestep.
+#
+# NOTE: sensor values *should* be Boolean, BUT they are enetered as floats in the model.
+((tank1_SH_value{t} == 0.0) and (tank1_SL_value{t} == 1.0)) impl ((Pump_State{t}  == Pump_State{t-1}) and (Valve_State{t} == Valve_State{t-1}));

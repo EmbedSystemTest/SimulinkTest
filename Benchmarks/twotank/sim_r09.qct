@@ -1,0 +1,3 @@
+# R09 After the initial time step, the Previous Pump State shall be
+# equal to the Pump State in the previous step.
+pre_Pump_State{t} == Pump_State{t-1};

@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cprover>
+<program>CBMC 5.10 (cbmc-5.10)</program>
+<message type="STATUS-MESSAGE">
+  <text>CBMC version 5.10 (cbmc-5.10) 32-bit i386 windows</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Parsing C:/HomeSpace/DateTest/Cmain\symbol_cmain.c</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Converting</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Type-checking symbol_cmain</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Generating GOTO Program</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Adding CPROVER library (i386)</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Removal of function pointers and virtual functions</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Generic Property Instrumentation</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Rewriting existing assertions as assumptions</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Running with 8 object bits, 24 offset bits (default)</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Starting Bounded Model Checking</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Unwinding loop main.0 iteration 1 file C:/HomeSpace/DateTest/Cmain\symbol_cmain.c line 237 function main thread 0</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Unwinding loop main.1 iteration 1 file C:/HomeSpace/DateTest/Cmain\symbol_cmain.c line 267 function main thread 0</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>size of program expression: 1670 steps</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Generated 29 VCC(s), 25 remaining after simplification</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Passing problem to propositional reduction</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>converting SSA</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Aiming to cover 25 goal(s)</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Running propositional reduction</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Post-processing</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Solving with MiniSAT 2.2.1 with simplifier</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>1066511 variables, 5290344 clauses</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>SAT checker: instance is SATISFIABLE</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function main decision/condition `i &lt; 1' false</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function main decision/condition `i &lt; 1' true</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function main decision/condition `i &lt; 1' false</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function main decision/condition `i &lt; 1' true</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function NLGuidance_step decision/condition `rtb_MathFunction1_m &lt; 0.0' false</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function NLGuidance_step decision/condition `rtb_MathFunction1_m &lt; 0.0' false</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function NLGuidance_step MC/DC independence condition `!(rtb_MathFunction_idx_1 &lt;= 0.0) &amp;&amp; !(rtb_MathFunction1_m &lt;= 0.0)'</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function NLGuidance_step decision `rtb_MathFunction_idx_1 &lt;= 0.0 || rtb_MathFunction1_m &lt;= 0.0' false</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function NLGuidance_step condition `rtb_MathFunction_idx_1 &lt;= 0.0' false</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function NLGuidance_step condition `rtb_MathFunction1_m &lt;= 0.0' false</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Covered function NLGuidance_step decision/condition `FLOAT-(rtb_Sum4, rtb_Sum4, __CPROVER_rounding_mode) &lt; 0.0' false</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Solving with MiniSAT 2.2.1 with simplifier</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>1066511 variables, 3147324 clauses</text>
+</message>
+
+<message type="ERROR">
+  <text>SAT checker ran out of memory</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>Runtime decision procedure: 232.913s</text>
+</message>
+
+<goal description="decision/condition `i &lt; 1' false" id="main.coverage.1" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="main" line="237" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `i &lt; 1' true" id="main.coverage.2" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="main" line="237" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `i &lt; 1' false" id="main.coverage.3" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="main" line="267" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `i &lt; 1' true" id="main.coverage.4" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="main" line="267" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `rtb_MathFunction1_m &lt; 0.0' false" id="NLGuidance_step.coverage.1" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="NLGuidance_step" line="132" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `rtb_MathFunction1_m &lt; 0.0' true" id="NLGuidance_step.coverage.2" status="FAILED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="NLGuidance_step" line="132" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `rtb_MathFunction1_m &lt; 0.0' false" id="NLGuidance_step.coverage.3" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="NLGuidance_step" line="141" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `rtb_MathFunction1_m &lt; 0.0' true" id="NLGuidance_step.coverage.4" status="FAILED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="NLGuidance_step" line="141" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="MC/DC independence condition `!(rtb_MathFunction_idx_1 &lt;= 0.0) &amp;&amp; !(rtb_MathFunction1_m &lt;= 0.0)'" id="NLGuidance_step.coverage.5" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="NLGuidance_step" line="148" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="MC/DC independence condition `!(rtb_MathFunction_idx_1 &lt;= 0.0) &amp;&amp; rtb_MathFunction1_m &lt;= 0.0'" id="NLGuidance_step.coverage.6" status="FAILED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="NLGuidance_step" line="148" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="MC/DC independence condition `rtb_MathFunction_idx_1 &lt;= 0.0 &amp;&amp; !(rtb_MathFunction1_m &lt;= 0.0)'" id="NLGuidance_step.coverage.7" status="FAILED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="NLGuidance_step" line="148" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision `rtb_MathFunction_idx_1 &lt;= 0.0 || rtb_MathFunction1_m &lt;= 0.0' false" id="NLGuidance_step.coverage.8" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="NLGuidance_step" line="148" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision `rtb_MathFunction_idx_1 &lt;= 0.0 || rtb_MathFunction1_m &lt;= 0.0' true" id="NLGuidance_step.coverage.9" status="FAILED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="NLGuidance_step" line="148" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="condition `rtb_MathFunction_idx_1 &lt;= 0.0' false" id="NLGuidance_step.coverage.10" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="NLGuidance_step" line="148" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="condition `rtb_MathFunction_idx_1 &lt;= 0.0' true" id="NLGuidance_step.coverage.11" status="FAILED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="NLGuidance_step" line="148" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="condition `rtb_MathFunction1_m &lt;= 0.0' false" id="NLGuidance_step.coverage.12" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="NLGuidance_step" line="148" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="condition `rtb_MathFunction1_m &lt;= 0.0' true" id="NLGuidance_step.coverage.13" status="FAILED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="NLGuidance_step" line="148" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `rtb_Divide4 &lt; 0.0' false" id="NLGuidance_step.coverage.14" status="FAILED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="NLGuidance_step" line="161" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `rtb_Divide4 &lt; 0.0' true" id="NLGuidance_step.coverage.15" status="FAILED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="NLGuidance_step" line="161" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `rtb_MathFunction1_m &lt; 0.0' false" id="NLGuidance_step.coverage.16" status="FAILED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="NLGuidance_step" line="167" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `rtb_MathFunction1_m &lt; 0.0' true" id="NLGuidance_step.coverage.17" status="FAILED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="NLGuidance_step" line="167" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `rtb_Divide4 &lt; rtb_MathFunction1_m' false" id="NLGuidance_step.coverage.18" status="FAILED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="NLGuidance_step" line="173" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `rtb_Divide4 &lt; rtb_MathFunction1_m' true" id="NLGuidance_step.coverage.19" status="FAILED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="NLGuidance_step" line="173" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `FLOAT-(rtb_Sum4, rtb_Sum4, __CPROVER_rounding_mode) &lt; 0.0' false" id="NLGuidance_step.coverage.20" status="SATISFIED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="NLGuidance_step" line="196" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<goal description="decision/condition `FLOAT-(rtb_Sum4, rtb_Sum4, __CPROVER_rounding_mode) &lt; 0.0' true" id="NLGuidance_step.coverage.21" status="FAILED">
+  <location file="C:/HomeSpace/DateTest/Cmain\symbol_cmain.c" function="NLGuidance_step" line="196" working-directory="C:\Users\yangy\source\repos\Project2\Debug"/>
+</goal>
+
+<test>
+  <inputs>
+    <input id="double">
+      <float binary="0111111111111111111111111111111111111111111111111111111111111111" width="64">+NaN</float>
+    </input>
+    <input id="double">
+      <float binary="0000000000010000000000000000000000000000000000000000000000000100" width="64">2.225074e-308</float>
+    </input>
+    <input id="double">
+      <float binary="1000000001000000100000000000000000000000000000000000000000111010" width="64">-1.835686e-307</float>
+    </input>
+    <input id="double">
+      <float binary="1100000000110000000000000000000000000000000000111011110111111100" width="64">-16</float>
+    </input>
+    <input id="double">
+      <float binary="0000000000010010000000100001001101110100001000001000110111011011" width="64">2.504336e-308</float>
+    </input>
+    <input id="double">
+      <float binary="1000000000111111111111111111111111010111111111111111111100000000" width="64">-1.780059e-307</float>
+    </input>
+    <input id="double">
+      <float binary="0111111111110000010000000000000000000000000000000000000010000000" width="64">+NaN</float>
+    </input>
+    <input id="double">
+      <float binary="1111100000001000101111111110000000000000000010010100000101100101" width="64">-1.634379e+270</float>
+    </input>
+    <input id="double">
+      <float binary="1010000011101011000110001100001010100001000101100011000110000010" width="64">-4.138938e-150</float>
+    </input>
+    <input id="double">
+      <float binary="1111111111110000000000100000000000000000000000000000000000000000" width="64">-NaN</float>
+    </input>
+    <input id="double">
+      <float binary="0000000000000000000000000000000000000000000000000000000000000000" width="64">0</float>
+    </input>
+    <input id="double">
+      <float binary="0000000000000000000000000000000000000000000000000000000000000000" width="64">0</float>
+    </input>
+    <input id="double">
+      <float binary="0000000000000000000000000000000000000000000000000000000000000000" width="64">0</float>
+    </input>
+  </inputs>
+  <goal id="main.coverage.1"/>
+  <goal id="main.coverage.2"/>
+  <goal id="main.coverage.3"/>
+  <goal id="main.coverage.4"/>
+  <goal id="NLGuidance_step.coverage.1"/>
+  <goal id="NLGuidance_step.coverage.3"/>
+  <goal id="NLGuidance_step.coverage.5"/>
+  <goal id="NLGuidance_step.coverage.8"/>
+  <goal id="NLGuidance_step.coverage.10"/>
+  <goal id="NLGuidance_step.coverage.12"/>
+  <goal id="NLGuidance_step.coverage.20"/>
+</test>
+
+<message type="STATUS-MESSAGE">
+  <text>** 11 of 25 covered (44.0%)</text>
+</message>
+
+<message type="STATUS-MESSAGE">
+  <text>** Used 2 iterations</text>
+</message>
+
+</cprover>

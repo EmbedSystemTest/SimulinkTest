@@ -1,0 +1,6 @@
+# R08 When the tank 2 LOW sensor is TRUE and the tank 2 MID sensor is
+# FALSE, then emergency valve shall be commanded to be CLOSED and the
+# production valve shall be commanded to be OPEN.
+#
+# NOTE: sensor values *should* be Boolean, BUT they are enetered as floats in the model.
+((tank2_SL_value == 1.0) and (tank2_SM_value == 0.0)) impl (Production_Valve_State == 1.0 and Emergency_Valve_State  == 0.0);

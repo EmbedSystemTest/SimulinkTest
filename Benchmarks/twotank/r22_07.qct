@@ -1,0 +1,5 @@
+# R07 When the tank 2 LOW sensor is FALSE, the emergency valve and the
+# production valve (outflow valves) shall be commanded to be CLOSED.
+#
+# NOTE: sensor values *should* be Boolean, BUT they are enetered as floats in the model.
+tank2_SL_value == 0.0 impl (Production_Valve_State == 0.0 and Emergency_Valve_State  == 0.0);

@@ -1,0 +1,8 @@
+<Root>
+    <ModelInfo Name="CompositeActor" Path="ComplexBranch.CompositeActor" FunctionName="A1">
+        <InputInfo Name="in1" Type="u8"></InputInfo>
+        <InputInfo Name="in2" Type="i32"></InputInfo>
+        <OutputInfo Name="out1" Type="i32"></OutputInfo>
+        <OutputInfo Name="out2" Type="i32"></OutputInfo>
+    </ModelInfo>
+</Root>

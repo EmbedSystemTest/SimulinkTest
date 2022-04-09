@@ -1,0 +1,4 @@
+# R01 Tank 1 shall not overflow.
+#
+# From Requirements: Tank1_Max_Volume = 7.0 m^3
+t1_h * tank1_cross_section_area_m2  <= 7.0;

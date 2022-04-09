@@ -1,0 +1,318 @@
+<Root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.example.org/IRMetadata">
+    <Config>
+        <IterationCount Value="1"/>
+        <MainInitFunction Name="regs_12B_init"/>
+        <MainExecFunction Name="regs_12B_step"/>
+        <MainCompositeState Name="RT_MODEL_regs_12B_T"/>
+    </Config>
+    <File Name="regs_12B">
+        <Struct Name="DW_regs_12B_T">
+            <Member Name="UnitDelay_DSTATE" Type="real_T"/>
+            <Member Name="UnitDelay1_DSTATE" Type="real_T"/>
+            <Member Name="UnitDelay1_DSTATE_k" Type="real_T"/>
+            <Member Name="UnitDelay_DSTATE_o" Type="real_T"/>
+            <Member Name="Memory_PreviousInput" Type="real_T"/>
+        </Struct>
+        <Struct Name="ConstB_regs_12B_T">
+            <Member Name="Sum7" Type="const real_T"/>
+            <Member Name="Switch1" Type="const real_T"/>
+            <Member Name="Switch2" Type="const real_T"/>
+            <Member Name="Switch1_p" Type="const real_T"/>
+            <Member Name="Switch2_d" Type="const real_T"/>
+            <Member Name="Kcmd_Kbeta" Type="const real_T"/>
+            <Member Name="kts2fps1" Type="const real_T"/>
+            <Member Name="two_zeta_omega_DR" Type="const real_T"/>
+            <Member Name="Sum2" Type="const real_T"/>
+            <Member Name="RelationalOperator" Type="const boolean_T"/>
+            <Member Name="RelationalOperator_k" Type="const boolean_T"/>
+        </Struct>
+        <Struct Name="ConstP_regs_12B_T">
+            <Member Name="pooled4" Type="real_T" ArraySize="5"/>
+            <Member Name="transition_bvr_XData" Type="real_T" ArraySize="2"/>
+            <Member Name="transition_bvr_YData" Type="real_T" ArraySize="2"/>
+        </Struct>
+        <Struct Name="creal32_T">
+            <Member Name="re" Type="real32_T"/>
+            <Member Name="im" Type="real32_T"/>
+        </Struct>
+        <Struct Name="creal64_T">
+            <Member Name="re" Type="real64_T"/>
+            <Member Name="im" Type="real64_T"/>
+        </Struct>
+        <Struct Name="creal_T">
+            <Member Name="re" Type="real_T"/>
+            <Member Name="im" Type="real_T"/>
+        </Struct>
+        <Struct Name="cint8_T">
+            <Member Name="re" Type="int8_T"/>
+            <Member Name="im" Type="int8_T"/>
+        </Struct>
+        <Struct Name="cuint8_T">
+            <Member Name="re" Type="uint8_T"/>
+            <Member Name="im" Type="uint8_T"/>
+        </Struct>
+        <Struct Name="cint16_T">
+            <Member Name="re" Type="int16_T"/>
+            <Member Name="im" Type="int16_T"/>
+        </Struct>
+        <Struct Name="cuint16_T">
+            <Member Name="re" Type="uint16_T"/>
+            <Member Name="im" Type="uint16_T"/>
+        </Struct>
+        <Struct Name="cint32_T">
+            <Member Name="re" Type="int32_T"/>
+            <Member Name="im" Type="int32_T"/>
+        </Struct>
+        <Struct Name="cuint32_T">
+            <Member Name="re" Type="uint32_T"/>
+            <Member Name="im" Type="uint32_T"/>
+        </Struct>
+        <Struct Name="tag_RTM_regs_12B_T">
+            <Member Name="errorStatus" Type="char_T" IsAddress="1"/>
+            <Member Name="dwork" Type="DW_regs_12B_T" IsAddress="1"/>
+        </Struct>
+        <Macro Name="RT_PI" Value="3.14159265358979323846" HasIfnodefCheck=""/>
+        <Macro Name="RT_PIF" Value="3.1415927F" HasIfnodefCheck=""/>
+        <Macro Name="RT_LN_10" Value="2.30258509299404568402" HasIfnodefCheck=""/>
+        <Macro Name="RT_LN_10F" Value="2.3025851F" HasIfnodefCheck=""/>
+        <Macro Name="RT_LOG10E" Value="0.43429448190325182765" HasIfnodefCheck=""/>
+        <Macro Name="RT_LOG10EF" Value="0.43429449F" HasIfnodefCheck=""/>
+        <Macro Name="RT_E" Value="2.7182818284590452354" HasIfnodefCheck=""/>
+        <Macro Name="RT_EF" Value="2.7182817F" HasIfnodefCheck=""/>
+        <Macro Name="false" Value="0" HasIfnodefCheck=""/>
+        <Macro Name="true" Value="1" HasIfnodefCheck=""/>
+        <Macro Name="NULL" Value="0" HasIfnodefCheck=""/>
+        <Macro Name="UNUSED_PARAMETER(x)" Value="(void)(x)" HasIfnodefCheck=""/>
+        <Macro Name="rtmGetErrorStatus(rtm)" Value="((rtm)-&gt;errorStatus)" HasIfnodefCheck=""/>
+        <Macro Name="rtmSetErrorStatus(rtm,val)" Value="((rtm)-&gt;errorStatus=(val))" HasIfnodefCheck=""/>
+        <TypeDefine Name="signed char" Value="int8_T"/>
+        <TypeDefine Name="unsigned char" Value="uint8_T"/>
+        <TypeDefine Name="short" Value="int16_T"/>
+        <TypeDefine Name="unsigned short" Value="uint16_T"/>
+        <TypeDefine Name="int" Value="int32_T"/>
+        <TypeDefine Name="unsigned int" Value="uint32_T"/>
+        <TypeDefine Name="float" Value="real32_T"/>
+        <TypeDefine Name="double" Value="real64_T"/>
+        <TypeDefine Name="double" Value="real_T"/>
+        <TypeDefine Name="double" Value="time_T"/>
+        <TypeDefine Name="unsigned char" Value="boolean_T"/>
+        <TypeDefine Name="int" Value="int_T"/>
+        <TypeDefine Name="unsigned int" Value="uint_T"/>
+        <TypeDefine Name="unsigned long" Value="ulong_T"/>
+        <TypeDefine Name="char" Value="char_T"/>
+        <TypeDefine Name="unsigned char" Value="uchar_T"/>
+        <TypeDefine Name="char_T" Value="byte_T"/>
+        <TypeDefine Name="creal32_T" Value="creal32_T"/>
+        <TypeDefine Name="creal64_T" Value="creal64_T"/>
+        <TypeDefine Name="creal_T" Value="creal_T"/>
+        <TypeDefine Name="cint8_T" Value="cint8_T"/>
+        <TypeDefine Name="cuint8_T" Value="cuint8_T"/>
+        <TypeDefine Name="cint16_T" Value="cint16_T"/>
+        <TypeDefine Name="cuint16_T" Value="cuint16_T"/>
+        <TypeDefine Name="cint32_T" Value="cint32_T"/>
+        <TypeDefine Name="cuint32_T" Value="cuint32_T"/>
+        <TypeDefine Name="void *" Value="pointer_T"/>
+        <TypeDefine Name="tag_RTM_regs_12B_T" Value="RT_MODEL_regs_12B_T"/>
+        <TypeDefine Name="DW_regs_12B_T" Value="DW_regs_12B_T"/>
+        <TypeDefine Name="ConstB_regs_12B_T" Value="ConstB_regs_12B_T"/>
+        <TypeDefine Name="ConstP_regs_12B_T" Value="ConstP_regs_12B_T"/>
+        <Function Name="regs_12B_step" Type="FunctionExec" ReturnType="void">
+			<Ref Path="regs_12B.Func"/>
+            <Input Name="regs_12B_M" Type="RT_MODEL_regs_12B_T" IsAddress="1"/>
+            <Input Name="regs_12B_U_beta_adc_deg" Type="real_T"/>
+            <Input Name="regs_12B_U_vtas_adc_kts" Type="real_T"/>
+            <Input Name="regs_12B_U_lcv_cmd_fcs_dps" Type="real_T"/>
+            <Input Name="regs_12B_U_mcv_cmd_fcs_dps" Type="real_T"/>
+            <Input Name="regs_12B_U_ncv_cmd_fcs_dps" Type="real_T"/>
+            <Input Name="regs_12B_U_xcv_cmd_fcs_fps" Type="real_T"/>
+            <Input Name="regs_12B_U_hcv_cmd_fcs_fps" Type="real_T"/>
+            <Input Name="regs_12B_U_lcv_fps_dps" Type="real_T"/>
+            <Input Name="regs_12B_U_mcv_fcs_dps" Type="real_T"/>
+            <Input Name="regs_12B_U_ncv_fcs_dps" Type="real_T"/>
+            <Input Name="regs_12B_U_dcv_fcs_fps" Type="real_T"/>
+            <Input Name="regs_12B_U_zcv_fcs_fps" Type="real_T"/>
+            <Input Name="regs_12B_U_beta_dot" Type="real_T"/>
+            <Output Name="regs_12B_Y_lcvdt_cmd_fcs_dps2" Type="real_T"/>
+            <Output Name="regs_12B_Y_mcvdt_cmd_fcs_dps2" Type="real_T"/>
+            <Output Name="regs_12B_Y_ncvdt_cmd_fcs_dps2" Type="real_T"/>
+            <Output Name="regs_12B_Y_xcvdt_cmd_fcs_fps2" Type="real_T"/>
+            <Output Name="regs_12B_Y_hcvdt_cmd_fcs_fps2" Type="real_T"/>
+            <Schedule>
+                <Calculate Name="regs_12B_step">
+                    <LocalVariable Name="regs_12B_DW" Type="DW_regs_12B_T" IsAddress="1" DefaultValue="((DW_regs_12B_T*)regs_12B_M-&gt;dwork)"/>
+                    <LocalVariable Name="rtb_CVdt_cmd" Type="real_T"/>
+                    <LocalVariable Name="rtb_Sum3" Type="real_T"/>
+                    <Expression Expression="*regs_12B_Y_lcvdt_cmd_fcs_dps2 = (regs_12B_U_lcv_cmd_fcs_dps - regs_12B_U_lcv_fps_dps) * 2.5"/>
+                    <Expression Expression="rtb_CVdt_cmd = rt_Lookup(regs_12B_ConstP.pooled4, 5, regs_12B_U_vtas_adc_kts, regs_12B_ConstP.pooled4)"/>
+                    <Expression Expression="*regs_12B_Y_ncvdt_cmd_fcs_dps2 = ((regs_12B_U_ncv_cmd_fcs_dps * regs_12B_ConstB.Kcmd_Kbeta + regs_12B_ConstB.Kcmd_Kbeta * regs_12B_U_beta_adc_deg) + regs_12B_ConstB.Sum2 * regs_12B_U_beta_dot) * rtb_CVdt_cmd + (1.0 - rtb_CVdt_cmd) * (regs_12B_U_ncv_cmd_fcs_dps - regs_12B_U_ncv_fcs_dps)"/>
+                    <Expression Expression="rtb_CVdt_cmd = regs_12B_U_hcv_cmd_fcs_fps - (-regs_12B_U_zcv_fcs_fps)"/>
+                    <If Condition="rtb_CVdt_cmd &gt; 1.0">
+                        <Expression Expression="rtb_CVdt_cmd = 1.0"/>
+                    </If>
+                    <Else>
+                        <If Condition="rtb_CVdt_cmd &lt; -1.0">
+                            <Expression Expression="rtb_CVdt_cmd = -1.0"/>
+                        </If>
+                    </Else>
+                    <Expression Expression="rtb_CVdt_cmd = 0.0 * regs_12B_DW-&gt;Memory_PreviousInput * -0.2 + rtb_CVdt_cmd * regs_12B_ConstB.Sum7"/>
+                    <Expression Expression="regs_12B_DW-&gt;UnitDelay1_DSTATE += (rtb_CVdt_cmd + regs_12B_DW-&gt;UnitDelay_DSTATE) * 0.5 * 2.0"/>
+                    <If Condition="regs_12B_DW-&gt;UnitDelay1_DSTATE &gt; regs_12B_ConstB.Switch1">
+                        <Expression Expression="regs_12B_DW-&gt;UnitDelay1_DSTATE = regs_12B_ConstB.Switch1"/>
+                    </If>
+                    <Else>
+                        <If Condition="regs_12B_DW-&gt;UnitDelay1_DSTATE &lt; regs_12B_ConstB.Switch2">
+                            <Expression Expression="regs_12B_DW-&gt;UnitDelay1_DSTATE = regs_12B_ConstB.Switch2"/>
+                        </If>
+                    </Else>
+                    <Expression Expression="*regs_12B_Y_hcvdt_cmd_fcs_fps2 = 0.25 * regs_12B_DW-&gt;UnitDelay1_DSTATE + rtb_CVdt_cmd"/>
+                    <Expression Expression="rtb_Sum3 = regs_12B_U_mcv_cmd_fcs_dps - regs_12B_U_mcv_fcs_dps"/>
+                    <Expression Expression="regs_12B_DW-&gt;UnitDelay1_DSTATE_k += (rtb_Sum3 + regs_12B_DW-&gt;UnitDelay_DSTATE_o) * 0.5 * 2.0"/>
+                    <If Condition="regs_12B_DW-&gt;UnitDelay1_DSTATE_k &gt; regs_12B_ConstB.Switch1_p">
+                        <Expression Expression="regs_12B_DW-&gt;UnitDelay1_DSTATE_k = regs_12B_ConstB.Switch1_p"/>
+                    </If>
+                    <Else>
+                        <If Condition="regs_12B_DW-&gt;UnitDelay1_DSTATE_k &lt; regs_12B_ConstB.Switch2_d">
+                            <Expression Expression="regs_12B_DW-&gt;UnitDelay1_DSTATE_k = regs_12B_ConstB.Switch2_d"/>
+                        </If>
+                    </Else>
+                    <Expression Expression="*regs_12B_Y_mcvdt_cmd_fcs_dps2 = rt_Lookup(regs_12B_ConstP.transition_bvr_XData, 2, regs_12B_U_vtas_adc_kts, regs_12B_ConstP.transition_bvr_YData) * rtb_Sum3 + 5.0 * regs_12B_DW-&gt;UnitDelay1_DSTATE_k"/>
+                    <Expression Expression="*regs_12B_Y_xcvdt_cmd_fcs_fps2 = (regs_12B_U_xcv_cmd_fcs_fps - (-regs_12B_U_dcv_fcs_fps)) * 0.5"/>
+                    <Expression Expression="regs_12B_DW-&gt;Memory_PreviousInput = regs_12B_DW-&gt;UnitDelay1_DSTATE"/>
+                    <Expression Expression="regs_12B_DW-&gt;UnitDelay_DSTATE = rtb_CVdt_cmd"/>
+                    <Expression Expression="regs_12B_DW-&gt;UnitDelay_DSTATE_o = rtb_Sum3"/>
+                </Calculate>
+            </Schedule>
+        </Function>
+        <Function Name="regs_12B_init" Type="FunctionInit" ReturnType="void">
+			<Ref Path="regs_12B.Func"/>
+            <Input Name="regs_12B_M" Type="RT_MODEL_regs_12B_T" IsAddress="1"/>
+            <Output Name="regs_12B_U_beta_adc_deg" Type="real_T"/>
+            <Output Name="regs_12B_U_vtas_adc_kts" Type="real_T"/>
+            <Output Name="regs_12B_U_lcv_cmd_fcs_dps" Type="real_T"/>
+            <Output Name="regs_12B_U_hdg_des_deg" Type="real_T"/>
+            <Output Name="regs_12B_U_mcv_cmd_fcs_dps" Type="real_T"/>
+            <Output Name="regs_12B_U_alt_des_ft" Type="real_T"/>
+            <Output Name="regs_12B_U_ncv_cmd_fcs_dps" Type="real_T"/>
+            <Output Name="regs_12B_U_xcv_cmd_fcs_fps" Type="real_T"/>
+            <Output Name="regs_12B_U_airspeed_des_fps" Type="real_T"/>
+            <Output Name="regs_12B_U_hcv_cmd_fcs_fps" Type="real_T"/>
+            <Output Name="regs_12B_U_lcv_fps_dps" Type="real_T"/>
+            <Output Name="regs_12B_U_mcv_fcs_dps" Type="real_T"/>
+            <Output Name="regs_12B_U_ncv_fcs_dps" Type="real_T"/>
+            <Output Name="regs_12B_U_dcv_fcs_fps" Type="real_T"/>
+            <Output Name="regs_12B_U_zcv_fcs_fps" Type="real_T"/>
+            <Output Name="regs_12B_U_beta_dot" Type="real_T"/>
+            <Output Name="regs_12B_Y_lcvdt_cmd_fcs_dps2" Type="real_T"/>
+            <Output Name="regs_12B_Y_mcvdt_cmd_fcs_dps2" Type="real_T"/>
+            <Output Name="regs_12B_Y_ncvdt_cmd_fcs_dps2" Type="real_T"/>
+            <Output Name="regs_12B_Y_xcvdt_cmd_fcs_fps2" Type="real_T"/>
+            <Output Name="regs_12B_Y_hcvdt_cmd_fcs_fps2" Type="real_T"/>
+            <Schedule>
+                <Calculate Name="regs_12B_init">
+                    <LocalVariable Name="regs_12B_DW" Type="DW_regs_12B_T" IsAddress="1" DefaultValue="((DW_regs_12B_T*)regs_12B_M-&gt;dwork)"/>
+                    <Expression Expression="(void)memset((void*)regs_12B_DW, 0, sizeof(DW_regs_12B_T))"/>
+                    <Expression Expression="*regs_12B_U_beta_adc_deg = 0.0"/>
+                    <Expression Expression="*regs_12B_U_vtas_adc_kts = 0.0"/>
+                    <Expression Expression="*regs_12B_U_lcv_cmd_fcs_dps = 0.0"/>
+                    <Expression Expression="*regs_12B_U_hdg_des_deg = 0.0"/>
+                    <Expression Expression="*regs_12B_U_mcv_cmd_fcs_dps = 0.0"/>
+                    <Expression Expression="*regs_12B_U_alt_des_ft = 0.0"/>
+                    <Expression Expression="*regs_12B_U_ncv_cmd_fcs_dps = 0.0"/>
+                    <Expression Expression="*regs_12B_U_xcv_cmd_fcs_fps = 0.0"/>
+                    <Expression Expression="*regs_12B_U_airspeed_des_fps = 0.0"/>
+                    <Expression Expression="*regs_12B_U_hcv_cmd_fcs_fps = 0.0"/>
+                    <Expression Expression="*regs_12B_U_lcv_fps_dps = 0.0"/>
+                    <Expression Expression="*regs_12B_U_mcv_fcs_dps = 0.0"/>
+                    <Expression Expression="*regs_12B_U_ncv_fcs_dps = 0.0"/>
+                    <Expression Expression="*regs_12B_U_dcv_fcs_fps = 0.0"/>
+                    <Expression Expression="*regs_12B_U_zcv_fcs_fps = 0.0"/>
+                    <Expression Expression="*regs_12B_U_beta_dot = 0.0"/>
+                    <Expression Expression="(*regs_12B_Y_lcvdt_cmd_fcs_dps2) = 0.0"/>
+                    <Expression Expression="(*regs_12B_Y_mcvdt_cmd_fcs_dps2) = 0.0"/>
+                    <Expression Expression="(*regs_12B_Y_ncvdt_cmd_fcs_dps2) = 0.0"/>
+                    <Expression Expression="(*regs_12B_Y_xcvdt_cmd_fcs_fps2) = 0.0"/>
+                    <Expression Expression="(*regs_12B_Y_hcvdt_cmd_fcs_fps2) = 0.0"/>
+                </Calculate>
+            </Schedule>
+        </Function>
+    </File>
+    <File Name="regs_12B_data">
+        <GlobalVariable Name="regs_12B_ConstB" Type="ConstB_regs_12B_T" DefaultValue="{1.0, 9999.0, -9999.0, 9999.0, -9999.0, 4.0, 2.0, 4.0, 1.5, 0, 0}"/>
+        <GlobalVariable Name="regs_12B_ConstP" Type="ConstP_regs_12B_T" DefaultValue="{{1.0, 2.0, 3.0, 4.0, 5.0}, {120.0, 185.0}, {15.0, 20.0}}"/>
+    </File>
+    <File Name="rt_look">
+        <Function Name="rt_GetLookupIndex" Type="FunctionExec" ReturnType="int_T">
+            <Input Name="x" Type="real_T" IsAddress="1"/>
+            <Input Name="xlen" Type="int_T"/>
+            <Input Name="u" Type="real_T"/>
+            <Schedule>
+                <Calculate Name="rt_GetLookupIndex">
+                    <LocalVariable Name="idx" Type="int_T" DefaultValue="0"/>
+                    <LocalVariable Name="bottom" Type="int_T" DefaultValue="0"/>
+                    <LocalVariable Name="top" Type="int_T" DefaultValue="xlen - 1"/>
+                    <LocalVariable Name="retValue" Type="int_T" DefaultValue="0"/>
+                    <LocalVariable Name="returnStatus" Type="boolean_T" DefaultValue="0U"/>
+                    <If Condition="u &lt;= x[bottom]">
+                        <Expression Expression="retValue = bottom"/>
+                        <Expression Expression="returnStatus = 1U"/>
+                    </If>
+                    <ElseIf Condition="u &gt;= x[top]">
+                        <Expression Expression="retValue = top - 1"/>
+                        <Expression Expression="returnStatus = 1U"/>
+                    </ElseIf>
+                    <Else/>
+                    <If Condition="returnStatus == 0U">
+                        <If Condition="u &lt; 0">
+                            <For>
+                                <Expression Expression="idx = (bottom + top) / 2"/>
+                                <If Condition="u &lt; x[idx]">
+                                    <Expression Expression="top = idx - 1"/>
+                                </If>
+                                <ElseIf Condition="u &gt;= x[idx + 1]">
+                                    <Expression Expression="bottom = idx + 1"/>
+                                </ElseIf>
+                                <Else>
+                                    <Expression Expression="retValue = idx"/>
+                                    <Break/>
+                                </Else>
+                            </For>
+                        </If>
+                        <Else>
+                            <For>
+                                <Expression Expression="idx = (bottom + top) / 2"/>
+                                <If Condition="u &lt;= x[idx]">
+                                    <Expression Expression="top = idx - 1"/>
+                                </If>
+                                <ElseIf Condition="u &gt; x[idx + 1]">
+                                    <Expression Expression="bottom = idx + 1"/>
+                                </ElseIf>
+                                <Else>
+                                    <Expression Expression="retValue = idx"/>
+                                    <Break/>
+                                </Else>
+                            </For>
+                        </Else>
+                    </If>
+                    <Return Expression="retValue"/>
+                </Calculate>
+            </Schedule>
+        </Function>
+    </File>
+    <File Name="rt_look1d">
+        <Function Name="rt_Lookup" Type="FunctionExec" ReturnType="real_T">
+            <Input Name="x" Type="real_T" IsAddress="1"/>
+            <Input Name="xlen" Type="int_T"/>
+            <Input Name="u" Type="real_T"/>
+            <Input Name="y" Type="real_T" IsAddress="1"/>
+            <Schedule>
+                <Calculate Name="rt_Lookup">
+                    <LocalVariable Name="idx" Type="int_T" DefaultValue="rt_GetLookupIndex(x, xlen, u)"/>
+                    <LocalVariable Name="num" Type="real_T" DefaultValue="y[idx + 1] - y[idx]"/>
+                    <LocalVariable Name="den" Type="real_T" DefaultValue="x[idx + 1] - x[idx]"/>
+                    <LocalVariable Name="m" Type="real_T" DefaultValue="num / den"/>
+                    <Return Expression="(y[idx] + (m * (u - x[idx])))"/>
+                </Calculate>
+            </Schedule>
+        </Function>
+    </File>
+</Root>

@@ -1,0 +1,6 @@
+<?xml version="1.0" standalone="no"?>
+<Root>
+    <ModelInfo Name="regs_12B" Path="regs_12B.Func">
+        <InputInfo Name="regs_12B_M" NotTest="1"/>
+    </ModelInfo>
+</Root>

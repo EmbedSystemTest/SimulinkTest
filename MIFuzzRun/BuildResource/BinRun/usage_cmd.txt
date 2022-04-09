@@ -1,0 +1,6 @@
+FuzzRun.exe -c "D:/GodelProject/ComplexBranch_IR_Cfg.xml" -i "D:/GodelProject/ComplexBranch_IR.xml" -o "D:/GodelProject/Cmain" -t "5"
+
+SymbolRun.exe -c "D:/GodelProject/ComplexBranch_IR_Cfg.xml" -i "D:/GodelProject/ComplexBranch_IR.xml" -o "D:/GodelProject/Cmain"
+
+FuzzRun.exe -c "./GodelProject/ComplexBranch_IR_Cfg.xml" -i "./GodelProject/ComplexBranch_IR.xml" -o "./GodelProject/Cmain"
+

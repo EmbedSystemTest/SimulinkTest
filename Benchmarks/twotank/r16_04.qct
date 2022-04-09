@@ -1,0 +1,8 @@
+# R04 The sensor outputs shall initially be false.
+#
+# NOTE: Sensors *should* be Boolean, BUT they are enetered as floats in the model.
+(tank1_SH_value{0} == 0.0) and
+(tank1_SL_value{0} == 0.0) and
+(tank2_SH_value{0} == 0.0) and
+(tank2_SM_value{0} == 0.0) and
+(tank2_SL_value{0} == 0.0);

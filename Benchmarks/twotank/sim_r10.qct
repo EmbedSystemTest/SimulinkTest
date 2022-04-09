@@ -1,0 +1,3 @@
+# R10 After the initial time step, the Previous Valve State shall be
+# equal to the Valve State in the previous step
+pre_Valve_State{t} == Valve_State{t-1};

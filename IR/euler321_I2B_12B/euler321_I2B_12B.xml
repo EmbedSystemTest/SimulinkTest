@@ -1,0 +1,392 @@
+<Root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.example.org/IRMetadata">
+    <Config>
+        <IterationCount Value="1"/>
+        <MainInitFunction Name="euler321_I2B_12B_init"/>
+        <MainExecFunction Name="euler321_I2B_12B_step"/>
+        <MainCompositeState Name="RT_MODEL_euler321_I2B_12B_T"/>
+    </Config>
+    <File Name="euler321_I2B_12B">
+        <Struct Name="creal32_T">
+            <Member Name="re" Type="real32_T"/>
+            <Member Name="im" Type="real32_T"/>
+        </Struct>
+        <Struct Name="creal64_T">
+            <Member Name="re" Type="real64_T"/>
+            <Member Name="im" Type="real64_T"/>
+        </Struct>
+        <Struct Name="creal_T">
+            <Member Name="re" Type="real_T"/>
+            <Member Name="im" Type="real_T"/>
+        </Struct>
+        <Struct Name="cint8_T">
+            <Member Name="re" Type="int8_T"/>
+            <Member Name="im" Type="int8_T"/>
+        </Struct>
+        <Struct Name="cuint8_T">
+            <Member Name="re" Type="uint8_T"/>
+            <Member Name="im" Type="uint8_T"/>
+        </Struct>
+        <Struct Name="cint16_T">
+            <Member Name="re" Type="int16_T"/>
+            <Member Name="im" Type="int16_T"/>
+        </Struct>
+        <Struct Name="cuint16_T">
+            <Member Name="re" Type="uint16_T"/>
+            <Member Name="im" Type="uint16_T"/>
+        </Struct>
+        <Struct Name="cint32_T">
+            <Member Name="re" Type="int32_T"/>
+            <Member Name="im" Type="int32_T"/>
+        </Struct>
+        <Struct Name="cuint32_T">
+            <Member Name="re" Type="uint32_T"/>
+            <Member Name="im" Type="uint32_T"/>
+        </Struct>
+        <Struct Name="tag_RTM_euler321_I2B_12B_T">
+            <Member Name="errorStatus" Type="char_T" IsAddress="1"/>
+            <Member Name="dwork" Type="DW_euler321_I2B_12B_T" IsAddress="1"/>
+        </Struct>
+        <Struct Name="DW_euler321_I2B_12B_T">
+            <Member Name="Memory_PreviousInput" Type="real_T"/>
+        </Struct>
+        <Macro Name="RT_PI" Value="3.14159265358979323846" HasIfnodefCheck=""/>
+        <Macro Name="RT_PIF" Value="3.1415927F" HasIfnodefCheck=""/>
+        <Macro Name="RT_LN_10" Value="2.30258509299404568402" HasIfnodefCheck=""/>
+        <Macro Name="RT_LN_10F" Value="2.3025851F" HasIfnodefCheck=""/>
+        <Macro Name="RT_LOG10E" Value="0.43429448190325182765" HasIfnodefCheck=""/>
+        <Macro Name="RT_LOG10EF" Value="0.43429449F" HasIfnodefCheck=""/>
+        <Macro Name="RT_E" Value="2.7182818284590452354" HasIfnodefCheck=""/>
+        <Macro Name="RT_EF" Value="2.7182817F" HasIfnodefCheck=""/>
+        <Macro Name="false" Value="0" HasIfnodefCheck=""/>
+        <Macro Name="true" Value="1" HasIfnodefCheck=""/>
+        <Macro Name="NULL" Value="0" HasIfnodefCheck=""/>
+        <Macro Name="UNUSED_PARAMETER(x)" Value="(void)(x)" HasIfnodefCheck=""/>
+        <Macro Name="rtmGetErrorStatus(rtm)" Value="((rtm)-&gt;errorStatus)" HasIfnodefCheck=""/>
+        <Macro Name="rtmSetErrorStatus(rtm,val)" Value="((rtm)-&gt;errorStatus=(val))" HasIfnodefCheck=""/>
+        <TypeDefine Name="signed char" Value="int8_T"/>
+        <TypeDefine Name="unsigned char" Value="uint8_T"/>
+        <TypeDefine Name="short" Value="int16_T"/>
+        <TypeDefine Name="unsigned short" Value="uint16_T"/>
+        <TypeDefine Name="int" Value="int32_T"/>
+        <TypeDefine Name="unsigned int" Value="uint32_T"/>
+        <TypeDefine Name="float" Value="real32_T"/>
+        <TypeDefine Name="double" Value="real64_T"/>
+        <TypeDefine Name="double" Value="real_T"/>
+        <TypeDefine Name="double" Value="time_T"/>
+        <TypeDefine Name="unsigned char" Value="boolean_T"/>
+        <TypeDefine Name="int" Value="int_T"/>
+        <TypeDefine Name="unsigned int" Value="uint_T"/>
+        <TypeDefine Name="unsigned long" Value="ulong_T"/>
+        <TypeDefine Name="char" Value="char_T"/>
+        <TypeDefine Name="unsigned char" Value="uchar_T"/>
+        <TypeDefine Name="char_T" Value="byte_T"/>
+        <TypeDefine Name="creal32_T" Value="creal32_T"/>
+        <TypeDefine Name="creal64_T" Value="creal64_T"/>
+        <TypeDefine Name="creal_T" Value="creal_T"/>
+        <TypeDefine Name="cint8_T" Value="cint8_T"/>
+        <TypeDefine Name="cuint8_T" Value="cuint8_T"/>
+        <TypeDefine Name="cint16_T" Value="cint16_T"/>
+        <TypeDefine Name="cuint16_T" Value="cuint16_T"/>
+        <TypeDefine Name="cint32_T" Value="cint32_T"/>
+        <TypeDefine Name="cuint32_T" Value="cuint32_T"/>
+        <TypeDefine Name="void *" Value="pointer_T"/>
+        <TypeDefine Name="tag_RTM_euler321_I2B_12B_T" Value="RT_MODEL_euler321_I2B_12B_T"/>
+        <TypeDefine Name="DW_euler321_I2B_12B_T" Value="DW_euler321_I2B_12B_T"/>
+        <Function Name="euler321_I2B_12B_step" Type="FunctionExec" ReturnType="void">
+			<Ref Path="euler321_I2B_12B.Func"/>
+            <Input Name="euler321_I2B_12B_M" Type="RT_MODEL_euler321_I2B_12B_T" IsAddress="1"/>
+            <Input Name="euler321_I2B_12B_U_phi" Type="real_T"/>
+            <Input Name="euler321_I2B_12B_U_theta" Type="real_T"/>
+            <Input Name="euler321_I2B_12B_U_psi" Type="real_T"/>
+            <Input Name="euler321_I2B_12B_U_Vi" Type="real_T" ArraySize="3"/>
+            <Input Name="euler321_I2B_12B_U_Inport" Type="real_T"/>
+            <Input Name="euler321_I2B_12B_Y_DCM321" Type="real_T" ArraySize="9"/>
+            <Input Name="euler321_I2B_12B_Y_Vb" Type="real_T" ArraySize="3"/>
+            <Input Name="euler321_I2B_12B_Y_outTheta" Type="real_T" ArraySize="3"/>
+            <Input Name="euler321_I2B_12B_Y_outGamma" Type="real_T" ArraySize="3"/>
+            <Output Name="euler321_I2B_12B_Y_outR1" Type="boolean_T"/>
+            <Schedule>
+                <Calculate Name="euler321_I2B_12B_step">
+                    <LocalVariable Name="rtb_Product" Type="real_T" ArraySize="9"/>
+                    <LocalVariable Name="rtb_Product1_b" Type="real_T" ArraySize="9"/>
+                    <LocalVariable Name="rtb_Product1_i0" Type="real_T" ArraySize="9"/>
+                    <LocalVariable Name="rtb_VectorConcatenate" Type="real_T" ArraySize="9"/>
+                    <LocalVariable Name="rtb_Product2_m" Type="real_T" ArraySize="3"/>
+                    <LocalVariable Name="rtb_TrigonometricFunction2" Type="real_T"/>
+                    <LocalVariable Name="rtb_TrigonometricFunction2_tm_0" Type="real_T"/>
+                    <LocalVariable Name="rtb_TrigonometricFunction2_tm_1" Type="real_T"/>
+                    <LocalVariable Name="rtb_TrigonometricFunction2_tmp" Type="real_T"/>
+                    <LocalVariable Name="rtb_TrigonometricFunction4" Type="real_T"/>
+                    <LocalVariable Name="rtb_TrigonometricFunction4_tm_0" Type="real_T"/>
+                    <LocalVariable Name="rtb_TrigonometricFunction4_tm_1" Type="real_T"/>
+                    <LocalVariable Name="rtb_TrigonometricFunction4_tmp" Type="real_T"/>
+                    <LocalVariable Name="i" Type="int32_T"/>
+                    <LocalVariable Name="i_0" Type="int32_T"/>
+                    <LocalVariable Name="rtb_Product1_c_tmp" Type="int32_T"/>
+                    <Expression Expression="rtb_TrigonometricFunction4_tmp = sin(euler321_I2B_12B_U_theta)"/>
+                    <Expression Expression="rtb_TrigonometricFunction2_tmp = cos(euler321_I2B_12B_U_theta)"/>
+                    <Expression Expression="euler321_I2B_12B_Y_DCM321[0] = rtb_TrigonometricFunction2_tmp"/>
+                    <Expression Expression="euler321_I2B_12B_Y_DCM321[1] = 0.0"/>
+                    <Expression Expression="euler321_I2B_12B_Y_DCM321[2] = rtb_TrigonometricFunction4_tmp"/>
+                    <Expression Expression="euler321_I2B_12B_Y_DCM321[3] = 0.0"/>
+                    <Expression Expression="euler321_I2B_12B_Y_DCM321[4] = 1.0"/>
+                    <Expression Expression="euler321_I2B_12B_Y_DCM321[5] = 0.0"/>
+                    <Expression Expression="euler321_I2B_12B_Y_DCM321[6] = -rtb_TrigonometricFunction4_tmp"/>
+                    <Expression Expression="euler321_I2B_12B_Y_DCM321[7] = 0.0"/>
+                    <Expression Expression="euler321_I2B_12B_Y_DCM321[8] = rtb_TrigonometricFunction2_tmp"/>
+                    <Expression Expression="rtb_TrigonometricFunction2_tm_0 = sin(euler321_I2B_12B_U_psi)"/>
+                    <Expression Expression="rtb_TrigonometricFunction4_tm_0 = cos(euler321_I2B_12B_U_psi)"/>
+                    <Expression Expression="rtb_Product1_i0[0] = rtb_TrigonometricFunction4_tm_0"/>
+                    <Expression Expression="rtb_Product1_i0[1] = -rtb_TrigonometricFunction2_tm_0"/>
+                    <Expression Expression="rtb_Product1_i0[2] = 0.0"/>
+                    <Expression Expression="rtb_Product1_i0[3] = rtb_TrigonometricFunction2_tm_0"/>
+                    <Expression Expression="rtb_Product1_i0[4] = rtb_TrigonometricFunction4_tm_0"/>
+                    <Expression Expression="rtb_Product1_i0[5] = 0.0"/>
+                    <Expression Expression="rtb_Product1_i0[6] = 0.0"/>
+                    <Expression Expression="rtb_Product1_i0[7] = 0.0"/>
+                    <Expression Expression="rtb_Product1_i0[8] = 1.0"/>
+                    <For Condition="i_0 &lt; 3">
+                        <Initial>
+                            <Expression Expression="i_0 = 0"/>
+                        </Initial>
+                        <Iterator>
+                            <Expression Expression="i_0++"/>
+                        </Iterator>
+                        <For Condition="i &lt; 3">
+                            <Initial>
+                                <Expression Expression="i = 0"/>
+                            </Initial>
+                            <Iterator>
+                                <Expression Expression="i++"/>
+                            </Iterator>
+                            <Expression Expression="rtb_Product1_c_tmp = 3 * i_0 + i"/>
+                            <Expression Expression="rtb_Product1_b[rtb_Product1_c_tmp] = 0.0"/>
+                            <Expression Expression="rtb_Product1_b[rtb_Product1_c_tmp] += rtb_Product1_i0[3 * i_0] * euler321_I2B_12B_Y_DCM321[i]"/>
+                            <Expression Expression="rtb_Product1_b[rtb_Product1_c_tmp] += rtb_Product1_i0[3 * i_0 + 1] * euler321_I2B_12B_Y_DCM321[i + 3]"/>
+                            <Expression Expression="rtb_Product1_b[rtb_Product1_c_tmp] += rtb_Product1_i0[3 * i_0 + 2] * euler321_I2B_12B_Y_DCM321[i + 6]"/>
+                        </For>
+                    </For>
+                    <Expression Expression="rtb_TrigonometricFunction2_tm_1 = sin(euler321_I2B_12B_U_phi)"/>
+                    <Expression Expression="rtb_TrigonometricFunction4_tm_1 = cos(euler321_I2B_12B_U_phi)"/>
+                    <Expression Expression="rtb_Product1_i0[0] = 1.0"/>
+                    <Expression Expression="rtb_Product1_i0[1] = 0.0"/>
+                    <Expression Expression="rtb_Product1_i0[2] = 0.0"/>
+                    <Expression Expression="rtb_Product1_i0[3] = 0.0"/>
+                    <Expression Expression="rtb_Product1_i0[4] = rtb_TrigonometricFunction4_tm_1"/>
+                    <Expression Expression="rtb_Product1_i0[5] = -rtb_TrigonometricFunction2_tm_1"/>
+                    <Expression Expression="rtb_Product1_i0[6] = 0.0"/>
+                    <Expression Expression="rtb_Product1_i0[7] = rtb_TrigonometricFunction2_tm_1"/>
+                    <Expression Expression="rtb_Product1_i0[8] = rtb_TrigonometricFunction4_tm_1"/>
+                    <For Condition="i_0 &lt; 3">
+                        <Initial>
+                            <Expression Expression="i_0 = 0"/>
+                        </Initial>
+                        <Iterator>
+                            <Expression Expression="i_0++"/>
+                        </Iterator>
+                        <For Condition="i &lt; 3">
+                            <Initial>
+                                <Expression Expression="i = 0"/>
+                            </Initial>
+                            <Iterator>
+                                <Expression Expression="i++"/>
+                            </Iterator>
+                            <Expression Expression="rtb_Product1_c_tmp = 3 * i_0 + i"/>
+                            <Expression Expression="euler321_I2B_12B_Y_DCM321[rtb_Product1_c_tmp] = 0.0"/>
+                            <Expression Expression="euler321_I2B_12B_Y_DCM321[rtb_Product1_c_tmp] += rtb_Product1_b[3 * i_0] * rtb_Product1_i0[i]"/>
+                            <Expression Expression="euler321_I2B_12B_Y_DCM321[rtb_Product1_c_tmp] += rtb_Product1_b[3 * i_0 + 1] * rtb_Product1_i0[i + 3]"/>
+                            <Expression Expression="euler321_I2B_12B_Y_DCM321[rtb_Product1_c_tmp] += rtb_Product1_b[3 * i_0 + 2] * rtb_Product1_i0[i + 6]"/>
+                        </For>
+                    </For>
+                    <Expression Expression="rtb_Product1_b[0] = rtb_TrigonometricFunction2_tmp"/>
+                    <Expression Expression="rtb_Product1_b[1] = 0.0"/>
+                    <Expression Expression="rtb_Product1_b[2] = rtb_TrigonometricFunction4_tmp"/>
+                    <Expression Expression="rtb_Product1_b[3] = 0.0"/>
+                    <Expression Expression="rtb_Product1_b[4] = 1.0"/>
+                    <Expression Expression="rtb_Product1_b[5] = 0.0"/>
+                    <Expression Expression="rtb_Product1_b[6] = -rtb_TrigonometricFunction4_tmp"/>
+                    <Expression Expression="rtb_Product1_b[7] = 0.0"/>
+                    <Expression Expression="rtb_Product1_b[8] = rtb_TrigonometricFunction2_tmp"/>
+                    <Expression Expression="rtb_Product1_i0[0] = rtb_TrigonometricFunction4_tm_0"/>
+                    <Expression Expression="rtb_Product1_i0[1] = -rtb_TrigonometricFunction2_tm_0"/>
+                    <Expression Expression="rtb_Product1_i0[2] = 0.0"/>
+                    <Expression Expression="rtb_Product1_i0[3] = rtb_TrigonometricFunction2_tm_0"/>
+                    <Expression Expression="rtb_Product1_i0[4] = rtb_TrigonometricFunction4_tm_0"/>
+                    <Expression Expression="rtb_Product1_i0[5] = 0.0"/>
+                    <Expression Expression="rtb_Product1_i0[6] = 0.0"/>
+                    <Expression Expression="rtb_Product1_i0[7] = 0.0"/>
+                    <Expression Expression="rtb_Product1_i0[8] = 1.0"/>
+                    <For Condition="i_0 &lt; 3">
+                        <Initial>
+                            <Expression Expression="i_0 = 0"/>
+                        </Initial>
+                        <Iterator>
+                            <Expression Expression="i_0++"/>
+                        </Iterator>
+                        <For Condition="i &lt; 3">
+                            <Initial>
+                                <Expression Expression="i = 0"/>
+                            </Initial>
+                            <Iterator>
+                                <Expression Expression="i++"/>
+                            </Iterator>
+                            <Expression Expression="rtb_Product1_c_tmp = 3 * i_0 + i"/>
+                            <Expression Expression="rtb_VectorConcatenate[rtb_Product1_c_tmp] = 0.0"/>
+                            <Expression Expression="rtb_VectorConcatenate[rtb_Product1_c_tmp] += rtb_Product1_i0[3 * i_0] * rtb_Product1_b[i]"/>
+                            <Expression Expression="rtb_VectorConcatenate[rtb_Product1_c_tmp] += rtb_Product1_i0[3 * i_0 + 1] * rtb_Product1_b[i + 3]"/>
+                            <Expression Expression="rtb_VectorConcatenate[rtb_Product1_c_tmp] += rtb_Product1_i0[3 * i_0 + 2] * rtb_Product1_b[i + 6]"/>
+                        </For>
+                    </For>
+                    <Expression Expression="rtb_Product1_b[0] = 1.0"/>
+                    <Expression Expression="rtb_Product1_b[1] = 0.0"/>
+                    <Expression Expression="rtb_Product1_b[2] = 0.0"/>
+                    <Expression Expression="rtb_Product1_b[3] = 0.0"/>
+                    <Expression Expression="rtb_Product1_b[4] = rtb_TrigonometricFunction4_tm_1"/>
+                    <Expression Expression="rtb_Product1_b[5] = -rtb_TrigonometricFunction2_tm_1"/>
+                    <Expression Expression="rtb_Product1_b[6] = 0.0"/>
+                    <Expression Expression="rtb_Product1_b[7] = rtb_TrigonometricFunction2_tm_1"/>
+                    <Expression Expression="rtb_Product1_b[8] = rtb_TrigonometricFunction4_tm_1"/>
+                    <For Condition="i_0 &lt; 3">
+                        <Initial>
+                            <Expression Expression="i_0 = 0"/>
+                        </Initial>
+                        <Iterator>
+                            <Expression Expression="i_0++"/>
+                        </Iterator>
+                        <For Condition="i &lt; 3">
+                            <Initial>
+                                <Expression Expression="i = 0"/>
+                            </Initial>
+                            <Iterator>
+                                <Expression Expression="i++"/>
+                            </Iterator>
+                            <Expression Expression="rtb_Product1_c_tmp = 3 * i_0 + i"/>
+                            <Expression Expression="rtb_Product1_i0[rtb_Product1_c_tmp] = 0.0"/>
+                            <Expression Expression="rtb_Product1_i0[rtb_Product1_c_tmp] += rtb_VectorConcatenate[3 * i_0] * rtb_Product1_b[i]"/>
+                            <Expression Expression="rtb_Product1_i0[rtb_Product1_c_tmp] += rtb_VectorConcatenate[3 * i_0 + 1] * rtb_Product1_b[i + 3]"/>
+                            <Expression Expression="rtb_Product1_i0[rtb_Product1_c_tmp] += rtb_VectorConcatenate[3 * i_0 + 2] * rtb_Product1_b[i + 6]"/>
+                        </For>
+                    </For>
+                    <Expression Expression="rtb_TrigonometricFunction2 = sin(euler321_I2B_12B_U_Inport)"/>
+                    <Expression Expression="rtb_TrigonometricFunction4 = cos(euler321_I2B_12B_U_Inport)"/>
+                    <Expression Expression="rtb_VectorConcatenate[0] = rtb_TrigonometricFunction4"/>
+                    <Expression Expression="rtb_VectorConcatenate[1] = 0.0"/>
+                    <Expression Expression="rtb_VectorConcatenate[2] = rtb_TrigonometricFunction2"/>
+                    <Expression Expression="rtb_VectorConcatenate[3] = 0.0"/>
+                    <Expression Expression="rtb_VectorConcatenate[4] = 1.0"/>
+                    <Expression Expression="rtb_VectorConcatenate[5] = 0.0"/>
+                    <Expression Expression="rtb_VectorConcatenate[6] = -rtb_TrigonometricFunction2"/>
+                    <Expression Expression="rtb_VectorConcatenate[7] = 0.0"/>
+                    <Expression Expression="rtb_VectorConcatenate[8] = rtb_TrigonometricFunction4"/>
+                    <Expression Expression="rtb_Product1_b[0] = rtb_TrigonometricFunction4_tm_0"/>
+                    <Expression Expression="rtb_Product1_b[1] = -rtb_TrigonometricFunction2_tm_0"/>
+                    <Expression Expression="rtb_Product1_b[2] = 0.0"/>
+                    <Expression Expression="rtb_Product1_b[3] = rtb_TrigonometricFunction2_tm_0"/>
+                    <Expression Expression="rtb_Product1_b[4] = rtb_TrigonometricFunction4_tm_0"/>
+                    <Expression Expression="rtb_Product1_b[5] = 0.0"/>
+                    <Expression Expression="rtb_Product1_b[6] = 0.0"/>
+                    <Expression Expression="rtb_Product1_b[7] = 0.0"/>
+                    <Expression Expression="rtb_Product1_b[8] = 1.0"/>
+                    <For Condition="i_0 &lt; 3">
+                        <Initial>
+                            <Expression Expression="i_0 = 0"/>
+                        </Initial>
+                        <Iterator>
+                            <Expression Expression="i_0++"/>
+                        </Iterator>
+                        <For Condition="i &lt; 3">
+                            <Initial>
+                                <Expression Expression="i = 0"/>
+                            </Initial>
+                            <Iterator>
+                                <Expression Expression="i++"/>
+                            </Iterator>
+                            <Expression Expression="rtb_Product1_c_tmp = 3 * i_0 + i"/>
+                            <Expression Expression="rtb_Product[rtb_Product1_c_tmp] = 0.0"/>
+                            <Expression Expression="rtb_Product[rtb_Product1_c_tmp] += rtb_Product1_b[3 * i_0] * rtb_VectorConcatenate[i]"/>
+                            <Expression Expression="rtb_Product[rtb_Product1_c_tmp] += rtb_Product1_b[3 * i_0 + 1] * rtb_VectorConcatenate[i + 3]"/>
+                            <Expression Expression="rtb_Product[rtb_Product1_c_tmp] += rtb_Product1_b[3 * i_0 + 2] * rtb_VectorConcatenate[i + 6]"/>
+                        </For>
+                    </For>
+                    <Expression Expression="rtb_VectorConcatenate[0] = 1.0"/>
+                    <Expression Expression="rtb_VectorConcatenate[1] = 0.0"/>
+                    <Expression Expression="rtb_VectorConcatenate[2] = 0.0"/>
+                    <Expression Expression="rtb_VectorConcatenate[3] = 0.0"/>
+                    <Expression Expression="rtb_VectorConcatenate[4] = rtb_TrigonometricFunction4_tm_1"/>
+                    <Expression Expression="rtb_VectorConcatenate[5] = -rtb_TrigonometricFunction2_tm_1"/>
+                    <Expression Expression="rtb_VectorConcatenate[6] = 0.0"/>
+                    <Expression Expression="rtb_VectorConcatenate[7] = rtb_TrigonometricFunction2_tm_1"/>
+                    <Expression Expression="rtb_VectorConcatenate[8] = rtb_TrigonometricFunction4_tm_1"/>
+                    <For Condition="i_0 &lt; 3">
+                        <Initial>
+                            <Expression Expression="i_0 = 0"/>
+                        </Initial>
+                        <Iterator>
+                            <Expression Expression="i_0++"/>
+                        </Iterator>
+                        <Expression Expression="rtb_Product2_m[i_0] = 0.0"/>
+                        <Expression Expression="euler321_I2B_12B_Y_Vb[i_0] = 0.0"/>
+                        <Expression Expression="euler321_I2B_12B_Y_outGamma[i_0] = 0.0"/>
+                        <For Condition="i &lt; 3">
+                            <Initial>
+                                <Expression Expression="i = 0"/>
+                            </Initial>
+                            <Iterator>
+                                <Expression Expression="i++"/>
+                            </Iterator>
+                            <Expression Expression="rtb_Product1_c_tmp = 3 * i + i_0"/>
+                            <Expression Expression="rtb_Product1_b[rtb_Product1_c_tmp] = 0.0"/>
+                            <Expression Expression="rtb_Product1_b[rtb_Product1_c_tmp] += rtb_Product[3 * i] * rtb_VectorConcatenate[i_0]"/>
+                            <Expression Expression="rtb_Product1_b[rtb_Product1_c_tmp] += rtb_Product[3 * i + 1] * rtb_VectorConcatenate[i_0 + 3]"/>
+                            <Expression Expression="rtb_Product1_b[rtb_Product1_c_tmp] += rtb_Product[3 * i + 2] * rtb_VectorConcatenate[i_0 + 6]"/>
+                            <Expression Expression="euler321_I2B_12B_Y_Vb[i_0] += euler321_I2B_12B_Y_DCM321[rtb_Product1_c_tmp] * euler321_I2B_12B_U_Vi[i]"/>
+                            <Expression Expression="euler321_I2B_12B_Y_outGamma[i_0] += rtb_Product1_i0[rtb_Product1_c_tmp] * euler321_I2B_12B_U_Vi[i]"/>
+                            <Expression Expression="rtb_Product2_m[i_0] += rtb_Product1_b[rtb_Product1_c_tmp] * euler321_I2B_12B_U_Vi[i]"/>
+                        </For>
+                    </For>
+                    <Expression Expression="euler321_I2B_12B_Y_outTheta[0] = euler321_I2B_12B_Y_Vb[0] - euler321_I2B_12B_Y_outGamma[0]"/>
+                    <Expression Expression="euler321_I2B_12B_Y_outTheta[1] = euler321_I2B_12B_Y_Vb[1] - euler321_I2B_12B_Y_outGamma[1]"/>
+                    <Expression Expression="euler321_I2B_12B_Y_outTheta[2] = euler321_I2B_12B_Y_Vb[2] - euler321_I2B_12B_Y_outGamma[2]"/>
+                    <Expression Expression="euler321_I2B_12B_Y_outGamma[0] = euler321_I2B_12B_Y_Vb[0] - rtb_Product2_m[0]"/>
+                    <Expression Expression="euler321_I2B_12B_Y_outGamma[1] = euler321_I2B_12B_Y_Vb[1] - rtb_Product2_m[1]"/>
+                    <Expression Expression="euler321_I2B_12B_Y_outGamma[2] = euler321_I2B_12B_Y_Vb[2] - rtb_Product2_m[2]"/>
+                    <Expression Expression="rtb_TrigonometricFunction2 = rtb_TrigonometricFunction4_tm_0 * rtb_TrigonometricFunction4_tmp"/>
+                    <Expression Expression="rtb_TrigonometricFunction4 = rtb_TrigonometricFunction2_tm_0 * rtb_TrigonometricFunction4_tmp"/>
+                    <Expression Expression="*euler321_I2B_12B_Y_outR1 = ((rtb_TrigonometricFunction4_tm_0 * rtb_TrigonometricFunction2_tmp == euler321_I2B_12B_Y_DCM321[0]) &amp;&amp; (rtb_TrigonometricFunction2 * rtb_TrigonometricFunction2_tm_1 + -rtb_TrigonometricFunction4_tm_1 * rtb_TrigonometricFunction2_tm_0 == euler321_I2B_12B_Y_DCM321[1]) &amp;&amp; (rtb_TrigonometricFunction2 * rtb_TrigonometricFunction4_tm_1 + rtb_TrigonometricFunction2_tm_1 * rtb_TrigonometricFunction2_tm_0 == euler321_I2B_12B_Y_DCM321[2]) &amp;&amp; (rtb_TrigonometricFunction2_tm_0 * rtb_TrigonometricFunction2_tmp == euler321_I2B_12B_Y_DCM321[3]) &amp;&amp; (rtb_TrigonometricFunction4 * rtb_TrigonometricFunction2_tm_1 + rtb_TrigonometricFunction4_tm_0 * rtb_TrigonometricFunction4_tm_1 == euler321_I2B_12B_Y_DCM321[4]) &amp;&amp; (rtb_TrigonometricFunction4 * rtb_TrigonometricFunction4_tm_1 + -rtb_TrigonometricFunction2_tm_1 * rtb_TrigonometricFunction4_tm_0 == euler321_I2B_12B_Y_DCM321[5]) &amp;&amp; (-rtb_TrigonometricFunction4_tmp == euler321_I2B_12B_Y_DCM321[6]) &amp;&amp; (rtb_TrigonometricFunction2_tm_1 * rtb_TrigonometricFunction2_tmp == euler321_I2B_12B_Y_DCM321[7]) &amp;&amp; (rtb_TrigonometricFunction4_tm_1 * rtb_TrigonometricFunction2_tmp == euler321_I2B_12B_Y_DCM321[8]))"/>
+                    <Expression Expression="UNUSED_PARAMETER(euler321_I2B_12B_M)"/>
+                </Calculate>
+            </Schedule>
+        </Function>
+        <Function Name="euler321_I2B_12B_init" Type="FunctionInit" ReturnType="void">
+			<Ref Path="euler321_I2B_12B.Func"/>
+            <Input Name="euler321_I2B_12B_M" Type="RT_MODEL_euler321_I2B_12B_T" IsAddress="1"/>
+            <Input Name="euler321_I2B_12B_U_Vi" Type="real_T" ArraySize="3"/>
+            <Input Name="euler321_I2B_12B_Y_DCM321" Type="real_T" ArraySize="9"/>
+            <Input Name="euler321_I2B_12B_Y_Vb" Type="real_T" ArraySize="3"/>
+            <Input Name="euler321_I2B_12B_Y_outTheta" Type="real_T" ArraySize="3"/>
+            <Input Name="euler321_I2B_12B_Y_outGamma" Type="real_T" ArraySize="3"/>
+            <Output Name="euler321_I2B_12B_U_phi" Type="real_T"/>
+            <Output Name="euler321_I2B_12B_U_theta" Type="real_T"/>
+            <Output Name="euler321_I2B_12B_U_psi" Type="real_T"/>
+            <Output Name="euler321_I2B_12B_U_Inport" Type="real_T"/>
+            <Output Name="euler321_I2B_12B_Y_outR1" Type="boolean_T"/>
+            <Schedule>
+                <Calculate Name="euler321_I2B_12B_init">
+                    <Expression Expression="rtmSetErrorStatus(euler321_I2B_12B_M, (NULL))"/>
+                    <Expression Expression="(void)memset(&amp;euler321_I2B_12B_U_Vi[0], 0, 3U * sizeof(real_T))"/>
+                    <Expression Expression="*euler321_I2B_12B_U_phi = 0.0"/>
+                    <Expression Expression="*euler321_I2B_12B_U_theta = 0.0"/>
+                    <Expression Expression="*euler321_I2B_12B_U_psi = 0.0"/>
+                    <Expression Expression="*euler321_I2B_12B_U_Inport = 0.0"/>
+                    <Expression Expression="(void)memset(&amp;euler321_I2B_12B_Y_DCM321[0], 0, 9U * sizeof(real_T))"/>
+                    <Expression Expression="(void)memset(&amp;euler321_I2B_12B_Y_Vb[0], 0, 3U * sizeof(real_T))"/>
+                    <Expression Expression="(void)memset(&amp;euler321_I2B_12B_Y_outTheta[0], 0, 3U * sizeof(real_T))"/>
+                    <Expression Expression="(void)memset(&amp;euler321_I2B_12B_Y_outGamma[0], 0, 3U * sizeof(real_T))"/>
+                    <Expression Expression="*euler321_I2B_12B_Y_outR1 = false"/>
+                    <Expression Expression="UNUSED_PARAMETER(euler321_I2B_12B_M)"/>
+                </Calculate>
+            </Schedule>
+        </Function>
+    </File>
+    <File Name="euler321_I2B_12B_data"/>
+</Root>

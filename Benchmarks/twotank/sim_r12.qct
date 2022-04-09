@@ -1,0 +1,3 @@
+# R12 After the initial time step, the Previous Emergency Valve State
+# shall be equal to the Emergency Valve State in the previous step.
+pre_E_Valve_State{t} == Emergency_Valve_State{t-1};

@@ -1,0 +1,7 @@
+# R28 When the tank 1 valve is OPEN and the tank 2 outflow valves
+# (emergency and production) are CLOSED the liquid height in tank 2
+# shall increase from the previous timestep.
+#
+# NOTE: pump and vlave states *should* be Boolean, BUT they are enetered as floats in the model.
+(Valve_State == 1.0 and Production_Valve_State == 0.0 and Emergency_Valve_State == 0.0) impl
+   (tank2_liquid_height_m > tank2_previous_height_m);

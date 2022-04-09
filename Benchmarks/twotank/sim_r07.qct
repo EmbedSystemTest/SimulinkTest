@@ -1,0 +1,3 @@
+# R07 After the initial time step, the Tank 1 Previous Height shall be
+# equal to the Tank 1 Height in the previous step.
+tank1_previous_height_m{t} == t1_h{t-1};

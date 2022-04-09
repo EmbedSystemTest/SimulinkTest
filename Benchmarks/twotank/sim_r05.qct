@@ -1,0 +1,3 @@
+# R05 The Previous Production Valve State shall initially be the
+# specified initial value.
+pre_P_Valve_State{0} == Production_Valve_State{0};

@@ -1,0 +1,14 @@
+<Calculate Name="AddActor">
+	<Input Name="port0" Type="i32">
+		<Ref Path="AddActor.port0"/>
+	</Input>
+	<Input Name="port1" Type="i32">
+		<Ref Path="AddActor.port1"/>
+	</Input>
+	<Output Name="port2" Type="i32">
+		<Ref Path="AddActor.port2"/>
+	</Output>
+	<Expression Expression="port2 = 
+	Simulink_Add_Unit(port0, port1)"/>
+</Calculate>
+

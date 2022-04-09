@@ -1,0 +1,2813 @@
+<Root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.example.org/IRMetadata">
+    <Config>
+        <MainInitFunction Name="A0_Init"/>
+        <MainExecFunction Name="A0_Update"/>
+        <MainCompositeState Name="code_A0_state"/>
+    </Config>
+    <File Name="">
+        <TypeDefine Name="i8" Value="sint8"/>
+        <TypeDefine Name="u8" Value="uint8"/>
+        <TypeDefine Name="i16" Value="sint16"/>
+        <TypeDefine Name="u16" Value="uint16"/>
+        <TypeDefine Name="i32" Value="sint32"/>
+        <TypeDefine Name="u32" Value="uint32"/>
+        <TypeDefine Name="boolean" Value="boolean_8"/>
+        <TypeDefine Name="i64" Value="uint64_tt"/>
+        <TypeDefine Name="f32" Value="float32"/>
+        <TypeDefine Name="f64" Value="float64"/>
+    </File>
+    <File Name="code">
+        <HeadFile Name="stdlib"/>
+        <HeadFile Name="string"/>
+        <HeadFile Name="math">
+            <Ref Path="code"/>
+        </HeadFile>
+        <HeadFile Name="stdio"/>
+        <Struct Name="code_struct">
+            <Ref Path="code"/>
+            <Member Name="beginTime" Type="i64">
+                <Ref Path="code"/>
+            </Member>
+            <Member Name="endTime" Type="i64">
+                <Ref Path="code"/>
+            </Member>
+            <Member Name="size" Type="u8">
+                <Ref Path="code"/>
+            </Member>
+        </Struct>
+        <Struct Name="code_struct1">
+            <Ref Path="code"/>
+            <Member Name="range" Type="struct code_struct">
+                <Ref Path="code"/>
+            </Member>
+            <Member Name="valid" Type="u8">
+                <Ref Path="code"/>
+            </Member>
+        </Struct>
+        <Struct Name="code_Parameters_Struct">
+            <Ref Path="code"/>
+            <Member Name="A1_size" Type="i32">
+                <Ref Path="code.CompositeActor.size"/>
+            </Member>
+            <Member Name="A1_begin" Type="i32">
+                <Ref Path="code.CompositeActor.begin"/>
+            </Member>
+            <Member Name="A1_queue" Type="struct code_struct" ArraySize="1000">
+                <Ref Path="code.CompositeActor.queue"/>
+            </Member>
+            <Member Name="A1_lastValid" Type="boolean">
+                <Ref Path="code.CompositeActor.lastValid"/>
+            </Member>
+            <Member Name="A1_lastperiod" Type="i64">
+                <Ref Path="code.CompositeActor.lastperiod"/>
+            </Member>
+            <Member Name="A1_last" Type="i64">
+                <Ref Path="code.CompositeActor.last"/>
+            </Member>
+        </Struct>
+        <Macro Name="boolean" Value="unsigned char" HasIfndefCheck="false"/>
+        <Macro Name="TRUE" Value="1" HasIfndefCheck="false"/>
+        <Macro Name="PI" Value="3.1415926535897932384626" HasIfndefCheck="false"/>
+        <Macro Name="FALSE" Value="0" HasIfndefCheck="false"/>
+        <GlobalVariable Name="code_GlobalParams" Type="code_Parameters_Struct" IsStatic="true">
+            <Ref Path="code"/>
+        </GlobalVariable>
+        <Function Name="A0_Init" Type="FunctionInit">
+            <Ref Path="code"/>
+            <Schedule>
+                <Calculate Name="code">
+                    <Ref Path="code"/>
+                </Calculate>
+                <Calculate Name="CompositeActor">
+                    <Ref Path="code.CompositeActor"/>
+                    <Expression Expression="A1_Init()"/>
+                </Calculate>
+            </Schedule>
+        </Function>
+        <Function Name="A0_Update" Type="FunctionExec">
+            <Ref Path="code"/>
+            <Schedule>
+                <Calculate Name="CompositeActor">
+                    <Ref Path="code.CompositeActor"/>
+                    <Expression Expression="A1_Update()"/>
+                </Calculate>
+            </Schedule>
+        </Function>
+        <Function Name="A7_Init" Type="FunctionInit" IsStatic="true">
+            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.CompositeActor"/>
+            <Schedule>
+                <Calculate Name="CompositeActor">
+                    <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.CompositeActor"/>
+                </Calculate>
+            </Schedule>
+        </Function>
+        <Function Name="A7_Update" Type="FunctionExec" IsStatic="true">
+            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.CompositeActor"/>
+            <Input Name="In" Type="i64">
+                <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.CompositeActor.In"/>
+            </Input>
+            <Input Name="begin" Type="i64">
+                <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.CompositeActor.begin"/>
+            </Input>
+            <Input Name="end" Type="i64">
+                <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.CompositeActor.end"/>
+            </Input>
+            <Output Name="nbegin" Type="i64">
+                <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.CompositeActor.nbegin"/>
+            </Output>
+            <Output Name="nend" Type="i64">
+                <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.CompositeActor.nend"/>
+            </Output>
+            <Schedule>
+                <Calculate Name="Expression">
+                    <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.CompositeActor.Expression"/>
+                    <Input Name="In" Type="i64" Source="begin">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.CompositeActor.Expression.In"/>
+                    </Input>
+                    <Input Name="In2" Type="i64" Source="end">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.CompositeActor.Expression.In2"/>
+                    </Input>
+                    <Output Name="output" Type="i64">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.CompositeActor.Expression.output"/>
+                    </Output>
+                    <LocalVariable Name="Expression_In" Type="uint64_tt" DefaultValue="begin"/>
+                    <LocalVariable Name="Expression_In2" Type="uint64_tt" DefaultValue="end"/>
+                    <LocalVariable Name="Expression_output" Type="uint64_tt" DefaultValue="((((((Expression_In2) - (Expression_In))) / (2))) + (Expression_In))"/>
+                </Calculate>
+                <Calculate Name="Expression_1">
+                    <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.CompositeActor.Expression_1"/>
+                    <Input Name="In" Type="i64" Source="Expression_output">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.CompositeActor.Expression_1.In"/>
+                    </Input>
+                    <Input Name="In2" Type="i64" Source="In">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.CompositeActor.Expression_1.In2"/>
+                    </Input>
+                    <Output Name="output" Type="i64">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.CompositeActor.Expression_1.output"/>
+                    </Output>
+                    <LocalVariable Name="Expression_1_In" Type="uint64_tt" DefaultValue="Expression_output"/>
+                    <LocalVariable Name="Expression_1_In2" Type="uint64_tt" DefaultValue="In"/>
+                    <LocalVariable Name="Expression_1_output" Type="uint64_tt" DefaultValue="((Expression_1_In) - (((Expression_1_In2) / (2))))"/>
+                </Calculate>
+                <Calculate Name="Expression_1_1">
+                    <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.CompositeActor.Expression_1_1"/>
+                    <Input Name="In" Type="i64" Source="Expression_output">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.CompositeActor.Expression_1_1.In"/>
+                    </Input>
+                    <Input Name="In2" Type="i64" Source="In">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.CompositeActor.Expression_1_1.In2"/>
+                    </Input>
+                    <Output Name="output" Type="i64">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.CompositeActor.Expression_1_1.output"/>
+                    </Output>
+                    <LocalVariable Name="Expression_1_1_In" Type="uint64_tt" DefaultValue="Expression_output"/>
+                    <LocalVariable Name="Expression_1_1_In2" Type="uint64_tt" DefaultValue="In"/>
+                    <LocalVariable Name="Expression_1_1_output" Type="uint64_tt" DefaultValue="((Expression_1_1_In) + (((Expression_1_1_In2) / (2))))"/>
+                </Calculate>
+                <Calculate Name="nbegin">
+                    <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.CompositeActor.nbegin"/>
+                    <Input Name="nbegin" Type="i64" Source="Expression_1_output">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.CompositeActor.nbegin"/>
+                    </Input>
+                    <Expression Expression="*nbegin = Expression_1_output"/>
+                </Calculate>
+                <Calculate Name="nend">
+                    <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.CompositeActor.nend"/>
+                    <Input Name="nend" Type="i64" Source="Expression_1_1_output">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.CompositeActor.nend"/>
+                    </Input>
+                    <Expression Expression="*nend = Expression_1_1_output"/>
+                </Calculate>
+            </Schedule>
+        </Function>
+        <Function Name="A8_Init" Type="FunctionInit" IsStatic="true">
+            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite"/>
+            <Schedule>
+                <Calculate Name="EnabledComposite">
+                    <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite"/>
+                </Calculate>
+            </Schedule>
+        </Function>
+        <Function Name="A8_Update" Type="FunctionExec" IsStatic="true">
+            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite"/>
+            <Input Name="enable" Type="boolean">
+                <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite.enable"/>
+            </Input>
+            <Input Name="In" Type="i64">
+                <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite.In"/>
+            </Input>
+            <Input Name="In_1" Type="i64">
+                <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite.In_1"/>
+            </Input>
+            <Schedule>
+                <Branch Type="If" Condition="enable">
+                    <Calculate Name="Const_1">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite.Const_1"/>
+                        <Input Name="trigger" Type="unknown">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite.Const_1.trigger"/>
+                        </Input>
+                        <Output Name="output" Type="u8">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite.Const_1.output"/>
+                        </Output>
+                        <LocalVariable Name="Const_1_output" Type="unsigned char" DefaultValue="1u"/>
+                    </Calculate>
+                    <Calculate Name="Const_2">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite.Const_2"/>
+                        <Input Name="trigger" Type="unknown">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite.Const_2.trigger"/>
+                        </Input>
+                        <Output Name="output" Type="struct code_struct" ArraySize="1000">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite.Const_2.output"/>
+                        </Output>
+                        <LocalVariable Name="Const_2_output" Type="code_struct" ArraySize="1000"/>
+                        <Expression Expression="(void)memcpy(Const_2_output, code_GlobalParams.A1_queue, sizeof(code_GlobalParams.A1_queue))"/>
+                    </Calculate>
+                    <Calculate Name="Const_3">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite.Const_3"/>
+                        <Input Name="trigger" Type="unknown">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite.Const_3.trigger"/>
+                        </Input>
+                        <Output Name="output" Type="i32">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite.Const_3.output"/>
+                        </Output>
+                        <LocalVariable Name="Const_3_output" Type="sint32" DefaultValue="((((code_GlobalParams.A1_begin) + (code_GlobalParams.A1_size))) % (1000))"/>
+                    </Calculate>
+                    <Calculate Name="Const">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite.Const"/>
+                        <Input Name="trigger" Type="unknown" Source="Const_3_output">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite.Const.trigger"/>
+                        </Input>
+                        <Output Name="output" Type="i32">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite.Const.output"/>
+                        </Output>
+                        <LocalVariable Name="Const_output" Type="sint32" DefaultValue="((code_GlobalParams.A1_size) + (1))"/>
+                    </Calculate>
+                    <Calculate Name="RecordAssembler">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite.RecordAssembler"/>
+                        <Input Name="beginTime" Type="i64" Source="In">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite.RecordAssembler.beginTime"/>
+                        </Input>
+                        <Input Name="endTime" Type="i64" Source="In_1">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite.RecordAssembler.endTime"/>
+                        </Input>
+                        <Input Name="size" Type="u8" Source="Const_1_output">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite.RecordAssembler.size"/>
+                        </Input>
+                        <Output Name="output" Type="struct code_struct">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite.RecordAssembler.output"/>
+                        </Output>
+                        <LocalVariable Name="RecordAssembler_output" Type="code_struct"/>
+                        <Expression Expression="RecordAssembler_output.beginTime = In"/>
+                        <Expression Expression="RecordAssembler_output.endTime = In_1"/>
+                        <Expression Expression="RecordAssembler_output.size = Const_1_output"/>
+                    </Calculate>
+                    <Calculate Name="ArrayUpdate">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite.ArrayUpdate"/>
+                        <Input Name="input" Type="code_struct" ArraySize="1000" Source="Const_2_output">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite.ArrayUpdate.input"/>
+                        </Input>
+                        <Input Name="index" Type="i32" Source="Const_3_output">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite.ArrayUpdate.index"/>
+                        </Input>
+                        <Input Name="value" Type="code_struct" Source="RecordAssembler_output">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite.ArrayUpdate.value"/>
+                        </Input>
+                        <Output Name="output" Type="struct code_struct" ArraySize="1000">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite.ArrayUpdate.output"/>
+                        </Output>
+                        <LocalVariable Name="ArrayUpdate_output" Type="code_struct" ArraySize="1000"/>
+                        <Expression Expression="(void)memcpy(ArrayUpdate_output, Const_2_output, 1000 * sizeof(struct code_struct))"/>
+                        <Expression Expression="ArrayUpdate_output[Const_3_output] = RecordAssembler_output"/>
+                    </Calculate>
+                    <Calculate Name="SetVariable_1_1">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite.SetVariable_1_1"/>
+                        <Input Name="input" Type="i32" Source="Const_output">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite.SetVariable_1_1.input"/>
+                        </Input>
+                        <Output Name="output" Type="i32">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite.SetVariable_1_1.output"/>
+                        </Output>
+                        <Expression Expression="code_GlobalParams.A1_size = Const_output"/>
+                        <LocalVariable Name="SetVariable_1_1_output" Type="sint32" DefaultValue="code_GlobalParams.A1_size"/>
+                    </Calculate>
+                    <Calculate Name="SetVariable_1">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite.SetVariable_1"/>
+                        <Input Name="input" Type="code_struct" ArraySize="1000" Source="ArrayUpdate_output">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite.SetVariable_1.input"/>
+                        </Input>
+                        <Output Name="output" Type="struct code_struct" ArraySize="1000">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite.SetVariable_1.output"/>
+                        </Output>
+                        <LocalVariable Name="SetVariable_1_output" Type="code_struct" ArraySize="1000"/>
+                        <Expression Expression="(void)memcpy(SetVariable_1_output, code_GlobalParams.A1_queue, sizeof(code_GlobalParams.A1_queue))"/>
+                        <Expression Expression="(void)memcpy(code_GlobalParams.A1_queue, ArrayUpdate_output, 1000 * sizeof(struct code_struct))"/>
+                    </Calculate>
+                </Branch>
+            </Schedule>
+        </Function>
+        <Function Name="A9_Init" Type="FunctionInit" IsStatic="true">
+            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite_1"/>
+            <Schedule>
+                <Calculate Name="EnabledComposite_1">
+                    <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite_1"/>
+                </Calculate>
+            </Schedule>
+        </Function>
+        <Function Name="A9_Update" Type="FunctionExec" IsStatic="true">
+            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite_1"/>
+            <Input Name="enable" Type="boolean">
+                <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite_1.enable"/>
+            </Input>
+            <Input Name="In" Type="code_struct">
+                <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite_1.In"/>
+            </Input>
+            <Input Name="In_1" Type="i64">
+                <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite_1.In_1"/>
+            </Input>
+            <Schedule>
+                <Branch Type="If" Condition="enable">
+                    <Calculate Name="Const_1">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite_1.Const_1"/>
+                        <Input Name="trigger" Type="unknown">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite_1.Const_1.trigger"/>
+                        </Input>
+                        <Output Name="output" Type="u8">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite_1.Const_1.output"/>
+                        </Output>
+                        <LocalVariable Name="Const_1_output" Type="unsigned char" DefaultValue="1u"/>
+                    </Calculate>
+                    <Calculate Name="Const_2">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite_1.Const_2"/>
+                        <Input Name="trigger" Type="unknown">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite_1.Const_2.trigger"/>
+                        </Input>
+                        <Output Name="output" Type="struct code_struct" ArraySize="1000">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite_1.Const_2.output"/>
+                        </Output>
+                        <LocalVariable Name="Const_2_output" Type="code_struct" ArraySize="1000"/>
+                        <Expression Expression="(void)memcpy(Const_2_output, code_GlobalParams.A1_queue, sizeof(code_GlobalParams.A1_queue))"/>
+                    </Calculate>
+                    <Calculate Name="Const_3">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite_1.Const_3"/>
+                        <Input Name="trigger" Type="unknown">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite_1.Const_3.trigger"/>
+                        </Input>
+                        <Output Name="output" Type="i32">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite_1.Const_3.output"/>
+                        </Output>
+                        <LocalVariable Name="Const_3_output" Type="sint32" DefaultValue="((((code_GlobalParams.A1_begin) + (code_GlobalParams.A1_size))) % (1000))"/>
+                    </Calculate>
+                    <Calculate Name="Const">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite_1.Const"/>
+                        <Input Name="trigger" Type="unknown" Source="Const_3_output">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite_1.Const.trigger"/>
+                        </Input>
+                        <Output Name="output" Type="i32">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite_1.Const.output"/>
+                        </Output>
+                        <LocalVariable Name="Const_output" Type="sint32" DefaultValue="((code_GlobalParams.A1_size) + (1))"/>
+                    </Calculate>
+                    <Calculate Name="Expression">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite_1.Expression"/>
+                        <Input Name="In" Type="code_struct" Source="In">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite_1.Expression.In"/>
+                        </Input>
+                        <Output Name="output" Type="i64">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite_1.Expression.output"/>
+                        </Output>
+                        <LocalVariable Name="Expression_In" Type="code_struct"/>
+                        <Expression Expression="Expression_In = In"/>
+                        <LocalVariable Name="Expression_output" Type="uint64_tt" DefaultValue="Expression_In.endTime"/>
+                    </Calculate>
+                    <Calculate Name="SetVariable">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite_1.SetVariable"/>
+                        <Input Name="input" Type="i32" Source="Const_output">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite_1.SetVariable.input"/>
+                        </Input>
+                        <Output Name="output" Type="i32">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite_1.SetVariable.output"/>
+                        </Output>
+                        <Expression Expression="code_GlobalParams.A1_size = Const_output"/>
+                        <LocalVariable Name="SetVariable_output" Type="sint32" DefaultValue="code_GlobalParams.A1_size"/>
+                    </Calculate>
+                    <Calculate Name="RecordAssembler">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite_1.RecordAssembler"/>
+                        <Input Name="beginTime" Type="i64" Source="Expression_output">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite_1.RecordAssembler.beginTime"/>
+                        </Input>
+                        <Input Name="endTime" Type="i64" Source="In_1">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite_1.RecordAssembler.endTime"/>
+                        </Input>
+                        <Input Name="size" Type="u8" Source="Const_1_output">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite_1.RecordAssembler.size"/>
+                        </Input>
+                        <Output Name="output" Type="struct code_struct">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite_1.RecordAssembler.output"/>
+                        </Output>
+                        <LocalVariable Name="RecordAssembler_output" Type="code_struct"/>
+                        <Expression Expression="RecordAssembler_output.beginTime = Expression_output"/>
+                        <Expression Expression="RecordAssembler_output.endTime = In_1"/>
+                        <Expression Expression="RecordAssembler_output.size = Const_1_output"/>
+                    </Calculate>
+                    <Calculate Name="ArrayUpdate">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite_1.ArrayUpdate"/>
+                        <Input Name="input" Type="code_struct" ArraySize="1000" Source="Const_2_output">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite_1.ArrayUpdate.input"/>
+                        </Input>
+                        <Input Name="index" Type="i32" Source="Const_3_output">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite_1.ArrayUpdate.index"/>
+                        </Input>
+                        <Input Name="value" Type="code_struct" Source="RecordAssembler_output">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite_1.ArrayUpdate.value"/>
+                        </Input>
+                        <Output Name="output" Type="struct code_struct" ArraySize="1000">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite_1.ArrayUpdate.output"/>
+                        </Output>
+                        <LocalVariable Name="ArrayUpdate_output" Type="code_struct" ArraySize="1000"/>
+                        <Expression Expression="(void)memcpy(ArrayUpdate_output, Const_2_output, 1000 * sizeof(struct code_struct))"/>
+                        <Expression Expression="ArrayUpdate_output[Const_3_output] = RecordAssembler_output"/>
+                    </Calculate>
+                    <Calculate Name="SetVariable_1">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite_1.SetVariable_1"/>
+                        <Input Name="input" Type="code_struct" ArraySize="1000" Source="ArrayUpdate_output">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite_1.SetVariable_1.input"/>
+                        </Input>
+                        <Output Name="output" Type="struct code_struct" ArraySize="1000">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite_1.SetVariable_1.output"/>
+                        </Output>
+                        <LocalVariable Name="SetVariable_1_output" Type="code_struct" ArraySize="1000"/>
+                        <Expression Expression="(void)memcpy(SetVariable_1_output, code_GlobalParams.A1_queue, sizeof(code_GlobalParams.A1_queue))"/>
+                        <Expression Expression="(void)memcpy(code_GlobalParams.A1_queue, ArrayUpdate_output, 1000 * sizeof(struct code_struct))"/>
+                    </Calculate>
+                </Branch>
+            </Schedule>
+        </Function>
+        <Function Name="A10_Init" Type="FunctionInit" IsStatic="true">
+            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite_1_1"/>
+            <Schedule>
+                <Calculate Name="EnabledComposite_1_1">
+                    <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite_1_1"/>
+                </Calculate>
+            </Schedule>
+        </Function>
+        <Function Name="A10_Update" Type="FunctionExec" IsStatic="true">
+            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite_1_1"/>
+            <Input Name="enable" Type="boolean">
+                <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite_1_1.enable"/>
+            </Input>
+            <Input Name="In" Type="code_struct">
+                <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite_1_1.In"/>
+            </Input>
+            <Input Name="In_1" Type="i64">
+                <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite_1_1.In_1"/>
+            </Input>
+            <Schedule>
+                <Branch Type="If" Condition="enable">
+                    <Calculate Name="Const_2">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite_1_1.Const_2"/>
+                        <Input Name="trigger" Type="unknown">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite_1_1.Const_2.trigger"/>
+                        </Input>
+                        <Output Name="output" Type="struct code_struct" ArraySize="1000">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite_1_1.Const_2.output"/>
+                        </Output>
+                        <LocalVariable Name="Const_2_output" Type="code_struct" ArraySize="1000"/>
+                        <Expression Expression="(void)memcpy(Const_2_output, code_GlobalParams.A1_queue, sizeof(code_GlobalParams.A1_queue))"/>
+                    </Calculate>
+                    <Calculate Name="Const_3">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite_1_1.Const_3"/>
+                        <Input Name="trigger" Type="unknown">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite_1_1.Const_3.trigger"/>
+                        </Input>
+                        <Output Name="output" Type="i32">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite_1_1.Const_3.output"/>
+                        </Output>
+                        <LocalVariable Name="Const_3_output" Type="sint32" DefaultValue="((((code_GlobalParams.A1_begin) + (code_GlobalParams.A1_size) + (999))) % (1000))"/>
+                    </Calculate>
+                    <Calculate Name="Expression">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite_1_1.Expression"/>
+                        <Input Name="In" Type="code_struct" Source="In">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite_1_1.Expression.In"/>
+                        </Input>
+                        <Output Name="output" Type="i64">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite_1_1.Expression.output"/>
+                        </Output>
+                        <LocalVariable Name="Expression_In" Type="code_struct"/>
+                        <Expression Expression="Expression_In = In"/>
+                        <LocalVariable Name="Expression_output" Type="uint64_tt" DefaultValue="Expression_In.beginTime"/>
+                    </Calculate>
+                    <Calculate Name="Expression_1">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite_1_1.Expression_1"/>
+                        <Input Name="In" Type="code_struct" Source="In">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite_1_1.Expression_1.In"/>
+                        </Input>
+                        <Output Name="output" Type="u8">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite_1_1.Expression_1.output"/>
+                        </Output>
+                        <LocalVariable Name="Expression_1_In" Type="code_struct"/>
+                        <Expression Expression="Expression_1_In = In"/>
+                        <LocalVariable Name="Expression_1_output" Type="unsigned char" DefaultValue="((Expression_1_In.size) + (1u))"/>
+                    </Calculate>
+                    <Calculate Name="RecordAssembler">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite_1_1.RecordAssembler"/>
+                        <Input Name="beginTime" Type="i64" Source="Expression_output">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite_1_1.RecordAssembler.beginTime"/>
+                        </Input>
+                        <Input Name="endTime" Type="i64" Source="In_1">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite_1_1.RecordAssembler.endTime"/>
+                        </Input>
+                        <Input Name="size" Type="u8" Source="Expression_1_output">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite_1_1.RecordAssembler.size"/>
+                        </Input>
+                        <Output Name="output" Type="struct code_struct">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite_1_1.RecordAssembler.output"/>
+                        </Output>
+                        <LocalVariable Name="RecordAssembler_output" Type="code_struct"/>
+                        <Expression Expression="RecordAssembler_output.beginTime = Expression_output"/>
+                        <Expression Expression="RecordAssembler_output.endTime = In_1"/>
+                        <Expression Expression="RecordAssembler_output.size = Expression_1_output"/>
+                    </Calculate>
+                    <Calculate Name="ArrayUpdate">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite_1_1.ArrayUpdate"/>
+                        <Input Name="input" Type="code_struct" ArraySize="1000" Source="Const_2_output">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite_1_1.ArrayUpdate.input"/>
+                        </Input>
+                        <Input Name="index" Type="i32" Source="Const_3_output">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite_1_1.ArrayUpdate.index"/>
+                        </Input>
+                        <Input Name="value" Type="code_struct" Source="RecordAssembler_output">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite_1_1.ArrayUpdate.value"/>
+                        </Input>
+                        <Output Name="output" Type="struct code_struct" ArraySize="1000">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite_1_1.ArrayUpdate.output"/>
+                        </Output>
+                        <LocalVariable Name="ArrayUpdate_output" Type="code_struct" ArraySize="1000"/>
+                        <Expression Expression="(void)memcpy(ArrayUpdate_output, Const_2_output, 1000 * sizeof(struct code_struct))"/>
+                        <Expression Expression="ArrayUpdate_output[Const_3_output] = RecordAssembler_output"/>
+                    </Calculate>
+                    <Calculate Name="SetVariable_1">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite_1_1.SetVariable_1"/>
+                        <Input Name="input" Type="code_struct" ArraySize="1000" Source="ArrayUpdate_output">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite_1_1.SetVariable_1.input"/>
+                        </Input>
+                        <Output Name="output" Type="struct code_struct" ArraySize="1000">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite_1_1.SetVariable_1.output"/>
+                        </Output>
+                        <LocalVariable Name="SetVariable_1_output" Type="code_struct" ArraySize="1000"/>
+                        <Expression Expression="(void)memcpy(SetVariable_1_output, code_GlobalParams.A1_queue, sizeof(code_GlobalParams.A1_queue))"/>
+                        <Expression Expression="(void)memcpy(code_GlobalParams.A1_queue, ArrayUpdate_output, 1000 * sizeof(struct code_struct))"/>
+                    </Calculate>
+                </Branch>
+            </Schedule>
+        </Function>
+        <Function Name="A3_Init" Type="FunctionInit" IsStatic="true">
+            <Ref Path="code.CompositeActor.Request.EnabledComposite"/>
+            <Schedule>
+                <Calculate Name="EnabledComposite">
+                    <Ref Path="code.CompositeActor.Request.EnabledComposite"/>
+                </Calculate>
+            </Schedule>
+        </Function>
+        <Function Name="A3_Update" Type="FunctionExec" IsStatic="true">
+            <Ref Path="code.CompositeActor.Request.EnabledComposite"/>
+            <Input Name="enable" Type="boolean">
+                <Ref Path="code.CompositeActor.Request.EnabledComposite.enable"/>
+            </Input>
+            <Output Name="Out" Type="u8">
+                <Ref Path="code.CompositeActor.Request.EnabledComposite.Out"/>
+            </Output>
+            <Schedule>
+                <Branch Type="If" Condition="enable">
+                    <Calculate Name="Const">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite.Const"/>
+                        <Input Name="trigger" Type="unknown">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite.Const.trigger"/>
+                        </Input>
+                        <Output Name="output" Type="u8">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite.Const.output"/>
+                        </Output>
+                        <LocalVariable Name="Const_output" Type="unsigned char" DefaultValue="2u"/>
+                    </Calculate>
+                    <Calculate Name="Out">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite.Out"/>
+                        <Input Name="Out" Type="u8" Source="Const_output">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite.Out"/>
+                        </Input>
+                        <Expression Expression="*Out = Const_output"/>
+                    </Calculate>
+                </Branch>
+            </Schedule>
+        </Function>
+        <Function Name="A4_Init" Type="FunctionInit" IsStatic="true">
+            <Ref Path="code.CompositeActor.Request.EnabledComposite_1"/>
+            <Schedule>
+                <Calculate Name="EnabledComposite_1">
+                    <Ref Path="code.CompositeActor.Request.EnabledComposite_1"/>
+                </Calculate>
+            </Schedule>
+        </Function>
+        <Function Name="A4_Update" Type="FunctionExec" IsStatic="true">
+            <Ref Path="code.CompositeActor.Request.EnabledComposite_1"/>
+            <Input Name="enable" Type="boolean">
+                <Ref Path="code.CompositeActor.Request.EnabledComposite_1.enable"/>
+            </Input>
+            <Output Name="Out" Type="u8">
+                <Ref Path="code.CompositeActor.Request.EnabledComposite_1.Out"/>
+            </Output>
+            <Schedule>
+                <Branch Type="If" Condition="enable">
+                    <Calculate Name="Const">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1.Const"/>
+                        <Input Name="trigger" Type="unknown">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1.Const.trigger"/>
+                        </Input>
+                        <Output Name="output" Type="u8">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1.Const.output"/>
+                        </Output>
+                        <LocalVariable Name="Const_output" Type="unsigned char" DefaultValue="3u"/>
+                    </Calculate>
+                    <Calculate Name="Out">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1.Out"/>
+                        <Input Name="Out" Type="u8" Source="Const_output">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1.Out"/>
+                        </Input>
+                        <Expression Expression="*Out = Const_output"/>
+                    </Calculate>
+                </Branch>
+            </Schedule>
+        </Function>
+        <Function Name="A5_Init" Type="FunctionInit" IsStatic="true">
+            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1"/>
+            <Schedule>
+                <Calculate Name="EnabledComposite_1_1">
+                    <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1"/>
+                </Calculate>
+            </Schedule>
+        </Function>
+        <Function Name="A5_Update" Type="FunctionExec" IsStatic="true">
+            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1"/>
+            <Input Name="enable" Type="boolean">
+                <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1.enable"/>
+            </Input>
+            <Output Name="Out" Type="u8">
+                <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1.Out"/>
+            </Output>
+            <Schedule>
+                <Branch Type="If" Condition="enable">
+                    <Calculate Name="Const">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1.Const"/>
+                        <Input Name="trigger" Type="unknown">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1.Const.trigger"/>
+                        </Input>
+                        <Output Name="output" Type="u8">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1.Const.output"/>
+                        </Output>
+                        <LocalVariable Name="Const_output" Type="unsigned char" DefaultValue="4u"/>
+                    </Calculate>
+                    <Calculate Name="Out">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1.Out"/>
+                        <Input Name="Out" Type="u8" Source="Const_output">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1.Out"/>
+                        </Input>
+                        <Expression Expression="*Out = Const_output"/>
+                    </Calculate>
+                </Branch>
+            </Schedule>
+        </Function>
+        <Function Name="A6_Init" Type="FunctionInit" IsStatic="true">
+            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1"/>
+            <Schedule>
+                <Calculate Name="EnabledComposite_1_1_1">
+                    <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1"/>
+                </Calculate>
+                <Calculate Name="CompositeActor">
+                    <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.CompositeActor"/>
+                    <Input Name="In" Type="i64" Source="BooleanMultiplexor_output">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.CompositeActor.In"/>
+                    </Input>
+                    <Input Name="begin" Type="i64" Source="begin">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.CompositeActor.begin"/>
+                    </Input>
+                    <Input Name="end" Type="i64" Source="end">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.CompositeActor.end"/>
+                    </Input>
+                    <Output Name="nbegin" Type="i64" Source="Expression_1_output">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.CompositeActor.nbegin"/>
+                    </Output>
+                    <Output Name="nend" Type="i64" Source="Expression_1_1_output">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.CompositeActor.nend"/>
+                    </Output>
+                    <Expression Expression="A7_Init()"/>
+                </Calculate>
+                <Calculate Name="EnabledComposite">
+                    <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite"/>
+                    <Input Name="enable" Type="boolean" Source="IfActor_if">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite.enable"/>
+                    </Input>
+                    <Input Name="In" Type="i64" Source="nbegin">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite.In"/>
+                    </Input>
+                    <Input Name="In_1" Type="i64" Source="nend">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite.In_1"/>
+                    </Input>
+                    <Expression Expression="A8_Init()"/>
+                </Calculate>
+                <Calculate Name="EnabledComposite_1">
+                    <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite_1"/>
+                    <Input Name="enable" Type="boolean" Source="IfActor_else">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite_1.enable"/>
+                    </Input>
+                    <Input Name="In" Type="code_struct" Source="Expression_2_output">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite_1.In"/>
+                    </Input>
+                    <Input Name="In_1" Type="i64" Source="nend">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite_1.In_1"/>
+                    </Input>
+                    <Expression Expression="A9_Init()"/>
+                </Calculate>
+                <Calculate Name="EnabledComposite_1_1">
+                    <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite_1_1"/>
+                    <Input Name="enable" Type="boolean" Source="IfActor__elseif0">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite_1_1.enable"/>
+                    </Input>
+                    <Input Name="In" Type="code_struct" Source="Expression_2_output">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite_1_1.In"/>
+                    </Input>
+                    <Input Name="In_1" Type="i64" Source="nend">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite_1_1.In_1"/>
+                    </Input>
+                    <Expression Expression="A10_Init()"/>
+                </Calculate>
+            </Schedule>
+        </Function>
+        <Function Name="A6_Update" Type="FunctionExec" IsStatic="true">
+            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1"/>
+            <Input Name="enable" Type="boolean">
+                <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.enable"/>
+            </Input>
+            <Input Name="begin" Type="i64">
+                <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.begin"/>
+            </Input>
+            <Input Name="end" Type="i64">
+                <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.end"/>
+            </Input>
+            <Output Name="Out" Type="u8">
+                <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.Out"/>
+            </Output>
+            <Schedule>
+                <LocalVariable Name="BooleanMultiplexor_output" Type="i64">
+                    <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.BooleanMultiplexor.output"/>
+                </LocalVariable>
+                <LocalVariable Name="BooleanMultiplexor_1_output" Type="u8">
+                    <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.BooleanMultiplexor_1.output"/>
+                </LocalVariable>
+                <Branch Type="If" Condition="enable">
+                    <Calculate Name="Const_1">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.Const_1"/>
+                        <Input Name="trigger" Type="unknown">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.Const_1.trigger"/>
+                        </Input>
+                        <Output Name="output" Type="i64">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.Const_1.output"/>
+                        </Output>
+                        <LocalVariable Name="Const_1_output" Type="uint64_tt" DefaultValue="code_GlobalParams.A1_lastperiod"/>
+                    </Calculate>
+                    <Calculate Name="Const_2">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.Const_2"/>
+                        <Input Name="trigger" Type="unknown">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.Const_2.trigger"/>
+                        </Input>
+                        <Output Name="output" Type="i32">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.Const_2.output"/>
+                        </Output>
+                        <LocalVariable Name="Const_2_output" Type="sint32" DefaultValue="((((code_GlobalParams.A1_begin) + (code_GlobalParams.A1_size) + (999))) % (1000))"/>
+                    </Calculate>
+                    <Calculate Name="Const">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.Const"/>
+                        <Input Name="trigger" Type="unknown">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.Const.trigger"/>
+                        </Input>
+                        <Output Name="output" Type="u8">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.Const.output"/>
+                        </Output>
+                        <LocalVariable Name="Const_output" Type="unsigned char" DefaultValue="0u"/>
+                    </Calculate>
+                    <Calculate Name="Const_3">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.Const_3"/>
+                        <Input Name="trigger" Type="unknown">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.Const_3.trigger"/>
+                        </Input>
+                        <Output Name="output" Type="u8">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.Const_3.output"/>
+                        </Output>
+                        <LocalVariable Name="Const_3_output" Type="unsigned char" DefaultValue="1u"/>
+                    </Calculate>
+                    <Calculate Name="Expression_1">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.Expression_1"/>
+                        <Input Name="In" Type="i64" Source="begin">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.Expression_1.In"/>
+                        </Input>
+                        <Input Name="In2" Type="i64" Source="end">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.Expression_1.In2"/>
+                        </Input>
+                        <Output Name="output" Type="i64">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.Expression_1.output"/>
+                        </Output>
+                        <LocalVariable Name="Expression_1_In" Type="uint64_tt" DefaultValue="begin"/>
+                        <LocalVariable Name="Expression_1_In2" Type="uint64_tt" DefaultValue="end"/>
+                        <LocalVariable Name="Expression_1_output" Type="uint64_tt" DefaultValue="((Expression_1_In2) - (Expression_1_In))"/>
+                    </Calculate>
+                    <Calculate Name="Expression_2">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.Expression_2"/>
+                        <Input Name="In" Type="i32" Source="Const_2_output">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.Expression_2.In"/>
+                        </Input>
+                        <Output Name="output" Type="struct code_struct">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.Expression_2.output"/>
+                        </Output>
+                        <LocalVariable Name="Expression_2_In" Type="sint32" DefaultValue="Const_2_output"/>
+                        <LocalVariable Name="Expression_2_output" Type="code_struct"/>
+                        <Expression Expression="Expression_2_output.beginTime = code_GlobalParams.A1_queue[Expression_2_In].beginTime"/>
+                        <Expression Expression="Expression_2_output.endTime = code_GlobalParams.A1_queue[Expression_2_In].endTime"/>
+                        <Expression Expression="Expression_2_output.size = code_GlobalParams.A1_queue[Expression_2_In].size"/>
+                    </Calculate>
+                    <Calculate Name="Expression_1_1">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.Expression_1_1"/>
+                        <Input Name="In" Type="i64" Source="begin">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.Expression_1_1.In"/>
+                        </Input>
+                        <Input Name="In2" Type="i64" Source="end">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.Expression_1_1.In2"/>
+                        </Input>
+                        <Output Name="output" Type="i64">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.Expression_1_1.output"/>
+                        </Output>
+                        <LocalVariable Name="Expression_1_1_In" Type="uint64_tt" DefaultValue="begin"/>
+                        <LocalVariable Name="Expression_1_1_In2" Type="uint64_tt" DefaultValue="end"/>
+                        <LocalVariable Name="Expression_1_1_output" Type="uint64_tt" DefaultValue="((Expression_1_1_In) + (((((Expression_1_1_In2) - (Expression_1_1_In))) / (2))))"/>
+                    </Calculate>
+                    <Calculate Name="Expression">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.Expression"/>
+                        <Input Name="In" Type="code_struct" Source="Expression_2_output">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.Expression.In"/>
+                        </Input>
+                        <Input Name="In2" Type="i64" Source="begin">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.Expression.In2"/>
+                        </Input>
+                        <Output Name="output" Type="boolean">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.Expression.output"/>
+                        </Output>
+                        <LocalVariable Name="Expression_In" Type="code_struct"/>
+                        <Expression Expression="Expression_In = Expression_2_output"/>
+                        <LocalVariable Name="Expression_In2" Type="uint64_tt" DefaultValue="begin"/>
+                        <LocalVariable Name="Expression_output" Type="boolean_8" DefaultValue="((code_GlobalParams.A1_size != 0)) &amp;&amp; ((Expression_In.endTime &gt;= Expression_In2))"/>
+                    </Calculate>
+                    <Calculate Name="SetVariable_1_1">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.SetVariable_1_1"/>
+                        <Input Name="input" Type="i64" Source="Expression_1_1_output">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.SetVariable_1_1.input"/>
+                        </Input>
+                        <Output Name="output" Type="i64">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.SetVariable_1_1.output"/>
+                        </Output>
+                        <LocalVariable Name="SetVariable_1_1_output" Type="uint64_tt" DefaultValue="code_GlobalParams.A1_last"/>
+                        <Expression Expression="code_GlobalParams.A1_last = Expression_1_1_output"/>
+                    </Calculate>
+                    <Branch Type="If" Condition="Expression_output">
+                        <Calculate Name="BooleanMultiplexor">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.BooleanMultiplexor"/>
+                            <Input Name="trueInput" Type="i64" Source="Const_1_output">
+                                <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.BooleanMultiplexor.trueInput"/>
+                            </Input>
+                            <Input Name="falseInput" Type="i64" Source="Expression_1_output">
+                                <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.BooleanMultiplexor.falseInput"/>
+                            </Input>
+                            <Input Name="select" Type="boolean" Source="Expression_output">
+                                <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.BooleanMultiplexor.select"/>
+                            </Input>
+                            <Output Name="output" Type="i64">
+                                <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.BooleanMultiplexor.output"/>
+                            </Output>
+                            <Expression Expression="BooleanMultiplexor_output = Const_1_output"/>
+                        </Calculate>
+                    </Branch>
+                    <Branch Type="Else">
+                        <Calculate Name="BooleanMultiplexor">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.BooleanMultiplexor"/>
+                            <Input Name="trueInput" Type="i64" Source="Const_1_output">
+                                <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.BooleanMultiplexor.trueInput"/>
+                            </Input>
+                            <Input Name="falseInput" Type="i64" Source="Expression_1_output">
+                                <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.BooleanMultiplexor.falseInput"/>
+                            </Input>
+                            <Input Name="select" Type="boolean" Source="Expression_output">
+                                <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.BooleanMultiplexor.select"/>
+                            </Input>
+                            <Output Name="output" Type="i64">
+                                <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.BooleanMultiplexor.output"/>
+                            </Output>
+                            <Expression Expression="BooleanMultiplexor_output = Expression_1_output"/>
+                        </Calculate>
+                    </Branch>
+                    <Calculate Name="SetVariable">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.SetVariable"/>
+                        <Input Name="input" Type="i64" Source="BooleanMultiplexor_output">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.SetVariable.input"/>
+                        </Input>
+                        <Output Name="output" Type="i64">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.SetVariable.output"/>
+                        </Output>
+                        <LocalVariable Name="SetVariable_output" Type="uint64_tt" DefaultValue="code_GlobalParams.A1_lastperiod"/>
+                        <Expression Expression="code_GlobalParams.A1_lastperiod = BooleanMultiplexor_output"/>
+                    </Calculate>
+                    <Calculate Name="Const_4">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.Const_4"/>
+                        <Input Name="trigger" Type="unknown" Source="SetVariable_output">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.Const_4.trigger"/>
+                        </Input>
+                        <Output Name="output" Type="boolean">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.Const_4.output"/>
+                        </Output>
+                        <LocalVariable Name="Const_4_output" Type="boolean_8" DefaultValue="TRUE"/>
+                    </Calculate>
+                    <Calculate Name="SetVariable_1">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.SetVariable_1"/>
+                        <Input Name="input" Type="boolean" Source="Const_4_output">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.SetVariable_1.input"/>
+                        </Input>
+                        <Output Name="output" Type="boolean">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.SetVariable_1.output"/>
+                        </Output>
+                        <LocalVariable Name="SetVariable_1_output" Type="boolean_8" DefaultValue="code_GlobalParams.A1_lastValid"/>
+                        <Expression Expression="code_GlobalParams.A1_lastValid = Const_4_output"/>
+                    </Calculate>
+                    <Calculate Name="CompositeActor">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.CompositeActor"/>
+                        <Input Name="In" Type="i64" Source="BooleanMultiplexor_output">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.CompositeActor.In"/>
+                        </Input>
+                        <Input Name="begin" Type="i64" Source="begin">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.CompositeActor.begin"/>
+                        </Input>
+                        <Input Name="end" Type="i64" Source="end">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.CompositeActor.end"/>
+                        </Input>
+                        <Output Name="nbegin" Type="i64" Source="Expression_1_output">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.CompositeActor.nbegin"/>
+                        </Output>
+                        <Output Name="nend" Type="i64" Source="Expression_1_1_output">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.CompositeActor.nend"/>
+                        </Output>
+                        <LocalVariable Name="CompositeActor_nbegin" Type="uint64_tt" DefaultValue="0L"/>
+                        <LocalVariable Name="CompositeActor_nend" Type="uint64_tt" DefaultValue="0L"/>
+                        <Expression Expression="A7_Update(BooleanMultiplexor_output, begin, end, &amp;CompositeActor_nbegin, &amp;CompositeActor_nend)"/>
+                    </Calculate>
+                    <Calculate Name="Expression_3">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.Expression_3"/>
+                        <Input Name="In" Type="code_struct" Source="Expression_2_output">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.Expression_3.In"/>
+                        </Input>
+                        <Input Name="In2" Type="i64" Source="nbegin">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.Expression_3.In2"/>
+                        </Input>
+                        <Output Name="output" Type="boolean">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.Expression_3.output"/>
+                        </Output>
+                        <LocalVariable Name="Expression_3_In" Type="code_struct"/>
+                        <Expression Expression="Expression_3_In = Expression_2_output"/>
+                        <LocalVariable Name="Expression_3_In2" Type="uint64_tt" DefaultValue="CompositeActor_nbegin"/>
+                        <LocalVariable Name="Expression_3_output" Type="boolean_8" DefaultValue="((code_GlobalParams.A1_size != 0)) &amp;&amp; ((Expression_3_In.endTime &gt;= Expression_3_In2))"/>
+                    </Calculate>
+                    <Calculate Name="IfActor">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.IfActor"/>
+                        <Input Name="In" Type="boolean" Source="Expression_3_output">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.IfActor.In"/>
+                        </Input>
+                        <Input Name="In2" Type="code_struct" Source="Expression_2_output">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.IfActor.In2"/>
+                        </Input>
+                        <Output Name="if" Type="boolean">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.IfActor.if"/>
+                        </Output>
+                        <Output Name="_elseif0" Type="boolean">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.IfActor._elseif0"/>
+                        </Output>
+                        <Output Name="else" Type="boolean">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.IfActor.else"/>
+                        </Output>
+                        <LocalVariable Name="IfActor_In" Type="boolean_8" DefaultValue="Expression_3_output"/>
+                        <LocalVariable Name="IfActor_In2" Type="code_struct"/>
+                        <Expression Expression="IfActor_In2 = Expression_2_output"/>
+                        <LocalVariable Name="IfActor_if" Type="boolean_8" DefaultValue="FALSE"/>
+                        <LocalVariable Name="IfActor__elseif0" Type="boolean_8" DefaultValue="FALSE"/>
+                        <LocalVariable Name="IfActor_else" Type="boolean_8" DefaultValue="FALSE"/>
+                        <If Condition="(!(IfActor_In))">
+                            <Expression Expression="IfActor_if = TRUE"/>
+                        </If>
+                        <ElseIf Condition="(((sint32)IfActor_In2.size) &lt; (10))">
+                            <Expression Expression="IfActor__elseif0 = TRUE"/>
+                        </ElseIf>
+                        <Else>
+                            <Expression Expression="IfActor_else = TRUE"/>
+                        </Else>
+                    </Calculate>
+                    <Branch Type="If" Condition="Expression_3_output">
+                        <Calculate Name="BooleanMultiplexor_1">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.BooleanMultiplexor_1"/>
+                            <Input Name="trueInput" Type="u8" Source="Const_output">
+                                <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.BooleanMultiplexor_1.trueInput"/>
+                            </Input>
+                            <Input Name="falseInput" Type="u8" Source="Const_3_output">
+                                <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.BooleanMultiplexor_1.falseInput"/>
+                            </Input>
+                            <Input Name="select" Type="boolean" Source="Expression_3_output">
+                                <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.BooleanMultiplexor_1.select"/>
+                            </Input>
+                            <Output Name="output" Type="u8">
+                                <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.BooleanMultiplexor_1.output"/>
+                            </Output>
+                            <Expression Expression="BooleanMultiplexor_1_output = Const_output"/>
+                        </Calculate>
+                    </Branch>
+                    <Branch Type="Else">
+                        <Calculate Name="BooleanMultiplexor_1">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.BooleanMultiplexor_1"/>
+                            <Input Name="trueInput" Type="u8" Source="Const_output">
+                                <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.BooleanMultiplexor_1.trueInput"/>
+                            </Input>
+                            <Input Name="falseInput" Type="u8" Source="Const_3_output">
+                                <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.BooleanMultiplexor_1.falseInput"/>
+                            </Input>
+                            <Input Name="select" Type="boolean" Source="Expression_3_output">
+                                <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.BooleanMultiplexor_1.select"/>
+                            </Input>
+                            <Output Name="output" Type="u8">
+                                <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.BooleanMultiplexor_1.output"/>
+                            </Output>
+                            <Expression Expression="BooleanMultiplexor_1_output = Const_3_output"/>
+                        </Calculate>
+                    </Branch>
+                    <Calculate Name="EnabledComposite">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite"/>
+                        <Input Name="enable" Type="boolean" Source="IfActor_if">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite.enable"/>
+                        </Input>
+                        <Input Name="In" Type="i64" Source="nbegin">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite.In"/>
+                        </Input>
+                        <Input Name="In_1" Type="i64" Source="nend">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite.In_1"/>
+                        </Input>
+                        <Expression Expression="A8_Update(IfActor_if, CompositeActor_nbegin, CompositeActor_nend)"/>
+                    </Calculate>
+                    <Calculate Name="EnabledComposite_1">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite_1"/>
+                        <Input Name="enable" Type="boolean" Source="IfActor_else">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite_1.enable"/>
+                        </Input>
+                        <Input Name="In" Type="code_struct" Source="Expression_2_output">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite_1.In"/>
+                        </Input>
+                        <Input Name="In_1" Type="i64" Source="nend">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite_1.In_1"/>
+                        </Input>
+                        <Expression Expression="A9_Update(IfActor_else, Expression_2_output, CompositeActor_nend)"/>
+                    </Calculate>
+                    <Calculate Name="EnabledComposite_1_1">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite_1_1"/>
+                        <Input Name="enable" Type="boolean" Source="IfActor__elseif0">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite_1_1.enable"/>
+                        </Input>
+                        <Input Name="In" Type="code_struct" Source="Expression_2_output">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite_1_1.In"/>
+                        </Input>
+                        <Input Name="In_1" Type="i64" Source="nend">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.EnabledComposite_1_1.In_1"/>
+                        </Input>
+                        <Expression Expression="A10_Update(IfActor__elseif0, Expression_2_output, CompositeActor_nend)"/>
+                    </Calculate>
+                    <Calculate Name="Out">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.Out"/>
+                        <Input Name="Out" Type="u8" Source="BooleanMultiplexor_1_output">
+                            <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.Out"/>
+                        </Input>
+                        <Expression Expression="*Out = BooleanMultiplexor_1_output"/>
+                    </Calculate>
+                </Branch>
+            </Schedule>
+        </Function>
+        <Function Name="A13_Init" Type="FunctionInit" IsStatic="true">
+            <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.LoopActor_1"/>
+            <Schedule>
+                <Calculate Name="LoopActor_1">
+                    <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.LoopActor_1"/>
+                </Calculate>
+            </Schedule>
+        </Function>
+        <Function Name="A13_Update" Type="FunctionExec" IsStatic="true">
+            <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.LoopActor_1"/>
+            <Input Name="found" Type="boolean">
+                <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.LoopActor_1.found"/>
+            </Input>
+            <Input Name="msgTime" Type="i64">
+                <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.LoopActor_1.msgTime"/>
+            </Input>
+            <Input Name="index" Type="i32">
+                <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.LoopActor_1.index"/>
+            </Input>
+            <Output Name="nfound" Type="boolean">
+                <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.LoopActor_1.nfound"/>
+            </Output>
+            <Output Name="nindex" Type="i32">
+                <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.LoopActor_1.nindex"/>
+            </Output>
+            <Schedule>
+                <Calculate Name="Expression">
+                    <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.LoopActor_1.Expression"/>
+                    <Input Name="In" Type="i32" Source="index">
+                        <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.LoopActor_1.Expression.In"/>
+                    </Input>
+                    <Output Name="output" Type="i32">
+                        <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.LoopActor_1.Expression.output"/>
+                    </Output>
+                    <LocalVariable Name="Expression_In" Type="sint32" DefaultValue="index"/>
+                    <LocalVariable Name="Expression_output" Type="sint32" DefaultValue="((((Expression_In) + (1))) % (1000))"/>
+                </Calculate>
+                <Calculate Name="Expression_1">
+                    <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.LoopActor_1.Expression_1"/>
+                    <Input Name="In" Type="i32" Source="index">
+                        <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.LoopActor_1.Expression_1.In"/>
+                    </Input>
+                    <Input Name="In2" Type="i64" Source="msgTime">
+                        <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.LoopActor_1.Expression_1.In2"/>
+                    </Input>
+                    <Output Name="output" Type="boolean">
+                        <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.LoopActor_1.Expression_1.output"/>
+                    </Output>
+                    <LocalVariable Name="Expression_1_In" Type="sint32" DefaultValue="index"/>
+                    <LocalVariable Name="Expression_1_In2" Type="uint64_tt" DefaultValue="msgTime"/>
+                    <LocalVariable Name="Expression_1_output" Type="boolean_8" DefaultValue="((code_GlobalParams.A1_queue[Expression_1_In].beginTime &lt;= Expression_1_In2)) &amp;&amp; ((code_GlobalParams.A1_queue[Expression_1_In].endTime &gt;= Expression_1_In2))"/>
+                </Calculate>
+                <Calculate Name="nfound">
+                    <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.LoopActor_1.nfound"/>
+                    <Input Name="nfound" Type="boolean" Source="Expression_1_output">
+                        <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.LoopActor_1.nfound"/>
+                    </Input>
+                    <Expression Expression="*nfound = Expression_1_output"/>
+                </Calculate>
+                <Calculate Name="nindex">
+                    <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.LoopActor_1.nindex"/>
+                    <Input Name="nindex" Type="i32" Source="Expression_output">
+                        <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.LoopActor_1.nindex"/>
+                    </Input>
+                    <Expression Expression="*nindex = Expression_output"/>
+                </Calculate>
+            </Schedule>
+        </Function>
+        <Function Name="A12_Init" Type="FunctionInit" IsStatic="true">
+            <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite"/>
+            <Schedule>
+                <Calculate Name="EnabledComposite">
+                    <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite"/>
+                </Calculate>
+                <Calculate Name="LoopActor_1">
+                    <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.LoopActor_1"/>
+                    <Input Name="maxCount" Type="i32" Source="Const_3_output">
+                        <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.LoopActor_1.maxCount"/>
+                    </Input>
+                    <Input Name="found" Type="boolean" Source="Const_1_1_output">
+                        <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.LoopActor_1.found"/>
+                    </Input>
+                    <Input Name="msgTime" Type="i64" Source="In">
+                        <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.LoopActor_1.msgTime"/>
+                    </Input>
+                    <Input Name="index" Type="i32" Source="Const_2_1_output">
+                        <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.LoopActor_1.index"/>
+                    </Input>
+                    <Output Name="nfound" Type="boolean" Source="Expression_1_output">
+                        <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.LoopActor_1.nfound"/>
+                    </Output>
+                    <Output Name="nindex" Type="i32" Source="Expression_output">
+                        <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.LoopActor_1.nindex"/>
+                    </Output>
+                    <Expression Expression="A13_Init()"/>
+                </Calculate>
+            </Schedule>
+        </Function>
+        <Function Name="A12_Update" Type="FunctionExec" IsStatic="true">
+            <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite"/>
+            <Input Name="enable" Type="boolean">
+                <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.enable"/>
+            </Input>
+            <Input Name="In" Type="i64">
+                <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.In"/>
+            </Input>
+            <Output Name="OptSnapShotRange" Type="struct code_struct1">
+                <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.OptSnapShotRange"/>
+            </Output>
+            <Schedule>
+                <LocalVariable Name="BooleanMultiplexor_1_output" Type="u8">
+                    <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.BooleanMultiplexor_1.output"/>
+                </LocalVariable>
+                <LocalVariable Name="BooleanMultiplexor_output" Type="struct code_struct">
+                    <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.BooleanMultiplexor.output"/>
+                </LocalVariable>
+                <Branch Type="If" Condition="enable">
+                    <Calculate Name="Const_3">
+                        <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.Const_3"/>
+                        <Input Name="trigger" Type="unknown">
+                            <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.Const_3.trigger"/>
+                        </Input>
+                        <Output Name="output" Type="i32">
+                            <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.Const_3.output"/>
+                        </Output>
+                        <LocalVariable Name="Const_3_output" Type="sint32" DefaultValue="code_GlobalParams.A1_size"/>
+                    </Calculate>
+                    <Calculate Name="Const_1_1">
+                        <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.Const_1_1"/>
+                        <Input Name="trigger" Type="unknown">
+                            <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.Const_1_1.trigger"/>
+                        </Input>
+                        <Output Name="output" Type="boolean">
+                            <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.Const_1_1.output"/>
+                        </Output>
+                        <LocalVariable Name="Const_1_1_output" Type="boolean_8" DefaultValue="FALSE"/>
+                    </Calculate>
+                    <Calculate Name="Const_2_1">
+                        <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.Const_2_1"/>
+                        <Input Name="trigger" Type="unknown">
+                            <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.Const_2_1.trigger"/>
+                        </Input>
+                        <Output Name="output" Type="i32">
+                            <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.Const_2_1.output"/>
+                        </Output>
+                        <LocalVariable Name="Const_2_1_output" Type="sint32" DefaultValue="code_GlobalParams.A1_begin"/>
+                    </Calculate>
+                    <Calculate Name="Const_3_1">
+                        <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.Const_3_1"/>
+                        <Input Name="trigger" Type="unknown">
+                            <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.Const_3_1.trigger"/>
+                        </Input>
+                        <Output Name="output" Type="struct code_struct">
+                            <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.Const_3_1.output"/>
+                        </Output>
+                        <LocalVariable Name="Const_3_1_output" Type="code_struct"/>
+                        <Expression Expression="Const_3_1_output.beginTime = 0"/>
+                        <Expression Expression="Const_3_1_output.endTime = 0"/>
+                        <Expression Expression="Const_3_1_output.size = 0u"/>
+                    </Calculate>
+                    <Calculate Name="Const_4">
+                        <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.Const_4"/>
+                        <Input Name="trigger" Type="unknown">
+                            <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.Const_4.trigger"/>
+                        </Input>
+                        <Output Name="output" Type="u8">
+                            <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.Const_4.output"/>
+                        </Output>
+                        <LocalVariable Name="Const_4_output" Type="unsigned char" DefaultValue="0u"/>
+                    </Calculate>
+                    <Calculate Name="Const_4_1">
+                        <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.Const_4_1"/>
+                        <Input Name="trigger" Type="unknown">
+                            <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.Const_4_1.trigger"/>
+                        </Input>
+                        <Output Name="output" Type="u8">
+                            <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.Const_4_1.output"/>
+                        </Output>
+                        <LocalVariable Name="Const_4_1_output" Type="unsigned char" DefaultValue="1u"/>
+                    </Calculate>
+                    <Calculate Name="LoopActor_1">
+                        <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.LoopActor_1"/>
+                        <Input Name="maxCount" Type="i32" Source="Const_3_output">
+                            <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.LoopActor_1.maxCount"/>
+                        </Input>
+                        <Input Name="found" Type="boolean" Source="Const_1_1_output">
+                            <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.LoopActor_1.found"/>
+                        </Input>
+                        <Input Name="msgTime" Type="i64" Source="In">
+                            <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.LoopActor_1.msgTime"/>
+                        </Input>
+                        <Input Name="index" Type="i32" Source="Const_2_1_output">
+                            <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.LoopActor_1.index"/>
+                        </Input>
+                        <Output Name="nfound" Type="boolean" Source="Expression_1_output">
+                            <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.LoopActor_1.nfound"/>
+                        </Output>
+                        <Output Name="nindex" Type="i32" Source="Expression_output">
+                            <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.LoopActor_1.nindex"/>
+                        </Output>
+                        <LocalVariable Name="LoopActor_1_nfound" Type="boolean_8" DefaultValue="FALSE"/>
+                        <LocalVariable Name="LoopActor_1_nindex" Type="sint32" DefaultValue="0"/>
+                        <LocalVariable Name="LoopActor_1_maxCount" Type="sint32" DefaultValue="Const_3_output"/>
+                        <LocalVariable Name="LoopActor_1_found" Type="boolean_8" DefaultValue="Const_1_1_output"/>
+                        <LocalVariable Name="LoopActor_1_index" Type="sint32" DefaultValue="Const_2_1_output"/>
+                        <For Condition="index &lt; LoopActor_1_maxCount">
+                            <Initial>
+                                <LocalVariable Name="index" Type="sint32" DefaultValue="0"/>
+                            </Initial>
+                            <Iterator>
+                                <Expression Expression="index++"/>
+                            </Iterator>
+                            <Expression Expression="A13_Update(LoopActor_1_found, In, LoopActor_1_index, &amp;LoopActor_1_nfound, &amp;LoopActor_1_nindex)"/>
+                            <If Condition="LoopActor_1_nfound">
+                                <Break/>
+                            </If>
+                            <Expression Expression="LoopActor_1_found = LoopActor_1_nfound"/>
+                            <Expression Expression="LoopActor_1_index = LoopActor_1_nindex"/>
+                        </For>
+                    </Calculate>
+                    <Branch Type="If" Condition="LoopActor_1_nfound">
+                        <Calculate Name="BooleanMultiplexor_1">
+                            <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.BooleanMultiplexor_1"/>
+                            <Input Name="trueInput" Type="u8" Source="Const_4_1_output">
+                                <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.BooleanMultiplexor_1.trueInput"/>
+                            </Input>
+                            <Input Name="falseInput" Type="u8" Source="Const_4_output">
+                                <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.BooleanMultiplexor_1.falseInput"/>
+                            </Input>
+                            <Input Name="select" Type="boolean" Source="nfound">
+                                <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.BooleanMultiplexor_1.select"/>
+                            </Input>
+                            <Output Name="output" Type="u8">
+                                <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.BooleanMultiplexor_1.output"/>
+                            </Output>
+                            <Expression Expression="BooleanMultiplexor_1_output = Const_4_1_output"/>
+                        </Calculate>
+                    </Branch>
+                    <Branch Type="Else">
+                        <Calculate Name="BooleanMultiplexor_1">
+                            <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.BooleanMultiplexor_1"/>
+                            <Input Name="trueInput" Type="u8" Source="Const_4_1_output">
+                                <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.BooleanMultiplexor_1.trueInput"/>
+                            </Input>
+                            <Input Name="falseInput" Type="u8" Source="Const_4_output">
+                                <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.BooleanMultiplexor_1.falseInput"/>
+                            </Input>
+                            <Input Name="select" Type="boolean" Source="nfound">
+                                <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.BooleanMultiplexor_1.select"/>
+                            </Input>
+                            <Output Name="output" Type="u8">
+                                <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.BooleanMultiplexor_1.output"/>
+                            </Output>
+                            <Expression Expression="BooleanMultiplexor_1_output = Const_4_output"/>
+                        </Calculate>
+                    </Branch>
+                    <Calculate Name="Expression_1_1">
+                        <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.Expression_1_1"/>
+                        <Input Name="In" Type="i32" Source="nindex">
+                            <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.Expression_1_1.In"/>
+                        </Input>
+                        <Output Name="output" Type="i32">
+                            <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.Expression_1_1.output"/>
+                        </Output>
+                        <LocalVariable Name="Expression_1_1_In" Type="sint32" DefaultValue="LoopActor_1_nindex"/>
+                        <LocalVariable Name="Expression_1_1_output" Type="sint32" DefaultValue="((((Expression_1_1_In) + (999))) % (1000))"/>
+                    </Calculate>
+                    <Calculate Name="Expression_1">
+                        <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.Expression_1"/>
+                        <Input Name="In" Type="i32" Source="Expression_1_1_output">
+                            <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.Expression_1.In"/>
+                        </Input>
+                        <Output Name="output" Type="struct code_struct">
+                            <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.Expression_1.output"/>
+                        </Output>
+                        <LocalVariable Name="Expression_1_In" Type="sint32" DefaultValue="Expression_1_1_output"/>
+                        <LocalVariable Name="Expression_1_output" Type="code_struct"/>
+                        <Expression Expression="Expression_1_output.beginTime = code_GlobalParams.A1_queue[Expression_1_In].beginTime"/>
+                        <Expression Expression="Expression_1_output.endTime = code_GlobalParams.A1_queue[Expression_1_In].endTime"/>
+                        <Expression Expression="Expression_1_output.size = code_GlobalParams.A1_queue[Expression_1_In].size"/>
+                    </Calculate>
+                    <Branch Type="If" Condition="LoopActor_1_nfound">
+                        <Calculate Name="BooleanMultiplexor">
+                            <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.BooleanMultiplexor"/>
+                            <Input Name="trueInput" Type="code_struct" Source="Expression_1_output">
+                                <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.BooleanMultiplexor.trueInput"/>
+                            </Input>
+                            <Input Name="falseInput" Type="code_struct" Source="Const_3_1_output">
+                                <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.BooleanMultiplexor.falseInput"/>
+                            </Input>
+                            <Input Name="select" Type="boolean" Source="nfound">
+                                <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.BooleanMultiplexor.select"/>
+                            </Input>
+                            <Output Name="output" Type="struct code_struct">
+                                <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.BooleanMultiplexor.output"/>
+                            </Output>
+                            <Expression Expression="BooleanMultiplexor_output = Expression_1_output"/>
+                        </Calculate>
+                    </Branch>
+                    <Branch Type="Else">
+                        <Calculate Name="BooleanMultiplexor">
+                            <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.BooleanMultiplexor"/>
+                            <Input Name="trueInput" Type="code_struct" Source="Expression_1_output">
+                                <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.BooleanMultiplexor.trueInput"/>
+                            </Input>
+                            <Input Name="falseInput" Type="code_struct" Source="Const_3_1_output">
+                                <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.BooleanMultiplexor.falseInput"/>
+                            </Input>
+                            <Input Name="select" Type="boolean" Source="nfound">
+                                <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.BooleanMultiplexor.select"/>
+                            </Input>
+                            <Output Name="output" Type="struct code_struct">
+                                <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.BooleanMultiplexor.output"/>
+                            </Output>
+                            <Expression Expression="BooleanMultiplexor_output = Const_3_1_output"/>
+                        </Calculate>
+                    </Branch>
+                    <Calculate Name="RecordAssembler">
+                        <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.RecordAssembler"/>
+                        <Input Name="range" Type="code_struct" Source="BooleanMultiplexor_output">
+                            <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.RecordAssembler.range"/>
+                        </Input>
+                        <Input Name="valid" Type="u8" Source="BooleanMultiplexor_1_output">
+                            <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.RecordAssembler.valid"/>
+                        </Input>
+                        <Output Name="output" Type="struct code_struct1">
+                            <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.RecordAssembler.output"/>
+                        </Output>
+                        <LocalVariable Name="RecordAssembler_output" Type="code_struct1"/>
+                        <Expression Expression="RecordAssembler_output.range = BooleanMultiplexor_output"/>
+                        <Expression Expression="RecordAssembler_output.valid = BooleanMultiplexor_1_output"/>
+                    </Calculate>
+                    <Calculate Name="OptSnapShotRange">
+                        <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.OptSnapShotRange"/>
+                        <Input Name="OptSnapShotRange" Type="code_struct1" Source="RecordAssembler_output">
+                            <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.OptSnapShotRange"/>
+                        </Input>
+                        <Expression Expression="*OptSnapShotRange = RecordAssembler_output"/>
+                    </Calculate>
+                </Branch>
+            </Schedule>
+        </Function>
+        <Function Name="A14_Init" Type="FunctionInit" IsStatic="true">
+            <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite_1"/>
+            <Schedule>
+                <Calculate Name="EnabledComposite_1">
+                    <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite_1"/>
+                </Calculate>
+            </Schedule>
+        </Function>
+        <Function Name="A14_Update" Type="FunctionExec" IsStatic="true">
+            <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite_1"/>
+            <Input Name="enable" Type="boolean">
+                <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite_1.enable"/>
+            </Input>
+            <Output Name="OptSnapShotRange" Type="struct code_struct1">
+                <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite_1.OptSnapShotRange"/>
+            </Output>
+            <Schedule>
+                <Branch Type="If" Condition="enable">
+                    <Calculate Name="Const_3_1">
+                        <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite_1.Const_3_1"/>
+                        <Input Name="trigger" Type="unknown">
+                            <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite_1.Const_3_1.trigger"/>
+                        </Input>
+                        <Output Name="output" Type="struct code_struct">
+                            <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite_1.Const_3_1.output"/>
+                        </Output>
+                        <LocalVariable Name="Const_3_1_output" Type="code_struct"/>
+                        <Expression Expression="Const_3_1_output.beginTime = 0"/>
+                        <Expression Expression="Const_3_1_output.endTime = 0"/>
+                        <Expression Expression="Const_3_1_output.size = 0u"/>
+                    </Calculate>
+                    <Calculate Name="Const_4">
+                        <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite_1.Const_4"/>
+                        <Input Name="trigger" Type="unknown">
+                            <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite_1.Const_4.trigger"/>
+                        </Input>
+                        <Output Name="output" Type="u8">
+                            <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite_1.Const_4.output"/>
+                        </Output>
+                        <LocalVariable Name="Const_4_output" Type="unsigned char" DefaultValue="0u"/>
+                    </Calculate>
+                    <Calculate Name="RecordAssembler">
+                        <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite_1.RecordAssembler"/>
+                        <Input Name="range" Type="code_struct" Source="Const_3_1_output">
+                            <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite_1.RecordAssembler.range"/>
+                        </Input>
+                        <Input Name="valid" Type="u8" Source="Const_4_output">
+                            <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite_1.RecordAssembler.valid"/>
+                        </Input>
+                        <Output Name="output" Type="struct code_struct1">
+                            <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite_1.RecordAssembler.output"/>
+                        </Output>
+                        <LocalVariable Name="RecordAssembler_output" Type="code_struct1"/>
+                        <Expression Expression="RecordAssembler_output.range = Const_3_1_output"/>
+                        <Expression Expression="RecordAssembler_output.valid = Const_4_output"/>
+                    </Calculate>
+                    <Calculate Name="OptSnapShotRange">
+                        <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite_1.OptSnapShotRange"/>
+                        <Input Name="OptSnapShotRange" Type="code_struct1" Source="RecordAssembler_output">
+                            <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite_1.OptSnapShotRange"/>
+                        </Input>
+                        <Expression Expression="*OptSnapShotRange = RecordAssembler_output"/>
+                    </Calculate>
+                </Branch>
+            </Schedule>
+        </Function>
+        <Function Name="A17_Init" Type="FunctionInit" IsStatic="true">
+            <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite.LoopActor"/>
+            <Schedule>
+                <Calculate Name="LoopActor">
+                    <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite.LoopActor"/>
+                </Calculate>
+            </Schedule>
+        </Function>
+        <Function Name="A17_Update" Type="FunctionExec" IsStatic="true">
+            <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite.LoopActor"/>
+            <Input Name="osTime" Type="i64">
+                <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite.LoopActor.osTime"/>
+            </Input>
+            <Input Name="index" Type="i32">
+                <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite.LoopActor.index"/>
+            </Input>
+            <Input Name="count" Type="i32">
+                <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite.LoopActor.count"/>
+            </Input>
+            <Output Name="nindex" Type="i32">
+                <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite.LoopActor.nindex"/>
+            </Output>
+            <Output Name="ncount" Type="i32">
+                <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite.LoopActor.ncount"/>
+            </Output>
+            <Output Name="next" Type="boolean">
+                <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite.LoopActor.next"/>
+            </Output>
+            <Schedule>
+                <LocalVariable Name="BooleanMultiplexor_output" Type="i32">
+                    <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite.LoopActor.BooleanMultiplexor.output"/>
+                </LocalVariable>
+                <Calculate Name="Expression">
+                    <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite.LoopActor.Expression"/>
+                    <Input Name="In" Type="i32" Source="index">
+                        <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite.LoopActor.Expression.In"/>
+                    </Input>
+                    <Output Name="output" Type="i32">
+                        <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite.LoopActor.Expression.output"/>
+                    </Output>
+                    <LocalVariable Name="Expression_In" Type="sint32" DefaultValue="index"/>
+                    <LocalVariable Name="Expression_output" Type="sint32" DefaultValue="((((Expression_In) + (1))) % (1000))"/>
+                </Calculate>
+                <Calculate Name="Expression_1">
+                    <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite.LoopActor.Expression_1"/>
+                    <Input Name="In" Type="i32" Source="count">
+                        <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite.LoopActor.Expression_1.In"/>
+                    </Input>
+                    <Output Name="output" Type="i32">
+                        <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite.LoopActor.Expression_1.output"/>
+                    </Output>
+                    <LocalVariable Name="Expression_1_In" Type="sint32" DefaultValue="count"/>
+                    <LocalVariable Name="Expression_1_output" Type="sint32" DefaultValue="((Expression_1_In) + (1))"/>
+                </Calculate>
+                <Calculate Name="Expression_2">
+                    <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite.LoopActor.Expression_2"/>
+                    <Input Name="osTime" Type="i64" Source="osTime">
+                        <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite.LoopActor.Expression_2.osTime"/>
+                    </Input>
+                    <Input Name="index" Type="i32" Source="index">
+                        <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite.LoopActor.Expression_2.index"/>
+                    </Input>
+                    <Output Name="output" Type="boolean">
+                        <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite.LoopActor.Expression_2.output"/>
+                    </Output>
+                    <LocalVariable Name="Expression_2_osTime" Type="uint64_tt" DefaultValue="osTime"/>
+                    <LocalVariable Name="Expression_2_index" Type="sint32" DefaultValue="index"/>
+                    <LocalVariable Name="Expression_2_output" Type="boolean_8" DefaultValue="(code_GlobalParams.A1_queue[Expression_2_index].endTime &gt; ((Expression_2_osTime) - (11000)))"/>
+                </Calculate>
+                <Calculate Name="Expression_1_1">
+                    <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite.LoopActor.Expression_1_1"/>
+                    <Input Name="In" Type="i32" Source="count">
+                        <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite.LoopActor.Expression_1_1.In"/>
+                    </Input>
+                    <Output Name="output" Type="i32">
+                        <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite.LoopActor.Expression_1_1.output"/>
+                    </Output>
+                    <LocalVariable Name="Expression_1_1_In" Type="sint32" DefaultValue="count"/>
+                    <LocalVariable Name="Expression_1_1_output" Type="sint32" DefaultValue="Expression_1_1_In"/>
+                </Calculate>
+                <Branch Type="If" Condition="Expression_2_output">
+                    <Calculate Name="BooleanMultiplexor">
+                        <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite.LoopActor.BooleanMultiplexor"/>
+                        <Input Name="trueInput" Type="i32" Source="Expression_1_1_output">
+                            <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite.LoopActor.BooleanMultiplexor.trueInput"/>
+                        </Input>
+                        <Input Name="falseInput" Type="i32" Source="Expression_1_output">
+                            <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite.LoopActor.BooleanMultiplexor.falseInput"/>
+                        </Input>
+                        <Input Name="select" Type="boolean" Source="Expression_2_output">
+                            <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite.LoopActor.BooleanMultiplexor.select"/>
+                        </Input>
+                        <Output Name="output" Type="i32">
+                            <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite.LoopActor.BooleanMultiplexor.output"/>
+                        </Output>
+                        <Expression Expression="BooleanMultiplexor_output = Expression_1_1_output"/>
+                    </Calculate>
+                </Branch>
+                <Branch Type="Else">
+                    <Calculate Name="BooleanMultiplexor">
+                        <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite.LoopActor.BooleanMultiplexor"/>
+                        <Input Name="trueInput" Type="i32" Source="Expression_1_1_output">
+                            <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite.LoopActor.BooleanMultiplexor.trueInput"/>
+                        </Input>
+                        <Input Name="falseInput" Type="i32" Source="Expression_1_output">
+                            <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite.LoopActor.BooleanMultiplexor.falseInput"/>
+                        </Input>
+                        <Input Name="select" Type="boolean" Source="Expression_2_output">
+                            <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite.LoopActor.BooleanMultiplexor.select"/>
+                        </Input>
+                        <Output Name="output" Type="i32">
+                            <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite.LoopActor.BooleanMultiplexor.output"/>
+                        </Output>
+                        <Expression Expression="BooleanMultiplexor_output = Expression_1_output"/>
+                    </Calculate>
+                </Branch>
+                <Calculate Name="nindex">
+                    <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite.LoopActor.nindex"/>
+                    <Input Name="nindex" Type="i32" Source="Expression_output">
+                        <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite.LoopActor.nindex"/>
+                    </Input>
+                    <Expression Expression="*nindex = Expression_output"/>
+                </Calculate>
+                <Calculate Name="ncount">
+                    <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite.LoopActor.ncount"/>
+                    <Input Name="ncount" Type="i32" Source="BooleanMultiplexor_output">
+                        <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite.LoopActor.ncount"/>
+                    </Input>
+                    <Expression Expression="*ncount = BooleanMultiplexor_output"/>
+                </Calculate>
+                <Calculate Name="next">
+                    <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite.LoopActor.next"/>
+                    <Input Name="next" Type="boolean" Source="Expression_2_output">
+                        <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite.LoopActor.next"/>
+                    </Input>
+                    <Expression Expression="*next = Expression_2_output"/>
+                </Calculate>
+            </Schedule>
+        </Function>
+        <Function Name="A16_Init" Type="FunctionInit" IsStatic="true">
+            <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite"/>
+            <Schedule>
+                <Calculate Name="EnabledComposite">
+                    <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite"/>
+                </Calculate>
+                <Calculate Name="LoopActor">
+                    <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite.LoopActor"/>
+                    <Input Name="maxCount" Type="i32" Source="Const_output">
+                        <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite.LoopActor.maxCount"/>
+                    </Input>
+                    <Input Name="osTime" Type="i64" Source="In">
+                        <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite.LoopActor.osTime"/>
+                    </Input>
+                    <Input Name="index" Type="i32" Source="Const_2_output">
+                        <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite.LoopActor.index"/>
+                    </Input>
+                    <Input Name="count" Type="i32" Source="Const_1_output">
+                        <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite.LoopActor.count"/>
+                    </Input>
+                    <Output Name="nindex" Type="i32" Source="Expression_output">
+                        <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite.LoopActor.nindex"/>
+                    </Output>
+                    <Output Name="ncount" Type="i32" Source="BooleanMultiplexor_output">
+                        <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite.LoopActor.ncount"/>
+                    </Output>
+                    <Output Name="next" Type="boolean" Source="Expression_2_output">
+                        <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite.LoopActor.next"/>
+                    </Output>
+                    <Expression Expression="A17_Init()"/>
+                </Calculate>
+            </Schedule>
+        </Function>
+        <Function Name="A16_Update" Type="FunctionExec" IsStatic="true">
+            <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite"/>
+            <Input Name="enable" Type="boolean">
+                <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite.enable"/>
+            </Input>
+            <Input Name="In" Type="i64">
+                <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite.In"/>
+            </Input>
+            <Schedule>
+                <Branch Type="If" Condition="enable">
+                    <Calculate Name="Const">
+                        <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite.Const"/>
+                        <Input Name="trigger" Type="unknown">
+                            <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite.Const.trigger"/>
+                        </Input>
+                        <Output Name="output" Type="i32">
+                            <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite.Const.output"/>
+                        </Output>
+                        <LocalVariable Name="Const_output" Type="sint32" DefaultValue="code_GlobalParams.A1_size"/>
+                    </Calculate>
+                    <Calculate Name="Const_1">
+                        <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite.Const_1"/>
+                        <Input Name="trigger" Type="unknown">
+                            <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite.Const_1.trigger"/>
+                        </Input>
+                        <Output Name="output" Type="i32">
+                            <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite.Const_1.output"/>
+                        </Output>
+                        <LocalVariable Name="Const_1_output" Type="sint32" DefaultValue="0"/>
+                    </Calculate>
+                    <Calculate Name="Const_2">
+                        <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite.Const_2"/>
+                        <Input Name="trigger" Type="unknown">
+                            <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite.Const_2.trigger"/>
+                        </Input>
+                        <Output Name="output" Type="i32">
+                            <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite.Const_2.output"/>
+                        </Output>
+                        <LocalVariable Name="Const_2_output" Type="sint32" DefaultValue="code_GlobalParams.A1_begin"/>
+                    </Calculate>
+                    <Calculate Name="LoopActor">
+                        <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite.LoopActor"/>
+                        <Input Name="maxCount" Type="i32" Source="Const_output">
+                            <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite.LoopActor.maxCount"/>
+                        </Input>
+                        <Input Name="osTime" Type="i64" Source="In">
+                            <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite.LoopActor.osTime"/>
+                        </Input>
+                        <Input Name="index" Type="i32" Source="Const_2_output">
+                            <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite.LoopActor.index"/>
+                        </Input>
+                        <Input Name="count" Type="i32" Source="Const_1_output">
+                            <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite.LoopActor.count"/>
+                        </Input>
+                        <Output Name="nindex" Type="i32" Source="Expression_output">
+                            <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite.LoopActor.nindex"/>
+                        </Output>
+                        <Output Name="ncount" Type="i32" Source="BooleanMultiplexor_output">
+                            <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite.LoopActor.ncount"/>
+                        </Output>
+                        <Output Name="next" Type="boolean" Source="Expression_2_output">
+                            <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite.LoopActor.next"/>
+                        </Output>
+                        <LocalVariable Name="LoopActor_nindex" Type="sint32" DefaultValue="0"/>
+                        <LocalVariable Name="LoopActor_ncount" Type="sint32" DefaultValue="0"/>
+                        <LocalVariable Name="LoopActor_next" Type="boolean_8" DefaultValue="FALSE"/>
+                        <LocalVariable Name="LoopActor_maxCount" Type="sint32" DefaultValue="Const_output"/>
+                        <LocalVariable Name="LoopActor_index" Type="sint32" DefaultValue="Const_2_output"/>
+                        <LocalVariable Name="LoopActor_count" Type="sint32" DefaultValue="Const_1_output"/>
+                        <For Condition="index &lt; LoopActor_maxCount">
+                            <Initial>
+                                <LocalVariable Name="index" Type="sint32" DefaultValue="0"/>
+                            </Initial>
+                            <Iterator>
+                                <Expression Expression="index++"/>
+                            </Iterator>
+                            <Expression Expression="A17_Update(In, LoopActor_index, LoopActor_count, &amp;LoopActor_nindex, &amp;LoopActor_ncount, &amp;LoopActor_next)"/>
+                            <If Condition="LoopActor_next">
+                                <Break/>
+                            </If>
+                            <Expression Expression="LoopActor_index = LoopActor_nindex"/>
+                            <Expression Expression="LoopActor_count = LoopActor_ncount"/>
+                        </For>
+                    </Calculate>
+                    <Calculate Name="Expression">
+                        <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite.Expression"/>
+                        <Input Name="In" Type="i32" Source="ncount">
+                            <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite.Expression.In"/>
+                        </Input>
+                        <Output Name="output" Type="i32">
+                            <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite.Expression.output"/>
+                        </Output>
+                        <LocalVariable Name="Expression_In" Type="sint32" DefaultValue="LoopActor_ncount"/>
+                        <LocalVariable Name="Expression_output" Type="sint32" DefaultValue="((code_GlobalParams.A1_size) - (Expression_In))"/>
+                    </Calculate>
+                    <Calculate Name="Expression_1">
+                        <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite.Expression_1"/>
+                        <Input Name="In" Type="i32" Source="ncount">
+                            <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite.Expression_1.In"/>
+                        </Input>
+                        <Output Name="output" Type="i32">
+                            <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite.Expression_1.output"/>
+                        </Output>
+                        <LocalVariable Name="Expression_1_In" Type="sint32" DefaultValue="LoopActor_ncount"/>
+                        <LocalVariable Name="Expression_1_output" Type="sint32" DefaultValue="((((code_GlobalParams.A1_begin) + (Expression_1_In))) % (1000))"/>
+                    </Calculate>
+                    <Calculate Name="SetVariable">
+                        <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite.SetVariable"/>
+                        <Input Name="input" Type="i32" Source="Expression_output">
+                            <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite.SetVariable.input"/>
+                        </Input>
+                        <Output Name="output" Type="i32">
+                            <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite.SetVariable.output"/>
+                        </Output>
+                        <LocalVariable Name="SetVariable_output" Type="sint32" DefaultValue="code_GlobalParams.A1_size"/>
+                        <Expression Expression="code_GlobalParams.A1_size = Expression_output"/>
+                    </Calculate>
+                    <Calculate Name="SetVariable_1">
+                        <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite.SetVariable_1"/>
+                        <Input Name="input" Type="i32" Source="Expression_1_output">
+                            <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite.SetVariable_1.input"/>
+                        </Input>
+                        <Output Name="output" Type="i32">
+                            <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite.SetVariable_1.output"/>
+                        </Output>
+                        <LocalVariable Name="SetVariable_1_output" Type="sint32" DefaultValue="code_GlobalParams.A1_begin"/>
+                        <Expression Expression="code_GlobalParams.A1_begin = Expression_1_output"/>
+                    </Calculate>
+                </Branch>
+            </Schedule>
+        </Function>
+        <Function Name="A21_Init" Type="FunctionInit" IsStatic="true">
+            <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.LoopActor"/>
+            <Schedule>
+                <Calculate Name="LoopActor">
+                    <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.LoopActor"/>
+                </Calculate>
+            </Schedule>
+        </Function>
+        <Function Name="A21_Update" Type="FunctionExec" IsStatic="true">
+            <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.LoopActor"/>
+            <Input Name="found" Type="boolean">
+                <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.LoopActor.found"/>
+            </Input>
+            <Input Name="msgTime" Type="i64">
+                <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.LoopActor.msgTime"/>
+            </Input>
+            <Input Name="index" Type="i32">
+                <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.LoopActor.index"/>
+            </Input>
+            <Output Name="nfound" Type="boolean">
+                <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.LoopActor.nfound"/>
+            </Output>
+            <Output Name="nindex" Type="i32">
+                <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.LoopActor.nindex"/>
+            </Output>
+            <Schedule>
+                <Calculate Name="Expression">
+                    <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.LoopActor.Expression"/>
+                    <Input Name="In" Type="i32" Source="index">
+                        <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.LoopActor.Expression.In"/>
+                    </Input>
+                    <Output Name="output" Type="i32">
+                        <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.LoopActor.Expression.output"/>
+                    </Output>
+                    <LocalVariable Name="Expression_In" Type="sint32" DefaultValue="index"/>
+                    <LocalVariable Name="Expression_output" Type="sint32" DefaultValue="((((Expression_In) + (1))) % (1000))"/>
+                </Calculate>
+                <Calculate Name="Expression_1">
+                    <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.LoopActor.Expression_1"/>
+                    <Input Name="In" Type="i32" Source="index">
+                        <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.LoopActor.Expression_1.In"/>
+                    </Input>
+                    <Input Name="In2" Type="i64" Source="msgTime">
+                        <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.LoopActor.Expression_1.In2"/>
+                    </Input>
+                    <Output Name="output" Type="boolean">
+                        <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.LoopActor.Expression_1.output"/>
+                    </Output>
+                    <LocalVariable Name="Expression_1_In" Type="sint32" DefaultValue="index"/>
+                    <LocalVariable Name="Expression_1_In2" Type="uint64_tt" DefaultValue="msgTime"/>
+                    <LocalVariable Name="Expression_1_output" Type="boolean_8" DefaultValue="(code_GlobalParams.A1_queue[Expression_1_In].beginTime &gt; Expression_1_In2)"/>
+                </Calculate>
+                <Calculate Name="nfound">
+                    <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.LoopActor.nfound"/>
+                    <Input Name="nfound" Type="boolean" Source="Expression_1_output">
+                        <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.LoopActor.nfound"/>
+                    </Input>
+                    <Expression Expression="*nfound = Expression_1_output"/>
+                </Calculate>
+                <Calculate Name="nindex">
+                    <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.LoopActor.nindex"/>
+                    <Input Name="nindex" Type="i32" Source="Expression_output">
+                        <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.LoopActor.nindex"/>
+                    </Input>
+                    <Expression Expression="*nindex = Expression_output"/>
+                </Calculate>
+            </Schedule>
+        </Function>
+        <Function Name="A20_Init" Type="FunctionInit" IsStatic="true">
+            <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite"/>
+            <Schedule>
+                <Calculate Name="EnabledComposite">
+                    <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite"/>
+                </Calculate>
+                <Calculate Name="LoopActor">
+                    <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.LoopActor"/>
+                    <Input Name="maxCount" Type="i32" Source="Const_output">
+                        <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.LoopActor.maxCount"/>
+                    </Input>
+                    <Input Name="found" Type="boolean" Source="Const_1_output">
+                        <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.LoopActor.found"/>
+                    </Input>
+                    <Input Name="msgTime" Type="i64" Source="In">
+                        <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.LoopActor.msgTime"/>
+                    </Input>
+                    <Input Name="index" Type="i32" Source="Const_2_output">
+                        <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.LoopActor.index"/>
+                    </Input>
+                    <Output Name="nfound" Type="boolean" Source="Expression_1_output">
+                        <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.LoopActor.nfound"/>
+                    </Output>
+                    <Output Name="nindex" Type="i32" Source="Expression_output">
+                        <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.LoopActor.nindex"/>
+                    </Output>
+                    <Expression Expression="A21_Init()"/>
+                </Calculate>
+            </Schedule>
+        </Function>
+        <Function Name="A20_Update" Type="FunctionExec" IsStatic="true">
+            <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite"/>
+            <Input Name="enable" Type="boolean">
+                <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.enable"/>
+            </Input>
+            <Input Name="In" Type="i64">
+                <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.In"/>
+            </Input>
+            <Output Name="OptSnapShotRange" Type="struct code_struct1">
+                <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.OptSnapShotRange"/>
+            </Output>
+            <Schedule>
+                <LocalVariable Name="BooleanMultiplexor_1_output" Type="u8">
+                    <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.BooleanMultiplexor_1.output"/>
+                </LocalVariable>
+                <LocalVariable Name="BooleanMultiplexor_output" Type="struct code_struct">
+                    <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.BooleanMultiplexor.output"/>
+                </LocalVariable>
+                <Branch Type="If" Condition="enable">
+                    <Calculate Name="Const">
+                        <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.Const"/>
+                        <Input Name="trigger" Type="unknown">
+                            <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.Const.trigger"/>
+                        </Input>
+                        <Output Name="output" Type="i32">
+                            <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.Const.output"/>
+                        </Output>
+                        <LocalVariable Name="Const_output" Type="sint32" DefaultValue="code_GlobalParams.A1_size"/>
+                    </Calculate>
+                    <Calculate Name="Const_1">
+                        <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.Const_1"/>
+                        <Input Name="trigger" Type="unknown">
+                            <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.Const_1.trigger"/>
+                        </Input>
+                        <Output Name="output" Type="boolean">
+                            <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.Const_1.output"/>
+                        </Output>
+                        <LocalVariable Name="Const_1_output" Type="boolean_8" DefaultValue="FALSE"/>
+                    </Calculate>
+                    <Calculate Name="Const_2">
+                        <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.Const_2"/>
+                        <Input Name="trigger" Type="unknown">
+                            <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.Const_2.trigger"/>
+                        </Input>
+                        <Output Name="output" Type="i32">
+                            <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.Const_2.output"/>
+                        </Output>
+                        <LocalVariable Name="Const_2_output" Type="sint32" DefaultValue="code_GlobalParams.A1_begin"/>
+                    </Calculate>
+                    <Calculate Name="Const_3">
+                        <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.Const_3"/>
+                        <Input Name="trigger" Type="unknown">
+                            <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.Const_3.trigger"/>
+                        </Input>
+                        <Output Name="output" Type="struct code_struct">
+                            <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.Const_3.output"/>
+                        </Output>
+                        <LocalVariable Name="Const_3_output" Type="code_struct"/>
+                        <Expression Expression="Const_3_output.beginTime = 0"/>
+                        <Expression Expression="Const_3_output.endTime = 0"/>
+                        <Expression Expression="Const_3_output.size = 0u"/>
+                    </Calculate>
+                    <Calculate Name="Const_4">
+                        <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.Const_4"/>
+                        <Input Name="trigger" Type="unknown">
+                            <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.Const_4.trigger"/>
+                        </Input>
+                        <Output Name="output" Type="u8">
+                            <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.Const_4.output"/>
+                        </Output>
+                        <LocalVariable Name="Const_4_output" Type="unsigned char" DefaultValue="0u"/>
+                    </Calculate>
+                    <Calculate Name="Const_4_1">
+                        <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.Const_4_1"/>
+                        <Input Name="trigger" Type="unknown">
+                            <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.Const_4_1.trigger"/>
+                        </Input>
+                        <Output Name="output" Type="u8">
+                            <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.Const_4_1.output"/>
+                        </Output>
+                        <LocalVariable Name="Const_4_1_output" Type="unsigned char" DefaultValue="1u"/>
+                    </Calculate>
+                    <Calculate Name="LoopActor">
+                        <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.LoopActor"/>
+                        <Input Name="maxCount" Type="i32" Source="Const_output">
+                            <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.LoopActor.maxCount"/>
+                        </Input>
+                        <Input Name="found" Type="boolean" Source="Const_1_output">
+                            <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.LoopActor.found"/>
+                        </Input>
+                        <Input Name="msgTime" Type="i64" Source="In">
+                            <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.LoopActor.msgTime"/>
+                        </Input>
+                        <Input Name="index" Type="i32" Source="Const_2_output">
+                            <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.LoopActor.index"/>
+                        </Input>
+                        <Output Name="nfound" Type="boolean" Source="Expression_1_output">
+                            <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.LoopActor.nfound"/>
+                        </Output>
+                        <Output Name="nindex" Type="i32" Source="Expression_output">
+                            <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.LoopActor.nindex"/>
+                        </Output>
+                        <LocalVariable Name="LoopActor_nfound" Type="boolean_8" DefaultValue="FALSE"/>
+                        <LocalVariable Name="LoopActor_nindex" Type="sint32" DefaultValue="0"/>
+                        <LocalVariable Name="LoopActor_maxCount" Type="sint32" DefaultValue="Const_output"/>
+                        <LocalVariable Name="LoopActor_found" Type="boolean_8" DefaultValue="Const_1_output"/>
+                        <LocalVariable Name="LoopActor_index" Type="sint32" DefaultValue="Const_2_output"/>
+                        <For Condition="index &lt; LoopActor_maxCount">
+                            <Initial>
+                                <LocalVariable Name="index" Type="sint32" DefaultValue="0"/>
+                            </Initial>
+                            <Iterator>
+                                <Expression Expression="index++"/>
+                            </Iterator>
+                            <Expression Expression="A21_Update(LoopActor_found, In, LoopActor_index, &amp;LoopActor_nfound, &amp;LoopActor_nindex)"/>
+                            <If Condition="LoopActor_nfound">
+                                <Break/>
+                            </If>
+                            <Expression Expression="LoopActor_found = LoopActor_nfound"/>
+                            <Expression Expression="LoopActor_index = LoopActor_nindex"/>
+                        </For>
+                    </Calculate>
+                    <Branch Type="If" Condition="LoopActor_nfound">
+                        <Calculate Name="BooleanMultiplexor_1">
+                            <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.BooleanMultiplexor_1"/>
+                            <Input Name="trueInput" Type="u8" Source="Const_4_1_output">
+                                <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.BooleanMultiplexor_1.trueInput"/>
+                            </Input>
+                            <Input Name="falseInput" Type="u8" Source="Const_4_output">
+                                <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.BooleanMultiplexor_1.falseInput"/>
+                            </Input>
+                            <Input Name="select" Type="boolean" Source="nfound">
+                                <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.BooleanMultiplexor_1.select"/>
+                            </Input>
+                            <Output Name="output" Type="u8">
+                                <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.BooleanMultiplexor_1.output"/>
+                            </Output>
+                            <Expression Expression="BooleanMultiplexor_1_output = Const_4_1_output"/>
+                        </Calculate>
+                    </Branch>
+                    <Branch Type="Else">
+                        <Calculate Name="BooleanMultiplexor_1">
+                            <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.BooleanMultiplexor_1"/>
+                            <Input Name="trueInput" Type="u8" Source="Const_4_1_output">
+                                <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.BooleanMultiplexor_1.trueInput"/>
+                            </Input>
+                            <Input Name="falseInput" Type="u8" Source="Const_4_output">
+                                <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.BooleanMultiplexor_1.falseInput"/>
+                            </Input>
+                            <Input Name="select" Type="boolean" Source="nfound">
+                                <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.BooleanMultiplexor_1.select"/>
+                            </Input>
+                            <Output Name="output" Type="u8">
+                                <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.BooleanMultiplexor_1.output"/>
+                            </Output>
+                            <Expression Expression="BooleanMultiplexor_1_output = Const_4_output"/>
+                        </Calculate>
+                    </Branch>
+                    <Calculate Name="Expression_1">
+                        <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.Expression_1"/>
+                        <Input Name="In" Type="i32" Source="nindex">
+                            <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.Expression_1.In"/>
+                        </Input>
+                        <Output Name="output" Type="i32">
+                            <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.Expression_1.output"/>
+                        </Output>
+                        <LocalVariable Name="Expression_1_In" Type="sint32" DefaultValue="LoopActor_nindex"/>
+                        <LocalVariable Name="Expression_1_output" Type="sint32" DefaultValue="((((Expression_1_In) + (999))) % (1000))"/>
+                    </Calculate>
+                    <Calculate Name="Expression">
+                        <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.Expression"/>
+                        <Input Name="In" Type="i32" Source="Expression_1_output">
+                            <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.Expression.In"/>
+                        </Input>
+                        <Output Name="output" Type="struct code_struct">
+                            <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.Expression.output"/>
+                        </Output>
+                        <LocalVariable Name="Expression_In" Type="sint32" DefaultValue="Expression_1_output"/>
+                        <LocalVariable Name="Expression_output" Type="code_struct"/>
+                        <Expression Expression="Expression_output.beginTime = code_GlobalParams.A1_queue[Expression_In].beginTime"/>
+                        <Expression Expression="Expression_output.endTime = code_GlobalParams.A1_queue[Expression_In].endTime"/>
+                        <Expression Expression="Expression_output.size = code_GlobalParams.A1_queue[Expression_In].size"/>
+                    </Calculate>
+                    <Branch Type="If" Condition="LoopActor_nfound">
+                        <Calculate Name="BooleanMultiplexor">
+                            <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.BooleanMultiplexor"/>
+                            <Input Name="trueInput" Type="code_struct" Source="Expression_output">
+                                <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.BooleanMultiplexor.trueInput"/>
+                            </Input>
+                            <Input Name="falseInput" Type="code_struct" Source="Const_3_output">
+                                <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.BooleanMultiplexor.falseInput"/>
+                            </Input>
+                            <Input Name="select" Type="boolean" Source="nfound">
+                                <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.BooleanMultiplexor.select"/>
+                            </Input>
+                            <Output Name="output" Type="struct code_struct">
+                                <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.BooleanMultiplexor.output"/>
+                            </Output>
+                            <Expression Expression="BooleanMultiplexor_output = Expression_output"/>
+                        </Calculate>
+                    </Branch>
+                    <Branch Type="Else">
+                        <Calculate Name="BooleanMultiplexor">
+                            <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.BooleanMultiplexor"/>
+                            <Input Name="trueInput" Type="code_struct" Source="Expression_output">
+                                <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.BooleanMultiplexor.trueInput"/>
+                            </Input>
+                            <Input Name="falseInput" Type="code_struct" Source="Const_3_output">
+                                <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.BooleanMultiplexor.falseInput"/>
+                            </Input>
+                            <Input Name="select" Type="boolean" Source="nfound">
+                                <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.BooleanMultiplexor.select"/>
+                            </Input>
+                            <Output Name="output" Type="struct code_struct">
+                                <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.BooleanMultiplexor.output"/>
+                            </Output>
+                            <Expression Expression="BooleanMultiplexor_output = Const_3_output"/>
+                        </Calculate>
+                    </Branch>
+                    <Calculate Name="RecordAssembler">
+                        <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.RecordAssembler"/>
+                        <Input Name="range" Type="code_struct" Source="BooleanMultiplexor_output">
+                            <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.RecordAssembler.range"/>
+                        </Input>
+                        <Input Name="valid" Type="u8" Source="BooleanMultiplexor_1_output">
+                            <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.RecordAssembler.valid"/>
+                        </Input>
+                        <Output Name="output" Type="struct code_struct1">
+                            <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.RecordAssembler.output"/>
+                        </Output>
+                        <LocalVariable Name="RecordAssembler_output" Type="code_struct1"/>
+                        <Expression Expression="RecordAssembler_output.range = BooleanMultiplexor_output"/>
+                        <Expression Expression="RecordAssembler_output.valid = BooleanMultiplexor_1_output"/>
+                    </Calculate>
+                    <Calculate Name="OptSnapShotRange">
+                        <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.OptSnapShotRange"/>
+                        <Input Name="OptSnapShotRange" Type="code_struct1" Source="RecordAssembler_output">
+                            <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.OptSnapShotRange"/>
+                        </Input>
+                        <Expression Expression="*OptSnapShotRange = RecordAssembler_output"/>
+                    </Calculate>
+                </Branch>
+            </Schedule>
+        </Function>
+        <Function Name="A22_Init" Type="FunctionInit" IsStatic="true">
+            <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite_1"/>
+            <Schedule>
+                <Calculate Name="EnabledComposite_1">
+                    <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite_1"/>
+                </Calculate>
+            </Schedule>
+        </Function>
+        <Function Name="A22_Update" Type="FunctionExec" IsStatic="true">
+            <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite_1"/>
+            <Input Name="enable" Type="boolean">
+                <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite_1.enable"/>
+            </Input>
+            <Output Name="OptSnapShotRange" Type="struct code_struct1">
+                <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite_1.OptSnapShotRange"/>
+            </Output>
+            <Schedule>
+                <Branch Type="If" Condition="enable">
+                    <Calculate Name="Const_3_1">
+                        <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite_1.Const_3_1"/>
+                        <Input Name="trigger" Type="unknown">
+                            <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite_1.Const_3_1.trigger"/>
+                        </Input>
+                        <Output Name="output" Type="struct code_struct">
+                            <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite_1.Const_3_1.output"/>
+                        </Output>
+                        <LocalVariable Name="Const_3_1_output" Type="code_struct"/>
+                        <Expression Expression="Const_3_1_output.beginTime = 0"/>
+                        <Expression Expression="Const_3_1_output.endTime = 0"/>
+                        <Expression Expression="Const_3_1_output.size = 0u"/>
+                    </Calculate>
+                    <Calculate Name="Const_4">
+                        <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite_1.Const_4"/>
+                        <Input Name="trigger" Type="unknown">
+                            <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite_1.Const_4.trigger"/>
+                        </Input>
+                        <Output Name="output" Type="u8">
+                            <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite_1.Const_4.output"/>
+                        </Output>
+                        <LocalVariable Name="Const_4_output" Type="unsigned char" DefaultValue="0u"/>
+                    </Calculate>
+                    <Calculate Name="RecordAssembler">
+                        <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite_1.RecordAssembler"/>
+                        <Input Name="range" Type="code_struct" Source="Const_3_1_output">
+                            <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite_1.RecordAssembler.range"/>
+                        </Input>
+                        <Input Name="valid" Type="u8" Source="Const_4_output">
+                            <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite_1.RecordAssembler.valid"/>
+                        </Input>
+                        <Output Name="output" Type="struct code_struct1">
+                            <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite_1.RecordAssembler.output"/>
+                        </Output>
+                        <LocalVariable Name="RecordAssembler_output" Type="code_struct1"/>
+                        <Expression Expression="RecordAssembler_output.range = Const_3_1_output"/>
+                        <Expression Expression="RecordAssembler_output.valid = Const_4_output"/>
+                    </Calculate>
+                    <Calculate Name="OptSnapShotRange">
+                        <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite_1.OptSnapShotRange"/>
+                        <Input Name="OptSnapShotRange" Type="code_struct1" Source="RecordAssembler_output">
+                            <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite_1.OptSnapShotRange"/>
+                        </Input>
+                        <Expression Expression="*OptSnapShotRange = RecordAssembler_output"/>
+                    </Calculate>
+                </Branch>
+            </Schedule>
+        </Function>
+        <Function Name="A2_Init" Type="FunctionInit">
+            <Ref Path="code.CompositeActor.Request"/>
+            <Schedule>
+                <Calculate Name="Request">
+                    <Ref Path="code.CompositeActor.Request"/>
+                </Calculate>
+                <Calculate Name="EnabledComposite">
+                    <Ref Path="code.CompositeActor.Request.EnabledComposite"/>
+                    <Input Name="enable" Type="boolean" Source="IfActor_if">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite.enable"/>
+                    </Input>
+                    <Output Name="Out" Type="u8" Source="Const_output">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite.Out"/>
+                    </Output>
+                    <Expression Expression="A3_Init()"/>
+                </Calculate>
+                <Calculate Name="EnabledComposite_1">
+                    <Ref Path="code.CompositeActor.Request.EnabledComposite_1"/>
+                    <Input Name="enable" Type="boolean" Source="IfActor__elseif0">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1.enable"/>
+                    </Input>
+                    <Output Name="Out" Type="u8" Source="Const_output">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1.Out"/>
+                    </Output>
+                    <Expression Expression="A4_Init()"/>
+                </Calculate>
+                <Calculate Name="EnabledComposite_1_1">
+                    <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1"/>
+                    <Input Name="enable" Type="boolean" Source="IfActor__elseif1">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1.enable"/>
+                    </Input>
+                    <Output Name="Out" Type="u8" Source="Const_output">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1.Out"/>
+                    </Output>
+                    <Expression Expression="A5_Init()"/>
+                </Calculate>
+                <Calculate Name="EnabledComposite_1_1_1">
+                    <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1"/>
+                    <Input Name="enable" Type="boolean" Source="IfActor_else">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.enable"/>
+                    </Input>
+                    <Input Name="begin" Type="i64" Source="begin">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.begin"/>
+                    </Input>
+                    <Input Name="end" Type="i64" Source="end">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.end"/>
+                    </Input>
+                    <Output Name="Out" Type="u8" Source="BooleanMultiplexor_1_output">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.Out"/>
+                    </Output>
+                    <Expression Expression="A6_Init()"/>
+                </Calculate>
+            </Schedule>
+        </Function>
+        <Function Name="Request" Type="FunctionExec">
+            <Ref Path="code.CompositeActor.Request"/>
+            <Input Name="begin" Type="i64">
+                <Ref Path="code.CompositeActor.Request.begin"/>
+            </Input>
+            <Input Name="end" Type="i64">
+                <Ref Path="code.CompositeActor.Request.end"/>
+            </Input>
+            <Input Name="osTime" Type="i64">
+                <Ref Path="code.CompositeActor.Request.osTime"/>
+            </Input>
+            <Output Name="result" Type="u8">
+                <Ref Path="code.CompositeActor.Request.result"/>
+            </Output>
+            <Schedule>
+                <Calculate Name="IfActor">
+                    <Ref Path="code.CompositeActor.Request.IfActor"/>
+                    <Input Name="begin" Type="i64" Source="begin">
+                        <Ref Path="code.CompositeActor.Request.IfActor.begin"/>
+                    </Input>
+                    <Input Name="end" Type="i64" Source="end">
+                        <Ref Path="code.CompositeActor.Request.IfActor.end"/>
+                    </Input>
+                    <Input Name="os" Type="i64" Source="osTime">
+                        <Ref Path="code.CompositeActor.Request.IfActor.os"/>
+                    </Input>
+                    <Output Name="if" Type="boolean">
+                        <Ref Path="code.CompositeActor.Request.IfActor.if"/>
+                    </Output>
+                    <Output Name="_elseif0" Type="boolean">
+                        <Ref Path="code.CompositeActor.Request.IfActor._elseif0"/>
+                    </Output>
+                    <Output Name="_elseif1" Type="boolean">
+                        <Ref Path="code.CompositeActor.Request.IfActor._elseif1"/>
+                    </Output>
+                    <Output Name="else" Type="boolean">
+                        <Ref Path="code.CompositeActor.Request.IfActor.else"/>
+                    </Output>
+                    <LocalVariable Name="IfActor_begin" Type="uint64_tt" DefaultValue="begin"/>
+                    <LocalVariable Name="IfActor_end" Type="uint64_tt" DefaultValue="end"/>
+                    <LocalVariable Name="IfActor_os" Type="uint64_tt" DefaultValue="osTime"/>
+                    <LocalVariable Name="IfActor_if" Type="boolean_8" DefaultValue="FALSE"/>
+                    <LocalVariable Name="IfActor__elseif0" Type="boolean_8" DefaultValue="FALSE"/>
+                    <LocalVariable Name="IfActor__elseif1" Type="boolean_8" DefaultValue="FALSE"/>
+                    <LocalVariable Name="IfActor_else" Type="boolean_8" DefaultValue="FALSE"/>
+                    <If Condition="(IfActor_begin &lt; ((IfActor_os) - (11000)))">
+                        <Expression Expression="IfActor_if = TRUE"/>
+                    </If>
+                    <ElseIf Condition="(code_GlobalParams.A1_lastValid) &amp;&amp; ((code_GlobalParams.A1_last &gt;= ((IfActor_begin) + (((((IfActor_end) - (IfActor_begin))) / (2))))))">
+                        <Expression Expression="IfActor__elseif0 = TRUE"/>
+                    </ElseIf>
+                    <ElseIf Condition="(((((IfActor_end) - (IfActor_begin))) &lt; ((uint64_tt)4000))) || (((((IfActor_end) - (IfActor_begin))) &gt; ((uint64_tt)20000)))">
+                        <Expression Expression="IfActor__elseif1 = TRUE"/>
+                    </ElseIf>
+                    <Else>
+                        <Expression Expression="IfActor_else = TRUE"/>
+                    </Else>
+                </Calculate>
+                <Calculate Name="EnabledComposite">
+                    <Ref Path="code.CompositeActor.Request.EnabledComposite"/>
+                    <Input Name="enable" Type="boolean" Source="IfActor_if">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite.enable"/>
+                    </Input>
+                    <Output Name="Out" Type="u8" Source="Const_output">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite.Out"/>
+                    </Output>
+                    <LocalVariable Name="EnabledComposite_Out" Type="unsigned char" DefaultValue="0"/>
+                    <Expression Expression="A3_Update(IfActor_if, &amp;EnabledComposite_Out)"/>
+                </Calculate>
+                <Calculate Name="EnabledComposite_1">
+                    <Ref Path="code.CompositeActor.Request.EnabledComposite_1"/>
+                    <Input Name="enable" Type="boolean" Source="IfActor__elseif0">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1.enable"/>
+                    </Input>
+                    <Output Name="Out" Type="u8" Source="Const_output">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1.Out"/>
+                    </Output>
+                    <LocalVariable Name="EnabledComposite_1_Out" Type="unsigned char" DefaultValue="0"/>
+                    <Expression Expression="A4_Update(IfActor__elseif0, &amp;EnabledComposite_1_Out)"/>
+                </Calculate>
+                <Calculate Name="EnabledComposite_1_1">
+                    <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1"/>
+                    <Input Name="enable" Type="boolean" Source="IfActor__elseif1">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1.enable"/>
+                    </Input>
+                    <Output Name="Out" Type="u8" Source="Const_output">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1.Out"/>
+                    </Output>
+                    <LocalVariable Name="EnabledComposite_1_1_Out" Type="unsigned char" DefaultValue="0"/>
+                    <Expression Expression="A5_Update(IfActor__elseif1, &amp;EnabledComposite_1_1_Out)"/>
+                </Calculate>
+                <Calculate Name="EnabledComposite_1_1_1">
+                    <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1"/>
+                    <Input Name="enable" Type="boolean" Source="IfActor_else">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.enable"/>
+                    </Input>
+                    <Input Name="begin" Type="i64" Source="begin">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.begin"/>
+                    </Input>
+                    <Input Name="end" Type="i64" Source="end">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.end"/>
+                    </Input>
+                    <Output Name="Out" Type="u8" Source="BooleanMultiplexor_1_output">
+                        <Ref Path="code.CompositeActor.Request.EnabledComposite_1_1_1.Out"/>
+                    </Output>
+                    <LocalVariable Name="EnabledComposite_1_1_1_Out" Type="unsigned char" DefaultValue="0"/>
+                    <Expression Expression="A6_Update(IfActor_else, begin, end, &amp;EnabledComposite_1_1_1_Out)"/>
+                </Calculate>
+                <Calculate Name="SingleMerge">
+                    <Ref Path="code.CompositeActor.Request.SingleMerge"/>
+                    <Input Name="Input1" Type="u8" Source="Out">
+                        <Ref Path="code.CompositeActor.Request.SingleMerge.Input1"/>
+                    </Input>
+                    <Input Name="Input2" Type="u8" Source="Out">
+                        <Ref Path="code.CompositeActor.Request.SingleMerge.Input2"/>
+                    </Input>
+                    <Input Name="Input3" Type="u8" Source="Out">
+                        <Ref Path="code.CompositeActor.Request.SingleMerge.Input3"/>
+                    </Input>
+                    <Input Name="Input4" Type="u8" Source="Out">
+                        <Ref Path="code.CompositeActor.Request.SingleMerge.Input4"/>
+                    </Input>
+                    <Output Name="output" Type="u8">
+                        <Ref Path="code.CompositeActor.Request.SingleMerge.output"/>
+                    </Output>
+                    <LocalVariable Name="SingleMerge_output" Type="unsigned char"/>
+                    <If Condition="IfActor_if">
+                        <Expression Expression="SingleMerge_output = EnabledComposite_Out"/>
+                    </If>
+                    <ElseIf Condition="IfActor__elseif0">
+                        <Expression Expression="SingleMerge_output = EnabledComposite_1_Out"/>
+                    </ElseIf>
+                    <ElseIf Condition="IfActor__elseif1">
+                        <Expression Expression="SingleMerge_output = EnabledComposite_1_1_Out"/>
+                    </ElseIf>
+                    <ElseIf Condition="IfActor_else">
+                        <Expression Expression="SingleMerge_output = EnabledComposite_1_1_1_Out"/>
+                    </ElseIf>
+                </Calculate>
+                <Calculate Name="result">
+                    <Ref Path="code.CompositeActor.Request.result"/>
+                    <Input Name="result" Type="u8" Source="SingleMerge_output">
+                        <Ref Path="code.CompositeActor.Request.result"/>
+                    </Input>
+                    <Expression Expression="*result = SingleMerge_output"/>
+                </Calculate>
+            </Schedule>
+        </Function>
+        <Function Name="A11_Init" Type="FunctionInit">
+            <Ref Path="code.CompositeActor.InASnapShot"/>
+            <Schedule>
+                <Calculate Name="InASnapShot">
+                    <Ref Path="code.CompositeActor.InASnapShot"/>
+                </Calculate>
+                <Calculate Name="EnabledComposite_1">
+                    <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite_1"/>
+                    <Input Name="enable" Type="boolean" Source="IfActor_else">
+                        <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite_1.enable"/>
+                    </Input>
+                    <Output Name="OptSnapShotRange" Type="struct code_struct1" Source="RecordAssembler_output">
+                        <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite_1.OptSnapShotRange"/>
+                    </Output>
+                    <Expression Expression="A14_Init()"/>
+                </Calculate>
+                <Calculate Name="EnabledComposite">
+                    <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite"/>
+                    <Input Name="enable" Type="boolean" Source="IfActor_if">
+                        <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.enable"/>
+                    </Input>
+                    <Input Name="In" Type="i64" Source="msgTimeStamp">
+                        <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.In"/>
+                    </Input>
+                    <Output Name="OptSnapShotRange" Type="struct code_struct1" Source="RecordAssembler_output">
+                        <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.OptSnapShotRange"/>
+                    </Output>
+                    <Expression Expression="A12_Init()"/>
+                </Calculate>
+            </Schedule>
+        </Function>
+        <Function Name="InASnapShot" Type="FunctionExec">
+            <Ref Path="code.CompositeActor.InASnapShot"/>
+            <Input Name="msgTimeStamp" Type="i64">
+                <Ref Path="code.CompositeActor.InASnapShot.msgTimeStamp"/>
+            </Input>
+            <Output Name="OptSnapShotRange" Type="struct code_struct1">
+                <Ref Path="code.CompositeActor.InASnapShot.OptSnapShotRange"/>
+            </Output>
+            <Schedule>
+                <Calculate Name="Const_5">
+                    <Ref Path="code.CompositeActor.InASnapShot.Const_5"/>
+                    <Input Name="trigger" Type="unknown">
+                        <Ref Path="code.CompositeActor.InASnapShot.Const_5.trigger"/>
+                    </Input>
+                    <Output Name="output" Type="i32">
+                        <Ref Path="code.CompositeActor.InASnapShot.Const_5.output"/>
+                    </Output>
+                    <LocalVariable Name="Const_5_output" Type="sint32" DefaultValue="code_GlobalParams.A1_size"/>
+                </Calculate>
+                <Calculate Name="IfActor">
+                    <Ref Path="code.CompositeActor.InASnapShot.IfActor"/>
+                    <Input Name="In" Type="i32" Source="Const_5_output">
+                        <Ref Path="code.CompositeActor.InASnapShot.IfActor.In"/>
+                    </Input>
+                    <Output Name="if" Type="boolean">
+                        <Ref Path="code.CompositeActor.InASnapShot.IfActor.if"/>
+                    </Output>
+                    <Output Name="else" Type="boolean">
+                        <Ref Path="code.CompositeActor.InASnapShot.IfActor.else"/>
+                    </Output>
+                    <LocalVariable Name="IfActor_In" Type="sint32" DefaultValue="Const_5_output"/>
+                    <LocalVariable Name="IfActor_if" Type="boolean_8" DefaultValue="FALSE"/>
+                    <LocalVariable Name="IfActor_else" Type="boolean_8" DefaultValue="FALSE"/>
+                    <If Condition="(IfActor_In &gt; 0)">
+                        <Expression Expression="IfActor_if = TRUE"/>
+                    </If>
+                    <Else>
+                        <Expression Expression="IfActor_else = TRUE"/>
+                    </Else>
+                </Calculate>
+                <Calculate Name="EnabledComposite_1">
+                    <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite_1"/>
+                    <Input Name="enable" Type="boolean" Source="IfActor_else">
+                        <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite_1.enable"/>
+                    </Input>
+                    <Output Name="OptSnapShotRange" Type="struct code_struct1" Source="RecordAssembler_output">
+                        <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite_1.OptSnapShotRange"/>
+                    </Output>
+                    <LocalVariable Name="EnabledComposite_1_OptSnapShotRange" Type="code_struct1" DefaultValue="{0}"/>
+                    <Expression Expression="A14_Update(IfActor_else, &amp;EnabledComposite_1_OptSnapShotRange)"/>
+                </Calculate>
+                <Calculate Name="EnabledComposite">
+                    <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite"/>
+                    <Input Name="enable" Type="boolean" Source="IfActor_if">
+                        <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.enable"/>
+                    </Input>
+                    <Input Name="In" Type="i64" Source="msgTimeStamp">
+                        <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.In"/>
+                    </Input>
+                    <Output Name="OptSnapShotRange" Type="struct code_struct1" Source="RecordAssembler_output">
+                        <Ref Path="code.CompositeActor.InASnapShot.EnabledComposite.OptSnapShotRange"/>
+                    </Output>
+                    <LocalVariable Name="EnabledComposite_OptSnapShotRange" Type="code_struct1" DefaultValue="{0}"/>
+                    <Expression Expression="A12_Update(IfActor_if, msgTimeStamp, &amp;EnabledComposite_OptSnapShotRange)"/>
+                </Calculate>
+                <Calculate Name="SingleMerge">
+                    <Ref Path="code.CompositeActor.InASnapShot.SingleMerge"/>
+                    <Input Name="Input1" Type="code_struct1" Source="OptSnapShotRange">
+                        <Ref Path="code.CompositeActor.InASnapShot.SingleMerge.Input1"/>
+                    </Input>
+                    <Input Name="Input2" Type="code_struct1" Source="OptSnapShotRange">
+                        <Ref Path="code.CompositeActor.InASnapShot.SingleMerge.Input2"/>
+                    </Input>
+                    <Output Name="output" Type="struct code_struct1">
+                        <Ref Path="code.CompositeActor.InASnapShot.SingleMerge.output"/>
+                    </Output>
+                    <LocalVariable Name="SingleMerge_output" Type="code_struct1"/>
+                    <If Condition="IfActor_if">
+                        <Expression Expression="SingleMerge_output = EnabledComposite_OptSnapShotRange"/>
+                    </If>
+                    <ElseIf Condition="IfActor_else">
+                        <Expression Expression="SingleMerge_output = EnabledComposite_1_OptSnapShotRange"/>
+                    </ElseIf>
+                </Calculate>
+                <Calculate Name="OptSnapShotRange">
+                    <Ref Path="code.CompositeActor.InASnapShot.OptSnapShotRange"/>
+                    <Input Name="OptSnapShotRange" Type="code_struct1" Source="SingleMerge_output">
+                        <Ref Path="code.CompositeActor.InASnapShot.OptSnapShotRange"/>
+                    </Input>
+                    <Expression Expression="*OptSnapShotRange = SingleMerge_output"/>
+                </Calculate>
+            </Schedule>
+        </Function>
+        <Function Name="A15_Init" Type="FunctionInit">
+            <Ref Path="code.CompositeActor.RefreshRanges"/>
+            <Schedule>
+                <Calculate Name="RefreshRanges">
+                    <Ref Path="code.CompositeActor.RefreshRanges"/>
+                </Calculate>
+                <Calculate Name="EnabledComposite">
+                    <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite"/>
+                    <Input Name="enable" Type="boolean" Source="IfActor_if">
+                        <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite.enable"/>
+                    </Input>
+                    <Input Name="In" Type="i64" Source="osTime">
+                        <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite.In"/>
+                    </Input>
+                    <Expression Expression="A16_Init()"/>
+                </Calculate>
+            </Schedule>
+        </Function>
+        <Function Name="RefreshRanges" Type="FunctionExec">
+            <Ref Path="code.CompositeActor.RefreshRanges"/>
+            <Input Name="osTime" Type="i64">
+                <Ref Path="code.CompositeActor.RefreshRanges.osTime"/>
+            </Input>
+            <Schedule>
+                <Calculate Name="Const">
+                    <Ref Path="code.CompositeActor.RefreshRanges.Const"/>
+                    <Input Name="trigger" Type="unknown" Source="osTime">
+                        <Ref Path="code.CompositeActor.RefreshRanges.Const.trigger"/>
+                    </Input>
+                    <Output Name="output" Type="i32">
+                        <Ref Path="code.CompositeActor.RefreshRanges.Const.output"/>
+                    </Output>
+                    <LocalVariable Name="Const_output" Type="sint32" DefaultValue="code_GlobalParams.A1_size"/>
+                </Calculate>
+                <Calculate Name="IfActor">
+                    <Ref Path="code.CompositeActor.RefreshRanges.IfActor"/>
+                    <Input Name="In" Type="i32" Source="Const_output">
+                        <Ref Path="code.CompositeActor.RefreshRanges.IfActor.In"/>
+                    </Input>
+                    <Output Name="if" Type="boolean">
+                        <Ref Path="code.CompositeActor.RefreshRanges.IfActor.if"/>
+                    </Output>
+                    <Output Name="else" Type="boolean">
+                        <Ref Path="code.CompositeActor.RefreshRanges.IfActor.else"/>
+                    </Output>
+                    <LocalVariable Name="IfActor_In" Type="sint32" DefaultValue="Const_output"/>
+                    <LocalVariable Name="IfActor_if" Type="boolean_8" DefaultValue="FALSE"/>
+                    <LocalVariable Name="IfActor_else" Type="boolean_8" DefaultValue="FALSE"/>
+                    <If Condition="(IfActor_In &gt; 0)">
+                        <Expression Expression="IfActor_if = TRUE"/>
+                    </If>
+                    <Else>
+                        <Expression Expression="IfActor_else = TRUE"/>
+                    </Else>
+                </Calculate>
+                <Calculate Name="EnabledComposite">
+                    <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite"/>
+                    <Input Name="enable" Type="boolean" Source="IfActor_if">
+                        <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite.enable"/>
+                    </Input>
+                    <Input Name="In" Type="i64" Source="osTime">
+                        <Ref Path="code.CompositeActor.RefreshRanges.EnabledComposite.In"/>
+                    </Input>
+                    <Expression Expression="A16_Update(IfActor_if, osTime)"/>
+                </Calculate>
+            </Schedule>
+        </Function>
+        <Function Name="A18_Init" Type="FunctionInit">
+            <Ref Path="code.CompositeActor.RangeSize"/>
+            <Schedule>
+                <Calculate Name="RangeSize">
+                    <Ref Path="code.CompositeActor.RangeSize"/>
+                </Calculate>
+            </Schedule>
+        </Function>
+        <Function Name="RangeSize" Type="FunctionExec">
+            <Ref Path="code.CompositeActor.RangeSize"/>
+            <Output Name="size" Type="i64">
+                <Ref Path="code.CompositeActor.RangeSize.size"/>
+            </Output>
+            <Schedule>
+                <Calculate Name="Const">
+                    <Ref Path="code.CompositeActor.RangeSize.Const"/>
+                    <Input Name="trigger" Type="unknown">
+                        <Ref Path="code.CompositeActor.RangeSize.Const.trigger"/>
+                    </Input>
+                    <Output Name="output" Type="i32">
+                        <Ref Path="code.CompositeActor.RangeSize.Const.output"/>
+                    </Output>
+                    <LocalVariable Name="Const_output" Type="sint32" DefaultValue="code_GlobalParams.A1_size"/>
+                </Calculate>
+                <Calculate Name="size">
+                    <Ref Path="code.CompositeActor.RangeSize.size"/>
+                    <Input Name="size" Type="i64" Source="Const_output">
+                        <Ref Path="code.CompositeActor.RangeSize.size"/>
+                    </Input>
+                    <Expression Expression="*size = Const_output"/>
+                </Calculate>
+            </Schedule>
+        </Function>
+        <Function Name="A19_Init" Type="FunctionInit">
+            <Ref Path="code.CompositeActor.InNextSnapShot"/>
+            <Schedule>
+                <Calculate Name="InNextSnapShot">
+                    <Ref Path="code.CompositeActor.InNextSnapShot"/>
+                </Calculate>
+                <Calculate Name="EnabledComposite_1">
+                    <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite_1"/>
+                    <Input Name="enable" Type="boolean" Source="IfActor_else">
+                        <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite_1.enable"/>
+                    </Input>
+                    <Output Name="OptSnapShotRange" Type="struct code_struct1" Source="RecordAssembler_output">
+                        <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite_1.OptSnapShotRange"/>
+                    </Output>
+                    <Expression Expression="A22_Init()"/>
+                </Calculate>
+                <Calculate Name="EnabledComposite">
+                    <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite"/>
+                    <Input Name="enable" Type="boolean" Source="IfActor_if">
+                        <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.enable"/>
+                    </Input>
+                    <Input Name="In" Type="i64" Source="msgTimeStamp">
+                        <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.In"/>
+                    </Input>
+                    <Output Name="OptSnapShotRange" Type="struct code_struct1" Source="RecordAssembler_output">
+                        <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.OptSnapShotRange"/>
+                    </Output>
+                    <Expression Expression="A20_Init()"/>
+                </Calculate>
+            </Schedule>
+        </Function>
+        <Function Name="InNextSnapShot" Type="FunctionExec">
+            <Ref Path="code.CompositeActor.InNextSnapShot"/>
+            <Input Name="msgTimeStamp" Type="i64">
+                <Ref Path="code.CompositeActor.InNextSnapShot.msgTimeStamp"/>
+            </Input>
+            <Output Name="OptSnapShotRange" Type="struct code_struct1">
+                <Ref Path="code.CompositeActor.InNextSnapShot.OptSnapShotRange"/>
+            </Output>
+            <Schedule>
+                <Calculate Name="Const_5">
+                    <Ref Path="code.CompositeActor.InNextSnapShot.Const_5"/>
+                    <Input Name="trigger" Type="unknown">
+                        <Ref Path="code.CompositeActor.InNextSnapShot.Const_5.trigger"/>
+                    </Input>
+                    <Output Name="output" Type="i32">
+                        <Ref Path="code.CompositeActor.InNextSnapShot.Const_5.output"/>
+                    </Output>
+                    <LocalVariable Name="Const_5_output" Type="sint32" DefaultValue="code_GlobalParams.A1_size"/>
+                </Calculate>
+                <Calculate Name="IfActor">
+                    <Ref Path="code.CompositeActor.InNextSnapShot.IfActor"/>
+                    <Input Name="In" Type="i32" Source="Const_5_output">
+                        <Ref Path="code.CompositeActor.InNextSnapShot.IfActor.In"/>
+                    </Input>
+                    <Output Name="if" Type="boolean">
+                        <Ref Path="code.CompositeActor.InNextSnapShot.IfActor.if"/>
+                    </Output>
+                    <Output Name="else" Type="boolean">
+                        <Ref Path="code.CompositeActor.InNextSnapShot.IfActor.else"/>
+                    </Output>
+                    <LocalVariable Name="IfActor_In" Type="sint32" DefaultValue="Const_5_output"/>
+                    <LocalVariable Name="IfActor_if" Type="boolean_8" DefaultValue="FALSE"/>
+                    <LocalVariable Name="IfActor_else" Type="boolean_8" DefaultValue="FALSE"/>
+                    <If Condition="(IfActor_In &gt; 0)">
+                        <Expression Expression="IfActor_if = TRUE"/>
+                    </If>
+                    <Else>
+                        <Expression Expression="IfActor_else = TRUE"/>
+                    </Else>
+                </Calculate>
+                <Calculate Name="EnabledComposite_1">
+                    <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite_1"/>
+                    <Input Name="enable" Type="boolean" Source="IfActor_else">
+                        <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite_1.enable"/>
+                    </Input>
+                    <Output Name="OptSnapShotRange" Type="struct code_struct1" Source="RecordAssembler_output">
+                        <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite_1.OptSnapShotRange"/>
+                    </Output>
+                    <LocalVariable Name="EnabledComposite_1_OptSnapShotRange" Type="code_struct1" DefaultValue="{0}"/>
+                    <Expression Expression="A22_Update(IfActor_else, &amp;EnabledComposite_1_OptSnapShotRange)"/>
+                </Calculate>
+                <Calculate Name="EnabledComposite">
+                    <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite"/>
+                    <Input Name="enable" Type="boolean" Source="IfActor_if">
+                        <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.enable"/>
+                    </Input>
+                    <Input Name="In" Type="i64" Source="msgTimeStamp">
+                        <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.In"/>
+                    </Input>
+                    <Output Name="OptSnapShotRange" Type="struct code_struct1" Source="RecordAssembler_output">
+                        <Ref Path="code.CompositeActor.InNextSnapShot.EnabledComposite.OptSnapShotRange"/>
+                    </Output>
+                    <LocalVariable Name="EnabledComposite_OptSnapShotRange" Type="code_struct1" DefaultValue="{0}"/>
+                    <Expression Expression="A20_Update(IfActor_if, msgTimeStamp, &amp;EnabledComposite_OptSnapShotRange)"/>
+                </Calculate>
+                <Calculate Name="SingleMerge">
+                    <Ref Path="code.CompositeActor.InNextSnapShot.SingleMerge"/>
+                    <Input Name="Input1" Type="code_struct1" Source="OptSnapShotRange">
+                        <Ref Path="code.CompositeActor.InNextSnapShot.SingleMerge.Input1"/>
+                    </Input>
+                    <Input Name="Input2" Type="code_struct1" Source="OptSnapShotRange">
+                        <Ref Path="code.CompositeActor.InNextSnapShot.SingleMerge.Input2"/>
+                    </Input>
+                    <Output Name="output" Type="struct code_struct1">
+                        <Ref Path="code.CompositeActor.InNextSnapShot.SingleMerge.output"/>
+                    </Output>
+                    <LocalVariable Name="SingleMerge_output" Type="code_struct1"/>
+                    <If Condition="IfActor_if">
+                        <Expression Expression="SingleMerge_output = EnabledComposite_OptSnapShotRange"/>
+                    </If>
+                    <ElseIf Condition="IfActor_else">
+                        <Expression Expression="SingleMerge_output = EnabledComposite_1_OptSnapShotRange"/>
+                    </ElseIf>
+                </Calculate>
+                <Calculate Name="OptSnapShotRange">
+                    <Ref Path="code.CompositeActor.InNextSnapShot.OptSnapShotRange"/>
+                    <Input Name="OptSnapShotRange" Type="code_struct1" Source="SingleMerge_output">
+                        <Ref Path="code.CompositeActor.InNextSnapShot.OptSnapShotRange"/>
+                    </Input>
+                    <Expression Expression="*OptSnapShotRange = SingleMerge_output"/>
+                </Calculate>
+            </Schedule>
+        </Function>
+        <Function Name="A1_Init" Type="FunctionInit" IsStatic="true">
+            <Ref Path="code.CompositeActor"/>
+            <Schedule>
+                <Calculate Name="CompositeActor">
+                    <Ref Path="code.CompositeActor"/>
+                    <Expression Expression="code_GlobalParams.A1_size = 0"/>
+                    <Expression Expression="code_GlobalParams.A1_begin = 0"/>
+                    <For Condition="i0 &lt; 1000">
+                        <Initial>
+                            <LocalVariable Name="i0" Type="int" DefaultValue="0"/>
+                        </Initial>
+                        <Iterator>
+                            <Expression Expression="i0++"/>
+                        </Iterator>
+                        <Expression Expression="code_GlobalParams.A1_queue[i0].beginTime = 0"/>
+                        <Expression Expression="code_GlobalParams.A1_queue[i0].endTime = 0"/>
+                        <Expression Expression="code_GlobalParams.A1_queue[i0].size = 0u"/>
+                    </For>
+                    <Expression Expression="code_GlobalParams.A1_lastValid = FALSE"/>
+                    <Expression Expression="code_GlobalParams.A1_lastperiod = 0"/>
+                    <Expression Expression="code_GlobalParams.A1_last = 0"/>
+                </Calculate>
+                <Calculate Name="RangeSize">
+                    <Ref Path="code.CompositeActor.RangeSize"/>
+                    <Output Name="size" Type="i64" Source="Const_output">
+                        <Ref Path="code.CompositeActor.RangeSize.size"/>
+                    </Output>
+                    <Expression Expression="A18_Init()"/>
+                </Calculate>
+            </Schedule>
+        </Function>
+        <Function Name="A1_Update" Type="FunctionExec" IsStatic="true">
+            <Ref Path="code.CompositeActor"/>
+            <Schedule>
+                <Calculate Name="RangeSize">
+                    <Ref Path="code.CompositeActor.RangeSize"/>
+                    <Output Name="size" Type="i64" Source="Const_output">
+                        <Ref Path="code.CompositeActor.RangeSize.size"/>
+                    </Output>
+                    <LocalVariable Name="RangeSize_size" Type="uint64_tt" DefaultValue="0L"/>
+                    <Expression Expression="RangeSize(&amp;RangeSize_size)"/>
+                </Calculate>
+            </Schedule>
+        </Function>
+    </File>
+</Root>

@@ -1,0 +1,797 @@
+<?xml version="1.0" encoding="ASCII"?>
+<Root UnFormatedxmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" UnFormatedxsi:noNamespaceSchemaLocation="http://www.example.org/IRMetadata">
+    <Config>
+        <IterationCount Value="10"/>
+        <MainInitFunction Name="A0_Init"/>
+        <MainExecFunction Name="A0_Update"/>
+        <MainCompositeState Name="A0_state"/>
+    </Config>
+    <File Name="ComplexBranch">
+        <HeadFile Name="stdlib">
+            <Ref Path="ComplexBranch"/>
+        </HeadFile>
+        <HeadFile Name="stdio">
+            <Ref Path="ComplexBranch"/>
+        </HeadFile>
+        <HeadFile Name="string">
+            <Ref Path="ComplexBranch"/>
+        </HeadFile>
+        <Macro Name="bool" Value="char"/>
+        <Macro Name="false" Value="0"/>
+        <Macro Name="true" Value="1"/>
+        <Macro Name="PI" Value="3.1415926535897932384626"/>
+        <GlobalVariable Name="globalParams" Type="struct Parameters_Struct"/>
+        <Struct Kind_Unused="struct" Name="Parameters_Struct">
+            <Ref Path="ComplexBranch"/>
+            <Member Name="A1_P1" Type="i32">
+                <Ref Path="ComplexBranch.CompositeActor.P1"/>
+            </Member>
+            <Member Name="A1_P2" Type="i32">
+                <Ref Path="ComplexBranch.CompositeActor.P2"/>
+            </Member>
+            <Member Name="A1_P3" Type="i32">
+                <Ref Path="ComplexBranch.CompositeActor.P3"/>
+            </Member>
+            <Member Name="A1_P4" Type="i32">
+                <Ref Path="ComplexBranch.CompositeActor.P4"/>
+            </Member>
+            <Member Name="A1_P5" Type="i32">
+                <Ref Path="ComplexBranch.CompositeActor.P5"/>
+            </Member>
+            <Member Name="A1_P6" Type="i32">
+                <Ref Path="ComplexBranch.CompositeActor.P6"/>
+            </Member>
+            <Member Name="A1_P7" Type="i32">
+                <Ref Path="ComplexBranch.CompositeActor.P7"/>
+            </Member>
+            <Member Name="A1_P8" Type="i32">
+                <Ref Path="ComplexBranch.CompositeActor.P8"/>
+            </Member>
+            <Member Name="A1_P9" Type="i32">
+                <Ref Path="ComplexBranch.CompositeActor.P9"/>
+            </Member>
+            <Member Name="A1_P10" Type="i32">
+                <Ref Path="ComplexBranch.CompositeActor.P10"/>
+            </Member>
+        </Struct>
+        <Struct Kind_Unused="struct" Name="A1_state">
+            <Ref Path="ComplexBranch.CompositeActor"/>
+            <Member Name="Ramp_lastValue" Type="i32">
+                <Ref Path="Ramp_lastValue"/>
+            </Member>
+        </Struct>
+        <Struct Kind_Unused="struct" Name="A0_state">
+            <Ref Path="ComplexBranch"/>
+            <Member Name="Ramp_lastValue" Type="i32">
+                <Ref Path="Ramp_lastValue"/>
+            </Member>
+            <Member Name="CompositeActor" Type="A1_state">
+                <Ref Path="CompositeActor"/>
+            </Member>
+        </Struct>
+        <Function Name="A0_Update" Type="FunctionExec">
+            <Ref Path="ComplexBranch"/>
+            <Input Name="self" Type="A0_state" IsAddress="true">
+                <Ref Path="ComplexBranch"/>
+            </Input>
+            <Schedule>
+                <Calculate Name="Ramp">
+                    <Ref Path="ComplexBranch.Ramp"/>
+                    <Output Name="output" Type="i32">
+                        <Ref Path="ComplexBranch.Ramp.output"/>
+                    </Output>
+                    <LocalVariable Name="Ramp_output" Type="int" DefaultValue="self-&gt;Ramp_lastValue"/>
+                    <Expression Expression="self-&gt;Ramp_lastValue=self-&gt;Ramp_lastValue+1"/>
+                </Calculate>
+                <Calculate Name="Expression">
+                    <Ref Path="ComplexBranch.Expression"/>
+                    <Input Name="in" Type="i32" Source="Ramp_output">
+                        <Ref Path="ComplexBranch.Expression.in"/>
+                    </Input>
+                    <Output Name="output" Type="u8">
+                        <Ref Path="ComplexBranch.Expression.output"/>
+                    </Output>
+                    <LocalVariable Name="Expression_in" Type="int" DefaultValue="Ramp_output"/>
+                    <LocalVariable Name="Expression_output" Type="bool" DefaultValue="((Expression_in%7655)==5763)"/>
+                </Calculate>
+                <Calculate Name="CompositeActor">
+                    <Ref Path="ComplexBranch.CompositeActor"/>
+                    <Input Name="in1" Type="u8" Source="Expression_output">
+                        <Ref Path="ComplexBranch.CompositeActor.in1"/>
+                    </Input>
+                    <Input Name="in2" Type="i32" Source="Ramp_output">
+                        <Ref Path="ComplexBranch.CompositeActor.in2"/>
+                    </Input>
+                    <Output Name="out1" Type="i32" Source="BooleanMultiplexor_output">
+                        <Ref Path="ComplexBranch.CompositeActor.out1"/>
+                    </Output>
+                    <Output Name="out2" Type="i32" Source="BooleanMultiplexor_1_1_output">
+                        <Ref Path="ComplexBranch.CompositeActor.out2"/>
+                    </Output>
+                    <LocalVariable Name="CompositeActor_out1" Type="int"/>
+                    <LocalVariable Name="CompositeActor_out2" Type="int"/>
+                    <Expression Expression="A1_Update(&amp;self-&gt;CompositeActor,Expression_output,Ramp_output,&amp;CompositeActor_out1,&amp;CompositeActor_out2)"/>
+                </Calculate>
+                <Calculate Name="Display">
+                    <Ref Path="ComplexBranch.Display"/>
+                    <Input Name="input" Type="i32" Source="out1">
+                        <Ref Path="ComplexBranch.Display.input"/>
+                    </Input>
+                    <Expression Expression="printf(&quot;\&quot;ComplexBranch.Display\&quot; output as follows: \n&quot;)"/>
+                    <Expression Expression="printf(&quot;%d\n&quot;,CompositeActor_out1)"/>
+                </Calculate>
+                <Calculate Name="Display_1">
+                    <Ref Path="ComplexBranch.Display_1"/>
+                    <Input Name="input" Type="i32" Source="out2">
+                        <Ref Path="ComplexBranch.Display_1.input"/>
+                    </Input>
+                    <Expression Expression="printf(&quot;\&quot;ComplexBranch.Display_1\&quot; output as follows: \n&quot;)"/>
+                    <Expression Expression="printf(&quot;%d\n&quot;,CompositeActor_out2)"/>
+                </Calculate>
+            </Schedule>
+        </Function>
+        <Function Name="A0_Init" Type="FunctionInit">
+            <Ref Path="ComplexBranch"/>
+            <Input Name="self" Type="A0_state" IsAddress="true">
+                <Ref Path="ComplexBranch"/>
+            </Input>
+            <Schedule>
+                <Calculate Name="ComplexBranch">
+                    <Ref Path="ComplexBranch"/>
+                </Calculate>
+                <Calculate Name="Ramp">
+                    <Ref Path="ComplexBranch.Ramp"/>
+                    <Output Name="output" Type="i32">
+                        <Ref Path="ComplexBranch.Ramp.output"/>
+                    </Output>
+                    <Expression Expression="self-&gt;Ramp_lastValue=0"/>
+                </Calculate>
+                <Calculate Name="CompositeActor">
+                    <Ref Path="ComplexBranch.CompositeActor"/>
+                    <Input Name="in1" Type="u8" Source="Expression_output">
+                        <Ref Path="ComplexBranch.CompositeActor.in1"/>
+                    </Input>
+                    <Input Name="in2" Type="i32" Source="Ramp_output">
+                        <Ref Path="ComplexBranch.CompositeActor.in2"/>
+                    </Input>
+                    <Output Name="out1" Type="i32" Source="BooleanMultiplexor_output">
+                        <Ref Path="ComplexBranch.CompositeActor.out1"/>
+                    </Output>
+                    <Output Name="out2" Type="i32" Source="BooleanMultiplexor_1_1_output">
+                        <Ref Path="ComplexBranch.CompositeActor.out2"/>
+                    </Output>
+                    <Expression Expression="A1_Init(&amp;self-&gt;CompositeActor)"/>
+                </Calculate>
+            </Schedule>
+        </Function>
+        <Function Name="A1_Update" Type="FunctionExec">
+            <Ref Path="ComplexBranch.CompositeActor"/>
+            <Input Name="self" Type="A1_state" IsAddress="true">
+                <Ref Path="ComplexBranch.CompositeActor"/>
+            </Input>
+            <Input Name="in1" Type="u8" Source="Expression_output">
+                <Ref Path="ComplexBranch.CompositeActor.in1"/>
+            </Input>
+            <Input Name="in2" Type="i32" Source="Ramp_output">
+                <Ref Path="ComplexBranch.CompositeActor.in2"/>
+            </Input>
+            <Output Name="out1" Type="i32" Source="BooleanMultiplexor_output">
+                <Ref Path="ComplexBranch.CompositeActor.out1"/>
+            </Output>
+            <Output Name="out2" Type="i32" Source="BooleanMultiplexor_1_1_output">
+                <Ref Path="ComplexBranch.CompositeActor.out2"/>
+            </Output>
+            <Schedule>
+                <LocalVariable Name="BooleanMultiplexor_1_output" Type="i32">
+                    <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor_1.output"/>
+                </LocalVariable>
+                <LocalVariable Name="BooleanMultiplexor_2_output" Type="i32">
+                    <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor_2.output"/>
+                </LocalVariable>
+                <LocalVariable Name="BooleanMultiplexor_output" Type="i32">
+                    <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor.output"/>
+                </LocalVariable>
+                <LocalVariable Name="BooleanMultiplexor_6_output" Type="i32">
+                    <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor_6.output"/>
+                </LocalVariable>
+                <LocalVariable Name="BooleanMultiplexor_1_2_output" Type="i32">
+                    <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor_1_2.output"/>
+                </LocalVariable>
+                <LocalVariable Name="BooleanMultiplexor_9_output" Type="i32">
+                    <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor_9.output"/>
+                </LocalVariable>
+                <LocalVariable Name="BooleanMultiplexor_10_output" Type="i32">
+                    <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor_10.output"/>
+                </LocalVariable>
+                <LocalVariable Name="BooleanMultiplexor_1_1_output" Type="i32">
+                    <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor_1_1.output"/>
+                </LocalVariable>
+                <Calculate Name="Expression">
+                    <Ref Path="ComplexBranch.CompositeActor.Expression"/>
+                    <Input Name="in" Type="i32" Source="in2">
+                        <Ref Path="ComplexBranch.CompositeActor.Expression.in"/>
+                    </Input>
+                    <Output Name="output" Type="u8">
+                        <Ref Path="ComplexBranch.CompositeActor.Expression.output"/>
+                    </Output>
+                    <LocalVariable Name="Expression_in" Type="int" DefaultValue="in2"/>
+                    <LocalVariable Name="Expression_output" Type="bool" DefaultValue="((Expression_in%153)==0)"/>
+                </Calculate>
+                <Calculate Name="Expression_1">
+                    <Ref Path="ComplexBranch.CompositeActor.Expression_1"/>
+                    <Input Name="in" Type="u8" Source="in1">
+                        <Ref Path="ComplexBranch.CompositeActor.Expression_1.in"/>
+                    </Input>
+                    <Output Name="output" Type="u8">
+                        <Ref Path="ComplexBranch.CompositeActor.Expression_1.output"/>
+                    </Output>
+                    <LocalVariable Name="Expression_1_in" Type="bool" DefaultValue="in1"/>
+                    <LocalVariable Name="Expression_1_output" Type="bool" DefaultValue="(Expression_1_in==true)"/>
+                </Calculate>
+                <Branch Condition="Expression_1_output" Type="If">
+                    <Calculate Name="Ramp">
+                        <Ref Path="ComplexBranch.CompositeActor.Ramp"/>
+                        <Input Name="trigger" Type="u8" Source="BooleanSwitch_trueOutput">
+                            <Ref Path="ComplexBranch.CompositeActor.Ramp.trigger"/>
+                        </Input>
+                        <Output Name="output" Type="i32">
+                            <Ref Path="ComplexBranch.CompositeActor.Ramp.output"/>
+                        </Output>
+                        <LocalVariable Name="Ramp_output" Type="int" DefaultValue="self-&gt;Ramp_lastValue"/>
+                        <Expression Expression="self-&gt;Ramp_lastValue=self-&gt;Ramp_lastValue+1"/>
+                    </Calculate>
+                    <Calculate Name="Expression_7">
+                        <Ref Path="ComplexBranch.CompositeActor.Expression_7"/>
+                        <Input Name="in" Type="i32" Source="Ramp_output">
+                            <Ref Path="ComplexBranch.CompositeActor.Expression_7.in"/>
+                        </Input>
+                        <Output Name="output" Type="u8">
+                            <Ref Path="ComplexBranch.CompositeActor.Expression_7.output"/>
+                        </Output>
+                        <LocalVariable Name="Expression_7_in" Type="int" DefaultValue="Ramp_output"/>
+                        <LocalVariable Name="Expression_7_output" Type="bool" DefaultValue="((Expression_7_in%5)==0)"/>
+                    </Calculate>
+                    <Branch Condition="Expression_7_output" Type="If">
+                        <Calculate Name="Expression_8">
+                            <Ref Path="ComplexBranch.CompositeActor.Expression_8"/>
+                            <Input Name="in" Type="i32" Source="BooleanSwitch_2_trueOutput">
+                                <Ref Path="ComplexBranch.CompositeActor.Expression_8.in"/>
+                            </Input>
+                            <Output Name="output" Type="u8">
+                                <Ref Path="ComplexBranch.CompositeActor.Expression_8.output"/>
+                            </Output>
+                            <LocalVariable Name="Expression_8_in" Type="int" DefaultValue="Ramp_output"/>
+                            <LocalVariable Name="Expression_8_output" Type="bool" DefaultValue="(Expression_8_output&gt;0.9)"/>
+                        </Calculate>
+                        <Branch Condition="Expression_8_output" Type="If">
+                            <Calculate Name="Expression_9">
+                                <Ref Path="ComplexBranch.CompositeActor.Expression_9"/>
+                                <Input Name="in" Type="i32" Source="BooleanSwitch_9_trueOutput">
+                                    <Ref Path="ComplexBranch.CompositeActor.Expression_9.in"/>
+                                </Input>
+                                <Output Name="output" Type="i32">
+                                    <Ref Path="ComplexBranch.CompositeActor.Expression_9.output"/>
+                                </Output>
+                                <LocalVariable Name="Expression_9_in" Type="int" DefaultValue="Ramp_output"/>
+                                <LocalVariable Name="Expression_9_output" Type="int" DefaultValue="globalParams.A1_P3"/>
+                            </Calculate>
+                            <Calculate Name="BooleanMultiplexor_1">
+                                <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor_1"/>
+                                <Input Name="trueInput" Type="i32" Source="Expression_9_output">
+                                    <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor_1.trueInput"/>
+                                </Input>
+                                <Input Name="falseInput" Type="i32" Source="Expression_5_output">
+                                    <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor_1.falseInput"/>
+                                </Input>
+                                <Input Name="select" Type="u8" Source="Expression_8_output">
+                                    <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor_1.select"/>
+                                </Input>
+                                <Output Name="output" Type="i32">
+                                    <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor_1.output"/>
+                                </Output>
+                                <Expression Expression="BooleanMultiplexor_1_output=Expression_9_output"/>
+                            </Calculate>
+                        </Branch>
+                        <Branch Condition="Expression_8_output" Type="Else">
+                            <Calculate Name="Expression_5">
+                                <Ref Path="ComplexBranch.CompositeActor.Expression_5"/>
+                                <Input Name="in" Type="i32" Source="BooleanSwitch_9_falseOutput">
+                                    <Ref Path="ComplexBranch.CompositeActor.Expression_5.in"/>
+                                </Input>
+                                <Output Name="output" Type="i32">
+                                    <Ref Path="ComplexBranch.CompositeActor.Expression_5.output"/>
+                                </Output>
+                                <LocalVariable Name="Expression_5_in" Type="int" DefaultValue="Ramp_output"/>
+                                <LocalVariable Name="Expression_5_output" Type="int" DefaultValue="globalParams.A1_P4"/>
+                            </Calculate>
+                            <Calculate Name="BooleanMultiplexor_1">
+                                <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor_1"/>
+                                <Input Name="trueInput" Type="i32" Source="Expression_9_output">
+                                    <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor_1.trueInput"/>
+                                </Input>
+                                <Input Name="falseInput" Type="i32" Source="Expression_5_output">
+                                    <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor_1.falseInput"/>
+                                </Input>
+                                <Input Name="select" Type="u8" Source="Expression_8_output">
+                                    <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor_1.select"/>
+                                </Input>
+                                <Output Name="output" Type="i32">
+                                    <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor_1.output"/>
+                                </Output>
+                                <Expression Expression="BooleanMultiplexor_1_output=Expression_5_output"/>
+                            </Calculate>
+                        </Branch>
+                        <Calculate Name="BooleanMultiplexor_2">
+                            <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor_2"/>
+                            <Input Name="trueInput" Type="i32" Source="BooleanMultiplexor_1_output">
+                                <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor_2.trueInput"/>
+                            </Input>
+                            <Input Name="falseInput" Type="i32" Source="Expression_6_output">
+                                <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor_2.falseInput"/>
+                            </Input>
+                            <Input Name="select" Type="u8" Source="Expression_7_output">
+                                <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor_2.select"/>
+                            </Input>
+                            <Output Name="output" Type="i32">
+                                <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor_2.output"/>
+                            </Output>
+                            <Expression Expression="BooleanMultiplexor_2_output=BooleanMultiplexor_1_output"/>
+                        </Calculate>
+                    </Branch>
+                    <Branch Condition="Expression_7_output" Type="Else">
+                        <Calculate Name="Expression_6">
+                            <Ref Path="ComplexBranch.CompositeActor.Expression_6"/>
+                            <Input Name="in" Type="i32" Source="BooleanSwitch_2_falseOutput">
+                                <Ref Path="ComplexBranch.CompositeActor.Expression_6.in"/>
+                            </Input>
+                            <Output Name="output" Type="i32">
+                                <Ref Path="ComplexBranch.CompositeActor.Expression_6.output"/>
+                            </Output>
+                            <LocalVariable Name="Expression_6_in" Type="int" DefaultValue="Ramp_output"/>
+                            <LocalVariable Name="Expression_6_output" Type="int" DefaultValue="globalParams.A1_P2"/>
+                        </Calculate>
+                        <Calculate Name="BooleanMultiplexor_2">
+                            <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor_2"/>
+                            <Input Name="trueInput" Type="i32" Source="BooleanMultiplexor_1_output">
+                                <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor_2.trueInput"/>
+                            </Input>
+                            <Input Name="falseInput" Type="i32" Source="Expression_6_output">
+                                <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor_2.falseInput"/>
+                            </Input>
+                            <Input Name="select" Type="u8" Source="Expression_7_output">
+                                <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor_2.select"/>
+                            </Input>
+                            <Output Name="output" Type="i32">
+                                <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor_2.output"/>
+                            </Output>
+                            <Expression Expression="BooleanMultiplexor_2_output=Expression_6_output"/>
+                        </Calculate>
+                    </Branch>
+                    <Calculate Name="BooleanMultiplexor">
+                        <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor"/>
+                        <Input Name="trueInput" Type="i32" Source="BooleanMultiplexor_2_output">
+                            <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor.trueInput"/>
+                        </Input>
+                        <Input Name="falseInput" Type="i32" Source="Expression_2_output">
+                            <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor.falseInput"/>
+                        </Input>
+                        <Input Name="select" Type="u8" Source="Expression_1_output">
+                            <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor.select"/>
+                        </Input>
+                        <Output Name="output" Type="i32">
+                            <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor.output"/>
+                        </Output>
+                        <Expression Expression="BooleanMultiplexor_output=BooleanMultiplexor_2_output"/>
+                    </Calculate>
+                </Branch>
+                <Branch Condition="Expression_1_output" Type="Else">
+                    <Calculate Name="Expression_2">
+                        <Ref Path="ComplexBranch.CompositeActor.Expression_2"/>
+                        <Input Name="in" Type="u8" Source="BooleanSwitch_falseOutput">
+                            <Ref Path="ComplexBranch.CompositeActor.Expression_2.in"/>
+                        </Input>
+                        <Output Name="output" Type="i32">
+                            <Ref Path="ComplexBranch.CompositeActor.Expression_2.output"/>
+                        </Output>
+                        <LocalVariable Name="Expression_2_in" Type="bool" DefaultValue="Expression_1_output"/>
+                        <LocalVariable Name="Expression_2_output" Type="int" DefaultValue="globalParams.A1_P1"/>
+                    </Calculate>
+                    <Calculate Name="BooleanMultiplexor">
+                        <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor"/>
+                        <Input Name="trueInput" Type="i32" Source="BooleanMultiplexor_2_output">
+                            <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor.trueInput"/>
+                        </Input>
+                        <Input Name="falseInput" Type="i32" Source="Expression_2_output">
+                            <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor.falseInput"/>
+                        </Input>
+                        <Input Name="select" Type="u8" Source="Expression_1_output">
+                            <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor.select"/>
+                        </Input>
+                        <Output Name="output" Type="i32">
+                            <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor.output"/>
+                        </Output>
+                        <Expression Expression="BooleanMultiplexor_output=Expression_2_output"/>
+                    </Calculate>
+                </Branch>
+                <Branch Condition="Expression_output" Type="If">
+                    <Calculate Name="Expression_3">
+                        <Ref Path="ComplexBranch.CompositeActor.Expression_3"/>
+                        <Input Name="in" Type="i32" Source="BooleanSwitch_1_trueOutput">
+                            <Ref Path="ComplexBranch.CompositeActor.Expression_3.in"/>
+                        </Input>
+                        <Output Name="output" Type="u8">
+                            <Ref Path="ComplexBranch.CompositeActor.Expression_3.output"/>
+                        </Output>
+                        <LocalVariable Name="Expression_3_in" Type="int" DefaultValue="in2"/>
+                        <LocalVariable Name="Expression_3_output" Type="bool" DefaultValue="((Expression_3_in%83)==0)"/>
+                    </Calculate>
+                    <Branch Condition="Expression_3_output" Type="If">
+                        <Calculate Name="Expression_8_1">
+                            <Ref Path="ComplexBranch.CompositeActor.Expression_8_1"/>
+                            <Input Name="in" Type="i32" Source="BooleanSwitch_1_1_trueOutput">
+                                <Ref Path="ComplexBranch.CompositeActor.Expression_8_1.in"/>
+                            </Input>
+                            <Output Name="output" Type="f64">
+                                <Ref Path="ComplexBranch.CompositeActor.Expression_8_1.output"/>
+                            </Output>
+                            <LocalVariable Name="Expression_8_1_in" Type="int" DefaultValue="in2"/>
+                            <LocalVariable Name="Expression_8_1_output" Type="double" DefaultValue="0"/>
+                        </Calculate>
+                        <Calculate Name="MultiplyDivide">
+                            <Ref Path="ComplexBranch.CompositeActor.MultiplyDivide"/>
+                            <Input Name="multiply" Type="i32" Source="BooleanSwitch_1_1_trueOutput">
+                                <Ref Path="ComplexBranch.CompositeActor.MultiplyDivide.multiply"/>
+                            </Input>
+                            <Input Name="divide" Type="f64" Source="Expression_8_1_output">
+                                <Ref Path="ComplexBranch.CompositeActor.MultiplyDivide.divide"/>
+                            </Input>
+                            <Output Name="output" Type="f64">
+                                <Ref Path="ComplexBranch.CompositeActor.MultiplyDivide.output"/>
+                            </Output>
+                            <LocalVariable Name="MultiplyDivide_output" Type="double" DefaultValue="in2/(Expression_8_1_output)"/>
+                        </Calculate>
+                        <Calculate Name="Expression_3_1">
+                            <Ref Path="ComplexBranch.CompositeActor.Expression_3_1"/>
+                            <Input Name="in" Type="f64" Source="Expression_8_1_output">
+                                <Ref Path="ComplexBranch.CompositeActor.Expression_3_1.in"/>
+                            </Input>
+                            <Output Name="output" Type="u8">
+                                <Ref Path="ComplexBranch.CompositeActor.Expression_3_1.output"/>
+                            </Output>
+                            <LocalVariable Name="Expression_3_1_in" Type="double" DefaultValue="Expression_8_1_output"/>
+                            <LocalVariable Name="Expression_3_1_output" Type="bool" DefaultValue="(Expression_3_1_in&gt;0.9)"/>
+                        </Calculate>
+                        <Branch Condition="Expression_3_1_output" Type="If">
+                            <Calculate Name="Expression_11">
+                                <Ref Path="ComplexBranch.CompositeActor.Expression_11"/>
+                                <Input Name="in" Type="f64" Source="BooleanSwitch_1_1_1_trueOutput">
+                                    <Ref Path="ComplexBranch.CompositeActor.Expression_11.in"/>
+                                </Input>
+                                <Output Name="output" Type="i32">
+                                    <Ref Path="ComplexBranch.CompositeActor.Expression_11.output"/>
+                                </Output>
+                                <LocalVariable Name="Expression_11_in" Type="double" DefaultValue="MultiplyDivide_output"/>
+                                <LocalVariable Name="Expression_11_output" Type="int" DefaultValue="globalParams.A1_P5"/>
+                            </Calculate>
+                            <Calculate Name="BooleanMultiplexor_6">
+                                <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor_6"/>
+                                <Input Name="trueInput" Type="i32" Source="Expression_11_output">
+                                    <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor_6.trueInput"/>
+                                </Input>
+                                <Input Name="falseInput" Type="i32" Source="Expression_11_1_output">
+                                    <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor_6.falseInput"/>
+                                </Input>
+                                <Input Name="select" Type="u8" Source="Expression_3_1_output">
+                                    <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor_6.select"/>
+                                </Input>
+                                <Output Name="output" Type="i32">
+                                    <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor_6.output"/>
+                                </Output>
+                                <Expression Expression="BooleanMultiplexor_6_output=Expression_11_output"/>
+                            </Calculate>
+                        </Branch>
+                        <Branch Condition="Expression_3_1_output" Type="Else">
+                            <Calculate Name="Expression_11_1">
+                                <Ref Path="ComplexBranch.CompositeActor.Expression_11_1"/>
+                                <Input Name="in" Type="f64" Source="BooleanSwitch_1_1_1_falseOutput">
+                                    <Ref Path="ComplexBranch.CompositeActor.Expression_11_1.in"/>
+                                </Input>
+                                <Output Name="output" Type="i32">
+                                    <Ref Path="ComplexBranch.CompositeActor.Expression_11_1.output"/>
+                                </Output>
+                                <LocalVariable Name="Expression_11_1_in" Type="double" DefaultValue="MultiplyDivide_output"/>
+                                <LocalVariable Name="Expression_11_1_output" Type="int" DefaultValue="globalParams.A1_P6"/>
+                            </Calculate>
+                            <Calculate Name="BooleanMultiplexor_6">
+                                <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor_6"/>
+                                <Input Name="trueInput" Type="i32" Source="Expression_11_output">
+                                    <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor_6.trueInput"/>
+                                </Input>
+                                <Input Name="falseInput" Type="i32" Source="Expression_11_1_output">
+                                    <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor_6.falseInput"/>
+                                </Input>
+                                <Input Name="select" Type="u8" Source="Expression_3_1_output">
+                                    <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor_6.select"/>
+                                </Input>
+                                <Output Name="output" Type="i32">
+                                    <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor_6.output"/>
+                                </Output>
+                                <Expression Expression="BooleanMultiplexor_6_output=Expression_11_1_output"/>
+                            </Calculate>
+                        </Branch>
+                        <Calculate Name="BooleanMultiplexor_1_2">
+                            <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor_1_2"/>
+                            <Input Name="trueInput" Type="i32" Source="BooleanMultiplexor_6_output">
+                                <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor_1_2.trueInput"/>
+                            </Input>
+                            <Input Name="falseInput" Type="i32" Source="Expression_13_output">
+                                <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor_1_2.falseInput"/>
+                            </Input>
+                            <Input Name="select" Type="u8" Source="Expression_3_output">
+                                <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor_1_2.select"/>
+                            </Input>
+                            <Output Name="output" Type="i32">
+                                <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor_1_2.output"/>
+                            </Output>
+                            <Expression Expression="BooleanMultiplexor_1_2_output=BooleanMultiplexor_6_output"/>
+                        </Calculate>
+                    </Branch>
+                    <Branch Condition="Expression_3_output" Type="Else">
+                        <Calculate Name="Expression_13">
+                            <Ref Path="ComplexBranch.CompositeActor.Expression_13"/>
+                            <Input Name="in" Type="i32" Source="BooleanSwitch_1_1_falseOutput">
+                                <Ref Path="ComplexBranch.CompositeActor.Expression_13.in"/>
+                            </Input>
+                            <Output Name="output" Type="i32">
+                                <Ref Path="ComplexBranch.CompositeActor.Expression_13.output"/>
+                            </Output>
+                            <LocalVariable Name="Expression_13_in" Type="int" DefaultValue="in2"/>
+                            <LocalVariable Name="Expression_13_output" Type="int" DefaultValue="globalParams.A1_P7"/>
+                        </Calculate>
+                        <Calculate Name="BooleanMultiplexor_1_2">
+                            <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor_1_2"/>
+                            <Input Name="trueInput" Type="i32" Source="BooleanMultiplexor_6_output">
+                                <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor_1_2.trueInput"/>
+                            </Input>
+                            <Input Name="falseInput" Type="i32" Source="Expression_13_output">
+                                <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor_1_2.falseInput"/>
+                            </Input>
+                            <Input Name="select" Type="u8" Source="Expression_3_output">
+                                <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor_1_2.select"/>
+                            </Input>
+                            <Output Name="output" Type="i32">
+                                <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor_1_2.output"/>
+                            </Output>
+                            <Expression Expression="BooleanMultiplexor_1_2_output=Expression_13_output"/>
+                        </Calculate>
+                    </Branch>
+                    <Calculate Name="BooleanMultiplexor_1_1">
+                        <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor_1_1"/>
+                        <Input Name="trueInput" Type="i32" Source="BooleanMultiplexor_1_2_output">
+                            <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor_1_1.trueInput"/>
+                        </Input>
+                        <Input Name="falseInput" Type="i32" Source="BooleanMultiplexor_10_output">
+                            <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor_1_1.falseInput"/>
+                        </Input>
+                        <Input Name="select" Type="u8" Source="Expression_output">
+                            <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor_1_1.select"/>
+                        </Input>
+                        <Output Name="output" Type="i32">
+                            <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor_1_1.output"/>
+                        </Output>
+                        <Expression Expression="BooleanMultiplexor_1_1_output=BooleanMultiplexor_1_2_output"/>
+                    </Calculate>
+                </Branch>
+                <Branch Condition="Expression_output" Type="Else">
+                    <Calculate Name="Expression_4">
+                        <Ref Path="ComplexBranch.CompositeActor.Expression_4"/>
+                        <Input Name="in" Type="i32" Source="BooleanSwitch_1_falseOutput">
+                            <Ref Path="ComplexBranch.CompositeActor.Expression_4.in"/>
+                        </Input>
+                        <Output Name="output" Type="u8">
+                            <Ref Path="ComplexBranch.CompositeActor.Expression_4.output"/>
+                        </Output>
+                        <LocalVariable Name="Expression_4_in" Type="int" DefaultValue="in2"/>
+                        <LocalVariable Name="Expression_4_output" Type="bool" DefaultValue="((Expression_4_in%123)==0)"/>
+                    </Calculate>
+                    <Branch Condition="Expression_4_output" Type="If">
+                        <Calculate Name="Scale_1">
+                            <Ref Path="ComplexBranch.CompositeActor.Scale_1"/>
+                            <Input Name="input" Type="i32" Source="BooleanSwitch_1_2_trueOutput">
+                                <Ref Path="ComplexBranch.CompositeActor.Scale_1.input"/>
+                            </Input>
+                            <Output Name="output" Type="i32">
+                                <Ref Path="ComplexBranch.CompositeActor.Scale_1.output"/>
+                            </Output>
+                            <LocalVariable Name="Scale_1_output" Type="int" DefaultValue="123*in2"/>
+                        </Calculate>
+                        <Calculate Name="Expression_4_1">
+                            <Ref Path="ComplexBranch.CompositeActor.Expression_4_1"/>
+                            <Input Name="in" Type="i32" Source="Scale_1_output">
+                                <Ref Path="ComplexBranch.CompositeActor.Expression_4_1.in"/>
+                            </Input>
+                            <Output Name="output" Type="u8">
+                                <Ref Path="ComplexBranch.CompositeActor.Expression_4_1.output"/>
+                            </Output>
+                            <LocalVariable Name="Expression_4_1_in" Type="int" DefaultValue="Scale_1_output"/>
+                            <LocalVariable Name="Expression_4_1_output" Type="bool" DefaultValue="((Expression_4_1_in%243)==0)"/>
+                        </Calculate>
+                        <Branch Condition="Expression_4_1_output" Type="If">
+                            <Calculate Name="Expression_14">
+                                <Ref Path="ComplexBranch.CompositeActor.Expression_14"/>
+                                <Input Name="in" Type="i32" Source="BooleanSwitch_4_trueOutput">
+                                    <Ref Path="ComplexBranch.CompositeActor.Expression_14.in"/>
+                                </Input>
+                                <Output Name="output" Type="i32">
+                                    <Ref Path="ComplexBranch.CompositeActor.Expression_14.output"/>
+                                </Output>
+                                <LocalVariable Name="Expression_14_in" Type="int" DefaultValue="Scale_1_output"/>
+                                <LocalVariable Name="Expression_14_output" Type="int" DefaultValue="globalParams.A1_P9"/>
+                            </Calculate>
+                            <Calculate Name="BooleanMultiplexor_9">
+                                <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor_9"/>
+                                <Input Name="trueInput" Type="i32" Source="Expression_14_output">
+                                    <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor_9.trueInput"/>
+                                </Input>
+                                <Input Name="falseInput" Type="i32" Source="Expression_15_output">
+                                    <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor_9.falseInput"/>
+                                </Input>
+                                <Input Name="select" Type="u8" Source="Expression_4_1_output">
+                                    <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor_9.select"/>
+                                </Input>
+                                <Output Name="output" Type="i32">
+                                    <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor_9.output"/>
+                                </Output>
+                                <Expression Expression="BooleanMultiplexor_9_output=Expression_14_output"/>
+                            </Calculate>
+                        </Branch>
+                        <Branch Condition="Expression_4_1_output" Type="Else">
+                            <Calculate Name="Expression_15">
+                                <Ref Path="ComplexBranch.CompositeActor.Expression_15"/>
+                                <Input Name="in" Type="i32" Source="BooleanSwitch_4_falseOutput">
+                                    <Ref Path="ComplexBranch.CompositeActor.Expression_15.in"/>
+                                </Input>
+                                <Output Name="output" Type="i32">
+                                    <Ref Path="ComplexBranch.CompositeActor.Expression_15.output"/>
+                                </Output>
+                                <LocalVariable Name="Expression_15_in" Type="int" DefaultValue="Scale_1_output"/>
+                                <LocalVariable Name="Expression_15_output" Type="int" DefaultValue="globalParams.A1_P10"/>
+                            </Calculate>
+                            <Calculate Name="BooleanMultiplexor_9">
+                                <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor_9"/>
+                                <Input Name="trueInput" Type="i32" Source="Expression_14_output">
+                                    <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor_9.trueInput"/>
+                                </Input>
+                                <Input Name="falseInput" Type="i32" Source="Expression_15_output">
+                                    <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor_9.falseInput"/>
+                                </Input>
+                                <Input Name="select" Type="u8" Source="Expression_4_1_output">
+                                    <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor_9.select"/>
+                                </Input>
+                                <Output Name="output" Type="i32">
+                                    <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor_9.output"/>
+                                </Output>
+                                <Expression Expression="BooleanMultiplexor_9_output=Expression_15_output"/>
+                            </Calculate>
+                        </Branch>
+                        <Calculate Name="BooleanMultiplexor_10">
+                            <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor_10"/>
+                            <Input Name="trueInput" Type="i32" Source="BooleanMultiplexor_9_output">
+                                <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor_10.trueInput"/>
+                            </Input>
+                            <Input Name="falseInput" Type="i32" Source="Expression_16_output">
+                                <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor_10.falseInput"/>
+                            </Input>
+                            <Input Name="select" Type="u8" Source="Expression_4_output">
+                                <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor_10.select"/>
+                            </Input>
+                            <Output Name="output" Type="i32">
+                                <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor_10.output"/>
+                            </Output>
+                            <Expression Expression="BooleanMultiplexor_10_output=BooleanMultiplexor_9_output"/>
+                        </Calculate>
+                    </Branch>
+                    <Branch Condition="Expression_4_output" Type="Else">
+                        <Calculate Name="Expression_16">
+                            <Ref Path="ComplexBranch.CompositeActor.Expression_16"/>
+                            <Input Name="in" Type="i32" Source="BooleanSwitch_1_2_falseOutput">
+                                <Ref Path="ComplexBranch.CompositeActor.Expression_16.in"/>
+                            </Input>
+                            <Output Name="output" Type="i32">
+                                <Ref Path="ComplexBranch.CompositeActor.Expression_16.output"/>
+                            </Output>
+                            <LocalVariable Name="Expression_16_in" Type="int" DefaultValue="in2"/>
+                            <LocalVariable Name="Expression_16_output" Type="int" DefaultValue="globalParams.A1_P8"/>
+                        </Calculate>
+                        <Calculate Name="BooleanMultiplexor_10">
+                            <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor_10"/>
+                            <Input Name="trueInput" Type="i32" Source="BooleanMultiplexor_9_output">
+                                <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor_10.trueInput"/>
+                            </Input>
+                            <Input Name="falseInput" Type="i32" Source="Expression_16_output">
+                                <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor_10.falseInput"/>
+                            </Input>
+                            <Input Name="select" Type="u8" Source="Expression_4_output">
+                                <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor_10.select"/>
+                            </Input>
+                            <Output Name="output" Type="i32">
+                                <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor_10.output"/>
+                            </Output>
+                            <Expression Expression="BooleanMultiplexor_10_output=Expression_16_output"/>
+                        </Calculate>
+                    </Branch>
+                    <Calculate Name="Scale">
+                        <Ref Path="ComplexBranch.CompositeActor.Scale"/>
+                        <Input Name="input" Type="i32" Source="BooleanMultiplexor_10_output">
+                            <Ref Path="ComplexBranch.CompositeActor.Scale.input"/>
+                        </Input>
+                        <Output Name="output" Type="i32">
+                            <Ref Path="ComplexBranch.CompositeActor.Scale.output"/>
+                        </Output>
+                        <LocalVariable Name="Scale_output" Type="int" DefaultValue="3*BooleanMultiplexor_10_output"/>
+                    </Calculate>
+                    <Calculate Name="AddSubtract">
+                        <Ref Path="ComplexBranch.CompositeActor.AddSubtract"/>
+                        <Input Name="plus" Type="i32" Source="Scale_output">
+                            <Ref Path="ComplexBranch.CompositeActor.AddSubtract.plus"/>
+                        </Input>
+                        <Input Name="minus" Type="i32" Source="BooleanMultiplexor_10_output">
+                            <Ref Path="ComplexBranch.CompositeActor.AddSubtract.minus"/>
+                        </Input>
+                        <Output Name="output" Type="i32">
+                            <Ref Path="ComplexBranch.CompositeActor.AddSubtract.output"/>
+                        </Output>
+                        <LocalVariable Name="AddSubtract_output" Type="int" DefaultValue="Scale_output-(BooleanMultiplexor_10_output)"/>
+                    </Calculate>
+                    <Calculate Name="MultiplyDivide_1">
+                        <Ref Path="ComplexBranch.CompositeActor.MultiplyDivide_1"/>
+                        <Input Name="multiply" Type="i32" Source="Scale_output">
+                            <Ref Path="ComplexBranch.CompositeActor.MultiplyDivide_1.multiply"/>
+                        </Input>
+                        <Input Name="divide" Type="i32" Source="AddSubtract_output">
+                            <Ref Path="ComplexBranch.CompositeActor.MultiplyDivide_1.divide"/>
+                        </Input>
+                        <LocalVariable Name="MultiplyDivide_1_output" Type="int" DefaultValue="Scale_output/(AddSubtract_output)"/>
+                    </Calculate>
+                    <Calculate Name="BooleanMultiplexor_1_1">
+                        <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor_1_1"/>
+                        <Input Name="trueInput" Type="i32" Source="BooleanMultiplexor_1_2_output">
+                            <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor_1_1.trueInput"/>
+                        </Input>
+                        <Input Name="falseInput" Type="i32" Source="BooleanMultiplexor_10_output">
+                            <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor_1_1.falseInput"/>
+                        </Input>
+                        <Input Name="select" Type="u8" Source="Expression_output">
+                            <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor_1_1.select"/>
+                        </Input>
+                        <Output Name="output" Type="i32">
+                            <Ref Path="ComplexBranch.CompositeActor.BooleanMultiplexor_1_1.output"/>
+                        </Output>
+                        <Expression Expression="BooleanMultiplexor_1_1_output=BooleanMultiplexor_10_output"/>
+                    </Calculate>
+                </Branch>
+            </Schedule>
+        </Function>
+        <Function Name="A1_Init" Type="FunctionInit">
+            <Ref Path="ComplexBranch.CompositeActor"/>
+            <Input Name="self" Type="A1_state" IsAddress="true">
+                <Ref Path="ComplexBranch.CompositeActor"/>
+            </Input>
+            <Schedule>
+                <Calculate Name="CompositeActor">
+                    <Ref Path="ComplexBranch.CompositeActor"/>
+                    <Expression Expression="globalParams.A1_P1=123"/>
+                    <Expression Expression="globalParams.A1_P2=453"/>
+                    <Expression Expression="globalParams.A1_P3=1853"/>
+                    <Expression Expression="globalParams.A1_P4=8653"/>
+                    <Expression Expression="globalParams.A1_P5=1123"/>
+                    <Expression Expression="globalParams.A1_P6=2223"/>
+                    <Expression Expression="globalParams.A1_P7=3333"/>
+                    <Expression Expression="globalParams.A1_P8=991"/>
+                    <Expression Expression="globalParams.A1_P9=992"/>
+                    <Expression Expression="globalParams.A1_P10=993"/>
+                </Calculate>
+            </Schedule>
+        </Function>
+    </File>
+</Root>

@@ -1,0 +1,7 @@
+For non-CI-CPS models, pleae use CLTool to test those models. 
+
+For others, you can use MIFuzzRun which includes symbolic executor to generate tests. 
+
+
+
+

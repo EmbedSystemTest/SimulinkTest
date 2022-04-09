@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HarnessInformation>
+  <Harness>
+    <P Name="Name">sldemo_autotrans_mod01_Harness1</P>
+    <P Name="Description"/>
+    <P Name="CreatedBy">yangy</P>
+    <P Name="CreatedOn">Wed Apr 21 03:15:35 2021</P>
+    <P Name="ModifiedBy">yangy</P>
+    <P Name="LastSaved">Wed Apr 21 03:15:35 2021</P>
+    <P Name="Owner">bd</P>
+    <P Name="OwnerType">BD_HARNESS</P>
+    <P Name="OwnerPath">.</P>
+    <P Name="Directory"/>
+    <P Name="FileName">sldemo_autotrans_mod01_Harness1.slx</P>
+    <P Name="SavedVersion">9.3</P>
+    <P Name="HarnessUUID">255544f2-61a0-4437-8ba6-5041725f28c3</P>
+    <P Name="HarnessConnectionsMap">0|0,1|0,0,0,0||</P>
+    <P Name="VerificationMode">0</P>
+    <P Name="HarnessOwnerCheckSum">0,0,0,0</P>
+    <P Name="RebuildOnOpen">false</P>
+    <P Name="RebuildModelData">false</P>
+    <P Name="Graphical">false</P>
+    <P Name="DriveFcnCallWithTS">true</P>
+    <P Name="ScheduleInitTermReset">false</P>
+    <P Name="AutoShapeInputs">false</P>
+    <P Name="SLDVCompatible">no</P>
+    <P Name="SynchronizationMode">1</P>
+    <P Name="IsImported">false</P>
+    <P Name="PostRebuildCB"/>
+    <P Name="IsCodeContext">false</P>
+    <P Name="SchedulerBlock">0</P>
+    <P Name="SourceTypeString">Inport</P>
+    <P Name="SinkTypeString">Outport</P>
+    <P Name="CustomSourcePath"/>
+    <P Name="CustomSinkPath"/>
+    <P Name="BlockSIDs">2|8|0|0|0|0|0</P>
+    <P Name="OpenGraphs"/>
+    <P Name="ExistingBuildFolder"/>
+    <P Name="FunctionInterfaceName"/>
+  </Harness>
+  <ModelMetadata>
+    <P Name="ModelUUID">7e9e78be-16a2-4822-8885-ee1ea41e3072</P>
+    <P Name="OwnerBDName">sldemo_autotrans_mod01</P>
+  </ModelMetadata>
+</HarnessInformation>

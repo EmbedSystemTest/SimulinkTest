@@ -1,0 +1,6 @@
+<?xml version="1.0" standalone="no"?>
+<Root>
+    <ModelInfo Name="NULL" Path="euler321_I2B_12B.Func">
+        <InputInfo Name="euler321_I2B_12B_M" NotTest="1"/>
+    </ModelInfo>
+</Root>

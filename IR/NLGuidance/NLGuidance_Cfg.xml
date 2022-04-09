@@ -1,0 +1,6 @@
+<?xml version="1.0" standalone="no"?>
+<Root>
+    <ModelInfo Name="NULL" Path="NLGuidance.Func">
+		<InputInfo Name="NLGuidance_M" NotTest="1"/>
+    </ModelInfo>
+</Root>

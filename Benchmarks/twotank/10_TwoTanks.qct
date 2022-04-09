@@ -1,0 +1,507 @@
+# -*- shell-script -*-
+#
+# R01 Tank 1 shall not overflow.
+#
+# From Requirements: Tank1_Max_Volume = 7.0 m^3
+t1_h * tank1_cross_section_area_m2  <= 7.0;
+
+# R02 Tank 2 shall not overflow.
+#
+# From Requirements: Tank2_Max_Volume = 8.0 m^3
+tank2_liquid_height_m * tank2_cross_section_area_m2  <= 8.0;
+
+# R03 The initial liquid height Tank 1 shall be known to the control
+# system.
+#
+#          Non-functional requirement
+#
+
+# R04 The initial liquid height Tank 2 shall be known to the control
+# system.
+#
+#          Non-functional requirement
+#
+
+# R05 The height of the tank 1 liquid shall not be over the tank 1
+# high safety level for more than the specified time. This specified
+# time is dependent on the flowrate per timestep.
+# 
+#
+#          Non-functional requirement
+
+# R06 The height of the tank 1 liquid shall not be lower than the tank
+# 1 low safety level (once it has already crossed it) for more than
+# the specified time. This specified time is dependent on the flowrate
+# per timestep.
+#
+#
+#          Non-functional requirement
+#
+
+# R07 The height of the tank 2 liquid shall not be over the tank 2
+# high safety level for more than the specified time. This specified
+# time is dependent on the flowrate per timestep.
+#
+#          Non-functional requirement
+#
+
+# R08 The height of the tank 2 liquid shall not be lower than the tank
+# 2 low safety level (once it has already crossed it) for more than
+# the specified time. This specified time is dependent on the flowrate
+# per timestep.
+#
+#          Non-functional requirement
+#
+
+##################################################
+# SENSOR REQUIREMENTS
+##################################################
+#
+# R01 The tank 1 HIGH sensor is physically placed at a greater height
+# (above) the tank 1 LOW sensor.
+tank1_sensor_hi_height_m  > tank1_sensor_lo_height_m;
+
+# R02 The tank 2 HIGH sensor is physically placed at a greater height
+# (above) the tank 2 MID sensor.
+tank2_sensor_hi_height_m > tank2_sensor_md_height_m;
+
+# R03 The tank 2 MID sensor is physically placed at a greater height
+# (above) the tank 2 LOW sensor.
+tank2_sensor_md_height_m > tank2_sensor_lo_height_m;
+
+# R04 The sensor outputs shall initially be false.
+#
+# NOTE: Sensors *should* be Boolean, BUT they are enetered as floats in the model.
+# "PROPER" constraint
+#(NOT tank1_SH_value{0}) AND
+#(NOT tank1_SL_value{0}) AND
+#(NOT tank2_SH_value{0}) AND
+#(NOT tank2_SM_value{0}) AND
+#(NOT tank2_SL_value{0});
+#
+# "ACTUAL" constraint 
+(tank1_SH_value{0} == 0.0) and 
+(tank1_SL_value{0} == 0.0) and
+(tank2_SH_value{0} == 0.0) and
+(tank2_SM_value{0} == 0.0) and
+(tank2_SL_value{0} == 0.0);
+
+# R05 If the tank 1 liquid height is greater than or equal to the sensor
+# height of the tank 1 HIGH liquid sensor then the sensor should return
+# an active (TRUE) state to the system.
+#
+# NOTE: Sensors *should* be Boolean, BUT they are enetered as floats in the model.
+# NOTE: max-time is important here (and probably should be reported by the tool).
+(t1_h >= tank1_sensor_hi_height_m) impl (tank1_SH_value ==  1.0);
+
+# R06 If the tank 1 liquid height is below (less than) the placement
+# height of the tank 1 HIGH liquid sensor then the sensor should return
+# a (FALSE) state to the system.
+#
+# NOTE: Sensors *should* be Boolean, BUT they are enetered as floats in the model.
+# NOTE: max-time is important here (and probably should be reported by the tool).
+(t1_h < tank1_sensor_hi_height_m) impl (tank1_SH_value ==  0.0);
+
+# R07 If the tank 1 liquid height is greater than or equal to the
+# placement height of the tank 1 LOW liquid sensor then the sensor
+# should return an active (TRUE) state to the system.
+#
+# NOTE: Sensors *should* be Boolean, BUT they are enetered as floats in the model.
+# NOTE: max-time is important here (and probably should be reported by the tool).
+(t1_h >= tank1_sensor_lo_height_m) impl (tank1_SL_value ==  1.0);
+
+# R08 If the tank 1 liquid height is below (less than) the placement
+# height of the tank 1 LOW liquid sensor then the sensor should return a
+# (FALSE) state to the system.
+#
+# NOTE: Sensors *should* be Boolean, BUT they are enetered as floats in the model.
+# NOTE: max-time is important here (and probably should be reported by the tool).
+(t1_h < tank1_sensor_lo_height_m) impl (tank1_SL_value ==  0.0);
+
+# R09 If the tank 2 liquid height is greater than or equal to the
+# placement height of the tank 2 HIGH liquid sensor then the sensor
+# should return an active (TRUE) state to the system.
+#
+# NOTE: Sensors *should* be Boolean, BUT they are enetered as floats in the model.
+# NOTE: max-time is important here (and probably should be reported by the tool).
+(tank2_liquid_height_m >= tank2_sensor_hi_height_m) impl (tank2_SH_value ==  1.0);
+
+# R10 If the tank 2 liquid height is below (less than) the placement
+# height of the tank 2 HIGH liquid sensor then the sensor should return
+# a (FALSE) state to the system.
+#
+# NOTE: Sensors *should* be Boolean, BUT they are enetered as floats in the model.
+# NOTE: max-time is important here (and probably should be reported by the tool).
+(tank2_liquid_height_m < tank2_sensor_hi_height_m) impl (tank2_SH_value ==  0.0);
+
+# R11 If the tank 2 liquid height is greater than or equal to the
+# placement height of the tank 2 MID liquid sensor then the sensor
+# should return an active (TRUE) state to the system.
+#
+# NOTE: Sensors *should* be Boolean, BUT they are enetered as floats in the model.
+# NOTE: max-time is important here (and probably should be reported by the tool).
+(tank2_liquid_height_m >= tank2_sensor_md_height_m) impl (tank2_SM_value == 1.0);
+
+# R12 If the tank 2 liquid height is below (less than) the placement
+# height of the tank 2 MID liquid sensor then the sensor should return a
+# (FALSE) state to the system.
+#
+# NOTE: Sensors *should* be Boolean, BUT they are enetered as floats in the model.
+# NOTE: max-time is important here (and probably should be reported by the tool).
+(tank2_liquid_height_m < tank2_sensor_md_height_m) impl (tank2_SM_value == 0.0);
+
+# R13 If the tank 2 liquid height is greater than or equal to the
+# placement height of the tank 2 LOW liquid sensor then the sensor
+# should return an active (TRUE) state to the system.
+#
+# NOTE: Sensors *should* be Boolean, BUT they are enetered as floats in the model.
+# NOTE: max-time is important here (and probably should be reported by the tool).
+(tank2_liquid_height_m >= tank2_sensor_lo_height_m) impl (tank2_SL_value == 1.0);
+
+# R14 If the tank 2 liquid height is below (less than) the placement
+# height of the tank 2 LOW liquid sensor then the sensor should return a
+# (FALSE) state to the system.
+#
+# NOTE: Sensors *should* be Boolean, BUT they are enetered as floats in the model.
+# NOTE: max-time is important here (and probably should be reported by the tool).
+(tank2_liquid_height_m < tank2_sensor_lo_height_m) impl (tank2_SL_value == 0.0);
+
+##################################################
+# TANK 1 REQUIREMENTS
+##################################################
+
+# R15 The tank 1 is initially empty or below the low tank 1 liquid
+# height sensor. If the tank is not empty the liquid height must be
+# known to the system.
+(0.0 <= t1_h {0}) and (t1_h {0} < tank1_sensor_lo_height_m{0});
+
+# R16 The tank 1 change in liquid volume for each timestep is limited by
+# the maximum inflow and outflow for each timestep.
+#
+# The change in volume is (t1_h{t} - t1_h{t-1}) * tank1_cross_section_area_m2
+(-tank1_valve_flow_rate_m3s <= ((t1_h{t} - t1_h{t-1}) * tank1_cross_section_area_m2)) and
+((t1_h{t} - t1_h{t-1}) * tank1_cross_section_area_m2) <= tank1_pump_flow_rate_m3s;
+
+# R17 The tank 1 resulting liquid height for each timestep is dependent
+# on the liquid height in the previous timestep plus the additional
+# liquid height defined by the net flow rate from the state of the pump
+# and the valve and the cross-sectional area of tank 1.
+#
+# NOTE: Pump_State and Valve_State *should* be Boolean, BUT they are enetered as floats in the model.
+((Pump_State == 1.0) and (Valve_State == 1.0)) impl
+(t1_h == tank1_previous_height_m + 
+  (tank1_pump_flow_rate_m3s - tank1_valve_flow_rate_m3s) * time_increment_s / tank1_cross_section_area_m2);
+
+((Pump_State == 1.0) and (Valve_State == 0.0)) impl
+(t1_h == tank1_previous_height_m + 
+  tank1_pump_flow_rate_m3s * time_increment_s / tank1_cross_section_area_m2);
+  
+((Pump_State == 0.0) and (Valve_State == 1.0)) impl
+(t1_h == tank1_previous_height_m - 
+  tank1_valve_flow_rate_m3s * time_increment_s / tank1_cross_section_area_m2);
+
+((Pump_State == 0.0) and (Valve_State == 0.0)) impl
+(t1_h == tank1_previous_height_m);
+
+# R18 When the tank 1 pump is ON and the valve is CLOSED the liquid
+# height in the tank shall increase from the previous timestep.
+#
+# NOTE: Pump_State and Valve_State *should* be Boolean, BUT they are enetered as floats in the model.
+(Pump_State == 1.0 and Valve_State == 0.0) impl 
+(t1_h > tank1_previous_height_m);
+
+# R19 When the tank 1 pump is OFF and the valve is OPEN the liquid
+# height in the tank shall decrease from the previous timestep.
+#
+# NOTE: Pump_State and Valve_State *should* be Boolean, BUT they are enetered as floats in the model.
+(Pump_State == 0.0 and Valve_State == 1.0) impl 
+(t1_h < tank1_previous_height_m);
+
+# R20 When the tank 1 pump is OFF that the valve is CLOSED the liquid
+# height in the tank shall remain equivalent to the liquid height from
+# the previous timestep.
+#
+# NOTE: Pump_State and Valve_State *should* be Boolean, BUT they are enetered as floats in the model.
+(Pump_State == 0.0 and Valve_State == 0.0) impl 
+(t1_h == tank1_previous_height_m);
+
+# R21 When the pump is ON there should be inflow into the tank 1.
+#
+#          Non-functional requirement
+#
+
+# R22 When the pump is OFF there should be NO inflow into tank 1.
+#
+#          Non-functional requirement
+#
+
+# R23 When the tank 1 valve is OPEN the flow rate shall be equal to the
+# physical maximum flow rate of the valve.
+#
+#          Non-functional requirement
+#
+
+# R24 When the tank 1 valve is CLOSED the flow rate of the valve shall
+# be zero.
+#
+#          Non-functional requirement
+#
+
+##################################################
+# TANK 2 REQUIREMENTS
+##################################################
+
+# R25 Tank 2 is initially empty or below the tank 2 low liquid height
+# sensor. If the tank is not empty the liquid height must be known to
+# the system.
+#
+# NOTE: tank2_SL_value *should* be Boolean, BUT it is enetered as a float in the model.
+(tank2_liquid_height_m{0} == 0.0) or
+(tank2_SL_value{0}  == 0.0 and tank2_liquid_height_m {0} < tank2_sensor_lo_height_m{0});
+
+# R26 The tank 2 change in liquid volume for each timestep is limited by
+# the maximum inflow and outflow for each timestep.
+(-(tank2_p_valve_flow_rate_m3s + tank2_e_valve_flow_rate_m3s) <= 
+   (tank2_cross_section_area_m2 * (tank2_liquid_height_m - tank2_previous_height_m))) and
+((tank2_cross_section_area_m2 * (tank2_liquid_height_m - tank2_previous_height_m)) <=
+tank1_pump_flow_rate_m3s);
+
+# R27 The resulting tank 2 liquid height for each timestep is a function
+# of the liquid height in the previous timestep, the additional liquid
+# height as defined by the net flow rate from the state of the inflow
+# valve from tank 1 and tank 2 outflow valves (production and
+# emergency), and the cross-sectional area.
+#
+# NOTE: pump and vlave states *should* be Boolean, BUT they are enetered as floats in the model.
+#
+# There are three (boolean) valves, so there eight possible on-off combinations
+(Valve_State == 1.0 and Production_Valve_State == 1.0 and Emergency_Valve_State == 1.0) impl
+(tank2_liquid_height_m == tank2_previous_height_m +
+   (tank1_valve_flow_rate_m3s - tank2_p_valve_flow_rate_m3s - tank2_e_valve_flow_rate_m3s) * 
+   time_increment_s /  tank2_cross_section_area_m2);
+
+(Valve_State == 1.0 and Production_Valve_State == 1.0 and Emergency_Valve_State == 0.0) impl
+(tank2_liquid_height_m == tank2_previous_height_m +
+   (tank1_valve_flow_rate_m3s - tank2_p_valve_flow_rate_m3s) * 
+   time_increment_s /  tank2_cross_section_area_m2);
+
+(Valve_State == 1.0 and Production_Valve_State == 0.0 and Emergency_Valve_State == 1.0) impl
+(tank2_liquid_height_m == tank2_previous_height_m +
+   (tank1_valve_flow_rate_m3s - tank2_e_valve_flow_rate_m3s) * 
+   time_increment_s /  tank2_cross_section_area_m2);
+
+(Valve_State == 1.0 and Production_Valve_State == 0.0 and Emergency_Valve_State == 0.0) impl
+(tank2_liquid_height_m == tank2_previous_height_m +
+   (tank1_valve_flow_rate_m3s) * 
+   time_increment_s /  tank2_cross_section_area_m2);
+
+(Valve_State == 0.0 and Production_Valve_State == 1.0 and Emergency_Valve_State == 1.0) impl
+(tank2_liquid_height_m == tank2_previous_height_m +
+   (-tank2_p_valve_flow_rate_m3s - tank2_e_valve_flow_rate_m3s) * 
+   time_increment_s /  tank2_cross_section_area_m2);
+
+(Valve_State == 0.0 and Production_Valve_State == 1.0 and Emergency_Valve_State == 0.0) impl
+(tank2_liquid_height_m == tank2_previous_height_m +
+   (-tank2_p_valve_flow_rate_m3s) * 
+   time_increment_s /  tank2_cross_section_area_m2);
+
+(Valve_State == 0.0 and Production_Valve_State == 0.0 and Emergency_Valve_State == 1.0) impl
+(tank2_liquid_height_m == tank2_previous_height_m +
+   (-tank2_e_valve_flow_rate_m3s) * 
+   time_increment_s /  tank2_cross_section_area_m2);
+
+(Valve_State == 0.0 and Production_Valve_State == 0.0 and Emergency_Valve_State == 0.0) impl
+(tank2_liquid_height_m == tank2_previous_height_m);
+
+# R28 When the tank 1 valve is OPEN and the tank 2 outflow valves
+# (emergency and production) are CLOSED the liquid height in tank 2
+# shall increase from the previous timestep.
+#
+# NOTE: pump and vlave states *should* be Boolean, BUT they are enetered as floats in the model.
+(Valve_State == 1.0 and Production_Valve_State == 0.0 and Emergency_Valve_State == 0.0) impl
+   (tank2_liquid_height_m > tank2_previous_height_m);
+
+# R29 When the tank 1 valve is OPEN, the tank 2 production valve is
+# OPEN, and the tank 2 emergency valve is CLOSED the liquid height in
+# tank 2 shall increase from the previous timestep.
+#
+# NOTE: pump and vlave states *should* be Boolean, BUT they are enetered as floats in the model.
+(Valve_State == 1.0 and Production_Valve_State == 1.0 and Emergency_Valve_State == 0.0) impl
+   (tank2_liquid_height_m > tank2_previous_height_m);
+
+# R30 When the tank 1 valve is OPEN, the tank 2 production valve is
+# CLOSED, and the tank 2 emergency valve is OPEN the liquid height in
+# tank 2 shall decrease from the previous timestep.
+#
+# NOTE: pump and vlave states *should* be Boolean, BUT they are enetered as floats in the model.
+(Valve_State == 1.0 and Production_Valve_State == 0.0 and Emergency_Valve_State == 1.0) impl
+   (tank2_liquid_height_m < tank2_previous_height_m);
+
+# R31 When the tank 1 valve is CLOSED that the tank 2 valves (production
+# and emergency) are CLOSED the liquid height in tank 2 shall remain the
+# same from the previous timestep.
+#
+# NOTE: pump and vlave states *should* be Boolean, BUT they are enetered as floats in the model.
+(Valve_State == 0.0 and Production_Valve_State == 0.0 and Emergency_Valve_State == 0.0) impl
+   (tank2_liquid_height_m == tank2_previous_height_m);
+
+# R32 When the tank 2 production valve is OPEN there should be an
+# outflow equal to that of the max production flow.
+#
+#          Non-functional requirement
+#
+
+# R33 When the tank 2 production valve is CLOSED there should be no flow
+# from that valve.
+#
+#          Non-functional requirement
+#
+
+# R34 When the tank 2 emergency valve is OPEN there should be an outflow
+# equal to that of the max emergency output flow.
+#
+#          Non-functional requirement
+#
+
+# R35 When the tank 2 emergency valve is CLOSED there should be no flow
+# from that valve.
+#
+#          Non-functional requirement
+#
+
+##################################################
+# 2.1 TANK 1 CONTROLLER REQUIREMENTS
+##################################################
+
+# R01 When the tank 1 LOW liquid sensor is FALSE, the tank 1 pump
+# shall be ON and the tank 1 outflow valve shall be CLOSED.
+#
+# NOTE: sensor values *should* be Boolean, BUT they are enetered as floats in the model.
+(tank1_SL_value == 0.0) impl (Pump_State  == 1.0 and Valve_State == 0.0);
+
+# R02 When the tank 1 HIGH liquid sensor is TRUE, the tank 1 pump
+# shall be OFF and the tank 1 outflow valve shall be OPEN.
+#
+# NOTE: sensor values *should* be Boolean, BUT they are enetered as floats in the model.
+(tank1_SH_value == 1.0) impl (Pump_State  == 0.0 and Valve_State == 1.0);
+
+# R03 When the tank 1 HIGH liquid sensor is FALSE and the tank 1 LOW
+# liquid sensor is TRUE then the tank 1 pump and the tank 1 outflow
+# valve shall maintain the states they were set to in the previous
+# timestep.
+#
+# NOTE: sensor values *should* be Boolean, BUT they are enetered as floats in the model.
+((tank1_SH_value{t} == 0.0) and (tank1_SL_value{t} == 1.0)) impl ((Pump_State{t}  == Pump_State{t-1}) and (Valve_State{t} == Valve_State{t-1}));
+
+##################################################
+# 2.2 TANK 2 CONTROLLER REQUIREMENTS
+##################################################
+
+# R04 When the system is initially started the tank 2 production valve
+# shall be CLOSED.
+#
+# NOTE: sensor values *should* be Boolean, BUT they are enetered as floats in the model.
+Production_Valve_State{0} == 0.0;
+
+# R05 When the system is initially started the tank 2 production valve
+# shall be CLOSED.
+#
+# NOTE: sensor values *should* be Boolean, BUT they are enetered as floats in the model.
+# NOTE: this is a REPEATED requirement
+
+# R06 When the system is initially started the tank 2 emergency valve
+# shall be CLOSED.
+#
+# NOTE: sensor values *should* be Boolean, BUT they are enetered as floats in the model.
+Emergency_Valve_State{0} == 0.0;
+
+# R07 When the tank 2 LOW sensor is FALSE, the emergency valve and the
+# production valve (outflow valves) shall be commanded to be CLOSED.
+#
+# NOTE: sensor values *should* be Boolean, BUT they are enetered as floats in the model.
+tank2_SL_value == 0.0 impl (Production_Valve_State == 0.0 and Emergency_Valve_State  == 0.0);
+
+# R08 When the tank 2 LOW sensor is TRUE and the tank 2 MID sensor is
+# FALSE, then emergency valve shall be commanded to be CLOSED and the
+# production valve shall be commanded to be OPEN.
+#
+# NOTE: sensor values *should* be Boolean, BUT they are enetered as floats in the model.
+((tank2_SL_value == 1.0) and (tank2_SM_value == 0.0)) impl (Production_Valve_State == 1.0 and Emergency_Valve_State  == 0.0);
+
+# R09 When the tank 2 HIGH sensor is TRUE, the emergency valve and the
+# production valve (outflow valves) shall be commanded to be OPEN.
+#
+# NOTE: sensor values *should* be Boolean, BUT they are enetered as floats in the model.
+(tank2_SH_value == 1.0) impl (Production_Valve_State == 1.0 and Emergency_Valve_State  == 1.0);
+
+# R10 When the tank 2 MID sensor is TRUE, the tank 2 HIGH sensor is
+# FALSE, and the emergency valve was previously open, then the
+# emergency valve and the production valve (outflow valves) shall be
+# commanded to be OPEN.
+#
+# NOTE: sensor values *should* be Boolean, BUT they are enetered as floats in the model.
+pre_E_Valve_State{t} == Emergency_Valve_State{t-1};
+
+((tank2_SM_value == 1.0) and (tank2_SH_value == 0.0) and (pre_E_Valve_State == 1.0)) impl
+   ((Production_Valve_State == 1.0) and (pre_E_Valve_State == 1.0));
+
+# R11 When the tank 2 MID sensor is TRUE, the tank 2 HIGH sensor is
+# FALSE, and the emergency valve was not previously open, then the
+# emergency valve shall remain commanded CLOSED and the production
+# valve shall be commanded to be OPEN.
+#
+# NOTE: sensor values *should* be Boolean, BUT they are enetered as floats in the model.
+((tank2_SM_value == 1.0) and (tank2_SH_value == 0.0) and (pre_E_Valve_State == 0.0)) impl
+   ((Production_Valve_State == 1.0) and (Emergency_Valve_State == 0.0));
+
+##################################################
+# SIMULATION REQUIREMENTS
+##################################################
+
+# R01 The Tank 1 Previous Height shall initially be the specified
+# initial value.
+tank1_previous_height_m{0} == t1_h{0};
+
+# R02 The Tank 2 Previous Height shall initially be the specified
+# initial value.
+tank2_previous_height_m{0} == tank2_liquid_height_m{0};
+
+# R03 The Previous Pump State shall initially be the specified initial
+# value.
+pre_Pump_State{0} == Pump_State{0};
+
+# R04 The Previous Valve State shall initially be the specified initial
+# value.
+pre_Valve_State{0} == Valve_State{0};
+
+# R05 The Previous Production Valve State shall initially be the
+# specified initial value.
+pre_P_Valve_State{0} == Production_Valve_State{0};
+
+# R06 The Previous Emergency Valve State shall initially be the
+# specified initial value.
+pre_E_Valve_State{0} == Emergency_Valve_State{0};
+
+# R07 After the initial time step, the Tank 1 Previous Height shall be
+# equal to the Tank 1 Height in the previous step.
+tank1_previous_height_m{t} == t1_h{t-1};
+
+# R08 After the initial time step, the Tank 2 Previous Height shall be
+# equal to the Tank 2 Height in the previous step.
+tank2_previous_height_m{t} == tank2_liquid_height_m{t-1};
+
+# R09 After the initial time step, the Previous Pump State shall be
+# equal to the Pump State in the previous step.
+pre_Pump_State{t} == Pump_State{t-1};
+
+# R10 After the initial time step, the Previous Valve State shall be
+# equal to the Valve State in the previous step
+pre_Valve_State{t} == Valve_State{t-1};
+
+# R11 After the initial time step, the Previous Production Valve State
+# shall be equal to the Production Valve State in the previous step.
+pre_P_Valve_State{t} == Production_Valve_State{t-1};
+
+# R12 After the initial time step, the Previous Emergency Valve State
+# shall be equal to the Emergency Valve State in the previous step.
+pre_E_Valve_State{t} == Emergency_Valve_State{t-1};

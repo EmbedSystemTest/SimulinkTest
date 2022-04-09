@@ -1,0 +1,12 @@
+# R10 When the tank 2 MID sensor is TRUE, the tank 2 HIGH sensor is
+# FALSE, and the emergency valve was previously open, then the
+# emergency valve and the production valve (outflow valves) shall be
+# commanded to be OPEN.
+#
+# NOTE: sensor values *should* be Boolean, BUT they are enetered as floats in the model.
+
+# UPDATED: 1) Removed check that pre_E_Valve_State{t} == Emergency_Valve_State{t-1}. It does.
+#          2) Changed pre_E_Valve_State on the right hand side to be Emergency_Valve_State
+
+((tank2_SM_value == 1.0) and (tank2_SH_value == 0.0) and (pre_E_Valve_State == 1.0)) impl
+   ((Production_Valve_State == 1.0) and (Emergency_Valve_State == 1.0));

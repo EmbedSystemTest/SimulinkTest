@@ -1,0 +1,3 @@
+# R02 The tank 2 HIGH sensor is physically placed at a greater height
+# (above) the tank 2 MID sensor.
+tank2_sensor_hi_height_m > tank2_sensor_md_height_m;

@@ -1,0 +1,7 @@
+<?xml version="1.0" standalone="no"?>
+<Root>
+    <ModelInfo Name="InASnapShot" Path="code.CompositeActor.InASnapShot">
+        <InputInfo Name="msgTimeStamp"/>
+        <OutputInfo Name="OptSnapShotRange"/>
+    </ModelInfo>
+</Root>

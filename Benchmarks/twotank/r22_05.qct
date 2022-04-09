@@ -1,0 +1,7 @@
+# R05 When the system is initially started the tank 2 production valve
+# shall be CLOSED.
+#
+# NOTE: sensor values *should* be Boolean, BUT they are enetered as floats in the model.
+# NOTE: this is a REPEATED requirement
+
+Production_Valve_State{0} == 0.0;

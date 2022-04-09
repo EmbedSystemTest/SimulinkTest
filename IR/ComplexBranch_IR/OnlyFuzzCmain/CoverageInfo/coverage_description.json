@@ -1,0 +1,17 @@
+{
+"munit coverage description":{
+"0":"Ramp","1":"Expression","2":"CompositeActor","3":"Display","4":"Display_1","5":"ComplexBranch","6":"Ramp","7":"CompositeActor","8":"Expression","9":"Expression_1","10":"Ramp","11":"Expression_7","12":"Expression_8","13":"Expression_9","14":"BooleanMultiplexor_1","15":"Expression_5","16":"BooleanMultiplexor_1","17":"BooleanMultiplexor_2","18":"Expression_6","19":"BooleanMultiplexor_2","20":"BooleanMultiplexor","21":"Expression_2","22":"BooleanMultiplexor","23":"Expression_3","24":"Expression_8_1","25":"MultiplyDivide","26":"Expression_3_1","27":"Expression_11","28":"BooleanMultiplexor_6","29":"Expression_11_1","30":"BooleanMultiplexor_6","31":"BooleanMultiplexor_1_2","32":"Expression_13","33":"BooleanMultiplexor_1_2","34":"BooleanMultiplexor_1_1","35":"Expression_4","36":"Scale_1","37":"Expression_4_1","38":"Expression_14","39":"BooleanMultiplexor_9","40":"Expression_15","41":"BooleanMultiplexor_9","42":"BooleanMultiplexor_10","43":"Expression_16","44":"BooleanMultiplexor_10","45":"Scale","46":"AddSubtract","47":"MultiplyDivide_1","48":"BooleanMultiplexor_1_1","49":"CompositeActor"}
+,
+"branch coverage description":{
+"0":"positive branch:Expression_1_output","1":"positive branch:Expression_7_output","2":"positive branch:Expression_8_output","3":"negative_Expression_8_output","4":"negative_Expression_7_output","5":"negative_Expression_1_output","6":"positive branch:Expression_output","7":"positive branch:Expression_3_output","8":"positive branch:Expression_3_1_output","9":"negative_Expression_3_1_output","10":"negative_Expression_3_output","11":"negative_Expression_output","12":"positive branch:Expression_4_output","13":"positive branch:Expression_4_1_output","14":"negative_Expression_4_1_output","15":"negative_Expression_4_output"}
+,
+"condition coverage description":{
+"0":"Expression_1_output==true","1":"Expression_1_output==false","2":"Expression_7_output==true","3":"Expression_7_output==false","4":"Expression_8_output==true","5":"Expression_8_output==false","6":"Expression_output==true","7":"Expression_output==false","8":"Expression_3_output==true","9":"Expression_3_output==false","10":"Expression_3_1_output==true","11":"Expression_3_1_output==false","12":"Expression_4_output==true","13":"Expression_4_output==false","14":"Expression_4_1_output==true","15":"Expression_4_1_output==false"}
+,
+"decision coverage description":{
+"0":"Expression_1_output==true","1":"Expression_1_output==false","2":"Expression_7_output==true","3":"Expression_7_output==false","4":"Expression_8_output==true","5":"Expression_8_output==false","6":"Expression_output==true","7":"Expression_output==false","8":"Expression_3_output==true","9":"Expression_3_output==false","10":"Expression_3_1_output==true","11":"Expression_3_1_output==false","12":"Expression_4_output==true","13":"Expression_4_output==false","14":"Expression_4_1_output==true","15":"Expression_4_1_output==false"}
+,
+"mcdc coverage description":{
+"0":"#Expression_1_output","1":"#Expression_7_output","2":"#Expression_8_output","3":"#Expression_output","4":"#Expression_3_output","5":"#Expression_3_1_output","6":"#Expression_4_output","7":"#Expression_4_1_output"}
+}
+

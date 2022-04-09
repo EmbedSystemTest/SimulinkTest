@@ -1,0 +1,6 @@
+# R18 When the tank 1 pump is ON and the valve is CLOSED the liquid
+# height in the tank shall increase from the previous timestep.
+#
+# NOTE: Pump_State and Valve_State *should* be Boolean, BUT they are enetered as floats in the model.
+(Pump_State == 1.0 and Valve_State == 0.0) impl
+(t1_h > tank1_previous_height_m);

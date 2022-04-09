@@ -1,0 +1,7 @@
+# R25 Tank 2 is initially empty or below the tank 2 low liquid height
+# sensor. If the tank is not empty the liquid height must be known to
+# the system.
+#
+# NOTE: tank2_SL_value *should* be Boolean, BUT it is enetered as a float in the model.
+(tank2_liquid_height_m{0} == 0.0) or
+(tank2_SL_value{0}  == 0.0 and tank2_liquid_height_m {0} < tank2_sensor_lo_height_m{0});

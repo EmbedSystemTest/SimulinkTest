@@ -1,0 +1,7 @@
+#ifndef RTW_HEADER_euler321_I2B_12B_types_h_
+#define RTW_HEADER_euler321_I2B_12B_types_h_
+
+typedef struct tag_RTM_euler321_I2B_12B_T RT_MODEL_euler321_I2B_12B_T;
+
+#endif
+

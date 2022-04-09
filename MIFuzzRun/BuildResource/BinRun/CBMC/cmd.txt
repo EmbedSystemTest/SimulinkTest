@@ -1,0 +1,23 @@
+cbmc test/pid.c --cover mcdc --unwind 6 --xml-ui
+cbmc -gcc --arch i386 symbol_cmain.c --cover mcdc --xml-ui
+
+Coverage Criteria
+The table below summarizes the coverage criteria that CBMC supports.
+
+Criterion	Definition
+assertion	For every assertion, generate a test that reaches it
+location	For every location, generate a test that reaches it
+branch	Generate a test for every branch outcome
+decision	Generate a test for both outcomes of every Boolean expression that is not an operand of a propositional connective
+condition	Generate a test for both outcomes of every Boolean expression
+mcdc	Modified Condition/Decision Coverage (MC/DC)
+path	Bounded path coverage
+cover	Generate a test for every __CPROVER_cover statement
+
+
+string assert stdio 都要删掉
+
+
+
+
+
